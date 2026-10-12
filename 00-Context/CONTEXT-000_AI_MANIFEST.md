@@ -121,6 +121,10 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - Sempre que um `ID`, nome de arquivo, pasta ou escopo de documento mudar, atualize **todas** as referências afetadas no mesmo passo: wikilinks (`[[...]]`), frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board [[DESIGN-000]], os templates de `00-Context/_templates/`, a skill `skills/progression-idle/SKILL.md` e o `AGENTS.md`.
    - Ao **trocar a ordem de dois IDs** (ex: `001` ⇄ `002`), nunca substitua em sequência — use um token temporário para evitar colisão durante a troca.
    - Nunca deixe um wikilink órfão: ao final, busque pelas referências antigas para confirmar que não sobrou nenhuma.
+6. **Governança de Regras (onde registrar cada coisa):**
+   - O `AGENTS.md` contém **apenas** diretrizes **transversais e sempre válidas** (paradigma, topologia, convenções globais). Nada **específico de feature** ou de uma regra isolada de jogo entra nele.
+   - Toda nova demanda/regra deve ser registrada no local mais adequado: **transversal** → `AGENTS.md`; **específico** (feature, fórmula, convenção de domínio) → o documento correspondente no vault (`00-Context/`, `01-Design/`, `02-Architecture/`, `03-Data/`).
+   - Convenções de domínio viram um documento `CONTEXT-XXX`; regras de uma feature vivem no `DESIGN`/`SYSTEM`/`DATA` dela.
 
 ---
 
