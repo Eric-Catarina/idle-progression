@@ -12,6 +12,14 @@ const ROOT = resolve(HERE, "..");
 const IGNORED_DIRS = new Set([".git", ".obsidian", ".obsidian-mcp", "node_modules", ".githooks"]);
 const TEMPLATES_DIR = join("00-Context", "_templates");
 const IGNORED_FILES = new Set(["README.md", "AGENTS.md", "BRAINSTORM_STREAM.md"]);
+const PILLARS = new Set(["00-Context", "01-Design", "02-Architecture", "03-Data"]);
+
+// Exige frontmatter/id apenas para documentos dos 4 pilares e arquivos .md na raiz.
+function requiresId(rel) {
+  const parts = rel.split(sep);
+  if (parts.length === 1) return true;
+  return PILLARS.has(parts[0]);
+}
 
 const REQUIRED = {
   "context-manifest": ["id", "title", "type", "status"],
@@ -97,7 +105,12 @@ for (const f of files) {
   const fm = parseFrontmatter(text);
   const al = fm ? (Array.isArray(fm.aliases) ? fm.aliases : fm.aliases ? [fm.aliases] : []) : [];
   al.forEach((a) => targets.add(String(a)));
-  if (rel.startsWith(TEMPLATES_DIR + sep) || IGNORED_FILES.has(basename(f)) || !fm || !fm.id) continue;
+  const inTemplates = rel.startsWith(TEMPLATES_DIR + sep);
+  if (inTemplates || IGNORED_FILES.has(basename(f))) continue;
+  if (!fm || !fm.id) {
+    if (requiresId(rel)) err(rel, "documento sem frontmatter/id (placeholder orfao?)");
+    continue;
+  }
   docs.push({ rel, text, fm, name });
 }
 
