@@ -3,6 +3,9 @@
 .obsidian/workspace-mobile.json
 .obsidian/cache
 
+# Estado interno do Obsidian MCP (transações/trash)
+.obsidian-mcp/
+
 # Sistema operacional
 .DS_Store
 Thumbs.db
