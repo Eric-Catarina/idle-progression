@@ -1,0 +1,13 @@
+# Obsidian — workspace é específico de cada máquina
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs e temporários
+*.log
+gh-auth*.txt
