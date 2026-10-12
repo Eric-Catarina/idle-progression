@@ -1,0 +1,12 @@
+#!/bin/sh
+# Hook de pre-commit: valida o vault antes de permitir o commit.
+# Requer Node no PATH. Pula silenciosamente se o Node nao estiver disponivel.
+if command -v node >/dev/null 2>&1; then
+  node tools/validate-vault.mjs || {
+    echo ""
+    echo "Commit bloqueado: corrija os erros de validacao do vault (npm run validate)."
+    exit 1
+  }
+else
+  echo "Aviso: Node nao encontrado; pulando validacao do vault."
+fi

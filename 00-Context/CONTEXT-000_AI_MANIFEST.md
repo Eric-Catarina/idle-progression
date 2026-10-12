@@ -5,7 +5,8 @@ aliases:
 title: AI Agent Manifest & System Directives
 type: context-manifest
 scope: global
-version: 1.2.0
+status: Active
+version: 1.3.0
 last_updated: 2026-10-12
 tags:
   - context
@@ -37,14 +38,16 @@ A documentação é dividida em **4 pilares obrigatórios** via pastas e IDs ind
 
 ```text
 📁 / (Raiz do Vault)
-├── 📁 00-Context/       -> [CONTEXT-XXX] Manifestos, convenções globais, glossário e governança.
-│   └── 📁 _templates/   -> Templates oficiais prontos para copiar (Obsidian Templates).
-├── 📁 01-Design/        -> [DESIGN-XXX] Especificações de Game Design de Baixo Nível (GDD).
+├── 📁 00-Context/       -> [CONTEXT-XXX] Manifestos, convenções, glossário e governança.
+│   ├── 📁 _templates/   -> Templates oficiais (DESIGN, SYSTEM, DATA, CONTEXT, SKILL, LEVEL, MECHANIC).
+│   └── 📄 ROADMAP.md    -> [CONTEXT-005] Fases de entrega (MVP -> Vertical Slice -> Escala).
+├── 📁 01-Design/        -> [DESIGN-XXX] GDD de baixo nível. `subtype`: system | skill | level | mechanic.
 │   ├── 📄 DESIGN-000_MOSCOW_BOARD.md -> Board de priorização (fonte de verdade MoSCoW).
 │   └── 📁 backlog/      -> [DESIGN-XXX] Features "Could" (MoSCoW) guardadas para o futuro.
 ├── 📁 02-Architecture/  -> [SYSTEM-XXX] Arquitetura de Software, Design Patterns, TDD e ADRs.
 ├── 📁 03-Data/          -> [DATA-XXX] Fórmulas, curvas de escala, tabelas de dados e schemas JSON.
-└── 📁 99-Inbox/         -> Ideias brutas. Consolidação via Modo C.
+├── 📁 99-Inbox/         -> Ideias brutas (BRAINSTORM_STREAM.md). Consolidação via Modo C.
+└── 📁 tools/            -> Scripts de controle do vault (validate-vault.mjs).
 ```
 
 ### Regras de Vinculação Bidirecional (Wikilinks)
@@ -116,7 +119,9 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - O escopo do protótipo é **Must + Should**. `Could` é documentado no backlog sem código; `Wont` registra a exclusão consciente.
    - `DATA-XXX` herda a prioridade do seu `system`.
 4. **Frontmatter YAML Obrigatório:**
-   - Todo arquivo Markdown criado no vault deve começar com frontmatter YAML contendo: `id`, `aliases` (com o próprio ID), `title`, `type`, `status`, `moscow` (em DESIGN/SYSTEM) e `dependencies`.
+   - Todo documento dos 4 pilares deve começar com frontmatter YAML contendo: `id`, `aliases` (com o próprio ID), `title`, `type`, `status`, `moscow` (em DESIGN/SYSTEM) e `dependencies`.
+   - `DESIGN` declara também `subtype: system | skill | level | mechanic`.
+   - Arquivos operacionais (raiz: `README.md`, `AGENTS.md`; e `99-Inbox/`) são isentos.
 5. **Integridade de Referências (Renomear / Mover / Reordenar IDs):**
    - Sempre que um `ID`, nome de arquivo, pasta ou escopo de documento mudar, atualize **todas** as referências afetadas no mesmo passo: wikilinks (`[[...]]`), frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board [[DESIGN-000]], os templates de `00-Context/_templates/`, a skill `skills/progression-idle/SKILL.md` e o `AGENTS.md`.
    - Ao **trocar a ordem de dois IDs** (ex: `001` ⇄ `002`), nunca substitua em sequência — use um token temporário para evitar colisão durante a troca.
@@ -125,6 +130,13 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - O `AGENTS.md` contém **apenas** diretrizes **transversais e sempre válidas** (paradigma, topologia, convenções globais). Nada **específico de feature** ou de uma regra isolada de jogo entra nele.
    - Toda nova demanda/regra deve ser registrada no local mais adequado: **transversal** → `AGENTS.md`; **específico** (feature, fórmula, convenção de domínio) → o documento correspondente no vault (`00-Context/`, `01-Design/`, `02-Architecture/`, `03-Data/`).
    - Convenções de domínio viram um documento `CONTEXT-XXX`; regras de uma feature vivem no `DESIGN`/`SYSTEM`/`DATA` dela.
+7. **Ciclo de Vida das Ideias:**
+   - Toda ideia segue o pipeline de [[CONTEXT-003]]: `raw → triaged → specified → prioritized → implemented | backlog`.
+   - Captura em `99-Inbox/BRAINSTORM_STREAM.md`; consolidação pelo Modo C.
+8. **Validação do Vault (obrigatória):**
+   - Toda alteração deve passar por `npm run validate` (ou pelo hook de pré-commit em `.githooks/`), que verifica frontmatter, wikilinks órfãos, referências cruzadas e IDs.
+9. **Formatação Numérica:**
+   - Valores exponenciais seguem a escada de sufixos de [[CONTEXT-004]]: armazenar cru (BigNumber) e formatar apenas na exibição.
 
 ---
 
@@ -156,6 +168,7 @@ aliases:
   - DESIGN-XXX
 title: Nome da Feature
 type: system-design
+subtype: system | skill | level | mechanic
 status: Draft | Spec Ready | Implemented | Backlog
 moscow: Must | Should | Could | Wont
 moscow_note: Justificativa curta da prioridade.
@@ -271,6 +284,14 @@ system: "[[DESIGN-XXX]]"
 | :--- | :--- | :--- |
 ```
 
+### Templates de Domínio (variantes de DESIGN)
+
+- `_templates/SKILL_TEMPLATE.md` — habilidades (ativação, targeting, escalonamento).
+- `_templates/LEVEL_TEMPLATE.md` — fases/zonas (layout, população, gating).
+- `_templates/MECHANIC_TEMPLATE.md` — mecânicas transversais.
+
+Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
+
 ---
 
 ## 7. Glossário Semântico do Projeto
@@ -288,6 +309,8 @@ system: "[[DESIGN-XXX]]"
 | **Won't have (MoSCoW)** | Feature explicitamente fora de escopo nesta fase. | Não é "talvez"; é uma exclusão consciente e documentada. |
 | **Backlog** | Pasta `01-Design/backlog/` com designs `Could` congelados até promoção. | Não é lixeira; é fila de promoção. |
 | **Ponto de Extensão (Seam)** | Gancho de arquitetura que permite encaixar uma feature Should/Could futura sem refatoração. | Não é implementação especulativa da feature futura. |
+| **Subtype (DESIGN)** | Variante de um DESIGN: `system`, `skill`, `level` ou `mechanic`. | Não cria prefixo de ID próprio; o ID continua `DESIGN-XXX`. |
+| **Vertical Slice (F2)** | Fase onde uma zona inteira é polida (`Should`). | Não confundir com o MVP (`Must`). |
 
 ---
 

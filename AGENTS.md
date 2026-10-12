@@ -14,6 +14,7 @@
 - **Ao renomear / mover / reordenar IDs:** atualize **TODAS** as referências (wikilinks, frontmatter, board `[[DESIGN-000]]`, templates, skill). Nunca deixe wikilink órfão — use token temporário ao trocar a ordem de dois IDs.
 - **Nomenclatura de arquivos:** `PREFIXO-NNN_nome_curto.md`.
 - **Precisão numérica:** use BigNumber/BreakEternity para qualquer variável que escale exponencialmente.
+- **Validação:** rode `npm run validate` antes de commitar (há hook de pré-commit em `.githooks/`).
 
 ## Escopo deste arquivo
 

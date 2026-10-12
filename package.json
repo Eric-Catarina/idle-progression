@@ -1,0 +1,9 @@
+{
+  "name": "idle-progression-vault",
+  "private": true,
+  "type": "module",
+  "description": "Vault de documentacao e design do Progression Idle.",
+  "scripts": {
+    "validate": "node tools/validate-vault.mjs"
+  }
+}
