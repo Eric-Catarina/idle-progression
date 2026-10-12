@@ -4,7 +4,7 @@ aliases:
   - DESIGN-XXX
 title: Nome da Feature
 type: system-design
-subtype: system | skill | level | mechanic
+subtype: system | skill | mechanic | campaign | world | level
 status: Draft | Spec Ready | Implemented | Backlog
 moscow: Must | Should | Could | Wont
 moscow_note: Justificativa curta da prioridade.

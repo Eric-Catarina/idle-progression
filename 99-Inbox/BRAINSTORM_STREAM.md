@@ -16,6 +16,11 @@ tags:
 > A consolidação é feita pelo **Modo C** do manifesto ([[CONTEXT-000]]) conforme o ciclo de [[CONTEXT-003]].
 > Nada é descartado sem motivo: itens descartados vão para `99-Inbox/_archive/` com justificativa.
 
+````
+Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Processe as ideias pendentes, gere as especificações DESIGN, SYSTEM e DATA correspondentes com os próximos IDs livres e atualize o status na inbox.
+````
+
+
 ## 💡 Abertas
 
 - [ ] _(exemplo)_ Sistema de runas que dá bônus passivos de dano

@@ -22,7 +22,7 @@ const REQUIRED = {
   "data-spec": ["id", "title", "type", "system"],
 };
 const MOSCOW = new Set(["Must", "Should", "Could", "Wont"]);
-const CROSS_REFS = ["tech_spec", "data_spec", "implements", "system"];
+const CROSS_REFS = ["tech_spec", "data_spec", "implements", "system", "parent"];
 
 const errors = [];
 const warnings = [];
@@ -79,6 +79,12 @@ function stripCode(text) {
   return text.replace(/```[\s\S]*?```/g, "").replace(/`[^`\n]*`/g, "");
 }
 
+function linkTarget(value) {
+  const mm = String(value).match(/\[\[([^\]]+)\]\]/);
+  const raw = mm ? mm[1] : String(value);
+  return raw.split("|")[0].split("#")[0].trim();
+}
+
 const files = walk(ROOT);
 const targets = new Set();
 const docs = [];
@@ -89,14 +95,18 @@ for (const f of files) {
   const name = basename(f, ".md");
   targets.add(name);
   const fm = parseFrontmatter(text);
-  if (fm) {
-    const al = Array.isArray(fm.aliases) ? fm.aliases : fm.aliases ? [fm.aliases] : [];
-    al.forEach((a) => targets.add(String(a)));
-  }
-  if (rel.startsWith(TEMPLATES_DIR + sep)) continue;
-  if (IGNORED_FILES.has(basename(f))) continue;
-  if (!fm || !fm.id) continue;
-  docs.push({ rel, text, fm });
+  const al = fm ? (Array.isArray(fm.aliases) ? fm.aliases : fm.aliases ? [fm.aliases] : []) : [];
+  al.forEach((a) => targets.add(String(a)));
+  if (rel.startsWith(TEMPLATES_DIR + sep) || IGNORED_FILES.has(basename(f)) || !fm || !fm.id) continue;
+  docs.push({ rel, text, fm, name });
+}
+
+const nameToId = new Map();
+for (const d of docs) {
+  nameToId.set(d.fm.id, d.fm.id);
+  nameToId.set(d.name, d.fm.id);
+  const al = Array.isArray(d.fm.aliases) ? d.fm.aliases : d.fm.aliases ? [d.fm.aliases] : [];
+  al.forEach((a) => nameToId.set(String(a), d.fm.id));
 }
 
 const ids = new Map();
@@ -136,10 +146,31 @@ for (const { rel, text, fm } of docs) {
   for (const field of CROSS_REFS) {
     const v = fm[field];
     if (!v) continue;
-    const mm = String(v).match(/\[\[([^\]]+)\]\]/);
-    const target = (mm ? mm[1] : String(v)).split("|")[0].split("#")[0].trim();
+    const target = linkTarget(v);
     if (/xxx/i.test(target)) continue;
     if (!targets.has(target)) err(rel, `referencia cruzada "${field}" nao resolve: ${v}`);
+  }
+}
+
+// Deteccao de ciclos na hierarquia (parent).
+const parentOf = new Map();
+for (const d of docs) {
+  if (!d.fm.parent) continue;
+  const t = linkTarget(d.fm.parent);
+  if (/xxx/i.test(t)) continue;
+  const pid = nameToId.get(t);
+  if (pid) parentOf.set(d.fm.id, pid);
+}
+for (const [id] of parentOf) {
+  const seen = new Set();
+  let cur = id;
+  while (cur) {
+    if (seen.has(cur)) {
+      err(ids.get(id) ?? id, `ciclo de parent detectado a partir de "${id}"`);
+      break;
+    }
+    seen.add(cur);
+    cur = parentOf.get(cur);
   }
 }
 

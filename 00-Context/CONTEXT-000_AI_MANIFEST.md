@@ -55,6 +55,7 @@ A documentação é dividida em **4 pilares obrigatórios** via pastas e IDs ind
 - Nenhuma especificação de sistema (DESIGN) existe sem referenciar seu suporte técnico (SYSTEM) e matemático (DATA).
 - Formato padrão de referência cruzada: [[DESIGN-XXX]], [[SYSTEM-XXX]], [[DATA-XXX]], [[CONTEXT-XXX]].
 - Cada documento declara seu próprio ID como `alias` no frontmatter, para que os wikilinks curtos (`[[CONTEXT-001]]`) resolvam corretamente no Obsidian.
+- Hierarquia usa o campo `parent` (*parte-de*), não um wikilink solto: ver [[CONTEXT-006]].
 
 ---
 
@@ -120,7 +121,7 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - `DATA-XXX` herda a prioridade do seu `system`.
 4. **Frontmatter YAML Obrigatório:**
    - Todo documento dos 4 pilares deve começar com frontmatter YAML contendo: `id`, `aliases` (com o próprio ID), `title`, `type`, `status`, `moscow` (em DESIGN/SYSTEM) e `dependencies`.
-   - `DESIGN` declara também `subtype: system | skill | level | mechanic`.
+   - `DESIGN` declara também `subtype: system | skill | mechanic | campaign | world | level`.
    - Arquivos operacionais (raiz: `README.md`, `AGENTS.md`; e `99-Inbox/`) são isentos.
 5. **Integridade de Referências (Renomear / Mover / Reordenar IDs):**
    - Sempre que um `ID`, nome de arquivo, pasta ou escopo de documento mudar, atualize **todas** as referências afetadas no mesmo passo: wikilinks (`[[...]]`), frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board [[DESIGN-000]], os templates de `00-Context/_templates/`, a skill `skills/progression-idle/SKILL.md` e o `AGENTS.md`.
@@ -137,6 +138,9 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - Toda alteração deve passar por `npm run validate` (ou pelo hook de pré-commit em `.githooks/`), que verifica frontmatter, wikilinks órfãos, referências cruzadas e IDs.
 9. **Formatação Numérica:**
    - Valores exponenciais seguem a escada de sufixos de [[CONTEXT-004]]: armazenar cru (BigNumber) e formatar apenas na exibição.
+10. **Hierarquia & Decomposição:**
+    - Todo nó pode ter `parent` único e `path`; a árvore segue [[CONTEXT-006]] (`parent` = *parte-de*, nunca vínculo de implementação).
+    - Filhos herdam a prioridade (`moscow`) do pai, salvo override explícito.
 
 ---
 
@@ -168,7 +172,7 @@ aliases:
   - DESIGN-XXX
 title: Nome da Feature
 type: system-design
-subtype: system | skill | level | mechanic
+subtype: system | skill | mechanic | campaign | world | level
 status: Draft | Spec Ready | Implemented | Backlog
 moscow: Must | Should | Could | Wont
 moscow_note: Justificativa curta da prioridade.
@@ -286,8 +290,10 @@ system: "[[DESIGN-XXX]]"
 
 ### Templates de Domínio (variantes de DESIGN)
 
+- `_templates/CAMPAIGN_TEMPLATE.md` — raiz da árvore de conteúdo.
+- `_templates/WORLD_TEMPLATE.md` — mundos (agrupam níveis).
+- `_templates/LEVEL_TEMPLATE.md` — níveis (layout, população, desbloqueio).
 - `_templates/SKILL_TEMPLATE.md` — habilidades (ativação, targeting, escalonamento).
-- `_templates/LEVEL_TEMPLATE.md` — fases/zonas (layout, população, gating).
 - `_templates/MECHANIC_TEMPLATE.md` — mecânicas transversais.
 
 Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
@@ -311,6 +317,10 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Ponto de Extensão (Seam)** | Gancho de arquitetura que permite encaixar uma feature Should/Could futura sem refatoração. | Não é implementação especulativa da feature futura. |
 | **Subtype (DESIGN)** | Variante de um DESIGN: `system`, `skill`, `level` ou `mechanic`. | Não cria prefixo de ID próprio; o ID continua `DESIGN-XXX`. |
 | **Vertical Slice (F2)** | Fase onde uma zona inteira é polida (`Should`). | Não confundir com o MVP (`Must`). |
+| **Hierarquia (parent)** | Relação *parte-de*; no máximo um `parent` por nó. | Não confundir com `implements`/`tech_spec` (vínculo de implementação). |
+| **Campanha** | Nó raiz da árvore de conteúdo (subtype `campaign`). | Não é uma feature; é a estrutura. |
+| **Mundo** | Agrupador de níveis (subtype `world`), ex: 5 níveis cada. | — |
+| **Nível** | Unidade de conteúdo 2D (subtype `level`): layout + desbloqueio. | Não confundir com nível de personagem/upgrade. |
 
 ---
 

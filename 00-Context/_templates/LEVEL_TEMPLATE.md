@@ -2,40 +2,41 @@
 id: DESIGN-XXX
 aliases:
   - DESIGN-XXX
-title: "Level: Nome da Zona/Fase"
+title: "Nível X-Y: Nome"
 type: system-design
 subtype: level
-status: Draft | Spec Ready | Implemented | Backlog
+status: Draft | Spec Ready | Implemented
 moscow: Must | Should | Could | Wont
-moscow_note: Justificativa curta da prioridade.
-promote_when: "Somente para Could: condição que justifica promoção."
+moscow_note: Herda do Mundo salvo override.
+parent: "[[DESIGN-mundo]]"
+path: "Campanha / Mundo X / Nível X-Y"
 dependencies: []
-tech_spec: "[[SYSTEM-XXX]]"
-data_spec: "[[DATA-XXX]]"
 ---
 
-# [DESIGN-XXX] Level: Nome da Zona/Fase
+# [DESIGN-XXX] Nível X-Y: Nome
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:**
-- **Critérios de Promoção:** (obrigatório para `Could`)
 - Ver [[CONTEXT-001]].
 
 ## 1. Visão & Objetivo
-- Fantasia da fase e que progressão ela entrega.
+- Fantasia do nível e que progressão ele entrega.
 
-## 2. Gating & Pré-requisitos
-- Requisito para desbloqueio (nível, item, prestígio).
+## 2. Layout de Plataformas
+- Nós do grafo (coordenadas), uso de **one-way platforms**, dimensões.
+- Dados de layout → [[DATA-XXX]].
 
-## 3. Layout de Plataformas
-- Nós do grafo de plataformas (coordenadas), uso de one-way platforms, dimensões.
-
-## 4. População
+## 3. População
 - Inimigos (tipo, spawn, patrulha), densidade, respawn.
 
+## 4. Gating & Desbloqueio
+- **Entrada:** condição para acessar (ex: completar o nível anterior).
+- **Saída (regra padrão):** matar **X** monstros deste nível libera o próximo.
+- **X** → parâmetro em [[DATA-XXX]].
+
 ## 5. Curva de Dificuldade
-- HP/DPS esperado por faixa; referência de fórmula → [[DATA-XXX]].
+- HP/DPS esperado; referência de fórmula → [[DATA-XXX]].
 
 ## 6. Recompensas
 - Loot, XP, desbloqueios.
@@ -44,4 +45,4 @@ data_spec: "[[DATA-XXX]]"
 - Jogador sem pré-requisito, morte total, limites da tela, transição de cena.
 
 ## 8. UI/UX
-- Nome da zona, indicador de progresso, transições.
+- Nome do nível, indicador de progresso (X/N monstros), transições.

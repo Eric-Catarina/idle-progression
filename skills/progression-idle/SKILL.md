@@ -31,6 +31,10 @@ Todo `DESIGN` e `SYSTEM` declara `moscow: Must | Should | Could | Wont` no front
 - **`DATA`** herda a prioridade do `SYSTEM`.
 - Sistemas `Must`/`Should` devem expor **pontos de extensão (seams)** para features `Should` futuras — sem implementá-las.
 
+## Hierarquia de Conteúdo
+
+`DESIGN` pode formar uma **árvore** com `parent` (único) e `path` (breadcrumb), conforme `00-Context/CONTEXT-006_HIERARCHICAL_DECOMPOSITION.md`. Níveis de conteúdo: **Campanha (`campaign`) → Mundo (`world`) → Nível (`level`)**. `parent` = *parte-de*; para vínculo de implementação use `implements`/`tech_spec`/`data_spec`. Sem ciclos.
+
 ## Regras Inegociáveis
 
 ### Modo Specifier / Architect
