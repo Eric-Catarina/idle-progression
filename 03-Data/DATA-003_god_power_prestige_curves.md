@@ -2,7 +2,7 @@
 id: DATA-003
 aliases:
   - DATA-003
-title: "Golem: Geração de Cristais, Custos e Megacristais"
+title: "Osíris: Geração de Cristais, Custos e Megacristais"
 type: data-spec
 status: Draft
 moscow: Should
@@ -11,9 +11,9 @@ dependencies:
   - "[[DESIGN-014]]"
 ---
 
-# [DATA-003] Golem: Geração de Cristais, Custos e Megacristais
+# [DATA-003] Osíris: Geração de Cristais, Custos e Megacristais
 
-> Números da *enterprise* idle do Golem (modelo Orion). Ver [[DESIGN-014]].
+> Números da *enterprise* idle de Osíris (modelo Orion). Ver [[DESIGN-014]].
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |

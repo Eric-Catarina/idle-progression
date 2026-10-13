@@ -2,7 +2,7 @@
 id: DESIGN-014
 aliases:
   - DESIGN-014
-title: "O Deus Caído (Golem dos Cristais)"
+title: "Osíris (Golem dos Cristais)"
 type: system-design
 subtype: mechanic
 status: Draft
@@ -14,7 +14,7 @@ dependencies:
 data_spec: "[[DATA-003]]"
 ---
 
-# [DESIGN-014] O Deus Caído (Golem dos Cristais)
+# [DESIGN-014] Osíris (Golem dos Cristais)
 
 > **Mecânica Transversal #2 do [[DESIGN-003]] (Mundo 1).**
 > Modelo: *enterprise* idle de **Orion/penas** (Idleon) reescrito para o Golem. Inspiração do confronto: **Muto** (Chu-Chu Island, *MapleStory*).
@@ -25,7 +25,7 @@ data_spec: "[[DATA-003]]"
 - Ver [[CONTEXT-001]].
 
 ## 1. Visão & Propósito
-Um **deus caído** — esquecido, abandonado, destruído. Restaurado, ele **cristaliza** energia e **produz Cristais** continuamente. Você investe os Cristais em melhorias; quando forte o bastante, ele **desce ao confronto com uma divindade do mal** (seu prestígio), **volta destruído**, mas traz um **Megacristal** — item **permanente que resiste ao prestígio** (5 no total).
+**Osíris**, um deus caído, é restaurado por fragmentos e passa a **produzir Cristais**. Você investe os Cristais em melhorias; no prestígio, ele enfrenta **Vorax** — volta destruído, mas traz um **Megacristal** permanente (que resiste ao prestígio; **5 no total**). *(Lore propositalmente leve.)*
 
 ## 2. Loop Principal
 ```text
@@ -79,8 +79,8 @@ Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 - **Gatilho:** cristais acumulados ≥ limiar do confronto ([[DATA-003]]).
 - **Resultado:** reseta geração/melhorias (mantém **Megacristais** e **Bônus do Golem**).
 - **Recompensa:** **+1 Megacristal** (na ordem — §7).
-- **Narrativa:** o Golem enfrenta **a mesma divindade do mal** a cada confronto (adversária recorrente), volta em pedaços, com o Megacristal brilhando.
-- **Escalação:** o limiar cresce a cada confronto (5 no total), mas a **adversária é sempre a mesma** (nome a definir — ver inbox). Arquétipo: **deus desmembrado/restaurado vs. usurpador** (ref. Osíris vs Set).
+- **Narrativa:** Osíris enfrenta **Vorax** (adversário recorrente) e volta em pedaços, com o Megacristal.
+- **Escalação:** o limiar cresce a cada confronto (5 no total); **Vorax é sempre o mesmo**.
 
 ## 7. Os 5 Megacristais (permanentes, resistem ao prestígio)
 | # | Megacristal | Efeito |
@@ -104,7 +104,6 @@ Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 - Confronto: cutscene curta; retorna destruído + Megacristal.
 
 ## 10. Ganchos para o Futuro
-- Nomear o Golem e a **divindade do mal** (única, recorrente).
 - Pós-5 Megacristais: escala infinita (Should/Could).
 - Amarração com os **Selos** ([[DESIGN-013]]): dois eixos permanentes do Mundo 1.
 
