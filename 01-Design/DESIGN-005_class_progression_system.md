@@ -80,3 +80,22 @@ Organizar a identidade de combate do personagem em **três camadas** (Genérica 
 
 ## 10. Parâmetros
 - Curvas de XP por faixa, multiplicadores por papel → [[DATA-XXX]].
+
+## 11. Organização de Arquivos (Skills por Classe)
+As skills de cada classe vivem em subpastas sob `01-Design/`:
+
+```text
+01-Design/classes/
+├── generica/                 # classe Genérica (nível 0–14)
+├── secreta/                  # classe secreta
+├── guerreiro/
+│   ├── bosser/  ├── mobber/  └── suporte/
+├── arqueiro/
+│   ├── bosser/  ├── mobber/  └── suporte/
+└── mago/
+    ├── bosser/  ├── mobber/  └── suporte/
+```
+
+- Regra: `01-Design/classes/<base>/{bosser,mobber,suporte}/DESIGN-XXX_nome.md`.
+- Skills ainda **não atribuídas** a uma classe ficam na raiz de `01-Design/` (ex: mecânicas como [[DESIGN-012]]).
+- Mover é seguro: os vínculos usam o **ID** (`[[DESIGN-XXX]]`), não o caminho.

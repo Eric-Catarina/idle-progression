@@ -43,6 +43,7 @@ A documentação é dividida em **4 pilares obrigatórios** via pastas e IDs ind
 │   └── 📄 ROADMAP.md    -> [CONTEXT-005] Fases de entrega (MVP -> Vertical Slice -> Escala).
 ├── 📁 01-Design/        -> [DESIGN-XXX] GDD de baixo nível. `subtype`: system | skill | level | mechanic.
 │   ├── 📄 DESIGN-000_MOSCOW_BOARD.md -> Board de priorização (fonte de verdade MoSCoW).
+│   ├── 📁 classes/      -> Skills por classe: <base>/{bosser,mobber,suporte}/ (+ generica, secreta).
 │   └── 📁 backlog/      -> [DESIGN-XXX] Features "Could" (MoSCoW) guardadas para o futuro.
 ├── 📁 02-Architecture/  -> [SYSTEM-XXX] Arquitetura de Software, Design Patterns, TDD e ADRs.
 ├── 📁 03-Data/          -> [DATA-XXX] Fórmulas, curvas de escala, tabelas de dados e schemas JSON.
