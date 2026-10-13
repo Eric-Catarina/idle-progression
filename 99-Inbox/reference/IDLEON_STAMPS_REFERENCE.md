@@ -1,7 +1,7 @@
 # 📚 Referência: Stamps do Idleon (jogo de origem)
 
 > **ARQUIVO DE REFERÊNCIA BRUTO — NÃO faz parte do design do Progression Idle.**
-> ⚠️ **NÃO deve ser carregado por IAs** salvo quando estivermos trabalhando em **Selos** (ver `01-Design/DESIGN-013_stamps_collection.md`).
+> ⚠️ **NÃO deve ser carregado por IAs** salvo quando estivermos trabalhando em **Selos** (ver `01-Design/DESIGN-013.md`).
 > Fonte: *Idleon* (LavaFlame2). Captura simplificada (**nome + efeito**). Colunas de "Source" (drop) omitidas de propósito para economizar espaço.
 > Objetivo: servir de inspiração/pool quando formos expandir os selos além do **Set Básico de Combate**.
 

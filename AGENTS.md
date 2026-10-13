@@ -1,18 +1,18 @@
 # Progression Idle — Instruções do Projeto
 
 > **LEIA SEMPRE** o manifesto mestre antes de criar specs ou escrever código:
-> `00-Context/CONTEXT-000_AI_MANIFEST.md`
+> `00-Context/CONTEXT-000.md`
 > Este arquivo é carregado automaticamente em **todo prompt** (via `AGENTS.md`). O manifesto contém os detalhes completos, templates e glossário.
 
 ## Regras críticas (sempre em contexto)
 
 - **Headless Simulation First:** lógica de jogo, física e estado existem **independentes** da renderização. Nunca misture lógica de jogo com UI.
 - **4 pilares:** `CONTEXT` (`00-Context/`), `DESIGN` (`01-Design/`), `SYSTEM` (`02-Architecture/`), `DATA` (`03-Data/`).
-- **Prioridade MoSCoW obrigatória:** todo `DESIGN` e `SYSTEM` declara `moscow: Must | Should | Could | Wont`. Escopo do protótipo = **Must + Should** apenas. Ver `00-Context/CONTEXT-001_MOSCOW_PRIORITIZATION.md`.
+- **Prioridade MoSCoW obrigatória:** todo `DESIGN` e `SYSTEM` declara `moscow: Must | Should | Could | Wont`. Escopo do protótipo = **Must + Should** apenas. Ver `00-Context/CONTEXT-001.md`.
 - **`Could` não gera código:** vira um design completo em `01-Design/backlog/` com `status: Backlog` e `promote_when`.
 - **Frontmatter YAML obrigatório:** `id`, `aliases` (com o próprio ID), `title`, `type`, `status`, `moscow` (DESIGN/SYSTEM) e `dependencies`.
 - **Ao renomear / mover / reordenar IDs:** atualize **TODAS** as referências (wikilinks, frontmatter, board `[[DESIGN-000]]`, templates, skill). Nunca deixe wikilink órfão — use token temporário ao trocar a ordem de dois IDs.
-- **Nomenclatura de arquivos:** `PREFIXO-NNN_nome_curto.md`.
+- **Nomenclatura de arquivos:** `<ID>.md` (o nome do arquivo é o próprio ID, para que `[[ID]]` resolva no Obsidian).
 - **Precisão numérica:** use BigNumber/BreakEternity para qualquer variável que escale exponencialmente.
 - **Validação:** rode `npm run validate` antes de commitar (há hook de pré-commit em `.githooks/`).
 - **Decomposição proativa:** em descrições de alto nível (mecânicas, skills, sistemas), extraia os elementos específicos e crie/atualize os documentos correspondentes no vault (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar pedido.
@@ -24,5 +24,5 @@ Aqui ficam **apenas diretrizes transversais, sempre válidas**. Nada **específi
 
 ## Detalhes
 
-- Manifesto completo (templates, protocolos A/B/C, glossário): `00-Context/CONTEXT-000_AI_MANIFEST.md`
+- Manifesto completo (templates, protocolos A/B/C, glossário): `00-Context/CONTEXT-000.md`
 - Skill do projeto: `skills/progression-idle/SKILL.md`

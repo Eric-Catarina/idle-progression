@@ -5,7 +5,7 @@ description: Use this skill for ANY task related to the Progression Idle game pr
 
 # Progression Idle — Skill Personalizada
 
-Esta skill contém as regras fundamentais do projeto **Progression Idle**. Antes de criar qualquer documento ou código, leia o manifesto completo em `00-Context/CONTEXT-000_AI_MANIFEST.md`.
+Esta skill contém as regras fundamentais do projeto **Progression Idle**. Antes de criar qualquer documento ou código, leia o manifesto completo em `00-Context/CONTEXT-000.md`.
 
 ## Visão Geral
 
@@ -23,17 +23,17 @@ Esta skill contém as regras fundamentais do projeto **Progression Idle**. Antes
 
 ## Prioridade (MoSCoW) — Obrigatório
 
-Todo `DESIGN` e `SYSTEM` declara `moscow: Must | Should | Could | Wont` no frontmatter (ver `00-Context/CONTEXT-001_MOSCOW_PRIORITIZATION.md`).
+Todo `DESIGN` e `SYSTEM` declara `moscow: Must | Should | Could | Wont` no frontmatter (ver `00-Context/CONTEXT-001.md`).
 
 - **Escopo do protótipo = `Must` + `Should`.** Só estes são implementados.
 - **`Could`** vira design completo em `01-Design/backlog/` com `status: Backlog` e `promote_when`. **Zero código.**
-- **`Wont`** é registrado no board `01-Design/DESIGN-000_MOSCOW_BOARD.md`, sem arquivo.
+- **`Wont`** é registrado no board `01-Design/DESIGN-000.md`, sem arquivo.
 - **`DATA`** herda a prioridade do `SYSTEM`.
 - Sistemas `Must`/`Should` devem expor **pontos de extensão (seams)** para features `Should` futuras — sem implementá-las.
 
 ## Hierarquia de Conteúdo
 
-`DESIGN` pode formar uma **árvore** com `parent` (único) e `path` (breadcrumb), conforme `00-Context/CONTEXT-006_HIERARCHICAL_DECOMPOSITION.md`. Níveis de conteúdo: **Campanha (`campaign`) → Mundo (`world`) → Nível (`level`)**. `parent` = *parte-de*; para vínculo de implementação use `implements`/`tech_spec`/`data_spec`. Sem ciclos.
+`DESIGN` pode formar uma **árvore** com `parent` (único) e `path` (breadcrumb), conforme `00-Context/CONTEXT-006.md`. Níveis de conteúdo: **Campanha (`campaign`) → Mundo (`world`) → Nível (`level`)**. `parent` = *parte-de*; para vínculo de implementação use `implements`/`tech_spec`/`data_spec`. Sem ciclos.
 
 ## Regras Inegociáveis
 
@@ -96,4 +96,4 @@ Ao renomear, mover ou **reordenar** qualquer ID/documento, atualize **todas** as
 
 ---
 
-**Lembre-se:** Leia `00-Context/CONTEXT-000_AI_MANIFEST.md` para os templates completos e detalhes adicionais.
+**Lembre-se:** Leia `00-Context/CONTEXT-000.md` para os templates completos e detalhes adicionais.

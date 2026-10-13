@@ -27,5 +27,5 @@
 
 ## Conexão com o projeto
 
-- Candidata à **Mecânica Transversal #3** do Mundo 1 (ver `01-Design/DESIGN-003_world_1.md`).
+- Candidata à **Mecânica Transversal #3** do Mundo 1 (ver `01-Design/DESIGN-003.md`).
 - Deve conversar com: classes (Bossing/Mobbing/Suporte), Selos (`DESIGN-013`), Osíris (`DESIGN-014`) e a meta espacial de mapas (`DESIGN-006`).

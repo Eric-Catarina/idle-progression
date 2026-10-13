@@ -57,7 +57,7 @@ Documentado, **sem código**. Vive em `01-Design/backlog/`.
 
 | ID | Feature | Arquivo | Promover Quando |
 | :--- | :--- | :--- | :--- |
-| DESIGN-001 | Múltiplos Personagens no Mesmo Mapa | [[DESIGN-001_multi_character_same_map]] | Core loop validado e necessidade de profundidade tática. |
+| DESIGN-001 | Múltiplos Personagens no Mesmo Mapa | [[DESIGN-001]] | Core loop validado e necessidade de profundidade tática. |
 
 ---
 

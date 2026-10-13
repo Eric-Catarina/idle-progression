@@ -6,6 +6,9 @@
 # Plugins de terceiros — NÃO versionar o código (ver obsidian-plugins.json)
 .obsidian/plugins/
 
+# Placeholders do Obsidian na raiz (criados ao clicar em links não resolvidos)
+/[A-Z]*-[0-9]*.md
+
 # Estado interno do Obsidian MCP (transações/trash)
 .obsidian-mcp/
 
