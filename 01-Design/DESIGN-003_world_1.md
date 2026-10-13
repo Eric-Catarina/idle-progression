@@ -41,7 +41,7 @@ dependencies:
 
 ## 6. Mecânicas Transversais
 - **#1 — [[DESIGN-013|Selos (Stamps)]]** (coleção dropada de mobs; account-wide).
-- #2 — Minigame idle de coleta (tema a definir — ver `99-Inbox/BRAINSTREAM_STREAM.md`)
+- #2 — [[DESIGN-014|O Deus Caído (Golem dos Fragmentos)]]
 - #3 — _(a definir)_
 
 ## 7. Mapa da Árvore

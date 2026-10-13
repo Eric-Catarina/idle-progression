@@ -34,19 +34,9 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [ ] Escolher os temas de mundo: Bosque Orvalhado, Cavernas Cristalinas, Dunas Eternas, Picos Congelados, Ruínas Submersas, Forja Vulcânica, Ilhas do Céu, Pântano/Necrópole, Distrito Relógio, Jardim Onírico, Vazio/Abismo, Metrópole Neon
 - [ ] Regra: 5 níveis por mundo + 1 boss de mundo
 
-### 🕹️ Mundo 1 — Mecânica Transversal #2: minigame idle de coleta (molde: Orion/penas/coruja do Idleon)
-- [ ] Escolher o par **coletor → recurso**:
-  - [ ] Esquilo → Bolotas
-  - [ ] Abelha → Néctar
-  - [ ] Vaga-lume → Faíscas de orvalho
-  - [ ] Sapo → Cogumelos luminosos
-  - [ ] Espírito-broto → Sementes
-  - [ ] Pica-pau → Seiva/Resina
-  - [ ] Beija-flor → Pólen
-  - [ ] Fada → Pó estelar
-  - [ ] Golem → Fragmentos de cristal
-  - [ ] Gamão/gato → Moedas antigas
-- [ ] Definir a recompensa do minigame (upgrade account-wide / moeda de mundo)
+### 🕹️ Mundo 1 — Mecânica Transversal #2: minigame idle de coleta
+- [x] Tema escolhido: **Deus Caído (Golem)** + **Fragmentos de Cristal** -> [[DESIGN-014]]
+- [ ] Definir nomes das 5 divindades do mal (confrontos de prestígio)
 
 ### 💎 Raridades
 - [ ] Escolher a escada de raridades (A–F propostas) e virar um CONTEXT de raridades
@@ -61,3 +51,4 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Sistema de Classes & Especialização (0–15 genérico, 15–50 base, 50–200 specs, classe secreta) -> [[DESIGN-005]]
 - [x] Meta espacial de mapas (vertical/horizontal/quadrado) + skills de exemplo -> [[DESIGN-006]]
 - [x] Mecânica transversal Mundo 1: Selos (Stamps) baseada no Idleon -> [[DESIGN-013]]
+- [x] Mecânica transversal Mundo 1 #2: Deus Caído (golem) + Fragmentos de Cristal, prestígio e 5 Relíquias -> [[DESIGN-014]]
