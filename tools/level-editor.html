@@ -64,7 +64,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      <b>Segure Ctrl (ou Shift) pintando</b> = traço <b>horizontal</b> · <b>⬚ Selecionar</b> + <b>Ctrl+C / Ctrl+V</b> copia/cola área · <b>W</b> = mover (arraste a seleção) · <b>Ctrl+Z</b> desfaz.
+      <b>Segure Ctrl (ou Shift) pintando</b> = traço <b>horizontal</b> · <b>⬚ Selecionar</b> + <b>Ctrl+C / Ctrl+V</b> copia/cola área · <b>W</b> = mover · <b>ESC</b> = pincel · <b>Ctrl+Z</b> desfaz.
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -342,6 +342,7 @@ document.addEventListener("keydown", (e) => {
   else if (ctrl && e.key.toLowerCase() === "c") { e.preventDefault(); copySelection(); }
   else if (ctrl && e.key.toLowerCase() === "v") { e.preventDefault(); pasteClipboard(); }
   else if (e.key.toLowerCase() === "w") { e.preventDefault(); setTool("move"); }
+  else if (e.key === "Escape") { e.preventDefault(); setTool("brush"); }
 });
 cv.addEventListener("mouseleave", () => $("status").textContent = "—");
 
