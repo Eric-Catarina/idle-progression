@@ -60,7 +60,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      <b>Segure Ctrl pintando</b> = traço <b>horizontal</b> · <b>Ctrl+Z</b> desfaz · <b>Ctrl+Shift+Z</b>/Ctrl+Y refaz.
+      <b>Segure Ctrl (ou Shift) pintando</b> = traço <b>horizontal</b> · <b>Ctrl+Z</b> desfaz · <b>Ctrl+Shift+Z</b>/Ctrl+Y refaz.
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -175,7 +175,7 @@ function apply(e) {
   const { x, y } = pos(e);
   const id = cellBrush();
   if (state.tool === "fill") { fill(x, y, id); lastPaint = { x, y }; return; }
-  const horiz = e.ctrlKey || e.metaKey; // segura Ctrl = traço horizontal
+  const horiz = e.ctrlKey || e.metaKey || e.shiftKey; // segura Ctrl (ou Shift) = traço horizontal
   if (horiz && strokeStart) {
     const row = strokeStart.y;
     const from = Math.min(lastPaint.x, x), to = Math.max(lastPaint.x, x);
@@ -188,7 +188,7 @@ function apply(e) {
   draw();
 }
 cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; strokeStart = pos(e); lastPaint = strokeStart; snapshot(); apply(e); });
-cv.addEventListener("mousemove", (e) => { const {x,y} = pos(e); $("status").textContent = `x:${x}  y:${y}  ·  id:${grid[y]?.[x] ?? "-"}`; if (painting) apply(e); });
+cv.addEventListener("mousemove", (e) => { const {x,y} = pos(e); const h = e.ctrlKey || e.metaKey || e.shiftKey; $("status").textContent = `x:${x}  y:${y}  ·  id:${grid[y]?.[x] ?? "-"}` + (h ? "   ·   ⬅⬌➡ HORIZONTAL" : ""); if (painting) apply(e); });
 window.addEventListener("mouseup", () => { painting = false; strokeStart = null; lastPaint = null; });
 cv.addEventListener("contextmenu", (e) => e.preventDefault());
 
