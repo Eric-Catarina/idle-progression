@@ -28,9 +28,7 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [ ] Definir o "motor narrativo" do prestígio (refazer selo / descer camadas / absorver domínios)
 
 ### 🧬 Classes
-- [ ] Definir 6 arquétipos base: Vanguarda, Berserker/Batedor, Arcanista, Lâmina, Oraculista, + 6º
-- [ ] Definir linhas de especialização (job advancements)
-- [ ] Avaliar variante "elemental" (Piro/Hidro/Geo/Aero/Electro/Umbra) ou "folclórica" (Curupira, Boitatá, Iara, Saci, Mapinguari, Anhangá)
+- [ ] Escolher o *flavor* (nomes/estética) das classes: clássico, elemental ou folclórico
 
 ### 🌍 Mundos
 - [ ] Escolher os temas de mundo: Bosque Orvalhado, Cavernas Cristalinas, Dunas Eternas, Picos Congelados, Ruínas Submersas, Forja Vulcânica, Ilhas do Céu, Pântano/Necrópole, Distrito Relógio, Jardim Onírico, Vazio/Abismo, Metrópole Neon
@@ -46,3 +44,4 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 > Formato: `- [x] Título -> [[DESIGN-XXX]]`
 
 - [x] Múltiplos Personagens no Mesmo Mapa -> [[DESIGN-001]]
+- [x] Sistema de Classes & Especialização (0–15 genérico, 15–50 base, 50–200 specs, classe secreta) -> [[DESIGN-005]]
