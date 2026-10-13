@@ -15,6 +15,7 @@
 - **Nomenclatura de arquivos:** `PREFIXO-NNN_nome_curto.md`.
 - **Precisão numérica:** use BigNumber/BreakEternity para qualquer variável que escale exponencialmente.
 - **Validação:** rode `npm run validate` antes de commitar (há hook de pré-commit em `.githooks/`).
+- **Decomposição proativa:** em descrições de alto nível (mecânicas, skills, sistemas), extraia os elementos específicos e crie/atualize os documentos correspondentes no vault (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar pedido.
 
 ## Escopo deste arquivo
 

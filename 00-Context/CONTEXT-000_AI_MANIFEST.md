@@ -75,6 +75,7 @@ Quando o usuário trouxer ideias, mecânicas ou ajustes conceituais:
    - Edge Cases (spam de clique, limites da tela, troca de cena, números gigantes/overflow).
 4. **Classifique a prioridade (MoSCoW):** Todo documento `DESIGN` e `SYSTEM` **deve** declarar `moscow` no frontmatter conforme [[CONTEXT-001]]. O escopo do protótipo é **apenas Must + Should**. Features `Could` vão para `01-Design/backlog/` com `status: Backlog` e **não** geram código.
 5. **Crie os arquivos** seguindo estritamente os templates oficiais da seção 6 deste documento (ou copie de `00-Context/_templates/`).
+6. **Decomposição proativa:** extraia elementos citados de passagem (ex: uma skill mencionada como exemplo) e crie/atualize os documentos correspondentes (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar ser solicitado.
 
 ### Modo B: "Implementer / Coder" (Geração de Código)
 
