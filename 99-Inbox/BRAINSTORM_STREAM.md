@@ -39,15 +39,8 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Nome do Golem: **Osíris**
 - [x] Divindade do mal: **Vorax**
 
-### 🕹️ Mundo 1 — Mecânica Transversal #3 (a definir)
-- [ ] Escolher (deve conversar com classes, mapas, Selos e Osíris):
-  - [ ] Constelação / Star Map (gasta Pontos Estelares; nós ampliam builds, cristais, drops, movimento)
-  - [ ] Compêndio de Monstros / Cartas (coleção por mapa/mundo → bônus de set)
-  - [ ] Forja / Encantamento de Equipamentos (anvil / scroll / star force)
-  - [ ] Quadro de Missões Diárias / Correio (post office / dailies)
-  - [ ] Torre / Coliseu de Ondas (dojo)
-  - [ ] Árvore de Ofícios (coleta passiva)
-  - [ ] Mascote / Pet coletor (⚠ sobrepõe Osíris)
+### 🕹️ Mundo 1 — Mecânica Transversal #3
+- [x] Escolhida: **Constelação / Star Map** -> [[DESIGN-015]]
 
 ### 💎 Raridades
 - [ ] Escolher a escada de raridades (A–F propostas) e virar um CONTEXT de raridades
@@ -62,4 +55,5 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Sistema de Classes & Especialização (0–15 genérico, 15–50 base, 50–200 specs, classe secreta) -> [[DESIGN-005]]
 - [x] Meta espacial de mapas (vertical/horizontal/quadrado) + skills de exemplo -> [[DESIGN-006]]
 - [x] Mecânica transversal Mundo 1: Selos (Stamps) baseada no Idleon -> [[DESIGN-013]]
-- [x] Mecânica transversal Mundo 1 #2: Deus Caído (golem) + Fragmentos de Cristal, prestígio e 5 Relíquias -> [[DESIGN-014]]
+- [x] Mecânica transversal Mundo 1 #2: Osíris (golem) + Cristais, prestígio e 5 Megacristais -> [[DESIGN-014]]
+- [x] Mecânica transversal Mundo 1 #3: A Constelação (Star Map) -> [[DESIGN-015]]

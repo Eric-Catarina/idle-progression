@@ -41,8 +41,8 @@ dependencies:
 
 ## 6. Mecânicas Transversais
 - **#1 — [[DESIGN-013|Selos (Stamps)]]** (coleção dropada de mobs; account-wide).
-- #2 — [[DESIGN-014|O Deus Caído (Golem dos Fragmentos)]]
-- #3 — A definir (Constelação, Cartas, Forja, Dailies, Torre — ver `99-Inbox/BRAINSTORM_STREAM.md`)
+- #2 — [[DESIGN-014|Osíris (Golem dos Cristais)]]
+- #3 — [[DESIGN-015|A Constelação (Mapa Estelar)]]
 
 ## 7. Mapa da Árvore
 ```text
