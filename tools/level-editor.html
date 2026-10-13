@@ -200,7 +200,7 @@ cv.addEventListener("contextmenu", (e) => e.preventDefault());
 function toJSON() {
   return {
     name: $("name").value,
-    cols: state.cols, rows: state.rows, cellSize: state.cell,
+    cols: grid[0]?.length ?? 0, rows: grid.length, cellSize: state.cell,
     legend: Object.fromEntries(PALETTE.map(p => [p.id, p.name])),
     grid: grid
   };
@@ -208,7 +208,24 @@ function toJSON() {
 function refreshJSON() { $("json").value = JSON.stringify(toJSON(), null, 2); }
 ["input","change"].forEach(ev => document.addEventListener(ev, refreshJSON));
 
-$("resize").onclick = () => { snapshot(); state.cols = +$("cols").value; state.rows = +$("rows").value; state.cell = +$("cell").value; normalize(); draw(); refreshJSON(); };
+function clampInt(v, min, max, def) { v = parseInt(v, 10); if (isNaN(v)) v = def; return Math.max(min, Math.min(max, v)); }
+function applySize(record = true) {
+  const nc = clampInt($("cols").value, 4, 200, state.cols);
+  const nr = clampInt($("rows").value, 4, 200, state.rows);
+  const ncell = clampInt($("cell").value, 8, 64, state.cell);
+  $("cols").value = nc; $("rows").value = nr; $("cell").value = ncell;
+  if (nc === state.cols && nr === state.rows && ncell === state.cell) { draw(); return; }
+  if (record) snapshot();
+  state.cols = nc; state.rows = nr; state.cell = ncell;
+  normalize(); draw(); refreshJSON();
+}
+$("resize").onclick = () => applySize(true);
+let sizeTimer = null;
+["cols","rows","cell"].forEach(id => {
+  const el = $(id);
+  el.addEventListener("input", () => { clearTimeout(sizeTimer); sizeTimer = setTimeout(() => applySize(false), 250); });
+  el.addEventListener("change", () => applySize(true));
+});
 $("clear").onclick = () => { snapshot(); grid = defaultGrid(state.cols, state.rows); draw(); refreshJSON(); };
 $("export").onclick = () => {
   const blob = new Blob([JSON.stringify(toJSON(), null, 2)], { type: "application/json" });
