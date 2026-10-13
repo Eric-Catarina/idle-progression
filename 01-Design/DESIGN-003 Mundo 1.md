@@ -43,6 +43,7 @@ dependencies:
 - **#1 — [[DESIGN-013 Selos|Selos (Stamps)]]** (coleção dropada de mobs; account-wide).
 - #2 — [[DESIGN-014 Osiris|Osíris (Golem dos Cristais)]]
 - #3 — [[DESIGN-016 Cartas|Cartas & Pacotinhos]]
+- **Hub (1-1):** [[DESIGN-017 Interactables & Hub|DESIGN-017]] — NPCs/estações dos sistemas (Selos, Osíris, Cartas).
 
 ## 7. Mapa da Árvore
 ```text

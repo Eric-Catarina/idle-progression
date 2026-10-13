@@ -81,6 +81,10 @@ const PALETTE = [
   { id: 4, name: "Portal Entrada", color: "#51cf66", kind: "portal_in" },
   { id: 5, name: "Portal Saída",   color: "#f783ac", kind: "portal_out" },
   { id: 6, name: "Spawn Jogador",  color: "#ffd43b", kind: "spawn" },
+  { id: 7, name: "Interact. Selos",  color: "#38d9a9", kind: "interactable" },
+  { id: 8, name: "Interact. Osíris", color: "#b197fc", kind: "interactable" },
+  { id: 9, name: "Interact. Cartas", color: "#ffa94d", kind: "interactable" },
+  { id: 10, name: "Interactável",    color: "#63e6be", kind: "interactable" },
 ];
 
 const state = { cols: 55, rows: 21, cell: 21, tool: "brush", current: 1 };
@@ -117,6 +121,10 @@ function emptyGrid(cols, rows) { return Array.from({length: rows}, () => new Arr
 function defaultGrid(cols, rows) {
   const g = emptyGrid(cols, rows);
   if (rows > 0) for (let x = 0; x < cols; x++) g[rows - 1][x] = 1; // piso: última linha = Plataforma
+  if (cols >= 4 && rows >= 2) {
+    g[rows - 2][1] = 4;          // Portal Entrada (2ª coluna, penúltima linha)
+    g[rows - 2][cols - 2] = 5;   // Portal Saída (penúltima coluna, penúltima linha)
+  }
   return g;
 }
 
