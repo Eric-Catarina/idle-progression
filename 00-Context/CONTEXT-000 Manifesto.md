@@ -146,6 +146,8 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
     - Filhos herdam a prioridade (`moscow`) do pai, salvo override explícito.
 11. **Escala de Raridade Única:**
     - Todos os sistemas (cartas, itens, potencial, monstros, mundos) usam a escala de [[CONTEXT-007 Raridades|CONTEXT-007]] (Comum→Divino). Nunca criar escalas paralelas; **pesos/odds** ficam no `DATA` de cada sistema.
+12. **Proporções Visuais (Fibonacci / Áurea):**
+    - Tudo que for **visual** (UI, níveis, cartas, sprites, espaçamentos) usa [[CONTEXT-008 Escala Visual|CONTEXT-008]] (Fibonacci + φ). Guia de render; o gameplay vence quando exigir valor específico.
 
 ---
 
@@ -329,6 +331,7 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Selo (Stamp)** | Upgrade passivo permanente dropado de mobs; account-wide. Ver [[DESIGN-013 Selos|DESIGN-013]]. | Não confundir com "bribe" (buff comprado). |
 | **Cartas & Pacotinhos** | Coleção com raridades; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-016 Cartas|DESIGN-016]]. | — |
 | **Raridade** | Escala única reutilizável (6 tiers: Comum→Divino). Ver [[CONTEXT-007 Raridades|CONTEXT-007]]. | Não criar escalas de raridade paralelas por sistema. |
+| **Escala Visual** | Proporções visuais por Fibonacci/áurea. Ver [[CONTEXT-008 Escala Visual|CONTEXT-008]]. | Não se aplica à simulação. |
 
 ---
 

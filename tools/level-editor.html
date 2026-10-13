@@ -34,9 +34,9 @@
   <h1>🗺️ Editor de Level — Progression Idle</h1>
   <div class="row">
     <label>Nome <input type="text" id="name" value="Nivel 1-1" style="width:160px"></label>
-    <label>Colunas <input type="number" id="cols" value="40" min="4" max="200"></label>
-    <label>Linhas <input type="number" id="rows" value="22" min="4" max="200"></label>
-    <label>Célula(px) <input type="number" id="cell" value="24" min="8" max="64"></label>
+    <label>Colunas <input type="number" id="cols" value="55" min="4" max="200"></label>
+    <label>Linhas <input type="number" id="rows" value="21" min="4" max="200"></label>
+    <label>Célula(px) <input type="number" id="cell" value="21" min="8" max="64"></label>
     <button id="resize">Aplicar tamanho</button>
     <button id="clear">Limpar</button>
     <button id="undo">↶ Desfazer</button>
@@ -79,7 +79,7 @@ const PALETTE = [
   { id: 6, name: "Spawn Jogador",  color: "#ffd43b", kind: "spawn" },
 ];
 
-const state = { cols: 40, rows: 22, cell: 24, tool: "brush", current: 1 };
+const state = { cols: 55, rows: 21, cell: 21, tool: "brush", current: 1 };
 let grid = [];
 const undoStack = [], redoStack = [];
 const MAX_HISTORY = 200;
