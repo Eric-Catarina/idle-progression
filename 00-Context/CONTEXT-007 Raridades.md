@@ -26,12 +26,14 @@ Definir uma **escala única de raridade** reutilizável por **todos** os sistema
 
 | # | Raridade | Cor | Sensação | Visual (CSS) | Shader (Phaser 3) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Comum** | Cinza | básico | `#9e9e9e` sólido | — (*flat*) |
-| 2 | **Raro** | Azul fraco | "achei algo bom" | `box-shadow: 0 0 6px #6ea8fe` | `addGlow(0x6ea8fe, 1.5)` |
-| 3 | **Épico** | Roxo | forte | glow + pulso | Glow + **pulso** (`uPulse`) |
-| 4 | **Lendário** | Laranja dourado | cobiçado | `gradient` + *shine sweep* | `addGlow(0xffb300, 2)` + `AddEffectShine` |
-| 5 | **Extraordinário** | Arco-íris | celebrado | `conic-gradient` + `filter: hue-rotate` anim | **hue-shift** (GLSL) + brilho |
-| 6 | **Divino** | Preto-branco brilhoso | máximo / único | `linear-gradient(135deg,#000,#fff)` + bloom pulsante | `AddEffectBloom` + `addDisplacement(0.02)` |
+| 1 | <span class="rar rar-comum" style="display:inline-block;padding:2px 10px;border-radius:6px;font-weight:600;background:#9e9e9e;color:#111">Comum</span> | Cinza | básico | `#9e9e9e` sólido | — (*flat*) |
+| 2 | <span class="rar rar-raro" style="display:inline-block;padding:2px 10px;border-radius:6px;font-weight:600;background:#6ea8fe;color:#05122b;box-shadow:0 0 6px #6ea8fe">Raro</span> | Azul fraco | "achei algo bom" | `box-shadow: 0 0 6px #6ea8fe` | `addGlow(0x6ea8fe, 1.5)` |
+| 3 | <span class="rar rar-epico" style="display:inline-block;padding:2px 10px;border-radius:6px;font-weight:600;background:#a970ff;color:#12002b;box-shadow:0 0 10px #a970ff">Épico</span> | Roxo | forte | glow + pulso | Glow + **pulso** (`uPulse`) |
+| 4 | <span class="rar rar-lendario" style="display:inline-block;padding:2px 10px;border-radius:6px;font-weight:600;background:linear-gradient(135deg,#b8860b,#ffd700,#b8860b);color:#20160a;box-shadow:0 0 12px #ffb300">Lendário</span> | Laranja dourado | cobiçado | `gradient` + *shine sweep* | `addGlow(0xffb300, 2)` + `AddEffectShine` |
+| 5 | <span class="rar rar-extraordinario" style="display:inline-block;padding:2px 10px;border-radius:6px;font-weight:600;background:conic-gradient(from 0deg,#ff5f6d,#ffc371,#47ffa0,#4facfe,#c86dd7,#ff5f6d);color:#111;box-shadow:0 0 12px #c86dd7">Extraordinário</span> | Arco-íris | celebrado | `conic-gradient` + `filter: hue-rotate` anim | **hue-shift** (GLSL) + brilho |
+| 6 | <span class="rar rar-divino" style="display:inline-block;padding:2px 10px;border-radius:6px;font-weight:600;background:linear-gradient(135deg,#000,#fff,#000);color:#fff;text-shadow:0 0 6px #fff;box-shadow:0 0 14px #fff">Divino</span> | Preto-branco brilhoso | máximo / único | `linear-gradient(135deg,#000,#fff)` + bloom pulsante | `AddEffectBloom` + `addDisplacement(0.02)` |
+
+> As **cores** acima aparecem direto (estilo inline). Para as **animações/brilho**, ative o snippet `raridades.css` em **Configurações → Aparência → Snippets CSS**.
 
 ### Exemplo (CSS — como ver no Obsidian)
 ```css
