@@ -39,6 +39,8 @@
     <label>Célula(px) <input type="number" id="cell" value="24" min="8" max="64"></label>
     <button id="resize">Aplicar tamanho</button>
     <button id="clear">Limpar</button>
+    <button id="undo">↶ Desfazer</button>
+    <button id="redo">↷ Refazer</button>
     <button id="export">⬇ Exportar JSON</button>
     <button id="copy">⧉ Copiar JSON</button>
     <label style="margin-left:6px">Importar <input type="file" id="import" accept=".json"></label>
@@ -58,7 +60,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      Pinta a grade, escolhe a cor (plat/portal) e exporta.
+      <b>Ctrl+Z</b> desfaz · <b>Ctrl+Shift+Z</b> (ou Ctrl+Y) refaz. Pinta, escolhe a cor (plat/portal) e exporta.
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -82,6 +84,25 @@ const PALETTE = [
 
 const state = { cols: 40, rows: 22, cell: 24, tool: "brush", current: 1 };
 let grid = [];
+const undoStack = [], redoStack = [];
+const MAX_HISTORY = 200;
+function snapshot() {
+  undoStack.push(JSON.stringify({ cols: state.cols, rows: state.rows, grid }));
+  if (undoStack.length > MAX_HISTORY) undoStack.shift();
+  redoStack.length = 0;
+}
+function undo() {
+  if (!undoStack.length) return;
+  redoStack.push(JSON.stringify({ cols: state.cols, rows: state.rows, grid }));
+  const s = JSON.parse(undoStack.pop());
+  state.cols = s.cols; state.rows = s.rows; grid = s.grid; draw(); refreshJSON();
+}
+function redo() {
+  if (!redoStack.length) return;
+  undoStack.push(JSON.stringify({ cols: state.cols, rows: state.rows, grid }));
+  const s = JSON.parse(redoStack.pop());
+  state.cols = s.cols; state.rows = s.rows; grid = s.grid; draw(); refreshJSON();
+}
 
 const cv = document.getElementById("cv");
 const ctx = cv.getContext("2d");
@@ -156,7 +177,7 @@ function apply(e) {
   if (state.tool === "fill") fill(x, y, eraseMode ? 0 : state.current);
   else paintCell(x, y, (eraseMode || state.tool === "erase") ? 0 : state.current);
 }
-cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; apply(e); });
+cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; snapshot(); apply(e); });
 cv.addEventListener("mousemove", (e) => { const {x,y} = pos(e); $("status").textContent = `x:${x}  y:${y}  ·  id:${grid[y]?.[x] ?? "-"}`; if (painting) apply(e); });
 window.addEventListener("mouseup", () => painting = false);
 cv.addEventListener("contextmenu", (e) => e.preventDefault());
@@ -172,8 +193,8 @@ function toJSON() {
 function refreshJSON() { $("json").value = JSON.stringify(toJSON(), null, 2); }
 ["input","change"].forEach(ev => document.addEventListener(ev, refreshJSON));
 
-$("resize").onclick = () => { state.cols = +$("cols").value; state.rows = +$("rows").value; state.cell = +$("cell").value; normalize(); draw(); refreshJSON(); };
-$("clear").onclick = () => { grid = emptyGrid(state.cols, state.rows); draw(); refreshJSON(); };
+$("resize").onclick = () => { snapshot(); state.cols = +$("cols").value; state.rows = +$("rows").value; state.cell = +$("cell").value; normalize(); draw(); refreshJSON(); };
+$("clear").onclick = () => { snapshot(); grid = emptyGrid(state.cols, state.rows); draw(); refreshJSON(); };
 $("export").onclick = () => {
   const blob = new Blob([JSON.stringify(toJSON(), null, 2)], { type: "application/json" });
   const a = document.createElement("a");
@@ -185,12 +206,19 @@ $("copy").onclick = async () => { await navigator.clipboard.writeText(JSON.strin
 $("import").onchange = (e) => {
   const f = e.target.files[0]; if (!f) return;
   const r = new FileReader();
-  r.onload = () => { const d = JSON.parse(r.result); $("name").value = d.name || ""; state.cols = d.cols; state.rows = d.rows; state.cell = d.cellSize || 24; grid = d.grid; normalize(); draw(); refreshJSON(); };
+  r.onload = () => { snapshot(); const d = JSON.parse(r.result); $("name").value = d.name || ""; state.cols = d.cols; state.rows = d.rows; state.cell = d.cellSize || 24; grid = d.grid; normalize(); draw(); refreshJSON(); };
   r.readAsText(f);
 };
 document.querySelectorAll(".tool").forEach(b => b.onclick = () => {
   state.tool = b.dataset.tool;
   document.querySelectorAll(".tool").forEach(x => x.classList.toggle("active", x === b));
+});
+$("undo").onclick = undo;
+$("redo").onclick = redo;
+document.addEventListener("keydown", (e) => {
+  const ctrl = e.ctrlKey || e.metaKey;
+  if (ctrl && e.key.toLowerCase() === "z") { e.preventDefault(); e.shiftKey ? redo() : undo(); }
+  else if (ctrl && e.key.toLowerCase() === "y") { e.preventDefault(); redo(); }
 });
 cv.addEventListener("mouseleave", () => $("status").textContent = "—");
 
