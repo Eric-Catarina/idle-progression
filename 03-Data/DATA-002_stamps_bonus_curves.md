@@ -68,39 +68,55 @@ dependencies:
 
 > Formatação de exibição segue [[CONTEXT-004]] (percentuais com 2 casas). Valores `Draft` — calibrar em simulação.
 
-## 5. Gráfico da Curva (Obsidian)
+## 5. Gráfico da Curva (Dinâmico — DataviewJS + Charts)
 
-> Renderizado com **Mermaid nativo** (`xychart-beta`) — **não precisa de plugin**.
-> Se sua versão do Obsidian não suportar `xychart-beta`, use o plugin **Charts** (ver nota abaixo).
+> **Requer os plugins** `Dataview` e `Obsidian Charts`.
+> Os valores são **calculados da fórmula** — mudam sozinhos ao editar `c` / `a` / `k`, sem regerar pontos à mão.
 
-### Dano Crítico (`c=8, a=40`)
-```mermaid
-xychart-beta
-    title "Dano Critico % x Nivel (c=8, a=40)"
-    x-axis [1, 10, 50, 100, 200, 500, 1000]
-    y-axis "Bonus (%)" 0 --> 8
-    line [0.20, 1.60, 4.44, 5.71, 6.67, 7.41, 7.69]
+### Curvas percentuais (retorno decrescente)
+```dataviewjs
+const L = [1, 10, 25, 50, 100, 200, 500, 1000, 2000];
+const s = (c, a) => L.map(x => +(c * x / (a + x)).toFixed(3));
+window.renderChart({
+  type: 'line',
+  data: {
+    labels: L,
+    datasets: [
+      { label: 'Dano Crítico % (c=8, a=40)',    data: s(8, 40),  borderColor: '#ff6b6b', backgroundColor: 'rgba(255,107,107,0.15)', tension: 0.35, fill: false, pointRadius: 3 },
+      { label: 'Dano vs Bosses % (c=20, a=60)', data: s(20, 60), borderColor: '#4dabf7', backgroundColor: 'rgba(77,171,247,0.15)',  tension: 0.35, fill: false, pointRadius: 3 }
+    ]
+  },
+  options: {
+    plugins: { legend: { labels: { color: '#cfcfcf' } } },
+    scales: {
+      x: { title: { display: true, text: 'Nivel do selo', color: '#cfcfcf' }, ticks: { color: '#cfcfcf' } },
+      y: { title: { display: true, text: 'Bonus (%)', color: '#cfcfcf' }, ticks: { color: '#cfcfcf' }, beginAtZero: true }
+    }
+  }
+}, this.container);
 ```
 
-### Dano vs Bosses (`c=20, a=60`)
-```mermaid
-xychart-beta
-    title "Dano vs Bosses % x Nivel (c=20, a=60)"
-    x-axis [1, 10, 50, 100, 200, 500, 1000]
-    y-axis "Bonus (%)" 0 --> 20
-    line [0.33, 2.86, 9.09, 12.50, 15.38, 17.86, 18.87]
+### Curva flat (linear)
+```dataviewjs
+const L = [1, 10, 25, 50, 100, 200, 500, 1000, 2000];
+const k = 1; // ganho flat por nivel
+window.renderChart({
+  type: 'line',
+  data: { labels: L, datasets: [
+    { label: `Dano Base (k=${k})`, data: L.map(x => k * x), borderColor: '#51cf66', backgroundColor: 'rgba(81,207,102,0.15)', tension: 0, fill: false, pointRadius: 3 }
+  ] },
+  options: {
+    plugins: { legend: { labels: { color: '#cfcfcf' } } },
+    scales: {
+      x: { title: { display: true, text: 'Nivel do selo', color: '#cfcfcf' }, ticks: { color: '#cfcfcf' } },
+      y: { title: { display: true, text: 'Bonus', color: '#cfcfcf' }, ticks: { color: '#cfcfcf' }, beginAtZero: true }
+    }
+  }
+}, this.container);
 ```
 
-### Flat (Linear — Dano Base, `k=1`)
-```mermaid
-xychart-beta
-    title "Dano Base x Nivel (k=1)"
-    x-axis [1, 10, 50, 100, 200, 500, 1000]
-    y-axis "Bonus" 0 --> 1000
-    line [1, 10, 50, 100, 200, 500, 1000]
-```
-
-> **Alternativa (plugin Charts):** instale `Obsidian Charts` e troque os blocos por:
+> **Como habilitar:** `Configurações → Plugins da comunidade → Procurar` → instale **Dataview** e **Charts** → ative ambos. Sem eles, os blocos aparecem como código.
+> **Rascunho estático** (só com o plugin Charts, sem Dataview): troque o bloco por
 > ````text
 > ```chart
 > { "type": "line", "labels": [1,10,50,100,200,500,1000],
