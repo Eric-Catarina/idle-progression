@@ -39,6 +39,16 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Nome do Golem: **Osíris**
 - [x] Divindade do mal: **Vorax**
 
+### 🕹️ Mundo 1 — Mecânica Transversal #3 (a definir)
+- [ ] Escolher (deve conversar com classes, mapas, Selos e Osíris):
+  - [ ] Constelação / Star Map (gasta Pontos Estelares; nós ampliam builds, cristais, drops, movimento)
+  - [ ] Compêndio de Monstros / Cartas (coleção por mapa/mundo → bônus de set)
+  - [ ] Forja / Encantamento de Equipamentos (anvil / scroll / star force)
+  - [ ] Quadro de Missões Diárias / Correio (post office / dailies)
+  - [ ] Torre / Coliseu de Ondas (dojo)
+  - [ ] Árvore de Ofícios (coleta passiva)
+  - [ ] Mascote / Pet coletor (⚠ sobrepõe Osíris)
+
 ### 💎 Raridades
 - [ ] Escolher a escada de raridades (A–F propostas) e virar um CONTEXT de raridades
 - [ ] Definir cores por tier e sub-tiers (Mítico I/II/III ou +1/+10)
