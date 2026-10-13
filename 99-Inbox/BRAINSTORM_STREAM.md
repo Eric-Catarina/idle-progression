@@ -40,7 +40,8 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Divindade do mal: **Vorax**
 
 ### 🕹️ Mundo 1 — Mecânica Transversal #3
-- [x] Escolhida: **Constelação / Star Map** -> [[DESIGN-015]]
+- [x] Escolhida: **Cartas & Pacotinhos** -> [[DESIGN-016]]
+- [x] _(signos/constelação arquivados em `99-Inbox/_archive/constellation/` — usar futuramente)_
 
 ### 💎 Raridades
 - [ ] Escolher a escada de raridades (A–F propostas) e virar um CONTEXT de raridades
@@ -56,4 +57,4 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Meta espacial de mapas (vertical/horizontal/quadrado) + skills de exemplo -> [[DESIGN-006]]
 - [x] Mecânica transversal Mundo 1: Selos (Stamps) baseada no Idleon -> [[DESIGN-013]]
 - [x] Mecânica transversal Mundo 1 #2: Osíris (golem) + Cristais, prestígio e 5 Megacristais -> [[DESIGN-014]]
-- [x] Mecânica transversal Mundo 1 #3: A Constelação (Star Map) -> [[DESIGN-015]]
+- [x] Mecânica transversal Mundo 1 #3: Cartas & Pacotinhos -> [[DESIGN-016]]

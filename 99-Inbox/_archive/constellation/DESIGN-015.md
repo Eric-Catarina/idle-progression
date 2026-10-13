@@ -18,6 +18,8 @@ data_spec: "[[DATA-004]]"
 
 # [DESIGN-015] A Constelação (Mapa Estelar)
 
+> 🗄️ **ARQUIVADO (não usar no jogo atual).** Ideia de signos/constelação guardada para o futuro — a Mecânica Transversal #3 do Mundo 1 virou **Cartas & Pacotinhos**.
+
 > **Mecânica Transversal #3 do [[DESIGN-003]] (Mundo 1).**
 > Referências (ver `99-Inbox/reference/STAR_MECHANICS_REFERENCE.md`): **Grim Dawn** (mapa de constelações + afinidade), **ESO** (ramos), **Skyrim** (UI de estrelas + signos).
 

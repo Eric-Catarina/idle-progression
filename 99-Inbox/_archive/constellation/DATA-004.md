@@ -13,6 +13,8 @@ dependencies:
 
 # [DATA-004] Constelação: Pontos, Custos e Bônus
 
+> 🗄️ **ARQUIVADO (não usar no jogo atual).** Dados da ideia de constelação/signos, guardados para o futuro.
+
 > Curvas de Pontos Estelares (PE), custos de nó e bônus. Ver [[DESIGN-015]].
 
 ## 1. Variáveis Base & Constantes

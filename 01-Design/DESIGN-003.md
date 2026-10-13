@@ -42,7 +42,7 @@ dependencies:
 ## 6. Mecânicas Transversais
 - **#1 — [[DESIGN-013|Selos (Stamps)]]** (coleção dropada de mobs; account-wide).
 - #2 — [[DESIGN-014|Osíris (Golem dos Cristais)]]
-- #3 — [[DESIGN-015|A Constelação (Mapa Estelar)]]
+- #3 — [[DESIGN-016|Cartas & Pacotinhos]]
 
 ## 7. Mapa da Árvore
 ```text

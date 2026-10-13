@@ -325,7 +325,7 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Mundo** | Agrupador de níveis (subtype `world`), ex: 5 níveis cada. | — |
 | **Nível** | Unidade de conteúdo 2D (subtype `level`): layout + desbloqueio. | Não confundir com nível de personagem/upgrade. |
 | **Selo (Stamp)** | Upgrade passivo permanente dropado de mobs; account-wide. Ver [[DESIGN-013]]. | Não confundir com "bribe" (buff comprado). |
-| **Constelação (Star Map)** | Árvore de nós com afinidade; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-015]]. | — |
+| **Cartas & Pacotinhos** | Coleção com raridades; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-016]]. | — |
 
 ---
 

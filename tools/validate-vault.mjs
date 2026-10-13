@@ -106,7 +106,8 @@ for (const f of files) {
   const al = fm ? (Array.isArray(fm.aliases) ? fm.aliases : fm.aliases ? [fm.aliases] : []) : [];
   al.forEach((a) => targets.add(String(a)));
   const inTemplates = rel.startsWith(TEMPLATES_DIR + sep);
-  if (inTemplates || IGNORED_FILES.has(basename(f))) continue;
+  const inInbox = rel.startsWith("99-Inbox" + sep);
+  if (inTemplates || inInbox || IGNORED_FILES.has(basename(f))) continue;
   if (!fm || !fm.id) {
     if (requiresId(rel)) err(rel, "documento sem frontmatter/id (placeholder orfao?)");
     continue;
