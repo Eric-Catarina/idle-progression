@@ -51,7 +51,30 @@ dependencies:
 }
 ```
 
-## 5. Gráfico — Peso por Raridade (Charts View)
+## 5. Tipos de Pacote & Odds
+
+Cartas por pacote: **3** (Comum/Premium/Mundo) · **5** (Cósmico). Odds em % (somam 100).
+
+| Raridade | Comum | Premium | de Mundo | Cósmico |
+| :--- | :--- | :--- | :--- | :--- |
+| Comum | 55 | 30 | 50 | 0 |
+| Bom | 22 | 25 | 25 | 10 |
+| Refinado | 12 | 20 | 13 | 25 |
+| Raro | 6 | 12 | 7 | 30 |
+| Épico | 3 | 7 | 3.5 | 20 |
+| Único | 1.3 | 3.5 | 1.2 | 10 |
+| Mítico | 0.5 | 1.5 | 0.25 | 4 |
+| Lendário | 0.15 | 0.7 | 0.05 | 0.8 |
+| Extraordinário | 0.04 | 0.25 | 0 | 0.18 |
+| Eterno | 0.01 | 0.05 | 0 | 0.02 |
+
+**Notas:**
+- **de Mundo:** pool restrito ao mundo (ajuda a **fechar sets**); sem Eterno.
+- **Cósmico:** endgame, raridade mínima boa.
+- **Diário:** 1 pacote grátis/dia com as odds do **Premium**.
+- **Pity:** a cada **30 pacotes** sem **Lendário+**, o próximo garante **Lendário+**.
+
+## 6. Gráfico — Peso por Raridade (Charts View)
 ```chartsview
 #-----------------#
 #- chart type    -#

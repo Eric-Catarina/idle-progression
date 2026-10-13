@@ -42,10 +42,11 @@ Uma **coleção de cartas** com **raridades**. Você obtém cartas ao **derrotar
 Ladder (ver pesos em [[DATA-005]]): **Comum → Bom → Refinado → Raro → Épico → Único → Mítico → Lendário → Extraordinário → Eterno**. Cada raridade tem peso de drop e **cor** própria.
 
 ## 5. Pacotinhos
-- **Tipos:** Comum, Premium e de **Mundo**.
-- Cada pacote concede `N` cartas com pesos por raridade.
-- **Fonte:** moedas do jogo, recompensas de nível/mundo e (futuro) dailies.
-- Pacotes premium aumentam a chance de raridades altas.
+- **Tipos:** Comum, Premium, de **Mundo** (temático) e **Cósmico** (endgame) — odds em [[DATA-005]].
+- Cada pacote concede `N` cartas com pesos por raridade; premium/cósmico aumentam as raridades altas.
+- **Diário:** 1 pacote grátis por dia (odds de Premium).
+- **Pity:** a cada **30 pacotes** sem **Lendário+**, o próximo garante um.
+- **Fonte:** moedas do jogo, recompensas de nível/mundo e dailies.
 
 ## 6. Sets & Bônus
 | Set | Requisito | Bônus (ex.) |
