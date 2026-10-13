@@ -2,7 +2,7 @@
 id: DATA-003
 aliases:
   - DATA-003
-title: "Deus Caído: Poder, Limiares e Relíquias"
+title: "Golem: Geração de Cristais, Custos e Megacristais"
 type: data-spec
 status: Draft
 moscow: Should
@@ -11,53 +11,57 @@ dependencies:
   - "[[DESIGN-014]]"
 ---
 
-# [DATA-003] Deus Caído: Poder, Limiares e Relíquias
+# [DATA-003] Golem: Geração de Cristais, Custos e Megacristais
 
-> Curvas de Poder, limiares de confronto e bônus das relíquias. Ver [[DESIGN-014]].
+> Números da *enterprise* idle do Golem (modelo Orion). Ver [[DESIGN-014]].
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |
 | :--- | :--- |
-| `F` | Fragmentos de Cristal devolvidos |
-| `P` | Poder do Golem |
-| `n` | número do confronto (1..5) |
-| `T(n)` | limiar de Poder para o confronto `n` |
-| `r` | razão de escala dos limiares |
+| `C` | Cristais (moeda) |
+| `L` | nível de uma melhoria |
+| `g` | taxa de crescimento de custo (base `1.15`) |
+| `resets` | nº de Reinícios de Cristal |
+| `n` | nº do Grande Reinício (1..5) |
 
 ## 2. Formulação Matemática
-- **Poder:** `P = F + baseNucleo` (linear; `baseNucleo` vem da relíquia Núcleo Ancestral).
-- **Limiar:** `T(n) = T1 × r^(n-1)` (ex: `T1 = 1.000`, `r = 8`).
-- **Fragmento Raro** vale `xM` fragmentos comuns (chance via Olho do Juízo).
+- **Geração (cristal/s):** `gen = (Gen×1 + SuperProd×5) × (1 + 0.05×Multiplicador) × MG_geracao`
+  - `MG_geracao` = `10` se tiver **Cristal Primordial**, senão `1`.
+- **Custo de melhoria:** `cost(L) = base × g^L` (Barateadores reduzem `g`).
+- **Reinício de Cristal:** multiplicador `= 3^(resets + 1)`.
+- **Limiar do Grande Reinício:** `T(n) = T1 × r^(n-1)` (`T1 = 1e11`, `r = 10`).
+- **Bônus do Golem (multiplicador):** base `1×`, → `2×` (Gêmeo) → `5×` (Divino) → `6×` (Fractal) `+0.5×/reset` extra.
 
 ## 3. Schema de Configuração (JSON)
 ```json
 {
-  "id": "fallen_god_curves",
-  "power": { "formula": "F + baseNucleo" },
-  "threshold": { "T1": 1000, "r": 8 },
-  "rareFragmentMultiplier": 20
+  "id": "golem_enterprise",
+  "generation": { "perLevel": 1, "superPerLevel": 5, "multiplierPerLevel": 0.05 },
+  "cost": { "growth": 1.15 },
+  "restart": { "base": 3, "exponentOffset": 1 },
+  "greatReset": { "T1": 100000000000, "r": 10 }
 }
 ```
 
-## 4. Tabela de Confrontos
-| n | Limiar `T(n)` | Relíquia concedida |
+## 4. Tabela de Limiares do Grande Reinício
+| n | Limiar `T(n)` | Megacristal concedido |
 | :--- | :--- | :--- |
-| 1 | 1.000 | Coração de Cristal |
-| 2 | 8.000 | Núcleo Ancestral |
-| 3 | 64.000 | Olho do Juízo |
-| 4 | 512.000 | Punho Divino |
-| 5 | 4.096.000 | Alma Eterna |
+| 1 | 100 B | Cristal Primordial |
+| 2 | 1 T | Cristal Gêmeo |
+| 3 | 10 T | Cristal Divino |
+| 4 | 100 T | Cristal do Artífice |
+| 5 | 1 Qa | Cristal Fractal |
 
-## 5. Bônus das Relíquias (proposta)
-| Relíquia | Efeito | Valor |
+## 5. Efeitos dos Megacristais
+| Megacristal | Efeito | Valor |
 | :--- | :--- | :--- |
-| Coração de Cristal | +velocidade de coleta | +25% |
-| Núcleo Ancestral | `baseNucleo` | `T(n)/20` por ciclo |
-| Olho do Juízo | +chance de Fragmento Raro | +5% |
-| Punho Divino | +Poder de Combate no confronto | +100% |
-| Alma Eterna | +ganhos offline do Golem | +50% |
+| Cristal Primordial | Multiplica toda geração | ×10 |
+| Cristal Gêmeo | Multiplica os Bônus do Golem | ×2 |
+| Cristal Divino | Bônus do Golem | ×5 |
+| Cristal do Artífice | Crescimento de custo da Geração | −25% (mais lento) |
+| Cristal Fractal | Bônus do Golem | ×6 (+0.5/reset) |
 
-## 6. Gráfico — Limiar de Confronto (Charts View)
+## 6. Gráfico — Limiar do Grande Reinício (Charts View)
 ```chartsview
 #-----------------#
 #- chart type    -#
@@ -69,15 +73,15 @@ type: Line
 #-----------------#
 data: |
   dataviewjs:
-  const T1 = 1000, r = 8;
+  const T1 = 1e11, r = 10;
   const ns = [1, 2, 3, 4, 5];
-  return ns.map(n => ({ confronto: n, limiar: T1 * Math.pow(r, n - 1) }));
+  return ns.map(n => ({ grande: n, limiar: T1 * Math.pow(r, n - 1) }));
 
 #-----------------#
 #- chart options -#
 #-----------------#
 options:
-  xField: 'confronto'
+  xField: 'grande'
   yField: 'limiar'
   smooth: true
   point:
@@ -87,4 +91,4 @@ options:
     position: 'bottom'
 ```
 
-> Formatação de exibição segue [[CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002]] §5). Valores `Draft` — calibrar.
+> Formatação segue [[CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002]] §5). Valores `Draft` — calibrar.

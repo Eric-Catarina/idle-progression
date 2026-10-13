@@ -1,0 +1,15 @@
+{
+  "note": "Plugins de comunidade recomendados. O codigo deles NAO e versionado (ver .gitignore: .obsidian/plugins/). Reinstale pela loja de plugins do Obsidian.",
+  "plugins": [
+    {
+      "id": "dataview",
+      "name": "Dataview",
+      "purpose": "Consultas dinamicas (dataviewjs) usadas nos graficos das curvas."
+    },
+    {
+      "id": "obsidian-chartsview-plugin",
+      "name": "Charts View",
+      "purpose": "Graficos das curvas de balanceamento (blocos chartsview)."
+    }
+  ]
+}

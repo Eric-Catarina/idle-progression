@@ -2,90 +2,111 @@
 id: DESIGN-014
 aliases:
   - DESIGN-014
-title: "O Deus Caído (Golem dos Fragmentos)"
+title: "O Deus Caído (Golem dos Cristais)"
 type: system-design
 subtype: mechanic
 status: Draft
 moscow: Should
-moscow_note: Mecânica transversal do Mundo 1; progressão permanente com prestígio próprio, mas o core loop valida sem ela.
+moscow_note: Mecânica transversal do Mundo 1; enterprise idle com prestígio próprio, mas o core loop valida sem ela.
 dependencies:
   - "[[DESIGN-003]]"
   - "[[DESIGN-013]]"
 data_spec: "[[DATA-003]]"
 ---
 
-# [DESIGN-014] O Deus Caído (Golem dos Fragmentos)
+# [DESIGN-014] O Deus Caído (Golem dos Cristais)
 
 > **Mecânica Transversal #2 do [[DESIGN-003]] (Mundo 1).**
-> Inspirações: o confronto com **Muto** (Chu-Chu Island, *MapleStory*) e os itens permanentes tipo **"super-penas"** do *Idleon*.
+> Modelo: *enterprise* idle de **Orion/penas** (Idleon) reescrito para o Golem. Inspiração do confronto: **Muto** (Chu-Chu Island, *MapleStory*).
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
-- **Justificativa:** Progressão permanente com **prestígio próprio**; enriquece muito, mas o core loop valida sem ela (F2).
+- **Justificativa:** Progressão permanente com prestígio próprio; enriquece muito, mas o core loop valida sem ela (F2).
 - Ver [[CONTEXT-001]].
 
 ## 1. Visão & Propósito
-Um **deus caído** — esquecido, abandonado, destruído. Ao longo do jogo você recupera **Fragmentos de Cristal** e os **devolve a ele**, restaurando seu poder. Quando forte o bastante, ele **enfrenta uma divindade do mal** (seu prestígio); **volta destruído**, mas **traz uma Relíquia Divina** — um item **permanente que resiste ao prestígio**. Existem **5** dessas relíquias.
-
-Isso dá ao Mundo 1 um *companheiro* que cresce e um **meta-loop de reset** que não apaga o progresso permanente.
+Um **deus caído** — esquecido, abandonado, destruído. Restaurado, ele **cristaliza** energia e **produz Cristais** continuamente. Você investe os Cristais em melhorias; quando forte o bastante, ele **desce ao confronto com uma divindade do mal** (seu prestígio), **volta destruído**, mas traz um **Megacristal** — item **permanente que resiste ao prestígio** (5 no total).
 
 ## 2. Loop Principal
 ```text
-Coletar Fragmentos de Cristal
+Golem produz Cristais (idle)
         │
         ▼
-Devolver ao Golem ──► + Poder
+Comprar melhorias (Geração, Multiplicador, Barateador…)
         │
-        ▼  (Poder >= Limiar)
-Confronto Divino (prestígio do Golem)
+        ▼
+Reinício de Cristal (reset barato)  ──► multiplicador 3^(resets+1)
         │
-        ├─ Golem VOLTA DESTRUÍDO (Poder reseta)
-        └─ Traz +1 Relíquia Divina (PERMANENTE, resiste ao prestígio)
-                 │
-                 └─► acelera o próximo ciclo → novo confronto
+        ▼  (limiar alto)
+O Grande Reinício (prestígio) = CONFRONTO DIVINO
+        ├─ Golem volta DESTRUÍDO (reset quase total)
+        └─ +1 MEGACRISTAL (permanente)  ← 5 no total
 ```
 
 ## 3. Contrato Funcional (I/O)
-- **Gatilho de Poder:** devolver fragmentos → `golem.power += ...`.
-- **Gatilho de Confronto:** `golem.power >= threshold(n)`.
-- **Saída do Confronto:** `golem.power` reseta ao valor-base; `relics.add(1)`; bônus permanentes aplicados.
+- **Tick:** `crystals += generation × dt` (offline via Catch-up analítico).
+- **Comprar melhoria:** `crystals -= cost(L)` → `L++`.
+- **Reinício de Cristal:** reseta upgrades/cristais → `multiplier = 3^(resets+1)`.
+- **O Grande Reinício:** reseta quase tudo → `megacrystals.add(1)` (permanente).
 
-## 4. Poder do Golem
-- `power` cresce com os fragmentos devolvidos ([[DATA-003]]).
-- O Golem concede **bônus ao jogador** enquanto restaurado (escopo a definir: conta/universal).
-- **Núcleo Ancestral** (relíquia) adiciona um **poder-base** a cada ciclo → ciclos mais rápidos.
+## 4. A Empresa de Cristais (árvore de melhorias)
 
-## 5. Prestígio (Confronto Divino)
-- Cada confronto enfrenta uma **divindade do mal** mais forte.
-- **Sucesso** → reseta o Poder, mas concede **1 Relíquia Divina**.
-- **As Relíquias não resetam** — são a progressão permanente.
-- Após as 5 relíquias, o confronto pode escalar infinitamente (Should/Could futuro).
-
-## 6. As 5 Relíquias Divinas (permanentes)
-| # | Relíquia | Efeito permanente |
+| Melhoria | Desbloqueio (Cristais) | Efeito |
 | :--- | :--- | :--- |
-| 1 | **Coração de Cristal** | +25% velocidade de coleta de Fragmentos |
-| 2 | **Núcleo Ancestral** | Golem inicia cada ciclo com `power`-base |
-| 3 | **Olho do Juízo** | +chance de **Fragmento Raro** (vale muito mais) |
-| 4 | **Punho Divino** | +Poder de Combate no Confronto |
-| 5 | **Alma Eterna** | +ganhos offline do Golem |
+| **Geração de Cristal** | 100 | Gera `{1 por nível}` cristal/s |
+| **Bônus do Golem** | 1 K | Bônus permanente no jogo real (rotativo — §5); **nunca reseta** |
+| **Multiplicador de Cristal** | 2.5 K | `+{5 por nível}%` de geração |
+| **Barateador de Cristal** | 30 K | Melhorias ficam `%` mais baratas |
+| **Reinício de Cristal** | 750 K | Reseta upgrades/cristais → gera `{3^(resets+1)}×` Cristais |
+| **Produção de Super Cristal** | 10 M | `+{5 por nível}` cristais/s |
+| **Cristais Brilhantes** | 250 M | Chance rara de **Cristal Brilhante**; cada um `+{1 por nível}%` geração |
+| **Super Barateador** | 5 B | Melhorias `{20 por nível}%` mais baratas |
+| **O Grande Reinício** | 100 B | Reset quase total → **+1 Megacristal** permanente |
 
-> Nomes/efeitos são proposta — ver [[DATA-003]] para os valores.
+## 5. Bônus do Golem (rotativo)
+Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 
-## 7. Casos de Borda
-- Confronto **sem** atingir o limiar (não inicia); **falha** no confronto (a definir: perde parte do poder?).
-- Devolver fragmentos com o Golem já no limiar (guardar para o próximo ciclo).
-- Overflow de poder (BigNumber).
-- Offline: ganho analítico de fragmentos + poder (Catch-up).
+| Ordem | Bônus por nível |
+| :--- | :--- |
+| 1 | +5% Class XP |
+| 2 | +10 Dano Base |
+| 3 | +2% Dano Total |
+| 4 | +4% Skill XP |
+| 5 | +1% Drop Rate |
+| 6 | +2 Todos os Stats |
 
-## 8. UI/UX e Feedback
-- Estatuária do Golem que **se recompõe** visualmente (estágios).
-- Cutscene curta do confronto; o Golem volta em pedaços + a relíquia brilhando.
+## 6. O Grande Reinício (Prestígio / Confronto Divino)
+- **Gatilho:** cristais acumulados ≥ limiar do confronto ([[DATA-003]]).
+- **Resultado:** reseta geração/melhorias (mantém **Megacristais** e **Bônus do Golem**).
+- **Recompensa:** **+1 Megacristal** (na ordem — §7).
+- **Narrativa:** o Golem luta com uma divindade do mal, volta em pedaços, com o Megacristal brilhando.
+- **Escalação:** limiar cresce a cada confronto; 5 no total.
 
-## 9. Ganchos para o Futuro
-- **5 divindades do mal** nomeadas (escalando), cada uma um confronto.
-- Relíquias podem ter **sub-níveis** após esgotadas (Should/Could).
-- Encaixe com os **Selos** ([[DESIGN-013]]): ambos dão progressão permanente no Mundo 1.
+## 7. Os 5 Megacristais (permanentes, resistem ao prestígio)
+| # | Megacristal | Efeito |
+| :--- | :--- | :--- |
+| 1 | **Cristal Primordial** | `×10` em **toda** a geração de Cristais (multiplicativo) |
+| 2 | **Cristal Gêmeo** | Dobra os **Bônus do Golem** |
+| 3 | **Cristal Divino** | Bônus do Golem passam a **5×** |
+| 4 | **Cristal do Artífice** | Custo da **Geração de Cristal** sobe 25% mais devagar |
+| 5 | **Cristal Fractal** | Bônus do Golem passam a **6×**; +0,5× por Grande Reinício adicional |
 
-## 10. Relacionados
+> Tema adaptado do "Megafeather" do Idleon. Nomes são proposta — trocáveis para condizer com a lore final.
+
+## 8. Casos de Borda
+- Overflow de cristais (BigNumber).
+- Comprar no limiar exato do confronto (guardar para o próximo ciclo).
+- Offline longo: explosão de cristais → **Catch-up** analítico (não simular tick a tick).
+- Reinício de Cristal vs Grande Reinício (o barato não dá Megacristal).
+
+## 9. UI/UX e Feedback
+- Estatuária do Golem que **se recompõe** por estágio; a "fábrica" de cristais pulsa.
+- Confronto: cutscene curta; retorna destruído + Megacristal.
+
+## 10. Ganchos para o Futuro
+- Nomear o Golem e as **5 divindades do mal**.
+- Pós-5 Megacristais: escala infinita (Should/Could).
+- Amarração com os **Selos** ([[DESIGN-013]]): dois eixos permanentes do Mundo 1.
+
+## 11. Relacionados
 - Mundo: [[DESIGN-003]] · Selos: [[DESIGN-013]] · Curvas: [[DATA-003]].

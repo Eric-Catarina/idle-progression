@@ -3,6 +3,9 @@
 .obsidian/workspace-mobile.json
 .obsidian/cache
 
+# Plugins de terceiros — NÃO versionar o código (ver obsidian-plugins.json)
+.obsidian/plugins/
+
 # Estado interno do Obsidian MCP (transações/trash)
 .obsidian-mcp/
 
