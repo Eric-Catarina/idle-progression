@@ -40,9 +40,9 @@ A documentação é dividida em **4 pilares obrigatórios** via pastas e IDs ind
 📁 / (Raiz do Vault)
 ├── 📁 00-Context/       -> [CONTEXT-XXX] Manifestos, convenções, glossário e governança.
 │   ├── 📁 _templates/   -> Templates oficiais (DESIGN, SYSTEM, DATA, CONTEXT, SKILL, LEVEL, MECHANIC).
-│   └── 📄 CONTEXT-005.md -> [CONTEXT-005] Fases de entrega (MVP -> Vertical Slice -> Escala).
+│   └── 📄 CONTEXT-005 Roadmap.md -> [CONTEXT-005] Fases de entrega (MVP -> Vertical Slice -> Escala).
 ├── 📁 01-Design/        -> [DESIGN-XXX] GDD de baixo nível. `subtype`: system | skill | level | mechanic.
-│   ├── 📄 DESIGN-000.md -> Board de priorização (fonte de verdade MoSCoW).
+│   ├── 📄 DESIGN-000 Board MoSCoW.md -> Board de priorização (fonte de verdade MoSCoW).
 │   ├── 📁 classes/      -> Skills por classe: <base>/{bosser,mobber,suporte}/ (+ generica, secreta).
 │   └── 📁 backlog/      -> [DESIGN-XXX] Features "Could" (MoSCoW) guardadas para o futuro.
 ├── 📁 02-Architecture/  -> [SYSTEM-XXX] Arquitetura de Software, Design Patterns, TDD e ADRs.
@@ -114,10 +114,10 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - Conforme [[CONTEXT-002]], todos os bônus percentuais e multiplicadores exibidos ao usuário na UI devem seguir o formato estrito: x + valor com 2 casas decimais.
    - Exemplo: +5% → x1.05 | +100% → x2.00.
 2. **Padrão de Nomenclatura de Arquivos:**
-   - O nome do arquivo é o próprio **ID** (`<ID>.md`), para que os wikilinks curtos `[[ID]]` resolvam no Obsidian:
-     - `DESIGN-001.md`
-     - `SYSTEM-001.md`
-     - `DATA-001.md`
+   - O nome do arquivo é `<ID> <nome_curto>.md` (ex: `DESIGN-001 Multi Personagens.md`); o `id`/`aliases` garante que os wikilinks curtos `[[ID]]` resolvam no Obsidian:
+     - `DESIGN-001 Multi Personagens.md`
+     - `SYSTEM-001 Kinematics.md`
+     - `DATA-001 Speed Curves.md`
 3. **Prioridade Obrigatória (MoSCoW):**
    - Todo documento `DESIGN-XXX` e `SYSTEM-XXX` **deve** declarar `moscow: Must | Should | Could | Wont` no frontmatter. Ver [[CONTEXT-001]].
    - O escopo do protótipo é **Must + Should**. `Could` é documentado no backlog sem código; `Wont` registra a exclusão consciente.
@@ -335,9 +335,9 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 ### Como usar este arquivo:
 
 1. No seu Obsidian, as pastas `00-Context/`, `01-Design/`, `02-Architecture/`, `03-Data/` e `99-Inbox/` já existem.
-2. Este manifesto é a nota `00-Context/CONTEXT-000.md`.
+2. Este manifesto é a nota `00-Context/CONTEXT-000 Manifesto.md`.
 3. As instruções para agentes vivem no `AGENTS.md` (raiz, carregado automaticamente em todo prompt) e na skill `skills/progression-idle/SKILL.md`:
    ```text
-   Always read and adhere to 00-Context/CONTEXT-000.md before designing specs or writing game code.
+   Always read and adhere to 00-Context/CONTEXT-000 Manifesto.md before designing specs or writing game code.
    ```
 4. Se usar Claude Code ou agentes via terminal, este documento servirá como contexto base de leitura obrigatória em qualquer prompt de inicialização.

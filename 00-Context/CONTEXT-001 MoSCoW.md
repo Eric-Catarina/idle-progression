@@ -96,7 +96,7 @@ Ao promover um item:
 
 ## 8. Board de Prioridades
 
-O estado consolidado de todas as features por categoria vive em **`01-Design/DESIGN-000.md`**. Consulte-o antes de criar qualquer novo DESIGN para evitar duplicidade.
+O estado consolidado de todas as features por categoria vive em **`01-Design/DESIGN-000 Board MoSCoW.md`**. Consulte-o antes de criar qualquer novo DESIGN para evitar duplicidade.
 
 ## 9. Exemplos
 

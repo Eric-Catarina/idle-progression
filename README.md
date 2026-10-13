@@ -19,7 +19,7 @@ Este repositório é, antes de tudo, um **vault Obsidian de documentação e des
 
 **Antes de criar qualquer spec ou código, leia o manifesto mestre:**
 
-📄 **[`00-Context/CONTEXT-000.md`](00-Context/CONTEXT-000.md)**
+📄 **[`00-Context/CONTEXT-000 Manifesto.md`](00-Context/CONTEXT-000 Manifesto.md)**
 
 O arquivo **[`AGENTS.md`](AGENTS.md)** é carregado automaticamente por agentes (OpenCode/Codex) em **todo prompt** e contém as regras críticas + ponteiro para o manifesto. Há também a skill do projeto em [`skills/progression-idle/SKILL.md`](skills/progression-idle/SKILL.md).
 
@@ -34,7 +34,7 @@ A documentação é dividida em **4 pilares obrigatórios**, identificados por p
 ├── 📁 00-Context/       -> [CONTEXT-XXX] Manifestos, convenções globais, glossário e governança.
 │   └── 📁 _templates/   -> Templates oficiais (DESIGN, SYSTEM, DATA, CONTEXT).
 ├── 📁 01-Design/        -> [DESIGN-XXX] Especificações de Game Design de Baixo Nível (GDD).
-│   ├── 📄 DESIGN-000.md -> Board de priorização (fonte de verdade MoSCoW).
+│   ├── 📄 DESIGN-000 Board MoSCoW.md -> Board de priorização (fonte de verdade MoSCoW).
 │   └── 📁 backlog/      -> [DESIGN-XXX] Features "Could" guardadas para o futuro.
 ├── 📁 02-Architecture/  -> [SYSTEM-XXX] Arquitetura de Software, Design Patterns, TDD e ADRs.
 ├── 📁 03-Data/          -> [DATA-XXX] Fórmulas, curvas de escala, tabelas e schemas JSON.
@@ -50,7 +50,7 @@ A documentação é dividida em **4 pilares obrigatórios**, identificados por p
 
 ## 🎯 Priorização (MoSCoW)
 
-Toda feature declara `moscow: Must | Should | Could | Wont`. Regras completas em [`00-Context/CONTEXT-001.md`](00-Context/CONTEXT-001.md).
+Toda feature declara `moscow: Must | Should | Could | Wont`. Regras completas em [`00-Context/CONTEXT-001 MoSCoW.md`](00-Context/CONTEXT-001 MoSCoW.md).
 
 | Categoria | Papel no Protótipo | Destino |
 | :--- | :--- | :--- |
@@ -61,15 +61,15 @@ Toda feature declara `moscow: Must | Should | Could | Wont`. Regras completas em
 
 > **O escopo do protótipo é composto apenas por itens `Must` + `Should`.**
 
-Consulte o estado consolidado no **[`DESIGN-000` MoSCoW Board](01-Design/DESIGN-000.md)**.
+Consulte o estado consolidado no **[`DESIGN-000` MoSCoW Board](01-Design/DESIGN-000 Board MoSCoW.md)**.
 
 ---
 
 ## 📏 Convenções Essenciais
 
-* **Nomenclatura de arquivos:** `<ID>.md` (ex: `DESIGN-001.md`).
+* **Nomenclatura de arquivos:** `<ID> <nome>.md` (ex: `DESIGN-001 Multi Personagens.md`).
 * **Frontmatter YAML obrigatório:** `id`, `aliases`, `title`, `type`, `status`, `moscow` (em DESIGN/SYSTEM) e `dependencies`.
-* **Multiplicadores na UI:** formato estrito `x1.05` (2 casas decimais) — ver [`CONTEXT-002`](00-Context/CONTEXT-002.md).
+* **Multiplicadores na UI:** formato estrito `x1.05` (2 casas decimais) — ver [`CONTEXT-002`](00-Context/CONTEXT-002 Multiplicadores.md).
 * **Integridade de referências:** ao renomear/mover/reordenar IDs, atualize **todas** as referências (wikilinks, frontmatter, board, templates, skill).
 
 ---
