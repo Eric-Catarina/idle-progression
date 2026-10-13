@@ -4,10 +4,10 @@
 /* Essência fluida: gradiente grande + background-position animado */
 .rar-epico          { background-size: 220% 220%; animation: rar-flow 3.5s ease-in-out infinite; }
 .rar-lendario       { background-size: 260% 260%; animation: rar-flow 4.5s ease-in-out infinite; }
-.rar-divino         { background-size: 300% 300%; animation: rar-flow 6s ease-in-out infinite; }
+.rar-divino         { background-size: 300% 300%; animation: rar-flow 12s ease-in-out infinite; }
 
 /* Arco-íris scrollando (UV) */
-.rar-extraordinario { background-size: 300% 100%; animation: rar-uv 3s linear infinite; }
+.rar-extraordinario { background-size: 300% 100%; animation: rar-uv 6s linear infinite; }
 
 @keyframes rar-flow {
   0%, 100% { background-position: 0% 50%; }

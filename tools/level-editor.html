@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progression Idle — Editor de Level (Grid)</title>
+<style>
+  :root { --bg:#14161a; --panel:#1d2026; --border:#2c313a; --text:#e6e8eb; --muted:#9aa3ad; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.4 system-ui,Segoe UI,Roboto,sans-serif; }
+  header { padding:10px 14px; background:var(--panel); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:2; }
+  h1 { font-size:15px; margin:0 0 8px; font-weight:600; }
+  .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  label { color:var(--muted); font-size:12px; }
+  input[type=text], input[type=number] { background:#0f1115; color:var(--text); border:1px solid var(--border); border-radius:6px; padding:5px 8px; font-size:13px; }
+  input[type=number] { width:70px; }
+  button { background:#262b33; color:var(--text); border:1px solid var(--border); border-radius:6px; padding:6px 10px; cursor:pointer; font-size:13px; }
+  button:hover { background:#313844; }
+  button.active { outline:2px solid #4dabf7; }
+  .palette { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+  .swatch { display:flex; align-items:center; gap:6px; padding:4px 8px; border-radius:6px; border:1px solid var(--border); background:#0f1115; cursor:pointer; font-size:12px; }
+  .swatch .dot { width:14px; height:14px; border-radius:3px; border:1px solid rgba(255,255,255,.25); }
+  .swatch.active { outline:2px solid #4dabf7; }
+  main { padding:14px; display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap; }
+  canvas { background:#0b0d10; border:1px solid var(--border); border-radius:8px; image-rendering:pixelated; cursor:crosshair; }
+  .side { min-width:260px; }
+  textarea { width:100%; height:220px; background:#0f1115; color:var(--text); border:1px solid var(--border); border-radius:8px; padding:8px; font:12px/1.4 ui-monospace,Consolas,monospace; }
+  .hint { color:var(--muted); font-size:12px; margin-top:6px; }
+  .status { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🗺️ Editor de Level — Progression Idle</h1>
+  <div class="row">
+    <label>Nome <input type="text" id="name" value="Nivel 1-1" style="width:160px"></label>
+    <label>Colunas <input type="number" id="cols" value="40" min="4" max="200"></label>
+    <label>Linhas <input type="number" id="rows" value="22" min="4" max="200"></label>
+    <label>Célula(px) <input type="number" id="cell" value="24" min="8" max="64"></label>
+    <button id="resize">Aplicar tamanho</button>
+    <button id="clear">Limpar</button>
+    <button id="export">⬇ Exportar JSON</button>
+    <button id="copy">⧉ Copiar JSON</button>
+    <label style="margin-left:6px">Importar <input type="file" id="import" accept=".json"></label>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <label>Ferramenta</label>
+    <button class="tool active" data-tool="brush">🖌 Pincel</button>
+    <button class="tool" data-tool="erase">🧽 Borracha</button>
+    <button class="tool" data-tool="fill">🪣 Preencher</button>
+  </div>
+  <div class="palette" id="palette"></div>
+</header>
+
+<main>
+  <canvas id="cv"></canvas>
+  <div class="side">
+    <div class="status" id="status">—</div>
+    <div class="hint">
+      <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
+      Pinta a grade, escolhe a cor (plat/portal) e exporta.
+    </div>
+    <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
+    <textarea id="json" readonly></textarea>
+  </div>
+</main>
+
+<script>
+// ---- Paleta: id, nome, cor, tipo ----
+const PALETTE = [
+  { id: 0, name: "Vazio",          color: "#0b0d10", kind: "empty" },
+  { id: 1, name: "Plataforma",     color: "#9e9e9e", kind: "platform" },
+  { id: 2, name: "Plataforma 1-vi",color: "#4dabf7", kind: "oneway" },
+  { id: 3, name: "Parede/Sólido",  color: "#5c636a", kind: "solid" },
+  { id: 4, name: "Portal Entrada", color: "#51cf66", kind: "portal_in" },
+  { id: 5, name: "Portal Saída",   color: "#f783ac", kind: "portal_out" },
+  { id: 6, name: "Spawn Jogador",  color: "#ffd43b", kind: "spawn" },
+  { id: 7, name: "Spawn Inimigo",  color: "#ff6b6b", kind: "mob" },
+  { id: 8, name: "Checkpoint",     color: "#b197fc", kind: "checkpoint" },
+  { id: 9, name: "Perigo (lava)",  color: "#ff922b", kind: "hazard" },
+];
+
+const state = { cols: 40, rows: 22, cell: 24, tool: "brush", current: 1 };
+let grid = [];
+
+const cv = document.getElementById("cv");
+const ctx = cv.getContext("2d");
+const $ = (id) => document.getElementById(id);
+
+function emptyGrid(cols, rows) { return Array.from({length: rows}, () => new Array(cols).fill(0)); }
+
+function normalize() {
+  const g = emptyGrid(state.cols, state.rows);
+  for (let y = 0; y < Math.min(state.rows, grid.length); y++)
+    for (let x = 0; x < Math.min(state.cols, grid[y].length); x++)
+      g[y][x] = grid[y][x] || 0;
+  grid = g;
+}
+
+function buildPalette() {
+  const el = $("palette");
+  el.innerHTML = "";
+  for (const p of PALETTE) {
+    const b = document.createElement("div");
+    b.className = "swatch" + (p.id === state.current ? " active" : "");
+    b.dataset.id = p.id;
+    b.innerHTML = `<span class="dot" style="background:${p.color}"></span>${p.id} · ${p.name}`;
+    b.onclick = () => { state.current = p.id; buildPalette(); };
+    el.appendChild(b);
+  }
+}
+
+function paintCell(x, y, id) {
+  if (x < 0 || y < 0 || x >= state.cols || y >= state.rows) return;
+  grid[y][x] = id;
+  draw();
+}
+
+function fill(x, y, id) {
+  const target = grid[y][x];
+  if (target === id) return;
+  const stack = [[x, y]];
+  while (stack.length) {
+    const [cx, cy] = stack.pop();
+    if (cx < 0 || cy < 0 || cx >= state.cols || cy >= state.rows) continue;
+    if (grid[cy][cx] !== target) continue;
+    grid[cy][cx] = id;
+    stack.push([cx+1,cy],[cx-1,cy],[cx,cy+1],[cx,cy-1]);
+  }
+  draw();
+}
+
+function draw() {
+  cv.width = state.cols * state.cell;
+  cv.height = state.rows * state.cell;
+  for (let y = 0; y < state.rows; y++)
+    for (let x = 0; x < state.cols; x++) {
+      const id = grid[y][x] || 0;
+      const p = PALETTE.find(p => p.id === id) || PALETTE[0];
+      ctx.fillStyle = p.color;
+      ctx.fillRect(x*state.cell, y*state.cell, state.cell, state.cell);
+    }
+  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  ctx.lineWidth = 1;
+  for (let x = 0; x <= state.cols; x++) { ctx.beginPath(); ctx.moveTo(x*state.cell+0.5,0); ctx.lineTo(x*state.cell+0.5, cv.height); ctx.stroke(); }
+  for (let y = 0; y <= state.rows; y++) { ctx.beginPath(); ctx.moveTo(0,y*state.cell+0.5); ctx.lineTo(cv.width, y*state.cell+0.5); ctx.stroke(); }
+}
+
+let painting = false, eraseMode = false;
+function pos(e) {
+  const r = cv.getBoundingClientRect();
+  return { x: Math.floor((e.clientX - r.left) / state.cell), y: Math.floor((e.clientY - r.top) / state.cell) };
+}
+function apply(e) {
+  const { x, y } = pos(e);
+  if (state.tool === "fill") fill(x, y, eraseMode ? 0 : state.current);
+  else paintCell(x, y, (eraseMode || state.tool === "erase") ? 0 : state.current);
+}
+cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; apply(e); });
+cv.addEventListener("mousemove", (e) => { const {x,y} = pos(e); $("status").textContent = `x:${x}  y:${y}  ·  id:${grid[y]?.[x] ?? "-"}`; if (painting) apply(e); });
+window.addEventListener("mouseup", () => painting = false);
+cv.addEventListener("contextmenu", (e) => e.preventDefault());
+
+function toJSON() {
+  return {
+    name: $("name").value,
+    cols: state.cols, rows: state.rows, cellSize: state.cell,
+    legend: Object.fromEntries(PALETTE.map(p => [p.id, p.name])),
+    grid: grid
+  };
+}
+function refreshJSON() { $("json").value = JSON.stringify(toJSON(), null, 2); }
+["input","change"].forEach(ev => document.addEventListener(ev, refreshJSON));
+
+$("resize").onclick = () => { state.cols = +$("cols").value; state.rows = +$("rows").value; state.cell = +$("cell").value; normalize(); draw(); refreshJSON(); };
+$("clear").onclick = () => { grid = emptyGrid(state.cols, state.rows); draw(); refreshJSON(); };
+$("export").onclick = () => {
+  const blob = new Blob([JSON.stringify(toJSON(), null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = ($("name").value || "level").replace(/\s+/g, "_") + ".json";
+  a.click();
+};
+$("copy").onclick = async () => { await navigator.clipboard.writeText(JSON.stringify(toJSON())); $("copy").textContent = "✓"; setTimeout(()=>$("copy").textContent="⧉ Copiar JSON", 900); };
+$("import").onchange = (e) => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => { const d = JSON.parse(r.result); $("name").value = d.name || ""; state.cols = d.cols; state.rows = d.rows; state.cell = d.cellSize || 24; grid = d.grid; normalize(); draw(); refreshJSON(); };
+  r.readAsText(f);
+};
+document.querySelectorAll(".tool").forEach(b => b.onclick = () => {
+  state.tool = b.dataset.tool;
+  document.querySelectorAll(".tool").forEach(x => x.classList.toggle("active", x === b));
+});
+cv.addEventListener("mouseleave", () => $("status").textContent = "—");
+
+grid = emptyGrid(state.cols, state.rows);
+buildPalette(); draw(); refreshJSON();
+</script>
+</body>
+</html>
