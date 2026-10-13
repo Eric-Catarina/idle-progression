@@ -11,6 +11,7 @@ moscow_note: Mecânica transversal #3 do Mundo 1; coleção com raridades, mas o
 dependencies:
   - "[[DESIGN-003]]"
   - "[[DESIGN-013]]"
+  - "[[CONTEXT-007]]"
 data_spec: "[[DATA-005]]"
 ---
 
@@ -39,7 +40,7 @@ Uma **coleção de cartas** com **raridades**. Você obtém cartas ao **derrotar
 - **Saída:** carta adicionada (ou poeira); bônus de carta/set recalculados; persistido.
 
 ## 4. Raridades
-Ladder (ver pesos em [[DATA-005]]): **Comum → Bom → Refinado → Raro → Épico → Único → Mítico → Lendário → Extraordinário → Eterno**. Cada raridade tem peso de drop e **cor** própria.
+Escala compartilhada de [[CONTEXT-007]]: **Comum → Raro → Épico → Lendário → Extraordinário → Divino** (cores fixas). Pesos/odds das cartas em [[DATA-005]].
 
 ## 5. Pacotinhos
 - **Tipos:** Comum, Premium, de **Mundo** (temático) e **Cósmico** (endgame) — odds em [[DATA-005]].

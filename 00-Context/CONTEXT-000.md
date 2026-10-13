@@ -144,6 +144,8 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
 10. **Hierarquia & Decomposição:**
     - Todo nó pode ter `parent` único e `path`; a árvore segue [[CONTEXT-006]] (`parent` = *parte-de*, nunca vínculo de implementação).
     - Filhos herdam a prioridade (`moscow`) do pai, salvo override explícito.
+11. **Escala de Raridade Única:**
+    - Todos os sistemas (cartas, itens, potencial, monstros, mundos) usam a escala de [[CONTEXT-007]] (Comum→Divino). Nunca criar escalas paralelas; **pesos/odds** ficam no `DATA` de cada sistema.
 
 ---
 
@@ -326,6 +328,7 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Nível** | Unidade de conteúdo 2D (subtype `level`): layout + desbloqueio. | Não confundir com nível de personagem/upgrade. |
 | **Selo (Stamp)** | Upgrade passivo permanente dropado de mobs; account-wide. Ver [[DESIGN-013]]. | Não confundir com "bribe" (buff comprado). |
 | **Cartas & Pacotinhos** | Coleção com raridades; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-016]]. | — |
+| **Raridade** | Escala única reutilizável (6 tiers: Comum→Divino). Ver [[CONTEXT-007]]. | Não criar escalas de raridade paralelas por sistema. |
 
 ---
 

@@ -44,11 +44,10 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] _(signos/constelação arquivados em `99-Inbox/_archive/constellation/` — usar futuramente)_
 
 ### 💎 Raridades
-- [ ] Nomes: escada atual do usuário (Comum→Bom→Refinado→Raro→Épico→Único→Mítico→Lendário→Extraordinário→Eterno) — manter ou trocar por Brilho/Gamer/Divino
-- [ ] **Mecânica por tier** (recomendado): Refinado = stat secundário · Raro = 1 keyword · Épico = 2 keywords · Único = efeito único · Mítico = efeito + slot extra · Lendário = altera skill · Extraordinário = altera regra · Eterno = build-defining
-- [ ] Camadas: sub-tiers (I/II/III), **Shiny/Prisca**, **fusão** (3×→1× acima), **além-Eterno** (paragon infinito)
-- [ ] Cores + juice (som/brilho) por tier
-- [ ] Virar um `CONTEXT-007 — Raridades`
+- [x] Escala definida (6 tiers): **Comum → Raro → Épico → Lendário → Extraordinário → Divino** -> [[CONTEXT-007]]
+- [x] Cores: cinza · azul fraco · roxo · laranja dourado · arco-íris · preto-branco brilhoso
+- [x] Reutilizável em: cartas, itens, potencial de itens, monstros, mundos
+- [ ] (Futuro) mecânica por tier, sub-tiers, Shiny, fusão
 
 ## ✅ Processadas
 
