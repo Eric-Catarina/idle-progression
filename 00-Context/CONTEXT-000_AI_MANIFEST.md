@@ -48,6 +48,7 @@ A documentação é dividida em **4 pilares obrigatórios** via pastas e IDs ind
 ├── 📁 02-Architecture/  -> [SYSTEM-XXX] Arquitetura de Software, Design Patterns, TDD e ADRs.
 ├── 📁 03-Data/          -> [DATA-XXX] Fórmulas, curvas de escala, tabelas de dados e schemas JSON.
 ├── 📁 99-Inbox/         -> Ideias brutas (BRAINSTORM_STREAM.md). Consolidação via Modo C.
+│   └── 📁 reference/    -> Dumps de referência de outros jogos. NÃO carregar salvo quando relevante.
 └── 📁 tools/            -> Scripts de controle do vault (validate-vault.mjs).
 ```
 
@@ -323,6 +324,7 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Campanha** | Nó raiz da árvore de conteúdo (subtype `campaign`). | Não é uma feature; é a estrutura. |
 | **Mundo** | Agrupador de níveis (subtype `world`), ex: 5 níveis cada. | — |
 | **Nível** | Unidade de conteúdo 2D (subtype `level`): layout + desbloqueio. | Não confundir com nível de personagem/upgrade. |
+| **Selo (Stamp)** | Upgrade passivo permanente dropado de mobs; account-wide. Ver [[DESIGN-013]]. | Não confundir com "bribe" (buff comprado). |
 
 ---
 

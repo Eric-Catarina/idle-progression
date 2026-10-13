@@ -27,6 +27,7 @@ A campanha organiza todo o conteúdo jogável numa progressão **Mundo → Níve
 ## 2. Regras de Estrutura
 - Uma **Campanha** contém **N Mundos**.
 - Cada **Mundo** contém **5 Níveis**.
+- Cada **Mundo** tem **~3 Mecânicas Transversais** próprias (ex: Mundo 1 → [[DESIGN-013|Selos]]).
 - Cada **Nível** tem um **layout de plataformas 2D único**.
 - Completar o último nível de um Mundo desbloqueia o **próximo Mundo**.
 

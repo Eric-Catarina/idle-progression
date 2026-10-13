@@ -16,6 +16,7 @@
 - **Precisão numérica:** use BigNumber/BreakEternity para qualquer variável que escale exponencialmente.
 - **Validação:** rode `npm run validate` antes de commitar (há hook de pré-commit em `.githooks/`).
 - **Decomposição proativa:** em descrições de alto nível (mecânicas, skills, sistemas), extraia os elementos específicos e crie/atualize os documentos correspondentes no vault (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar pedido.
+- **Economia de contexto:** dumps de referência de outros jogos ficam em `99-Inbox/reference/` e **só** devem ser lidos quando se trabalha no sistema correspondente (ex: selos → `IDLEON_STAMPS_REFERENCE.md`). Nunca incluí-los em contexto sempre-carregado.
 
 ## Escopo deste arquivo
 

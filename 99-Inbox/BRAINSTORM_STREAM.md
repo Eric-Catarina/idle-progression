@@ -46,3 +46,4 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 - [x] Múltiplos Personagens no Mesmo Mapa -> [[DESIGN-001]]
 - [x] Sistema de Classes & Especialização (0–15 genérico, 15–50 base, 50–200 specs, classe secreta) -> [[DESIGN-005]]
 - [x] Meta espacial de mapas (vertical/horizontal/quadrado) + skills de exemplo -> [[DESIGN-006]]
+- [x] Mecânica transversal Mundo 1: Selos (Stamps) baseada no Idleon -> [[DESIGN-013]]

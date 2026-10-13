@@ -44,5 +44,8 @@ Mundo N
 └── Nível N-2
 ```
 
-## 7. Casos de Borda
+## 7. Mecânicas Transversais
+- Lista de ~3 mecânicas transversais do mundo (ex: [[DESIGN-013|Selos]]).
+
+## 8. Casos de Borda
 - Mundo sem níveis, nível faltante, retorno.

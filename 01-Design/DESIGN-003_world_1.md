@@ -39,7 +39,12 @@ dependencies:
 ## 5. Parâmetros
 - Curvas → [[DATA-XXX]].
 
-## 6. Mapa da Árvore
+## 6. Mecânicas Transversais
+- **#1 — [[DESIGN-013|Selos (Stamps)]]** (coleção dropada de mobs; account-wide).
+- #2 — _(a definir)_
+- #3 — _(a definir)_
+
+## 7. Mapa da Árvore
 ```text
 Mundo 1
 └── Nível 1-1
