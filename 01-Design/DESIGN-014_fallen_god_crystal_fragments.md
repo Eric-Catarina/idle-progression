@@ -79,8 +79,8 @@ Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 - **Gatilho:** cristais acumulados ≥ limiar do confronto ([[DATA-003]]).
 - **Resultado:** reseta geração/melhorias (mantém **Megacristais** e **Bônus do Golem**).
 - **Recompensa:** **+1 Megacristal** (na ordem — §7).
-- **Narrativa:** o Golem luta com uma divindade do mal, volta em pedaços, com o Megacristal brilhando.
-- **Escalação:** limiar cresce a cada confronto; 5 no total.
+- **Narrativa:** o Golem enfrenta **a mesma divindade do mal** a cada confronto (adversária recorrente), volta em pedaços, com o Megacristal brilhando.
+- **Escalação:** o limiar cresce a cada confronto (5 no total), mas a **adversária é sempre a mesma** (nome a definir — ver inbox). Arquétipo: **deus desmembrado/restaurado vs. usurpador** (ref. Osíris vs Set).
 
 ## 7. Os 5 Megacristais (permanentes, resistem ao prestígio)
 | # | Megacristal | Efeito |
@@ -104,7 +104,7 @@ Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 - Confronto: cutscene curta; retorna destruído + Megacristal.
 
 ## 10. Ganchos para o Futuro
-- Nomear o Golem e as **5 divindades do mal**.
+- Nomear o Golem e a **divindade do mal** (única, recorrente).
 - Pós-5 Megacristais: escala infinita (Should/Could).
 - Amarração com os **Selos** ([[DESIGN-013]]): dois eixos permanentes do Mundo 1.
 

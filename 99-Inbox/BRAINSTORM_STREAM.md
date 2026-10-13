@@ -36,7 +36,8 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 
 ### 🕹️ Mundo 1 — Mecânica Transversal #2: minigame idle de coleta
 - [x] Tema escolhido: **Deus Caído (Golem)** + **Fragmentos de Cristal** -> [[DESIGN-014]]
-- [ ] Definir nomes das 5 divindades do mal (confrontos de prestígio)
+- [ ] Nomear o **Golem**: Adamante · Corindo · Baetilo · Lithos · Aurun · Nemir · Kaelth
+- [ ] Nomear a **divindade do mal** (única, recorrente): Vorax · Kharos · Umbrix · Nihilus · Xerath · Ruptor
 
 ### 💎 Raridades
 - [ ] Escolher a escada de raridades (A–F propostas) e virar um CONTEXT de raridades
