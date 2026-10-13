@@ -60,7 +60,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      <b>Ctrl+Z</b> desfaz · <b>Ctrl+Shift+Z</b> (ou Ctrl+Y) refaz. Pinta, escolhe a cor (plat/portal) e exporta.
+      <b>Segure Ctrl pintando</b> = traço <b>horizontal</b> · <b>Ctrl+Z</b> desfaz · <b>Ctrl+Shift+Z</b>/Ctrl+Y refaz.
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -77,9 +77,6 @@ const PALETTE = [
   { id: 4, name: "Portal Entrada", color: "#51cf66", kind: "portal_in" },
   { id: 5, name: "Portal Saída",   color: "#f783ac", kind: "portal_out" },
   { id: 6, name: "Spawn Jogador",  color: "#ffd43b", kind: "spawn" },
-  { id: 7, name: "Spawn Inimigo",  color: "#ff6b6b", kind: "mob" },
-  { id: 8, name: "Checkpoint",     color: "#b197fc", kind: "checkpoint" },
-  { id: 9, name: "Perigo (lava)",  color: "#ff922b", kind: "hazard" },
 ];
 
 const state = { cols: 40, rows: 22, cell: 24, tool: "brush", current: 1 };
@@ -167,19 +164,32 @@ function draw() {
   for (let y = 0; y <= state.rows; y++) { ctx.beginPath(); ctx.moveTo(0,y*state.cell+0.5); ctx.lineTo(cv.width, y*state.cell+0.5); ctx.stroke(); }
 }
 
-let painting = false, eraseMode = false;
+let painting = false, eraseMode = false, strokeStart = null, lastPaint = null;
 function pos(e) {
   const r = cv.getBoundingClientRect();
   return { x: Math.floor((e.clientX - r.left) / state.cell), y: Math.floor((e.clientY - r.top) / state.cell) };
 }
+function cellBrush() { return (eraseMode || state.tool === "erase") ? 0 : state.current; }
+function setCell(x, y, id) { if (x < 0 || y < 0 || x >= state.cols || y >= state.rows) return; grid[y][x] = id; }
 function apply(e) {
   const { x, y } = pos(e);
-  if (state.tool === "fill") fill(x, y, eraseMode ? 0 : state.current);
-  else paintCell(x, y, (eraseMode || state.tool === "erase") ? 0 : state.current);
+  const id = cellBrush();
+  if (state.tool === "fill") { fill(x, y, id); lastPaint = { x, y }; return; }
+  const horiz = e.ctrlKey || e.metaKey; // segura Ctrl = traço horizontal
+  if (horiz && strokeStart) {
+    const row = strokeStart.y;
+    const from = Math.min(lastPaint.x, x), to = Math.max(lastPaint.x, x);
+    for (let cx = from; cx <= to; cx++) setCell(cx, row, id);
+    lastPaint = { x, y: row };
+  } else {
+    setCell(x, y, id);
+    lastPaint = { x, y };
+  }
+  draw();
 }
-cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; snapshot(); apply(e); });
+cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; strokeStart = pos(e); lastPaint = strokeStart; snapshot(); apply(e); });
 cv.addEventListener("mousemove", (e) => { const {x,y} = pos(e); $("status").textContent = `x:${x}  y:${y}  ·  id:${grid[y]?.[x] ?? "-"}`; if (painting) apply(e); });
-window.addEventListener("mouseup", () => painting = false);
+window.addEventListener("mouseup", () => { painting = false; strokeStart = null; lastPaint = null; });
 cv.addEventListener("contextmenu", (e) => e.preventDefault());
 
 function toJSON() {
