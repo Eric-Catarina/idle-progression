@@ -9,15 +9,15 @@ status: Spec Ready
 moscow: Should
 moscow_note: Camada de progressão da F2; o core loop valida com a classe Genérica.
 dependencies:
-  - "[[CONTEXT-006]]"
+  - "[[CONTEXT-006 Hierarquia|CONTEXT-006]]"
 ---
 
 # [DESIGN-005] Sistema de Classes & Especialização
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
-- **Justificativa:** O core loop (mover → lutar → acumular → prestigiar) valida com a classe Genérica. A escolha de classe é profundidade de progressão (F2). Ver [[CONTEXT-005]].
-- Ver [[CONTEXT-001]].
+- **Justificativa:** O core loop (mover → lutar → acumular → prestigiar) valida com a classe Genérica. A escolha de classe é profundidade de progressão (F2). Ver [[CONTEXT-005 Roadmap|CONTEXT-005]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 Organizar a identidade de combate do personagem em **três camadas** (Genérica → Base → Especialização), com uma **rota secreta** para quem domina o jogo "sem classe". Resolve o problema de "toda build vira igual" dando escolhas por papel (Boss/Mob/Suporte).
@@ -75,7 +75,7 @@ Organizar a identidade de combate do personagem em **três camadas** (Genérica 
 - **Badge** de classe no HUD.
 
 ## 9. Ganchos para o Futuro
-- Cada classe pode virar um **nó filho** deste DESIGN (`parent` → [[DESIGN-005]]), com suas skills como netos (ver [[CONTEXT-006]]).
+- Cada classe pode virar um **nó filho** deste DESIGN (`parent` → [[DESIGN-005 Classes|DESIGN-005]]), com suas skills como netos (ver [[CONTEXT-006 Hierarquia|CONTEXT-006]]).
 - **Sub-especializações** pós-200 (Should/Could).
 
 ## 10. Parâmetros
@@ -97,5 +97,5 @@ As skills de cada classe vivem em subpastas sob `01-Design/`:
 ```
 
 - Regra: `01-Design/classes/<base>/{bosser,mobber,suporte}/DESIGN-XXX_nome.md`.
-- Skills ainda **não atribuídas** a uma classe ficam na raiz de `01-Design/` (ex: mecânicas como [[DESIGN-012]]).
+- Skills ainda **não atribuídas** a uma classe ficam na raiz de `01-Design/` (ex: mecânicas como [[DESIGN-012 Jump Dash|DESIGN-012]]).
 - Mover é seguro: os vínculos usam o **ID** (`[[DESIGN-XXX]]`), não o caminho.

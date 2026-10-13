@@ -18,7 +18,7 @@ dependencies: []
 ## 0. Prioridade MoSCoW
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:**
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Tema & Visão
 - Estética, ambientação e o que diferencia este mundo.
@@ -45,7 +45,7 @@ Mundo N
 ```
 
 ## 7. Mecânicas Transversais
-- Lista de ~3 mecânicas transversais do mundo (ex: [[DESIGN-013|Selos]]).
+- Lista de ~3 mecânicas transversais do mundo (ex: [[DESIGN-013 Selos|Selos]]).
 
 ## 8. Casos de Borda
 - Mundo sem níveis, nível faltante, retorno.

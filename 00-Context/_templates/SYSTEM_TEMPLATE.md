@@ -29,4 +29,4 @@ dependencies: []
 
 ## 5. Pontos de Extensão & Escalabilidade (Should Futuro)
 - Seams, interfaces plugáveis ou eventos que permitem adicionar features `Should`/`Could` futuras sem refatoração estrutural.
-- **Não** implementar a feature futura — apenas expor o ponto de extensão. Ver [[CONTEXT-001]].
+- **Não** implementar a feature futura — apenas expor o ponto de extensão. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].

@@ -29,4 +29,4 @@ dependencies: []
 | Nível / Ponto | Valor Calculado | Formatação UI |
 | :--- | :--- | :--- |
 
-> A formatação UI segue [[CONTEXT-002]] (multiplicadores com 2 casas decimais).
+> A formatação UI segue [[CONTEXT-002 Multiplicadores|CONTEXT-002]] (multiplicadores com 2 casas decimais).

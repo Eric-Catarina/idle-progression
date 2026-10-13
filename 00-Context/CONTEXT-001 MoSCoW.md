@@ -9,7 +9,7 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-12
 dependencies:
-  - "[[CONTEXT-000]]"
+  - "[[CONTEXT-000 Manifesto|CONTEXT-000]]"
 tags:
   - context
   - convention
@@ -92,7 +92,7 @@ Ao promover um item:
 2. Se estava em `backlog/`, mover o arquivo para `01-Design/` (o wikilink por basename permanece válido).
 3. Criar/atualizar o `SYSTEM-XXX` correspondente (respeitando os pontos de extensão já existentes).
 4. Criar/atualizar o `DATA-XXX` se houver novas fórmulas.
-5. Atualizar o board [[DESIGN-000]].
+5. Atualizar o board [[DESIGN-000 Board MoSCoW|DESIGN-000]].
 
 ## 8. Board de Prioridades
 
@@ -112,6 +112,6 @@ O estado consolidado de todas as features por categoria vive em **`01-Design/DES
 
 ## 10. Relacionado
 
-- [[CONTEXT-000]] — Manifesto mestre.
-- [[DESIGN-000]] — Board MoSCoW.
-- [[CONTEXT-002]] — Notação de multiplicadores.
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre.
+- [[DESIGN-000 Board MoSCoW|DESIGN-000]] — Board MoSCoW.
+- [[CONTEXT-002 Multiplicadores|CONTEXT-002]] — Notação de multiplicadores.

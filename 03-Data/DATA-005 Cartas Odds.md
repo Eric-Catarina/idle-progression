@@ -6,20 +6,20 @@ title: "Cartas: Raridades, Drops e Pacotes"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-016]]"
+system: "[[DESIGN-016 Cartas|DESIGN-016]]"
 dependencies:
-  - "[[DESIGN-016]]"
-  - "[[CONTEXT-007]]"
+  - "[[DESIGN-016 Cartas|DESIGN-016]]"
+  - "[[CONTEXT-007 Raridades|CONTEXT-007]]"
 ---
 
 # [DATA-005] Cartas: Raridades, Drops e Pacotes
 
-> Pesos de raridade, drops e odds de pacote das **cartas**. A escala de raridade é a de [[CONTEXT-007]].
+> Pesos de raridade, drops e odds de pacote das **cartas**. A escala de raridade é a de [[CONTEXT-007 Raridades|CONTEXT-007]].
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |
 | :--- | :--- |
-| `raridade` | uma das 6 raridades ([[CONTEXT-007]]) |
+| `raridade` | uma das 6 raridades ([[CONTEXT-007 Raridades|CONTEXT-007]]) |
 | `peso` | peso relativo de sorteio/drop |
 | `cartasPorPacote` | nº de cartas por pacote |
 
@@ -95,4 +95,4 @@ options:
   color: ['#9775fa']
 ```
 
-> Formatação segue [[CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002]]). Valores `Draft` — calibrar.
+> Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002 Selos Curvas|DATA-002]]). Valores `Draft` — calibrar.

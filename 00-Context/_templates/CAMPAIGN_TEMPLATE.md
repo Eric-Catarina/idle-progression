@@ -13,12 +13,12 @@ dependencies: []
 
 # [DESIGN-XXX] Campanha: Nome
 
-> Raiz da árvore de conteúdo. Não tem `parent`. Ver [[CONTEXT-006]].
+> Raiz da árvore de conteúdo. Não tem `parent`. Ver [[CONTEXT-006 Hierarquia|CONTEXT-006]].
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:**
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 - Fantasia geral e escopo (quantos mundos, tema).

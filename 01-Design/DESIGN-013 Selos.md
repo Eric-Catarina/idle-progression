@@ -9,26 +9,26 @@ status: Draft
 moscow: Should
 moscow_note: Mecânica transversal do Mundo 1; agrega valor permanente, mas o core loop valida sem ela.
 dependencies:
-  - "[[DESIGN-003]]"
-data_spec: "[[DATA-002]]"
+  - "[[DESIGN-003 Mundo 1|DESIGN-003]]"
+data_spec: "[[DATA-002 Selos Curvas|DATA-002]]"
 ---
 
 # [DESIGN-013] Selos (Stamps)
 
-> **Mecânica Transversal #1 do [[DESIGN-003]] (Mundo 1).**
+> **Mecânica Transversal #1 do [[DESIGN-003 Mundo 1|DESIGN-003]] (Mundo 1).**
 > Referência do jogo de origem (Idleon): `99-Inbox/reference/IDLEON_STAMPS_REFERENCE.md` — **não carregar** salvo quando trabalhando em selos.
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
 - **Justificativa:** Mecânica transversal que dá progressão permanente, mas o core loop valida sem ela (F2).
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 **Selos** são upgrades passivos **permanentes**, obtidos ao **dropar de mobs**, que concedem bônus de combate e (no futuro) de outras atividades. Criam uma **coleção** que recompensa farmar diferentes mapas/mobs e dão um eixo de progressão que persiste além de um personagem.
 
 ## 2. Como Funcionam
 - **Drop:** mobs dropam selos; cada selo é único na coleção.
-- **Nível:** selos são **upgradeáveis com moedas**; o bônus escala com o nível ([[DATA-002]]).
+- **Nível:** selos são **upgradeáveis com moedas**; o bônus escala com o nível ([[DATA-002 Selos Curvas|DATA-002]]).
 - **Account-wide:** o progresso vale para a **conta**, não por personagem.
 - **Persistência:** nível de cada selo salvo no estado global.
 
@@ -38,7 +38,7 @@ data_spec: "[[DATA-002]]"
 - **Saída:** selo adicionado à coleção **ou** `level++` (se já possui); bônus recalculado.
 
 ## 4. Set Básico de Combate (ESTÁVEL — não será trocado)
-Apenas os selos cujo papel são **pilares numéricos** e que não mudam. Fórmulas em [[DATA-002]].
+Apenas os selos cujo papel são **pilares numéricos** e que não mudam. Fórmulas em [[DATA-002 Selos Curvas|DATA-002]].
 
 | Selo | Bônus | Fórmula |
 | :--- | :--- | :--- |
@@ -73,4 +73,4 @@ Apenas os selos cujo papel são **pilares numéricos** e que não mudam. Fórmul
 - Selos por **raridade** — usar a escada de raridades quando definida.
 
 ## 9. Relacionados
-- Mundo: [[DESIGN-003]] · Curvas: [[DATA-002]] · Referência: `99-Inbox/reference/IDLEON_STAMPS_REFERENCE.md`.
+- Mundo: [[DESIGN-003 Mundo 1|DESIGN-003]] · Curvas: [[DATA-002 Selos Curvas|DATA-002]] · Referência: `99-Inbox/reference/IDLEON_STAMPS_REFERENCE.md`.

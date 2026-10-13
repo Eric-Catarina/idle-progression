@@ -6,14 +6,14 @@ title: "Osíris: Geração de Cristais, Custos e Megacristais"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-014]]"
+system: "[[DESIGN-014 Osiris|DESIGN-014]]"
 dependencies:
-  - "[[DESIGN-014]]"
+  - "[[DESIGN-014 Osiris|DESIGN-014]]"
 ---
 
 # [DATA-003] Osíris: Geração de Cristais, Custos e Megacristais
 
-> Números da *enterprise* idle de Osíris (modelo Orion). Ver [[DESIGN-014]].
+> Números da *enterprise* idle de Osíris (modelo Orion). Ver [[DESIGN-014 Osiris|DESIGN-014]].
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |
@@ -91,4 +91,4 @@ options:
     position: 'bottom'
 ```
 
-> Formatação segue [[CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002]] §5). Valores `Draft` — calibrar.
+> Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002 Selos Curvas|DATA-002]] §5). Valores `Draft` — calibrar.

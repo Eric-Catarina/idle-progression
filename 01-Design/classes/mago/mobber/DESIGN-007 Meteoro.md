@@ -9,16 +9,16 @@ status: Draft
 moscow: Should
 moscow_note: Skill de Mobbing vertical; brilha em mapas altos (meta espacial).
 dependencies:
-  - "[[DESIGN-006]]"
+  - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 ---
 
 # [DESIGN-007] Skill: Meteoro
 
 ## 0. Prioridade MoSCoW
-- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001]].
+- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Fantasia
-Um meteoro é invocado no topo e **atravessa o mapa inteiro na vertical**, explodindo ao impactar. Símbolo de build vertical/física ([[DESIGN-006]]).
+Um meteoro é invocado no topo e **atravessa o mapa inteiro na vertical**, explodindo ao impactar. Símbolo de build vertical/física ([[DESIGN-006 Meta Espacial|DESIGN-006]]).
 
 ## 2. Contrato de Ativação (I/O)
 - **Input:** skill na barra.
@@ -38,7 +38,7 @@ Um meteoro é invocado no topo e **atravessa o mapa inteiro na vertical**, explo
 - Alvo móvel (X muda no meio da queda); mapa sem topo; múltiplos meteoros simultâneos; overflow de dano (BigNumber).
 
 ## 6. UI/UX & VFX
-- Rastro ígneo, tremor de tela no impacto, número de dano (formato [[CONTEXT-004]]).
+- Rastro ígneo, tremor de tela no impacto, número de dano (formato [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
 
 ## 7. Ganchos para o Futuro
 - Variantes: meteoro dividido, chuva de meteoros (Should/Could).

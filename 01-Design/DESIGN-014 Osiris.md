@@ -9,20 +9,20 @@ status: Draft
 moscow: Should
 moscow_note: Mecânica transversal do Mundo 1; enterprise idle com prestígio próprio, mas o core loop valida sem ela.
 dependencies:
-  - "[[DESIGN-003]]"
-  - "[[DESIGN-013]]"
-data_spec: "[[DATA-003]]"
+  - "[[DESIGN-003 Mundo 1|DESIGN-003]]"
+  - "[[DESIGN-013 Selos|DESIGN-013]]"
+data_spec: "[[DATA-003 Osiris Curvas|DATA-003]]"
 ---
 
 # [DESIGN-014] Osíris (Golem dos Cristais)
 
-> **Mecânica Transversal #2 do [[DESIGN-003]] (Mundo 1).**
+> **Mecânica Transversal #2 do [[DESIGN-003 Mundo 1|DESIGN-003]] (Mundo 1).**
 > Modelo: *enterprise* idle de **Orion/penas** (Idleon) reescrito para o Golem. Inspiração do confronto: **Muto** (Chu-Chu Island, *MapleStory*).
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
 - **Justificativa:** Progressão permanente com prestígio próprio; enriquece muito, mas o core loop valida sem ela (F2).
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 **Osíris**, um deus caído, é restaurado por fragmentos e passa a **produzir Cristais**. Você investe os Cristais em melhorias; no prestígio, ele enfrenta **Vorax** — volta destruído, mas traz um **Megacristal** permanente (que resiste ao prestígio; **5 no total**). *(Lore propositalmente leve.)*
@@ -76,7 +76,7 @@ Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 | 6 | +2 Todos os Stats |
 
 ## 6. O Grande Reinício (Prestígio / Confronto Divino)
-- **Gatilho:** cristais acumulados ≥ limiar do confronto ([[DATA-003]]).
+- **Gatilho:** cristais acumulados ≥ limiar do confronto ([[DATA-003 Osiris Curvas|DATA-003]]).
 - **Resultado:** reseta geração/melhorias (mantém **Megacristais** e **Bônus do Golem**).
 - **Recompensa:** **+1 Megacristal** (na ordem — §7).
 - **Narrativa:** Osíris enfrenta **Vorax** (adversário recorrente) e volta em pedaços, com o Megacristal.
@@ -105,7 +105,7 @@ Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 
 ## 10. Ganchos para o Futuro
 - Pós-5 Megacristais: escala infinita (Should/Could).
-- Amarração com os **Selos** ([[DESIGN-013]]): dois eixos permanentes do Mundo 1.
+- Amarração com os **Selos** ([[DESIGN-013 Selos|DESIGN-013]]): dois eixos permanentes do Mundo 1.
 
 ## 11. Relacionados
-- Mundo: [[DESIGN-003]] · Selos: [[DESIGN-013]] · Curvas: [[DATA-003]].
+- Mundo: [[DESIGN-003 Mundo 1|DESIGN-003]] · Selos: [[DESIGN-013 Selos|DESIGN-013]] · Curvas: [[DATA-003 Osiris Curvas|DATA-003]].

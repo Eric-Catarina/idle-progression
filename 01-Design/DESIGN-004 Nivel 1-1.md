@@ -8,20 +8,20 @@ subtype: level
 status: Draft
 moscow: Should
 moscow_note: Conteúdo da F2; primeiro nível que valida a estrutura de nível + desbloqueio.
-parent: "[[DESIGN-003]]"
+parent: "[[DESIGN-003 Mundo 1|DESIGN-003]]"
 path: "Campanha / Mundo 1 / Nível 1-1"
 dependencies:
-  - "[[CONTEXT-006]]"
+  - "[[CONTEXT-006 Hierarquia|CONTEXT-006]]"
 ---
 
 # [DESIGN-004] Nível 1-1: Rascunho
 
-> Nó-semente de exemplo ([[CONTEXT-006]]).
+> Nó-semente de exemplo ([[CONTEXT-006 Hierarquia|CONTEXT-006]]).
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
-- **Justificativa:** Primeiro nível da F2. Ver [[CONTEXT-005]].
-- Ver [[CONTEXT-001]].
+- **Justificativa:** Primeiro nível da F2. Ver [[CONTEXT-005 Roadmap|CONTEXT-005]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Objetivo
 - Introduzir o jogador ao loop de plataformas + combate.

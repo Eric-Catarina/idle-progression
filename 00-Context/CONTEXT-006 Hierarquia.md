@@ -9,8 +9,8 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-12
 dependencies:
-  - "[[CONTEXT-000]]"
-  - "[[CONTEXT-003]]"
+  - "[[CONTEXT-000 Manifesto|CONTEXT-000]]"
+  - "[[CONTEXT-003 Ciclo de Ideias|CONTEXT-003]]"
 tags:
   - context
   - convention
@@ -83,6 +83,6 @@ path: "Campanha / Mundo 1 / Nível 1-1"
 
 ## 8. Relacionado
 
-- [[CONTEXT-003]] — Ciclo de vida (ideia → spec).
-- [[CONTEXT-000]] — Manifesto mestre.
-- [[DESIGN-002]] — Campanha (raiz da árvore de conteúdo).
+- [[CONTEXT-003 Ciclo de Ideias|CONTEXT-003]] — Ciclo de vida (ideia → spec).
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre.
+- [[DESIGN-002 Campanha|DESIGN-002]] — Campanha (raiz da árvore de conteúdo).

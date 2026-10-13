@@ -9,21 +9,21 @@ status: Draft
 moscow: Should
 moscow_note: Mecânica transversal #3 do Mundo 1; coleção com raridades, mas o core loop valida sem ela.
 dependencies:
-  - "[[DESIGN-003]]"
-  - "[[DESIGN-013]]"
-  - "[[CONTEXT-007]]"
-data_spec: "[[DATA-005]]"
+  - "[[DESIGN-003 Mundo 1|DESIGN-003]]"
+  - "[[DESIGN-013 Selos|DESIGN-013]]"
+  - "[[CONTEXT-007 Raridades|CONTEXT-007]]"
+data_spec: "[[DATA-005 Cartas Odds|DATA-005]]"
 ---
 
 # [DESIGN-016] Cartas & Pacotinhos
 
-> **Mecânica Transversal #3 do [[DESIGN-003]] (Mundo 1).**
+> **Mecânica Transversal #3 do [[DESIGN-003 Mundo 1|DESIGN-003]] (Mundo 1).**
 > Inspiração: *Monster Collection* (MapleStory) + pacotes de cartas com raridade (gacha).
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
 - **Justificativa:** Eixo de coleção/dopamina que dá motivo para farmar mapas, mas o core loop valida sem ela (F2).
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 Uma **coleção de cartas** com **raridades**. Você obtém cartas ao **derrotar mobs** e ao abrir **pacotinhos**. Cada carta dá um bônus passivo; **completar conjuntos (sets)** dá bônus maiores. É o eixo "gacha/coleção" dopaminérgico que **conversa com mapas, mobs e drops**.
@@ -40,10 +40,10 @@ Uma **coleção de cartas** com **raridades**. Você obtém cartas ao **derrotar
 - **Saída:** carta adicionada (ou poeira); bônus de carta/set recalculados; persistido.
 
 ## 4. Raridades
-Escala compartilhada de [[CONTEXT-007]]: **Comum → Raro → Épico → Lendário → Extraordinário → Divino** (cores fixas). Pesos/odds das cartas em [[DATA-005]].
+Escala compartilhada de [[CONTEXT-007 Raridades|CONTEXT-007]]: **Comum → Raro → Épico → Lendário → Extraordinário → Divino** (cores fixas). Pesos/odds das cartas em [[DATA-005 Cartas Odds|DATA-005]].
 
 ## 5. Pacotinhos
-- **Tipos:** Comum, Premium, de **Mundo** (temático) e **Cósmico** (endgame) — odds em [[DATA-005]].
+- **Tipos:** Comum, Premium, de **Mundo** (temático) e **Cósmico** (endgame) — odds em [[DATA-005 Cartas Odds|DATA-005]].
 - Cada pacote concede `N` cartas com pesos por raridade; premium/cósmico aumentam as raridades altas.
 - **Diário:** 1 pacote grátis por dia (odds de Premium).
 - **Pity:** a cada **30 pacotes** sem **Lendário+**, o próximo garante um.
@@ -69,7 +69,7 @@ Cada **carta individual** dá um bônus pequeno; o **set completo** dá um bônu
 
 ## 9. Ganchos para o Futuro
 - Cartas por mundo; **fusão** de duplicatas; cartas-assinatura.
-- Amarração com **Selos** ([[DESIGN-013]]) e **Osíris** ([[DESIGN-014]]): três eixos permanentes no Mundo 1.
+- Amarração com **Selos** ([[DESIGN-013 Selos|DESIGN-013]]) e **Osíris** ([[DESIGN-014 Osiris|DESIGN-014]]): três eixos permanentes no Mundo 1.
 
 ## 10. Relacionados
-- Mundo: [[DESIGN-003]] · Selos: [[DESIGN-013]] · Curvas: [[DATA-005]].
+- Mundo: [[DESIGN-003 Mundo 1|DESIGN-003]] · Selos: [[DESIGN-013 Selos|DESIGN-013]] · Curvas: [[DATA-005 Cartas Odds|DATA-005]].

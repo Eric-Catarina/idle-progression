@@ -26,4 +26,4 @@ tags:
 - O que fazer nos extremos.
 
 ## 4. Relacionado
-- [[CONTEXT-000]] — Manifesto mestre.
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre.

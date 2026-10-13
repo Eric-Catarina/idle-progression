@@ -10,8 +10,8 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-12
 dependencies:
-  - "[[CONTEXT-001]]"
-  - "[[DESIGN-000]]"
+  - "[[CONTEXT-001 MoSCoW|CONTEXT-001]]"
+  - "[[DESIGN-000 Board MoSCoW|DESIGN-000]]"
 tags:
   - context
   - roadmap
@@ -23,7 +23,7 @@ tags:
 
 ## 1. Propósito
 
-Ancorar o MoSCoW ([[CONTEXT-001]]) a **fases de entrega concretas**. Sem fases, "Must/Should" vira opinião. Cada fase tem um objetivo de validação claro.
+Ancorar o MoSCoW ([[CONTEXT-001 MoSCoW|CONTEXT-001]]) a **fases de entrega concretas**. Sem fases, "Must/Should" vira opinião. Cada fase tem um objetivo de validação claro.
 
 ## 2. Fases
 
@@ -43,10 +43,10 @@ Ancorar o MoSCoW ([[CONTEXT-001]]) a **fases de entrega concretas**. Sem fases, 
 
 ## 4. Critério de Saída de Fase
 
-Uma fase só é considerada concluída quando **todos os itens `Must`/`Should` dela** estão `implemented` e o `npm run validate` passa. O board [[DESIGN-000]] é a fonte de verdade do progresso.
+Uma fase só é considerada concluída quando **todos os itens `Must`/`Should` dela** estão `implemented` e o `npm run validate` passa. O board [[DESIGN-000 Board MoSCoW|DESIGN-000]] é a fonte de verdade do progresso.
 
 ## 5. Relacionado
 
-- [[CONTEXT-001]] — Priorização MoSCoW (dona das categorias).
-- [[CONTEXT-003]] — Ciclo de vida das ideias.
-- [[DESIGN-000]] — Board de prioridades.
+- [[CONTEXT-001 MoSCoW|CONTEXT-001]] — Priorização MoSCoW (dona das categorias).
+- [[CONTEXT-003 Ciclo de Ideias|CONTEXT-003]] — Ciclo de vida das ideias.
+- [[DESIGN-000 Board MoSCoW|DESIGN-000]] — Board de prioridades.

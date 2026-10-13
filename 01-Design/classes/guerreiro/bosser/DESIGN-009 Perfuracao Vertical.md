@@ -9,16 +9,16 @@ status: Draft
 moscow: Should
 moscow_note: Skill vertical de perfuração; brilha em mapas altos.
 dependencies:
-  - "[[DESIGN-006]]"
+  - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 ---
 
 # [DESIGN-009] Skill: Perfuração Vertical
 
 ## 0. Prioridade MoSCoW
-- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001]].
+- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Fantasia
-Uma estaca/feixe **vertical** irrompe e **perfura tudo no eixo Y**, atravessando plataformas e inimigos empilhados. Recompensa mapas verticais ([[DESIGN-006]]).
+Uma estaca/feixe **vertical** irrompe e **perfura tudo no eixo Y**, atravessando plataformas e inimigos empilhados. Recompensa mapas verticais ([[DESIGN-006 Meta Espacial|DESIGN-006]]).
 
 ## 2. Contrato de Ativação (I/O)
 - **Input:** skill na barra / automática.

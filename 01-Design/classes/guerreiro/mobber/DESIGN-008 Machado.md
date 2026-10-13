@@ -9,13 +9,13 @@ status: Draft
 moscow: Should
 moscow_note: Skill de física com retorno (estilo Vampire Survivors); brilha em mapas abertos.
 dependencies:
-  - "[[DESIGN-006]]"
+  - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 ---
 
 # [DESIGN-008] Skill: Lançamento de Machado
 
 ## 0. Prioridade MoSCoW
-- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001]].
+- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Fantasia
 Um machado é arremessado, viaja com **física em arco**, **perfura** inimigos e **retorna** às mãos do personagem (padrão do machado de *Vampire Survivors*).

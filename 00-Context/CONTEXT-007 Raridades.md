@@ -9,7 +9,7 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-13
 dependencies:
-  - "[[CONTEXT-000]]"
+  - "[[CONTEXT-000 Manifesto|CONTEXT-000]]"
 tags:
   - context
   - convention
@@ -35,7 +35,7 @@ Definir uma **escala única de raridade** reutilizável por **todos** os sistema
 
 ## 3. Uso Compartilhado
 
-- **Mesma escala, sistemas diferentes:** Cartas ([[DESIGN-016]]), Itens, **Potencial de Itens**, Monstros, Mundos.
+- **Mesma escala, sistemas diferentes:** Cartas ([[DESIGN-016 Cartas|DESIGN-016]]), Itens, **Potencial de Itens**, Monstros, Mundos.
 - Cada sistema declara **seus próprios pesos** no respectivo `DATA`; **nomes e cores são idênticos** em todos.
 - Raridade é **ortogonal ao tipo de conteúdo**: uma carta Divina e um item Divino compartilham a mesma identidade visual.
 - Cada sistema pode dar um **significado mecânico** ao tier (ex: no sistema de cartas, tiers altos concedem keywords/efeitos únicos).
@@ -45,5 +45,5 @@ Definir uma **escala única de raridade** reutilizável por **todos** os sistema
 - Raridade alta na abertura → flash + som (dopamina imediata).
 
 ## 5. Relacionado
-- [[CONTEXT-000]] — Manifesto mestre.
-- [[DESIGN-016]] — Cartas (primeiro consumidor).
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre.
+- [[DESIGN-016 Cartas|DESIGN-016]] — Cartas (primeiro consumidor).

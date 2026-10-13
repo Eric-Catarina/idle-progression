@@ -6,14 +6,14 @@ title: "Map Shape → Mob/Drop Rate Scaling"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-006]]"
+system: "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 dependencies:
-  - "[[DESIGN-006]]"
+  - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 ---
 
 # [DATA-001] Map Shape → Mob/Drop Rate Scaling
 
-> Regula o **mobrate/droprate** conforme a forma do mapa (evita que mapas apertados/quadrados sejam farm genérico trivial). Ver [[DESIGN-006]].
+> Regula o **mobrate/droprate** conforme a forma do mapa (evita que mapas apertados/quadrados sejam farm genérico trivial). Ver [[DESIGN-006 Meta Espacial|DESIGN-006]].
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição | Faixa |
@@ -53,4 +53,4 @@ dependencies:
 | Quadrado | 20 | 4.0e6 | 5 | 0.800 | 0.50 | 0.75 | 0.60× |
 | Compacto | 15 | 1.5e6 | 10 | 0.667 | 0.25 | 0.625 | 0.42× |
 
-> Valores são **placeholder de balanceamento** (status `Draft`) — a refinar com simulação. Formatação de exibição segue [[CONTEXT-004]].
+> Valores são **placeholder de balanceamento** (status `Draft`) — a refinar com simulação. Formatação de exibição segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]].

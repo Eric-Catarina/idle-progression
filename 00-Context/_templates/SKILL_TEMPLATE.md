@@ -20,7 +20,7 @@ data_spec: "[[DATA-XXX]]"
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:**
 - **Critérios de Promoção:** (obrigatório para `Could`)
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Fantasia
 - O que a skill faz e a sensação que deve causar.
@@ -43,7 +43,7 @@ data_spec: "[[DATA-XXX]]"
 - Alvo morto no meio da animação, cooldown + spam de ativação, alvo fora de alcance, overflow de dano (BigNumber).
 
 ## 6. UI/UX & VFX
-- Ícone, animação, som, número de dano flutuante (formato [[CONTEXT-004]]).
+- Ícone, animação, som, número de dano flutuante (formato [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
 
 ## 7. Ganchos para o Futuro
 - Pontos de extensão para variantes/upgrades futuros.

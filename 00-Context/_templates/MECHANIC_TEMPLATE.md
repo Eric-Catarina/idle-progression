@@ -20,7 +20,7 @@ data_spec: "[[DATA-XXX]]"
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:**
 - **Critérios de Promoção:** (obrigatório para `Could`)
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 - Qual regra transversal a mecânica estabelece e que problema resolve.

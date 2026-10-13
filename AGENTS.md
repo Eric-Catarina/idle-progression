@@ -12,7 +12,8 @@
 - **`Could` não gera código:** vira um design completo em `01-Design/backlog/` com `status: Backlog` e `promote_when`.
 - **Frontmatter YAML obrigatório:** `id`, `aliases` (com o próprio ID), `title`, `type`, `status`, `moscow` (DESIGN/SYSTEM) e `dependencies`.
 - **Ao renomear / mover / reordenar IDs:** atualize **TODAS** as referências (wikilinks, frontmatter, board `[[DESIGN-000]]`, templates, skill). Nunca deixe wikilink órfão — use token temporário ao trocar a ordem de dois IDs.
-- **Nomenclatura de arquivos:** `<ID> <nome>.md` (ex: `CONTEXT-007 Raridades.md`); o `aliases` garante que `[[ID]]` resolva.
+- **Nomenclatura de arquivos:** `<ID> <nome>.md` (ex: `CONTEXT-007 Raridades.md`).
+- **Links:** use `[[<ID> <nome>|<ID>]]` (ex: `[[CONTEXT-007 Raridades|CONTEXT-007]]`) — resolve pelo **nome do arquivo**. Nunca `[[ID]]` curto.
 - **Precisão numérica:** use BigNumber/BreakEternity para qualquer variável que escale exponencialmente.
 - **Validação:** rode `npm run validate` antes de commitar (há hook de pré-commit em `.githooks/`).
 - **Decomposição proativa:** em descrições de alto nível (mecânicas, skills, sistemas), extraia os elementos específicos e crie/atualize os documentos correspondentes no vault (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar pedido.

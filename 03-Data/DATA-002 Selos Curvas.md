@@ -6,14 +6,14 @@ title: "Selos: Curvas de Bônus"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-013]]"
+system: "[[DESIGN-013 Selos|DESIGN-013]]"
 dependencies:
-  - "[[DESIGN-013]]"
+  - "[[DESIGN-013 Selos|DESIGN-013]]"
 ---
 
 # [DATA-002] Selos: Curvas de Bônus
 
-> Curvas de ganho de bônus por nível de selo. Ver [[DESIGN-013]].
+> Curvas de ganho de bônus por nível de selo. Ver [[DESIGN-013 Selos|DESIGN-013]].
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |
@@ -66,7 +66,7 @@ dependencies:
 | 200 | +15.38% |
 | 1.000 | +18.87% |
 
-> Formatação de exibição segue [[CONTEXT-004]] (percentuais com 2 casas). Valores `Draft` — calibrar em simulação.
+> Formatação de exibição segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]] (percentuais com 2 casas). Valores `Draft` — calibrar em simulação.
 
 ## 5. Gráfico da Curva (Charts View + Dataview)
 

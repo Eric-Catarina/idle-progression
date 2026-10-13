@@ -20,7 +20,7 @@ data_spec: "[[DATA-XXX]]"
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:** Por que esta categoria e não a vizinha.
 - **Critérios de Promoção:** (obrigatório para `Could`) o que precisa estar pronto no core loop.
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 - O que é a feature em termos funcionais e qual problema de game design ela resolve.

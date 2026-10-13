@@ -9,8 +9,8 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-12
 dependencies:
-  - "[[CONTEXT-000]]"
-  - "[[CONTEXT-001]]"
+  - "[[CONTEXT-000 Manifesto|CONTEXT-000]]"
+  - "[[CONTEXT-001 MoSCoW|CONTEXT-001]]"
 tags:
   - context
   - convention
@@ -32,7 +32,7 @@ Definir o **caminho controlado de uma ideia**: da captura bruta até virar spec 
 | `raw` | `99-Inbox/BRAINSTORM_STREAM.md` | Uma frase de ideia (checkbox `- [ ]`). | `triaged` |
 | `triaged` | Inbox ou `DESIGN` em Draft | Classificada em pilar + MoSCoW preliminar. | `specified` |
 | `specified` | `01-Design/` | `DESIGN` com I/O, passo a passo e edge cases. | `prioritized` |
-| `prioritized` | `01-Design/` + board | `moscow` + `moscow_note`; listada no [[DESIGN-000]]. | `implemented` / `Backlog` |
+| `prioritized` | `01-Design/` + board | `moscow` + `moscow_note`; listada no [[DESIGN-000 Board MoSCoW|DESIGN-000]]. | `implemented` / `Backlog` |
 | `Backlog` | `01-Design/backlog/` | `moscow: Could` + `promote_when`. | `specified` (promoção) |
 | `implemented` | `01-Design/` | `SYSTEM` `Done` + `DATA` `Balanced`. | — |
 | `dropped` | Inbox `_archive/` | Motivo registrado. | — |
@@ -70,6 +70,6 @@ Definir o **caminho controlado de uma ideia**: da captura bruta até virar spec 
 
 ## 7. Relacionado
 
-- [[CONTEXT-000]] — Manifesto mestre (Modo C – Inbox Processor).
-- [[CONTEXT-001]] — Priorização MoSCoW.
-- [[DESIGN-000]] — Board de prioridades.
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre (Modo C – Inbox Processor).
+- [[CONTEXT-001 MoSCoW|CONTEXT-001]] — Priorização MoSCoW.
+- [[DESIGN-000 Board MoSCoW|DESIGN-000]] — Board de prioridades.

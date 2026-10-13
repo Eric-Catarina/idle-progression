@@ -8,7 +8,7 @@ status: Active
 moscow: Must
 moscow_note: O board é a fonte de verdade de priorização; deve existir desde o início.
 dependencies:
-  - "[[CONTEXT-001]]"
+  - "[[CONTEXT-001 MoSCoW|CONTEXT-001]]"
 tags:
   - design
   - priority
@@ -19,7 +19,7 @@ tags:
 # 🎯 [DESIGN-000] MoSCoW Priority Board
 
 > **Fonte de verdade da priorização do projeto.** Consulte antes de criar qualquer novo `DESIGN`.
-> Regras completas em [[CONTEXT-001]]. Escopo do protótipo = **Must + Should**.
+> Regras completas em [[CONTEXT-001 MoSCoW|CONTEXT-001]]. Escopo do protótipo = **Must + Should**.
 
 ---
 
@@ -57,7 +57,7 @@ Documentado, **sem código**. Vive em `01-Design/backlog/`.
 
 | ID | Feature | Arquivo | Promover Quando |
 | :--- | :--- | :--- | :--- |
-| DESIGN-001 | Múltiplos Personagens no Mesmo Mapa | [[DESIGN-001]] | Core loop validado e necessidade de profundidade tática. |
+| DESIGN-001 | Múltiplos Personagens no Mesmo Mapa | [[DESIGN-001 Multi Personagens|DESIGN-001]] | Core loop validado e necessidade de profundidade tática. |
 
 ---
 
@@ -74,7 +74,7 @@ Documentado para evitar retrabalho e ambiguidade. Sem ganchos.
 
 ## 📌 Como Usar
 
-1. Ao criar uma feature, classifique com [[CONTEXT-001]].
+1. Ao criar uma feature, classifique com [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 2. `Must`/`Should` → criar `DESIGN-XXX` em `01-Design/`.
 3. `Could` → criar `DESIGN-XXX` em `01-Design/backlog/` com `status: Backlog`.
 4. `Wont` → registrar a exclusão aqui, sem criar arquivo.

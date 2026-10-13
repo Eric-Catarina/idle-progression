@@ -9,13 +9,13 @@ status: Draft
 moscow: Should
 moscow_note: Invocação horizontal (Suporte/Mobbing); brilha em mapas largos.
 dependencies:
-  - "[[DESIGN-006]]"
+  - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 ---
 
 # [DESIGN-011] Skill: Summon Corredor
 
 ## 0. Prioridade MoSCoW
-- **Categoria:** Should · **Justificativa:** profundidade de skill; encaixa no papel Suporte/Mobbing ([[DESIGN-005]]). Ver [[CONTEXT-001]].
+- **Categoria:** Should · **Justificativa:** profundidade de skill; encaixa no papel Suporte/Mobbing ([[DESIGN-005 Classes|DESIGN-005]]). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Fantasia
 Invoca um aliado que **corre muito rápido na horizontal**, atropelando inimigos ao longo do caminho. Ideal para builds de Suporte/Mobbing em **mapas largos**.

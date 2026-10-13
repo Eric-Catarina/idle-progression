@@ -9,17 +9,17 @@ status: Spec Ready
 moscow: Must
 moscow_note: Estrutura raiz que organiza todo o conteúdo jogável.
 dependencies:
-  - "[[CONTEXT-006]]"
+  - "[[CONTEXT-006 Hierarquia|CONTEXT-006]]"
 ---
 
 # [DESIGN-002] Campanha: Estrutura de Conteúdo
 
-> **Raiz da árvore de conteúdo** (sem `parent`). Regras de hierarquia em [[CONTEXT-006]].
+> **Raiz da árvore de conteúdo** (sem `parent`). Regras de hierarquia em [[CONTEXT-006 Hierarquia|CONTEXT-006]].
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Must
 - **Justificativa:** Sem uma estrutura de mundos/níveis não há como organizar o conteúdo nem o desbloqueio progressivo.
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
 A campanha organiza todo o conteúdo jogável numa progressão **Mundo → Nível**. Cada nível é um desafio de plataformas 2D com layout próprio, e o avanço é gated por desempenho (matar monstros).
@@ -27,7 +27,7 @@ A campanha organiza todo o conteúdo jogável numa progressão **Mundo → Níve
 ## 2. Regras de Estrutura
 - Uma **Campanha** contém **N Mundos**.
 - Cada **Mundo** contém **5 Níveis**.
-- Cada **Mundo** tem **~3 Mecânicas Transversais** próprias (ex: Mundo 1 → [[DESIGN-013|Selos]]).
+- Cada **Mundo** tem **~3 Mecânicas Transversais** próprias (ex: Mundo 1 → [[DESIGN-013 Selos|Selos]]).
 - Cada **Nível** tem um **layout de plataformas 2D único**.
 - Completar o último nível de um Mundo desbloqueia o **próximo Mundo**.
 

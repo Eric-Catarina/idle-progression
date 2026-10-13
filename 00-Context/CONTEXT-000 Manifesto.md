@@ -55,9 +55,9 @@ A documentação é dividida em **4 pilares obrigatórios** via pastas e IDs ind
 ### Regras de Vinculação Bidirecional (Wikilinks)
 
 - Nenhuma especificação de sistema (DESIGN) existe sem referenciar seu suporte técnico (SYSTEM) e matemático (DATA).
-- Formato padrão de referência cruzada: [[DESIGN-XXX]], [[SYSTEM-XXX]], [[DATA-XXX]], [[CONTEXT-XXX]].
-- Cada documento declara seu próprio ID como `alias` no frontmatter, para que os wikilinks curtos (`[[CONTEXT-001]]`) resolvam corretamente no Obsidian.
-- Hierarquia usa o campo `parent` (*parte-de*), não um wikilink solto: ver [[CONTEXT-006]].
+- Formato padrão de referência cruzada: `[[<ID> <nome>|<ID>]]` (ex: `[[DESIGN-001 Multi Personagens|DESIGN-001]]`) — resolve pelo **nome do arquivo**.
+- Cada documento declara seu ID em `aliases` (redundância útil); os links usam o **nome do arquivo** com o ID como texto exibido.
+- Hierarquia usa o campo `parent` (*parte-de*), não um wikilink solto: ver [[CONTEXT-006 Hierarquia|CONTEXT-006]].
 
 ---
 
@@ -75,7 +75,7 @@ Quando o usuário trouxer ideias, mecânicas ou ajustes conceituais:
    - Happy Path (execução nominal).
    - Failure Path (o que ocorre quando falha, recurso insuficiente, input inválido).
    - Edge Cases (spam de clique, limites da tela, troca de cena, números gigantes/overflow).
-4. **Classifique a prioridade (MoSCoW):** Todo documento `DESIGN` e `SYSTEM` **deve** declarar `moscow` no frontmatter conforme [[CONTEXT-001]]. O escopo do protótipo é **apenas Must + Should**. Features `Could` vão para `01-Design/backlog/` com `status: Backlog` e **não** geram código.
+4. **Classifique a prioridade (MoSCoW):** Todo documento `DESIGN` e `SYSTEM` **deve** declarar `moscow` no frontmatter conforme [[CONTEXT-001 MoSCoW|CONTEXT-001]]. O escopo do protótipo é **apenas Must + Should**. Features `Could` vão para `01-Design/backlog/` com `status: Backlog` e **não** geram código.
 5. **Crie os arquivos** seguindo estritamente os templates oficiais da seção 6 deste documento (ou copie de `00-Context/_templates/`).
 6. **Decomposição proativa:** extraia elementos citados de passagem (ex: uma skill mencionada como exemplo) e crie/atualize os documentos correspondentes (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar ser solicitado.
 
@@ -91,7 +91,7 @@ Quando o usuário solicitar a implementação de uma funcionalidade:
    - NÃO misture lógica de jogo com código de interface ou visual.
    - Mantenha a simulação desacoplada para suportar cálculos de progresso offline instantâneos.
    - Utilize bibliotecas de precisão numérica arbitrária (BigNumber / BreakEternity) para qualquer variável que escale exponencialmente.
-3. **Respeite a Prioridade:** Não implemente features `Could` ou `Wont`. Ao tocar um módulo `Must`/`Should`, exponha os pontos de extensão previstos para features `Should` futuras **sem** implementá-las (ver [[CONTEXT-001]] §6).
+3. **Respeite a Prioridade:** Não implemente features `Could` ou `Wont`. Ao tocar um módulo `Must`/`Should`, exponha os pontos de extensão previstos para features `Should` futuras **sem** implementá-las (ver [[CONTEXT-001 MoSCoW|CONTEXT-001]] §6).
 
 ### Modo C: "Inbox Processor" (Consolidação de Ideias Brutas)
 
@@ -111,7 +111,7 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
 ## 4. Convenções e Regras Inegociáveis do Projeto
 
 1. **Notação de Multiplicadores na Interface:**
-   - Conforme [[CONTEXT-002]], todos os bônus percentuais e multiplicadores exibidos ao usuário na UI devem seguir o formato estrito: x + valor com 2 casas decimais.
+   - Conforme [[CONTEXT-002 Multiplicadores|CONTEXT-002]], todos os bônus percentuais e multiplicadores exibidos ao usuário na UI devem seguir o formato estrito: x + valor com 2 casas decimais.
    - Exemplo: +5% → x1.05 | +100% → x2.00.
 2. **Padrão de Nomenclatura de Arquivos:**
    - O nome do arquivo é `<ID> <nome_curto>.md` (ex: `DESIGN-001 Multi Personagens.md`); o `id`/`aliases` garante que os wikilinks curtos `[[ID]]` resolvam no Obsidian:
@@ -119,7 +119,7 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
      - `SYSTEM-001 Kinematics.md`
      - `DATA-001 Speed Curves.md`
 3. **Prioridade Obrigatória (MoSCoW):**
-   - Todo documento `DESIGN-XXX` e `SYSTEM-XXX` **deve** declarar `moscow: Must | Should | Could | Wont` no frontmatter. Ver [[CONTEXT-001]].
+   - Todo documento `DESIGN-XXX` e `SYSTEM-XXX` **deve** declarar `moscow: Must | Should | Could | Wont` no frontmatter. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
    - O escopo do protótipo é **Must + Should**. `Could` é documentado no backlog sem código; `Wont` registra a exclusão consciente.
    - `DATA-XXX` herda a prioridade do seu `system`.
 4. **Frontmatter YAML Obrigatório:**
@@ -127,7 +127,7 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - `DESIGN` declara também `subtype: system | skill | mechanic | campaign | world | level`.
    - Arquivos operacionais (raiz: `README.md`, `AGENTS.md`; e `99-Inbox/`) são isentos.
 5. **Integridade de Referências (Renomear / Mover / Reordenar IDs):**
-   - Sempre que um `ID`, nome de arquivo, pasta ou escopo de documento mudar, atualize **todas** as referências afetadas no mesmo passo: wikilinks (`[[...]]`), frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board [[DESIGN-000]], os templates de `00-Context/_templates/`, a skill `skills/progression-idle/SKILL.md` e o `AGENTS.md`.
+   - Sempre que um `ID`, nome de arquivo, pasta ou escopo de documento mudar, atualize **todas** as referências afetadas no mesmo passo: wikilinks (`[[...]]`), frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board [[DESIGN-000 Board MoSCoW|DESIGN-000]], os templates de `00-Context/_templates/`, a skill `skills/progression-idle/SKILL.md` e o `AGENTS.md`.
    - Ao **trocar a ordem de dois IDs** (ex: `001` ⇄ `002`), nunca substitua em sequência — use um token temporário para evitar colisão durante a troca.
    - Nunca deixe um wikilink órfão: ao final, busque pelas referências antigas para confirmar que não sobrou nenhuma.
 6. **Governança de Regras (onde registrar cada coisa):**
@@ -135,23 +135,23 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
    - Toda nova demanda/regra deve ser registrada no local mais adequado: **transversal** → `AGENTS.md`; **específico** (feature, fórmula, convenção de domínio) → o documento correspondente no vault (`00-Context/`, `01-Design/`, `02-Architecture/`, `03-Data/`).
    - Convenções de domínio viram um documento `CONTEXT-XXX`; regras de uma feature vivem no `DESIGN`/`SYSTEM`/`DATA` dela.
 7. **Ciclo de Vida das Ideias:**
-   - Toda ideia segue o pipeline de [[CONTEXT-003]]: `raw → triaged → specified → prioritized → implemented | backlog`.
+   - Toda ideia segue o pipeline de [[CONTEXT-003 Ciclo de Ideias|CONTEXT-003]]: `raw → triaged → specified → prioritized → implemented | backlog`.
    - Captura em `99-Inbox/BRAINSTORM_STREAM.md`; consolidação pelo Modo C.
 8. **Validação do Vault (obrigatória):**
    - Toda alteração deve passar por `npm run validate` (ou pelo hook de pré-commit em `.githooks/`), que verifica frontmatter, wikilinks órfãos, referências cruzadas e IDs.
 9. **Formatação Numérica:**
-   - Valores exponenciais seguem a escada de sufixos de [[CONTEXT-004]]: armazenar cru (BigNumber) e formatar apenas na exibição.
+   - Valores exponenciais seguem a escada de sufixos de [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]: armazenar cru (BigNumber) e formatar apenas na exibição.
 10. **Hierarquia & Decomposição:**
-    - Todo nó pode ter `parent` único e `path`; a árvore segue [[CONTEXT-006]] (`parent` = *parte-de*, nunca vínculo de implementação).
+    - Todo nó pode ter `parent` único e `path`; a árvore segue [[CONTEXT-006 Hierarquia|CONTEXT-006]] (`parent` = *parte-de*, nunca vínculo de implementação).
     - Filhos herdam a prioridade (`moscow`) do pai, salvo override explícito.
 11. **Escala de Raridade Única:**
-    - Todos os sistemas (cartas, itens, potencial, monstros, mundos) usam a escala de [[CONTEXT-007]] (Comum→Divino). Nunca criar escalas paralelas; **pesos/odds** ficam no `DATA` de cada sistema.
+    - Todos os sistemas (cartas, itens, potencial, monstros, mundos) usam a escala de [[CONTEXT-007 Raridades|CONTEXT-007]] (Comum→Divino). Nunca criar escalas paralelas; **pesos/odds** ficam no `DATA` de cada sistema.
 
 ---
 
 ## 5. Prioridade de Features (MoSCoW)
 
-O projeto usa a técnica **MoSCoW** para decidir o que entra no protótipo e o que é guardado para o futuro. As regras completas vivem em [[CONTEXT-001]]; o estado consolidado vive no [[DESIGN-000]].
+O projeto usa a técnica **MoSCoW** para decidir o que entra no protótipo e o que é guardado para o futuro. As regras completas vivem em [[CONTEXT-001 MoSCoW|CONTEXT-001]]; o estado consolidado vive no [[DESIGN-000 Board MoSCoW|DESIGN-000]].
 
 | Categoria | Papel no Protótipo | Destino |
 | :--- | :--- | :--- |
@@ -160,7 +160,7 @@ O projeto usa a técnica **MoSCoW** para decidir o que entra no protótipo e o q
 | **Could** | Desejável, adiado. | `01-Design/backlog/` |
 | **Wont** | Fora de escopo nesta fase. | Registrado no board |
 
-**Regra transversal de escalabilidade:** todo `SYSTEM` que pode receber features `Should` futuras deve expor **pontos de extensão** documentados ([[CONTEXT-001]] §6), mas **nunca** implementar a feature futura especulativamente.
+**Regra transversal de escalabilidade:** todo `SYSTEM` que pode receber features `Should` futuras deve expor **pontos de extensão** documentados ([[CONTEXT-001 MoSCoW|CONTEXT-001]] §6), mas **nunca** implementar a feature futura especulativamente.
 
 ---
 
@@ -326,9 +326,9 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Campanha** | Nó raiz da árvore de conteúdo (subtype `campaign`). | Não é uma feature; é a estrutura. |
 | **Mundo** | Agrupador de níveis (subtype `world`), ex: 5 níveis cada. | — |
 | **Nível** | Unidade de conteúdo 2D (subtype `level`): layout + desbloqueio. | Não confundir com nível de personagem/upgrade. |
-| **Selo (Stamp)** | Upgrade passivo permanente dropado de mobs; account-wide. Ver [[DESIGN-013]]. | Não confundir com "bribe" (buff comprado). |
-| **Cartas & Pacotinhos** | Coleção com raridades; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-016]]. | — |
-| **Raridade** | Escala única reutilizável (6 tiers: Comum→Divino). Ver [[CONTEXT-007]]. | Não criar escalas de raridade paralelas por sistema. |
+| **Selo (Stamp)** | Upgrade passivo permanente dropado de mobs; account-wide. Ver [[DESIGN-013 Selos|DESIGN-013]]. | Não confundir com "bribe" (buff comprado). |
+| **Cartas & Pacotinhos** | Coleção com raridades; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-016 Cartas|DESIGN-016]]. | — |
+| **Raridade** | Escala única reutilizável (6 tiers: Comum→Divino). Ver [[CONTEXT-007 Raridades|CONTEXT-007]]. | Não criar escalas de raridade paralelas por sistema. |
 
 ---
 

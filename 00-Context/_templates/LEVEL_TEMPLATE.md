@@ -18,7 +18,7 @@ dependencies: []
 ## 0. Prioridade MoSCoW
 - **Categoria:** Must | Should | Could | Wont
 - **Justificativa:**
-- Ver [[CONTEXT-001]].
+- Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Objetivo
 - Fantasia do nível e que progressão ele entrega.

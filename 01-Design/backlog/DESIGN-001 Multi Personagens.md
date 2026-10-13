@@ -9,8 +9,8 @@ moscow: Could
 moscow_note: Profundidade tática e coleção; não é necessário para validar o core loop.
 promote_when: "Core loop (tap-to-move + combate + progressão + prestígio) validado E necessidade de composição de time para escalar DPS."
 dependencies:
-  - "[[DESIGN-000]]"
-  - "[[CONTEXT-001]]"
+  - "[[DESIGN-000 Board MoSCoW|DESIGN-000]]"
+  - "[[CONTEXT-001 MoSCoW|CONTEXT-001]]"
 tech_spec: "[[SYSTEM-XXX]]"
 data_spec: "[[DATA-XXX]]"
 tags:
@@ -22,7 +22,7 @@ tags:
 
 # [DESIGN-001] Múltiplos Personagens no Mesmo Mapa
 
-> **Categoria MoSCoW: `Could`** — este documento está **guardado no backlog**. Nenhum código deve ser escrito até a promoção. Ver [[CONTEXT-001]].
+> **Categoria MoSCoW: `Could`** — este documento está **guardado no backlog**. Nenhum código deve ser escrito até a promoção. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Could
@@ -49,7 +49,7 @@ Permitir que **dois ou mais personagens** coexistam, naveguem e combatam no mesm
 - **Personagens na mesma plataforma:** resolução de colisão lateral por separação mínima de `X` pixels (evitar sobreposição total).
 - **Dois personagens no mesmo nó de destino:** o segundo enfileira ou escolhe o nó adjacente livre.
 - **Morte de um personagem:** os demais continuam; o slot morto entra em cooldown de revive.
-- **Overflow de DPS:** agregação usa BigNumber ([[CONTEXT-001]] §6 e manifesto §3).
+- **Overflow de DPS:** agregação usa BigNumber ([[CONTEXT-001 MoSCoW|CONTEXT-001]] §6 e manifesto §3).
 
 ## 5. UI/UX e Feedback
 - Retratos da party em barra lateral com HP individual.

@@ -44,7 +44,7 @@ A documentação é dividida em **4 pilares obrigatórios**, identificados por p
 ### Regras de vinculação
 
 * Nenhuma spec de sistema (`DESIGN`) existe sem referenciar seu suporte técnico (`SYSTEM`) e matemático (`DATA`).
-* Referências cruzadas via wikilinks curtos: `[[DESIGN-XXX]]`, `[[SYSTEM-XXX]]`, `[[DATA-XXX]]`, `[[CONTEXT-XXX]]`. Cada nota declara seu ID em `aliases` no frontmatter para que os links resolvam no Obsidian.
+* Referências cruzadas via wikilinks no formato `[[<ID> <nome>|<ID>]]` (ex: `[[DESIGN-013 Selos|DESIGN-013]]`), que resolve pelo **nome do arquivo** (independe de alias).
 
 ---
 

@@ -9,16 +9,16 @@ status: Draft
 moscow: Should
 moscow_note: Skill horizontal de linha; brilha em mapas largos.
 dependencies:
-  - "[[DESIGN-006]]"
+  - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 ---
 
 # [DESIGN-010] Skill: Raio Laser
 
 ## 0. Prioridade MoSCoW
-- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001]].
+- **Categoria:** Should · **Justificativa:** profundidade de skill (F2). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Fantasia
-Um **feixe horizontal** atravessa o mapa inteiro, queimando tudo na linha. Símbolo de build horizontal ([[DESIGN-006]]).
+Um **feixe horizontal** atravessa o mapa inteiro, queimando tudo na linha. Símbolo de build horizontal ([[DESIGN-006 Meta Espacial|DESIGN-006]]).
 
 ## 2. Contrato de Ativação (I/O)
 - **Input:** skill na barra / canalizada.

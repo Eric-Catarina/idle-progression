@@ -9,7 +9,7 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-12
 dependencies:
-  - "[[CONTEXT-000]]"
+  - "[[CONTEXT-000 Manifesto|CONTEXT-000]]"
 tags:
   - context
   - convention
@@ -54,4 +54,4 @@ x<input>.<2 casas decimais>
 
 ## 5. Relacionado
 
-- [[CONTEXT-000]] — Manifesto mestre que define esta convenção.
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre que define esta convenção.

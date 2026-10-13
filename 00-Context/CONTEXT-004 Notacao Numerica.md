@@ -9,8 +9,8 @@ status: Active
 version: 1.0.0
 last_updated: 2026-10-12
 dependencies:
-  - "[[CONTEXT-000]]"
-  - "[[CONTEXT-002]]"
+  - "[[CONTEXT-000 Manifesto|CONTEXT-000]]"
+  - "[[CONTEXT-002 Multiplicadores|CONTEXT-002]]"
 tags:
   - context
   - convention
@@ -29,7 +29,7 @@ Padronizar **como valores exponenciais são armazenados e exibidos**. O jogo esc
 
 - **Armazenamento:** sempre o número exato (BigNumber). Nunca guardar string formatada.
 - **Exibição:** aplicar a escada de sufixos (abaixo) na UI e nas tabelas de simulação dos `DATA`.
-- A formatação de multiplicadores é regida por [[CONTEXT-002]] (`x1.05`).
+- A formatação de multiplicadores é regida por [[CONTEXT-002 Multiplicadores|CONTEXT-002]] (`x1.05`).
 
 ## 3. Escada de Sufixos
 
@@ -53,11 +53,11 @@ Padronizar **como valores exponenciais são armazenados e exibidos**. O jogo esc
 ## 4. Casos de Borda
 
 - **Números muito grandes (`> 1e33`):** migrar para notação científica `1.23e45` (definir o corte no `DATA`).
-- **Negativos / penalidades:** seguir [[CONTEXT-002]] (`x0.80`).
+- **Negativos / penalidades:** seguir [[CONTEXT-002 Multiplicadores|CONTEXT-002]] (`x0.80`).
 - **Tempo:** formatar separadamente (`1d 4h 32m`), não usar a escada de sufixos.
 - **Localização:** separador decimal sempre `.` (ponto), por consistência técnica.
 
 ## 5. Relacionado
 
-- [[CONTEXT-002]] — Notação de multiplicadores.
-- [[CONTEXT-000]] — Manifesto mestre.
+- [[CONTEXT-002 Multiplicadores|CONTEXT-002]] — Notação de multiplicadores.
+- [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre.
