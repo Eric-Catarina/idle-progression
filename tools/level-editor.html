@@ -50,6 +50,9 @@
     <button class="tool active" data-tool="brush">🖌 Pincel</button>
     <button class="tool" data-tool="erase">🧽 Borracha</button>
     <button class="tool" data-tool="fill">🪣 Preencher</button>
+    <button class="tool" data-tool="select">⬚ Selecionar</button>
+    <button id="copySel">⧉ Copiar área</button>
+    <button id="pasteSel">📥 Colar</button>
   </div>
   <div class="palette" id="palette"></div>
 </header>
@@ -60,7 +63,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      <b>Segure Ctrl (ou Shift) pintando</b> = traço <b>horizontal</b> · <b>Ctrl+Z</b> desfaz · <b>Ctrl+Shift+Z</b>/Ctrl+Y refaz.
+      <b>Segure Ctrl (ou Shift) pintando</b> = traço <b>horizontal</b> · <b>⬚ Selecionar</b> + <b>Ctrl+C / Ctrl+V</b> copia/cola área · <b>Ctrl+Z</b> desfaz.
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -81,6 +84,9 @@ const PALETTE = [
 
 const state = { cols: 55, rows: 21, cell: 21, tool: "brush", current: 1 };
 let grid = [];
+let selection = null;   // {x0,y0,x1,y1}
+let clipboard = null;   // {w,h,data}
+let hover = { x: 0, y: 0 };
 const undoStack = [], redoStack = [];
 const MAX_HISTORY = 200;
 function snapshot() {
@@ -163,17 +169,32 @@ function draw() {
       ctx.fillStyle = p.color;
       ctx.fillRect(x*state.cell, y*state.cell, state.cell, state.cell);
     }
-  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  // grade (linhas a cada 5 mais visíveis)
   ctx.lineWidth = 1;
-  for (let x = 0; x <= state.cols; x++) { ctx.beginPath(); ctx.moveTo(x*state.cell+0.5,0); ctx.lineTo(x*state.cell+0.5, cv.height); ctx.stroke(); }
-  for (let y = 0; y <= state.rows; y++) { ctx.beginPath(); ctx.moveTo(0,y*state.cell+0.5); ctx.lineTo(cv.width, y*state.cell+0.5); ctx.stroke(); }
+  for (let x = 0; x <= state.cols; x++) {
+    ctx.strokeStyle = (x % 5 === 0) ? "rgba(255,255,255,0.34)" : "rgba(255,255,255,0.16)";
+    ctx.beginPath(); ctx.moveTo(x*state.cell+0.5, 0); ctx.lineTo(x*state.cell+0.5, cv.height); ctx.stroke();
+  }
+  for (let y = 0; y <= state.rows; y++) {
+    ctx.strokeStyle = (y % 5 === 0) ? "rgba(255,255,255,0.34)" : "rgba(255,255,255,0.16)";
+    ctx.beginPath(); ctx.moveTo(0, y*state.cell+0.5); ctx.lineTo(cv.width, y*state.cell+0.5); ctx.stroke();
+  }
+  // seleção
+  if (selection) {
+    const r = normRect(selection);
+    ctx.fillStyle = "rgba(77,171,247,0.18)";
+    ctx.fillRect(r.x0*state.cell, r.y0*state.cell, (r.x1-r.x0+1)*state.cell, (r.y1-r.y0+1)*state.cell);
+    ctx.strokeStyle = "#4dabf7"; ctx.lineWidth = 2;
+    ctx.strokeRect(r.x0*state.cell+1, r.y0*state.cell+1, (r.x1-r.x0+1)*state.cell-2, (r.y1-r.y0+1)*state.cell-2);
+  }
 }
 
-let painting = false, eraseMode = false, strokeStart = null, lastPaint = null;
+let painting = false, eraseMode = false, strokeStart = null, lastPaint = null, selStart = null;
 function pos(e) {
   const r = cv.getBoundingClientRect();
   return { x: Math.floor((e.clientX - r.left) / state.cell), y: Math.floor((e.clientY - r.top) / state.cell) };
 }
+function normRect(r) { return { x0: Math.min(r.x0, r.x1), y0: Math.min(r.y0, r.y1), x1: Math.max(r.x0, r.x1), y1: Math.max(r.y0, r.y1) }; }
 function cellBrush() { return (eraseMode || state.tool === "erase") ? 0 : state.current; }
 function setCell(x, y, id) { if (x < 0 || y < 0 || x >= state.cols || y >= state.rows) return; grid[y][x] = id; }
 function apply(e) {
@@ -192,10 +213,44 @@ function apply(e) {
   }
   draw();
 }
-cv.addEventListener("mousedown", (e) => { e.preventDefault(); painting = true; eraseMode = e.button === 2; strokeStart = pos(e); lastPaint = strokeStart; snapshot(); apply(e); });
-cv.addEventListener("mousemove", (e) => { const {x,y} = pos(e); const h = e.ctrlKey || e.metaKey || e.shiftKey; $("status").textContent = `x:${x}  y:${y}  ·  id:${grid[y]?.[x] ?? "-"}` + (h ? "   ·   ⬅⬌➡ HORIZONTAL" : ""); if (painting) apply(e); });
-window.addEventListener("mouseup", () => { painting = false; strokeStart = null; lastPaint = null; });
+cv.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  const p = pos(e); hover = p;
+  if (state.tool === "select") { selStart = p; selection = { x0: p.x, y0: p.y, x1: p.x, y1: p.y }; draw(); return; }
+  painting = true; eraseMode = e.button === 2; strokeStart = p; lastPaint = p; snapshot(); apply(e);
+});
+cv.addEventListener("mousemove", (e) => {
+  const p = pos(e); hover = p;
+  const h = e.ctrlKey || e.metaKey || e.shiftKey;
+  $("status").textContent = `x:${p.x}  y:${p.y}  ·  id:${grid[p.y]?.[p.x] ?? "-"}` + (h ? "   ·   ⬅⬌➡ HORIZONTAL" : "");
+  if (selStart) { selection = { x0: selStart.x, y0: selStart.y, x1: p.x, y1: p.y }; draw(); return; }
+  if (painting) apply(e);
+});
+window.addEventListener("mouseup", () => {
+  if (selStart) { selection = normRect(selection); selStart = null; draw(); }
+  painting = false; strokeStart = null; lastPaint = null;
+});
 cv.addEventListener("contextmenu", (e) => e.preventDefault());
+
+function copySelection() {
+  if (!selection) { $("status").textContent = "Selecione uma área primeiro (ferramenta ⬚ Selecionar)."; return; }
+  const r = normRect(selection);
+  const data = [];
+  for (let y = r.y0; y <= r.y1; y++) data.push(grid[y].slice(r.x0, r.x1 + 1));
+  clipboard = { w: r.x1 - r.x0 + 1, h: r.y1 - r.y0 + 1, data };
+  $("status").textContent = `Copiado ${clipboard.w}×${clipboard.h}.`;
+}
+function pasteClipboard() {
+  if (!clipboard) { $("status").textContent = "Nada para colar."; return; }
+  snapshot();
+  const ax = hover.x, ay = hover.y;
+  for (let y = 0; y < clipboard.h; y++)
+    for (let x = 0; x < clipboard.w; x++)
+      setCell(ax + x, ay + y, clipboard.data[y][x]);
+  selection = { x0: ax, y0: ay, x1: ax + clipboard.w - 1, y1: ay + clipboard.h - 1 };
+  draw(); refreshJSON();
+  $("status").textContent = `Colado ${clipboard.w}×${clipboard.h} em (${ax},${ay}).`;
+}
 
 function toJSON() {
   return {
@@ -247,10 +302,16 @@ document.querySelectorAll(".tool").forEach(b => b.onclick = () => {
 });
 $("undo").onclick = undo;
 $("redo").onclick = redo;
+$("copySel").onclick = copySelection;
+$("pasteSel").onclick = pasteClipboard;
 document.addEventListener("keydown", (e) => {
   const ctrl = e.ctrlKey || e.metaKey;
+  const tag = (e.target.tagName || "").toLowerCase();
+  if (tag === "input" || tag === "textarea") return; // deixa copiar/colar normal nos campos
   if (ctrl && e.key.toLowerCase() === "z") { e.preventDefault(); e.shiftKey ? redo() : undo(); }
   else if (ctrl && e.key.toLowerCase() === "y") { e.preventDefault(); redo(); }
+  else if (ctrl && e.key.toLowerCase() === "c") { e.preventDefault(); copySelection(); }
+  else if (ctrl && e.key.toLowerCase() === "v") { e.preventDefault(); pasteClipboard(); }
 });
 cv.addEventListener("mouseleave", () => $("status").textContent = "—");
 
