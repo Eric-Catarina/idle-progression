@@ -72,8 +72,7 @@ Exemplo canônico (**ATT%**): o valor **cresce com a raridade da linha**:
 - Preview do **Δ de dano** ao trocar uma linha (útil).
 
 ## 9. Ganchos para o Futuro
-- **Linhas travadas** (lock) / **Cubes** que garantem raridade mínima.
-- **Subir a raridade do item** (raro → épico) gastando recursos.
+- **Fora de escopo por enquanto:** linhas travadas (lock), Cubes de raridade mínima, subir a raridade do item.
 - Comparador de linhas por classe (ex.: WSE Calculator — `99-Inbox/reference`).
 
 ## 10. Relacionados

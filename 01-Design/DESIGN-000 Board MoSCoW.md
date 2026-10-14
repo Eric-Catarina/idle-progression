@@ -54,6 +54,7 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 | [[DESIGN-028 Equipamentos|DESIGN-028]] | **Slots, tipos e raridade** do gear (8 slots) | Draft | [[DESIGN-029 Potential\|DESIGN-029]] · [[DESIGN-030 Star Force\|DESIGN-030]] |
 | [[DESIGN-029 Potential|DESIGN-029]] | **Linhas de Potential** (1–6) + reset com Ouro | Draft | [[DATA-007 Potentials\|DATA-007]] |
 | [[DESIGN-030 Star Force|DESIGN-030]] | **Estrelas** (0–25) com risco de destruição | Draft | [[DATA-008 Star Force\|DATA-008]] |
+| [[DESIGN-032 Gear Sets|DESIGN-032]] | **Sets de gear** (bônus por conjunto) | Draft | [[DATA-010 Gear Sets\|DATA-010]] |
 
 ---
 

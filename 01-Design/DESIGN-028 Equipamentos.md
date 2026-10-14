@@ -103,9 +103,8 @@ Mesma escala compartilhada ([[CONTEXT-007 Raridades|CONTEXT-007]]). Define o **n
 - Tooltip com as linhas de Potential (cor por **raridade da linha**) e o nível de **★**.
 
 ## 9. Ganchos para o Futuro
-- **Secondary weapon** separado (2º WSE) e **Emblem** dedicado.
-- Sets de equipamento (bônus por conjunto), **Flames** (bônus aleatórios flat).
-- Item **untradeable/bound**, transmog e reforja.
+- **Em escopo agora:** **Sets de gear** → [[DESIGN-032 Gear Sets|DESIGN-032]].
+- **Fora de escopo por enquanto** (não priorizado): Secondary weapon, **Flames**, linhas travadas/Cubes, subir raridade do item, transferência de ★, safeguarding, transmog.
 
 ## 10. Relacionados
 - Potential: [[DESIGN-029 Potential|DESIGN-029]] · Estrelas: [[DESIGN-030 Star Force|DESIGN-030]] · Dano: [[DESIGN-031 Calculo de Dano|DESIGN-031]].

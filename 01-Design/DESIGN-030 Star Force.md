@@ -66,8 +66,8 @@ Cada peça recebe **estrelas (★)** pagando **Ouro**. As estrelas dão **stats 
 - Histórico/estatística de tentativas (opcional).
 
 ## 8. Ganchos para o Futuro
-- **Eventos** de chance aumentada; **scrolls** de proteção; **transferência** de ★ entre itens.
-- **Safeguard** pago (evita queda/destruição).
+- **Eventos** de chance aumentada / scrolls de proteção.
+- **Fora de escopo por enquanto:** transferência de ★ entre itens, Safeguard pago.
 
 ## 9. Relacionados
 - Equipamentos: [[DESIGN-028 Equipamentos|DESIGN-028]] · Potential: [[DESIGN-029 Potential|DESIGN-029]] · Dano: [[DESIGN-031 Calculo de Dano|DESIGN-031]].
