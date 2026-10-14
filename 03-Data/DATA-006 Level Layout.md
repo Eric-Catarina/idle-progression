@@ -45,6 +45,7 @@ dependencies:
 | `levels/Level1_1.json` | **Level1_1** | 1º combate |
 | `levels/Level1_2.json` | **Level1_2** | Combate — 1º NPC (`selos`) |
 | `levels/Level1_3.json` | **Level1_3** | Combate — NPC `osiris` |
+| `levels/Level1_4.json` | **Level1_4** | Combate — **vertical** (25×45) |
 
 ## 3. Level1_0 (Hub) — resumo
 - **Dimensões:** 55 × 21.
@@ -60,6 +61,9 @@ dependencies:
 
 ### Level1_3
 - 35×21 · Spawn `(2,19)` · Entrada `(1,19)` · Saída `(33,19)` · NPC `osiris` `(17,11)`.
+
+### Level1_4
+- 25×45 · **vertical** · Spawn `(2,43)` · Entrada `(1,43)` · Saída `(23,3)`.
 
 ## 4. Relacionados
 - [[DESIGN-017 Interactables & Hub|DESIGN-017]] — interactables & hub.
