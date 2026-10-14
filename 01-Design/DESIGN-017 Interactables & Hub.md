@@ -63,6 +63,7 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 ## 8. Ganchos para o Futuro
 - Outros mundos adicionam interactables (mais linhas na tabela).
 - Interactables com **requisito** (nível/moeda) antes de abrir.
+- **Menu de Acesso Rápido:** atalho global para os sistemas descobertos, sem ir ao Hub — ver [[DESIGN-018 Menu de Acesso Rapido|DESIGN-018]].
 
 ## 9. Relacionados
 - [[DESIGN-003 Mundo 1|DESIGN-003]] (Hub) · [[DESIGN-013 Selos|DESIGN-013]] · [[DESIGN-014 Osiris|DESIGN-014]] · [[DESIGN-016 Cartas|DESIGN-016]].

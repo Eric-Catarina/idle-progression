@@ -44,6 +44,7 @@ dependencies:
 - #2 — [[DESIGN-014 Osiris|Osíris (Golem dos Cristais)]]
 - #3 — [[DESIGN-016 Cartas|Cartas & Pacotinhos]]
 - **Hub (1-1):** [[DESIGN-017 Interactables & Hub|DESIGN-017]] — NPCs/estações dos sistemas (Selos, Osíris, Cartas).
+- **Acesso Rápido:** [[DESIGN-018 Menu de Acesso Rapido|DESIGN-018]] — atalhos na UI para os sistemas já desbloqueados.
 
 ## 7. Mapa da Árvore
 ```text
