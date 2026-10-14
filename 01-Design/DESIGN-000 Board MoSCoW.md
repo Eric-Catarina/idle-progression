@@ -29,10 +29,10 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 
 | ID | Feature | Status | SYSTEM | DATA |
 | :--- | :--- | :--- | :--- | :--- |
-| _DESIGN-XXX_ | _A especificar (ver candidatos abaixo)_ | — | — | — |
+| [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] | Movimento **tap-to-move** (destino via grafo de nós) | Spec Ready | — | [[DATA-XXX]] |
 
 ### Candidatos Must derivados do Core Loop (a especificar)
-- Movimento **tap-to-move** (destino via grafo de nós).
+- ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
 - **One-Way Platforms** (colisão e passagem de baixo para cima).
 - **Combate básico** com **Knockback** horizontal.
 - **Progressão numérica** exponencial (acúmulo de recursos + upgrades).
@@ -47,7 +47,9 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 
 | ID | Feature | Status | Gancho Técnico |
 | :--- | :--- | :--- | :--- |
-| _DESIGN-XXX_ | _A especificar_ | — | — |
+| [[DESIGN-012 Jump Dash|DESIGN-012]] | Habilidade de movimento — **Guerreiro** | Draft | Navegação ([[DESIGN-025 Navegacao & Movimento|DESIGN-025]]) |
+| [[DESIGN-026 Blink|DESIGN-026]] | Habilidade de movimento — **Mago** | Draft | Navegação |
+| [[DESIGN-027 Slide Jump|DESIGN-027]] | Habilidade de movimento — **Arqueiro** | Draft | Navegação |
 
 ---
 

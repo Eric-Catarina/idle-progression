@@ -90,7 +90,7 @@ function stripCode(text) {
 function linkTarget(value) {
   const mm = String(value).match(/\[\[([^\]]+)\]\]/);
   const raw = mm ? mm[1] : String(value);
-  return raw.split("|")[0].split("#")[0].trim();
+  return raw.replace(/\\/g, "").split("|")[0].split("#")[0].trim();
 }
 
 const files = walk(ROOT);
@@ -152,7 +152,7 @@ for (const { rel, text, fm } of docs) {
 
   const prose = stripCode(text);
   for (const m of prose.matchAll(/\[\[([^\]]+)\]\]/g)) {
-    const target = m[1].split("|")[0].split("#")[0].trim();
+    const target = m[1].replace(/\\/g, "").split("|")[0].split("#")[0].trim();
     if (!target || /xxx/i.test(target) || target.includes("...")) continue;
     if (!targets.has(target)) err(rel, `wikilink orfao: [[${target}]]`);
   }

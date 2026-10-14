@@ -58,4 +58,5 @@ A **forma e o tamanho** do mapa definem quais builds são fortes. O objetivo é 
 
 ## 9. Relacionados
 - Skills: [[DESIGN-007 Meteoro|DESIGN-007]], [[DESIGN-008 Machado|DESIGN-008]], [[DESIGN-009 Perfuracao Vertical|DESIGN-009]], [[DESIGN-010 Raio Laser|DESIGN-010]], [[DESIGN-011 Summon Corredor|DESIGN-011]], [[DESIGN-012 Jump Dash|DESIGN-012]].
+- **Navegação:** [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] — a forma do mapa define quais rotas/habilidades de movimento brilham.
 - Valores: [[DATA-001 Mapas e Rates|DATA-001]].

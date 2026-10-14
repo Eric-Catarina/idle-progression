@@ -32,6 +32,7 @@ Organizar a identidade de combate do personagem em **três camadas** (Genérica 
 | — | **Secreta** | Desbloqueada ao atingir nível 50 **permanecendo Genérico** |
 
 - O gate é por **nível**. Os limites (`15`, `50`, `200`) são constantes de design.
+- Cada **Base** concede uma **habilidade de movimento** própria: Guerreiro → [[DESIGN-012 Jump Dash|Jump Dash]], Mago → [[DESIGN-026 Blink|Blink]], Arqueiro → [[DESIGN-027 Slide Jump|Slide Jump]] (ver [[DESIGN-025 Navegacao & Movimento|DESIGN-025]]).
 - As curvas de XP e os multiplicadores por classe → [[DATA-XXX]].
 
 ## 3. Contrato Funcional (I/O)
@@ -97,5 +98,5 @@ As skills de cada classe vivem em subpastas sob `01-Design/`:
 ```
 
 - Regra: `01-Design/classes/<base>/{bosser,mobber,suporte}/DESIGN-XXX_nome.md`.
-- Skills ainda **não atribuídas** a uma classe ficam na raiz de `01-Design/` (ex: mecânicas como [[DESIGN-012 Jump Dash|DESIGN-012]]).
+- **Habilidades de movimento** (por Base) e skills ainda **não atribuídas** ficam na **raiz** de `01-Design/` (ex: [[DESIGN-012 Jump Dash|Jump Dash]], [[DESIGN-026 Blink|Blink]], [[DESIGN-027 Slide Jump|Slide Jump]]).
 - Mover é seguro: os vínculos usam o **ID** (`[[DESIGN-XXX]]`), não o caminho.

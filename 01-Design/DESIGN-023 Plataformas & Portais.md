@@ -44,3 +44,4 @@ Padronizar a **colisão de plataformas** (todas com o mesmo comportamento) e o *
 
 ## 6. Relacionados
 - [[DESIGN-006 Meta Espacial|DESIGN-006]] · [[DATA-006 Level Layout|DATA-006]] (legend de tiles).
+- [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] — como o personagem percorre as plataformas (tap-to-move).

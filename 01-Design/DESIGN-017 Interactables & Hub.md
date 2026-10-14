@@ -37,7 +37,7 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 3. O **Hub** mostra um interactable se `discovered[id]` (ou se é desbloqueado desde o início).
 4. Sistemas "de base" (ex: Selos/Altar) já vêm desbloqueados no Hub; sistemas "de campo" (Osíris, Cartas) começam **ocultos** e são **descobertos** explorando.
 5. Interactables **podem repetir** em vários níveis (atalhos); descobrir uma vez basta.
-6. **Aproximação:** clicar num interactable define o **destino (tap-to-move)** do jogador até ele — o jogador **anda** até chegar (não teletransporta).
+6. **Aproximação:** clicar num interactable define o **destino (tap-to-move)** do jogador até ele — o jogador **anda** até chegar (não teletransporta). Ver [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
 7. **Primeiro Encontro:** na **1ª vez** que o jogador **alcança** o interactable, disparam-se os **eventos de primeiro encontro** (diálogo/cena) e marca-se `discovered[id] = true`.
 8. **Desbloqueio:** o sistema passa a aparecer no **Hub (1-0)** e no **Menu de Acesso Rápido** ([[DESIGN-018 Menu de Acesso Rapido|DESIGN-018]]).
 9. **Persistência no campo:** após o **primeiro encontro**, o interactable é **removido do nível de campo** (o NPC "vai" para o Hub) e passa a existir **apenas no Hub (1-0) + Menu Rápido**. Ex.: o **Osíris** some do `Level1_3` depois de interagido.
