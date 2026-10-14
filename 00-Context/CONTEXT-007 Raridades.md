@@ -70,7 +70,7 @@ this.actions.addEffectShine(sprite, { duration: 1200 });
 - **Mesma escala, sistemas diferentes:** Cartas ([[DESIGN-016 Cartas|DESIGN-016]]), Itens, **Potencial de Itens**, Monstros, Mundos.
 - Cada sistema declara **seus próprios pesos** no respectivo `DATA`; **nomes e cores são idênticos** em todos.
 - Raridade é **ortogonal ao tipo de conteúdo**: uma carta Divina e um item Divino compartilham a mesma identidade visual.
-- Cada sistema pode dar um **significado mecânico** ao tier (ex: no sistema de cartas, tiers altos concedem keywords/efeitos únicos).
+- Cada sistema pode dar um **significado mecânico** ao tier (ex: no sistema de **cartas**, o tier é **progressivo** — a carta **sobe de tier** acumulando cópias: [[DESIGN-016 Cartas|DESIGN-016]]).
 
 ## 4. Apresentação (juice)
 - Cor padrão por tier (§2); **glow/animação proporcionais** ao tier.
