@@ -37,13 +37,16 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 3. O **Hub** mostra um interactable se `discovered[id]` (ou se é desbloqueado desde o início).
 4. Sistemas "de base" (ex: Selos/Altar) já vêm desbloqueados no Hub; sistemas "de campo" (Osíris, Cartas) começam **ocultos** e são **descobertos** explorando.
 5. Interactables **podem repetir** em vários níveis (atalhos); descobrir uma vez basta.
+6. **Aproximação:** clicar num interactable define o **destino (tap-to-move)** do jogador até ele — o jogador **anda** até chegar (não teletransporta).
+7. **Primeiro Encontro:** na **1ª vez** que o jogador **alcança** o interactable, disparam-se os **eventos de primeiro encontro** (diálogo/cena) e marca-se `discovered[id] = true`.
+8. **Desbloqueio:** o sistema passa a aparecer no **Hub (1-0)** e no **Menu de Acesso Rápido** ([[DESIGN-018 Menu de Acesso Rapido|DESIGN-018]]).
 
 ## 4. Tabela de Interactables (Mundo 1)
 | id | Sistema | Aparece em | Desbloqueia no Hub |
 | :--- | :--- | :--- | :--- |
-| `selos` | [[DESIGN-013 Selos|DESIGN-013]] | Hub (1-1) | já disponível |
-| `osiris` | [[DESIGN-014 Osiris|DESIGN-014]] | 1-2 | sim (após 1ª interação) |
-| `cartas` | [[DESIGN-016 Cartas|DESIGN-016]] | 1-3 | sim (após 1ª interação) |
+| `selos` | [[DESIGN-013 Selos|DESIGN-013]] | **1-2** | sim (após 1ª interação) |
+| `osiris` | [[DESIGN-014 Osiris|DESIGN-014]] | _(a definir)_ | sim (após 1ª interação) |
+| `cartas` | [[DESIGN-016 Cartas|DESIGN-016]] | _(a definir)_ | sim (após 1ª interação) |
 
 ## 5. Estado / Flags
 - `discovered[interactableId]: bool` — persistente.

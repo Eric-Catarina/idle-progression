@@ -38,15 +38,19 @@ dependencies:
 | 6 | Spawn Jogador |
 
 ## 2. Níveis
-| Arquivo | Nível | Papel |
-| :--- | :--- | :--- |
+| Arquivo                 | Nível   | Papel                   |
+| :---------------------- | :------ | :---------------------- |
 | `levels/level-1-0.json` | **1-0** | **Hub** (NPCs/estações) |
+| `levels/level-1-2.json` | **1-2** | Combate — 1º NPC (`selos`) |
 
 ## 3. Nível 1-0 (Hub) — resumo
 - **Dimensões:** 55 × 21.
 - **Spawn:** `(2, 19)`. **Portal Saída:** `(53, 19)`. *(Hub não tem Portal Entrada — é o ponto inicial.)*
 - **Interactables:** `osiris` `(15,8)` · `cartas` `(39,8)` · `selos` `(27,13)`.
 - **Piso:** linha 20 inteira (Plataforma) + plataformas internas.
+
+### Nível 1-2
+- Spawn `(2,19)` · Portal Entrada `(1,19)` · Portal Saída `(53,19)` · NPC `selos` `(27,14)`.
 
 ## 4. Relacionados
 - [[DESIGN-017 Interactables & Hub|DESIGN-017]] — interactables & hub.
