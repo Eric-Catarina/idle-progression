@@ -94,6 +94,11 @@ Definir o **estilo visual** do jogo: **barato de produzir** (quase tudo por cód
 
 > Casa com a população **cristal/arcano** proposta ([[DESIGN-003 Mundo 1|Mundo 1]] §4).
 
+### Bioma por mundo (≠ ambientação global)
+- O **estilo** e o **mar astral** são **globais**; o **bioma** muda por mundo.
+- **Mundo 1 = Floresta** (ilha verde flutuante sob o céu estrelado) — fauna **fofa/selvagem**.
+- O **arcano/autômato** (robôs, grimórios, engenhocas) fica para **mundos tardios**.
+
 ## 11. Apêndice — Prompts de Concept (IA)
 
 > Miolo de estilo **idêntico** nos três (flat vector + silhueta/glow + ícones emoji, fundo escuro); só muda a ambientação. Negative prompt comum ao fim.

@@ -24,7 +24,8 @@ dependencies:
 - Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Tema & Visão
-- _(a definir)_ tema visual e ambientação.
+- **Bioma: Floresta** — ilha verde flutuante no **mar astral** ([[CONTEXT-009 Direcao de Arte|CONTEXT-009]]).
+- Fauna **fofa/selvagem** nos níveis iniciais; o **arcano/autômato** fica para **mundos tardios**.
 
 ## 2. Níveis
 - **Hub (Level1_0)** + **5 níveis com inimigos (Level1_1…Level1_5)** (`parent` aponta para este mundo). Semente: [[DESIGN-004 Level1_0|DESIGN-004]].
