@@ -33,6 +33,7 @@ Organizar a identidade de combate do personagem em **três camadas** (Genérica 
 
 - O gate é por **nível**. Os limites (`10`, `50`, `200`) são constantes de design.
 - Cada **Base** concede uma **habilidade de movimento** própria: Guerreiro → [[DESIGN-012 Jump Dash|Jump Dash]], Mago → [[DESIGN-026 Blink|Blink]], Arqueiro → [[DESIGN-027 Slide Jump|Slide Jump]] (ver [[DESIGN-025 Navegacao & Movimento|DESIGN-025]]).
+- Cada **Base** restringe **tipos de arma**: Guerreiro → machado/espada/lança · Arqueiro → arco/besta · Mago → cajado/varinha ([[DESIGN-028 Equipamentos|DESIGN-028]]).
 - As curvas de XP e os multiplicadores por classe → [[DATA-XXX]].
 
 ## 3. Contrato Funcional (I/O)

@@ -30,6 +30,7 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 | ID | Feature | Status | SYSTEM | DATA |
 | :--- | :--- | :--- | :--- | :--- |
 | [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] | Movimento **tap-to-move** (destino via grafo de nós) | Spec Ready | [[SYSTEM-002 NavGraph & Pathfinding|SYSTEM-002]] | [[DATA-XXX]] |
+| [[DESIGN-031 Calculo de Dano|DESIGN-031]] | Cálculo de **dano multiplicativo** | Draft | — | [[DATA-009 Dano|DATA-009]] |
 
 ### Candidatos Must derivados do Core Loop (a especificar)
 - ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
@@ -50,6 +51,9 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 | [[DESIGN-012 Jump Dash|DESIGN-012]] | Habilidade de movimento — **Guerreiro** | Draft | Navegação ([[DESIGN-025 Navegacao & Movimento|DESIGN-025]]) |
 | [[DESIGN-026 Blink|DESIGN-026]] | Habilidade de movimento — **Mago** | Draft | Navegação |
 | [[DESIGN-027 Slide Jump|DESIGN-027]] | Habilidade de movimento — **Arqueiro** | Draft | Navegação |
+| [[DESIGN-028 Equipamentos|DESIGN-028]] | **Slots, tipos e raridade** do gear (8 slots) | Draft | [[DESIGN-029 Potential\|DESIGN-029]] · [[DESIGN-030 Star Force\|DESIGN-030]] |
+| [[DESIGN-029 Potential|DESIGN-029]] | **Linhas de Potential** (1–6) + reset com Ouro | Draft | [[DATA-007 Potentials\|DATA-007]] |
+| [[DESIGN-030 Star Force|DESIGN-030]] | **Estrelas** (0–25) com risco de destruição | Draft | [[DATA-008 Star Force\|DATA-008]] |
 
 ---
 
