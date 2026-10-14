@@ -78,9 +78,48 @@ Definir o **estilo visual** do jogo: **barato de produzir** (quase tudo por cód
 - Efeitos descritos como **conceito**: `tint`, *additive blend*, *glow/bloom*, *outline*, *UV scroll*.
 - Implementação conforme a **engine escolhida** — ainda **a decidir** (Godot provável).
 
-## 10. Ambientação (mood) — *proposta*
-- **Arcano/Cristal**, **fundo escuro**: ruínas, cristais ([[DESIGN-014 Osiris|Osíris]]), glifos/contratos ([[DESIGN-034 Livro dos Contratos|Livro dos Contratos]]). Casa com **silhueta + glow**.
+## 10. Ambientação (mood) — **decidida**
+**Cósmico/Sideral + Arcano (fantasia mágica)** — o "**mar astral**": ilhas e ruínas **flutuantes** à deriva num campo de estrelas/nebulosas, com **magia arcana** por cima (runas, glifos, cristais, círculos mágicos, contratos/pergaminhos).
 
-## 11. Relacionados
+- **Fundo escuro** (profundo) para o *glow* brilhar — casa com a raridade **Divino**.
+- **Paleta base:** índigo/violeta profundo + **ciano** e **magenta** (glow) + **dourado** (acentos).
+- **O arcano entra como magia** (não como cenário medieval): sigilos, runas, encantamentos e cristais *sobre* o cenário cósmico.
+
+### Elementos visuais-chave
+| Categoria | Elementos |
+| :--- | :--- |
+| **Cenário** | ilhas/ruínas flutuantes, campos de estrelas, nebulosas, *rifts* astrais |
+| **Magia** | runas, glifos, círculos mágicos, cristais ([[DESIGN-014 Osiris\|Osíris]]), sigilos |
+| **Acentos** | partículas estelares, brilho dourado, faíscas, *bloom* |
+
+> Casa com a população **cristal/arcano** proposta ([[DESIGN-003 Mundo 1|Mundo 1]] §4).
+
+## 11. Apêndice — Prompts de Concept (IA)
+
+> Miolo de estilo **idêntico** nos três (flat vector + silhueta/glow + ícones emoji, fundo escuro); só muda a ambientação. Negative prompt comum ao fim.
+
+**1 — Arcano/Cristal**
+```text
+2D side-scrolling idle platformer game screenshot, flat vector art, minimalist geometric shapes with rounded corners, flat colors, single thin outline, hard offset shadows (no soft blur), DARK obsidian background, strong neon glow accents. Scene: ancient arcane crystal ruins, floating stone platforms carved with glowing runes, giant glowing crystals sprouting from the ground, faint magical mist, floating contract scrolls. A small player character drawn as a dark SILHOUETTE with a glowing cyan outline stands on a platform; two enemies as dark silhouettes with glowing pink outlines; a simple HUD bar with flat emoji-style icons (coin, ticket, crystal). Palette: deep purple, teal, cyan and gold. Clean, cohesive, high contrast, no textures, minimal gradients, game UI, 16:9.
+```
+
+**2 — Cósmico/Sideral**
+```text
+2D side-scrolling idle platformer game screenshot, flat vector art, minimalist geometric shapes with rounded corners, flat colors, single thin outline, hard offset shadows (no soft blur), DARK deep-space background, strong neon glow accents. Scene: floating islands drifting in a starfield, an astral rift, distant planets and constellations, drifting star particles and nebula haze. A small player character drawn as a dark SILHOUETTE with a glowing violet outline stands on a floating rock; two enemies as dark silhouettes with glowing magenta outlines; a simple HUD bar with flat emoji-style icons (star, orb, card). Palette: deep indigo, violet, magenta and pale blue. Clean, cohesive, high contrast, no textures, minimal gradients, game UI, 16:9.
+```
+
+**3 — Tech/Neon**
+```text
+2D side-scrolling idle platformer game screenshot, flat vector art, minimalist geometric shapes with rounded corners, flat colors, single thin outline, hard offset shadows (no soft blur), DARK navy background, strong neon glow accents. Scene: cyberpunk facility, holographic panels, glowing circuit lines on the floor, pipes and terminals, floating data fragments. A small player character drawn as a dark SILHOUETTE with a glowing green outline stands on a metal platform; two enemies as dark silhouettes with glowing hot-pink outlines (a drone and a turret); a simple HUD bar with flat emoji-style icons (chip, coin, gear). Palette: deep navy, teal, cyan and hot pink. Clean, cohesive, high contrast, no textures, minimal gradients, game UI, 16:9.
+```
+
+**Negative (comum):**
+```text
+photorealistic, 3D render, pixel art, detailed textures, soft gradients, lens flare, watermark, text, realistic lighting, anime, painterly, cluttered
+```
+
+> Midjourney: `--ar 16:9 --style raw` (+ `--seed <n>` igual nos 3). Flux/SDXL: negative no campo próprio.
+
+## 12. Relacionados
 - Raridades: [[CONTEXT-007 Raridades|CONTEXT-007]] · Hierarquia: [[CONTEXT-006 Hierarquia|CONTEXT-006]].
 - Consumidores: [[DESIGN-028 Equipamentos|DESIGN-028]] · [[DESIGN-016 Cartas|DESIGN-016]] · [[DESIGN-013 Selos|DESIGN-013]].
