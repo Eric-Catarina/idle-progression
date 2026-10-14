@@ -26,23 +26,23 @@ Organizar a identidade de combate do personagem em **três camadas** (Genérica 
 
 | Faixa de nível | Estágio | Classe |
 | :--- | :--- | :--- |
-| **0–14** | Novo | **Genérica** (sem classe) |
-| **15–49** | Base | **Guerreiro** \| **Arqueiro** \| **Mago** |
+| **0–9** | Novo | **Genérica** (sem classe) |
+| **10–49** | Base | **Guerreiro** \| **Arqueiro** \| **Mago** |
 | **50–200** | Especialização | Base × { **Bossing**, **Mobbing**, **Suporte** } |
 | — | **Secreta** | Desbloqueada ao atingir nível 50 **permanecendo Genérico** |
 
-- O gate é por **nível**. Os limites (`15`, `50`, `200`) são constantes de design.
+- O gate é por **nível**. Os limites (`10`, `50`, `200`) são constantes de design.
 - Cada **Base** concede uma **habilidade de movimento** própria: Guerreiro → [[DESIGN-012 Jump Dash|Jump Dash]], Mago → [[DESIGN-026 Blink|Blink]], Arqueiro → [[DESIGN-027 Slide Jump|Slide Jump]] (ver [[DESIGN-025 Navegacao & Movimento|DESIGN-025]]).
 - As curvas de XP e os multiplicadores por classe → [[DATA-XXX]].
 
 ## 3. Contrato Funcional (I/O)
-- **Gatilho:** `level` atinge um gate (15 ou 50).
+- **Gatilho:** `level` atinge um gate (10 ou 50).
 - **Pré-requisitos:** `level >= gate` e escolha pendente.
 - **Saída:** `player.class` atualizado; stats/skills da nova classe aplicados; persistido.
 
 ## 4. Lógica Passo a Passo
-1. No level-up, checar gates (`15`, `50`).
-2. Ao atingir **15**: abrir prompt de **Base** (Guerreiro/Arqueiro/Mago). A escolha pode ser **adiada** — o jogador permanece **Genérico**.
+1. No level-up, checar gates (`10`, `50`).
+2. Ao atingir **10**: abrir prompt de **Base** (Guerreiro/Arqueiro/Mago). A escolha pode ser **adiada** — o jogador permanece **Genérico**.
 3. Ao atingir **50 com Base**: abrir prompt de **Especialização** (3 opções da Base).
 4. Ao atingir **50 sem Base** (ainda Genérico): desbloquear a **Classe Secreta**.
 5. Aplicar stats/multiplicadores/skills da classe escolhida.
@@ -87,7 +87,7 @@ As skills de cada classe vivem em subpastas sob `01-Design/`:
 
 ```text
 01-Design/classes/
-├── generica/                 # classe Genérica (nível 0–14)
+├── generica/                 # classe Genérica (nível 0–9)
 ├── secreta/                  # classe secreta
 ├── guerreiro/
 │   ├── bosser/  ├── mobber/  └── suporte/

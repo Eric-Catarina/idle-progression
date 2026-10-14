@@ -20,7 +20,7 @@ dependencies:
 - **Justificativa:** mobilidade do Arqueiro; enriquece a build, mas o core loop valida sem. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
-Um **salto raso e longo** — a **habilidade de movimento do Arqueiro** ([[DESIGN-005 Classes|DESIGN-005]]), desbloqueada ao virar Arqueiro (nível 15) e mantida pelas sub-especializações. Na navegação, cobre **vãos horizontais largos** (e passa **por baixo** de plataformas/homens, por ser baixo).
+Um **salto raso e longo** — a **habilidade de movimento do Arqueiro** ([[DESIGN-005 Classes|DESIGN-005]]), desbloqueada ao virar Arqueiro (nível 10) e mantida pelas sub-especializações. Na navegação, cobre **vãos horizontais largos** (e passa **por baixo** de plataformas/homens, por ser baixo).
 
 ## 2. Definição Formal
 - **Slide** no chão (ganha velocidade) seguido de **pulo** → trajetória **longa e baixa** (`slideSpeed`, `slideJumpArc`).

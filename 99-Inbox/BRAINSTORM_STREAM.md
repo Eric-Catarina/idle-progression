@@ -54,7 +54,7 @@ Leia o meu 99-Inbox/ e aplique as diretrizes do manifesto em **Modo C**. Process
 > Formato: `- [x] Título -> [[DESIGN-XXX]]`
 
 - [x] Múltiplos Personagens no Mesmo Mapa -> [[DESIGN-001 Multi Personagens|DESIGN-001]]
-- [x] Sistema de Classes & Especialização (0–15 genérico, 15–50 base, 50–200 specs, classe secreta) -> [[DESIGN-005 Classes|DESIGN-005]]
+- [x] Sistema de Classes & Especialização (0–10 genérico, 10–50 base, 50–200 specs, classe secreta) -> [[DESIGN-005 Classes|DESIGN-005]]
 - [x] Meta espacial de mapas (vertical/horizontal/quadrado) + skills de exemplo -> [[DESIGN-006 Meta Espacial|DESIGN-006]]
 - [x] Mecânica transversal Mundo 1: Selos (Stamps) baseada no Idleon -> [[DESIGN-013 Selos|DESIGN-013]]
 - [x] Mecânica transversal Mundo 1 #2: Osíris (golem) + Cristais, prestígio e 5 Megacristais -> [[DESIGN-014 Osiris|DESIGN-014]]

@@ -20,7 +20,7 @@ dependencies:
 - **Justificativa:** o core loop valida sem ela; melhora mobilidade/feel. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
-Um **dash horizontal no ar** (estilo dash aéreo de *MapleStory*). É a **habilidade de movimento do Guerreiro** ([[DESIGN-005 Classes|DESIGN-005]]), **desbloqueada ao virar Guerreiro** (nível 15) e **mantida** pelas sub-especializações (Guerreiro Bosser/Mobber/Suporte). Em **mapas horizontais**, é o que separa builds ágeis das lentas ([[DESIGN-006 Meta Espacial|DESIGN-006]]).
+Um **dash horizontal no ar** (estilo dash aéreo de *MapleStory*). É a **habilidade de movimento do Guerreiro** ([[DESIGN-005 Classes|DESIGN-005]]), **desbloqueada ao virar Guerreiro** (nível 10) e **mantida** pelas sub-especializações (Guerreiro Bosser/Mobber/Suporte). Em **mapas horizontais**, é o que separa builds ágeis das lentas ([[DESIGN-006 Meta Espacial|DESIGN-006]]).
 
 ## 2. Definição Formal
 - Em pleno ar, o dash aplica impulso horizontal `dashSpeed` por `dashDuration` ms, com cooldown `dashCooldown`.

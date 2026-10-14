@@ -41,7 +41,7 @@ O jogador **não dirige** o personagem tecla a tecla: ele **aponta um destino** 
 | **Mago** | **Blink** | teleporte curto (reposicionamento instantâneo) | [[DESIGN-026 Blink\|DESIGN-026]] |
 | **Arqueiro** | **Slide Jump** | salto **raso e longo**: vãos horizontais largos | [[DESIGN-027 Slide Jump\|DESIGN-027]] |
 
-- **Desbloqueio:** ao escolher a **classe Base** (nível 15 — [[DESIGN-005 Classes|DESIGN-005]]). As **sub-especializações mantêm** a habilidade.
+- **Desbloqueio:** ao escolher a **classe Base** (nível 10 — [[DESIGN-005 Classes|DESIGN-005]]). As **sub-especializações mantêm** a habilidade.
 - **Adaptação:** o algoritmo lê as **habilidades desbloqueadas e seus parâmetros atuais** (`skills upadas`) e monta o conjunto de movimentos disponíveis. Como os parâmetros podem **escalar com o nível** da habilidade, o alcance é **dinâmico** (§5).
 
 ## 4. Tap-to-Move (Fluxo)

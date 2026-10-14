@@ -20,7 +20,7 @@ dependencies:
 - **Justificativa:** mobilidade do Mago; enriquece a build, mas o core loop valida sem. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
-**Teleporte curto** (reposicionamento instantâneo) — a **habilidade de movimento do Mago** ([[DESIGN-005 Classes|DESIGN-005]]), desbloqueada ao virar Mago (nível 15) e mantida pelas sub-especializações. Na navegação, é a **aresta instantânea** do grafo: ignora a distância/tempo do caminho no ar.
+**Teleporte curto** (reposicionamento instantâneo) — a **habilidade de movimento do Mago** ([[DESIGN-005 Classes|DESIGN-005]]), desbloqueada ao virar Mago (nível 10) e mantida pelas sub-especializações. Na navegação, é a **aresta instantânea** do grafo: ignora a distância/tempo do caminho no ar.
 
 ## 2. Definição Formal
 - Reposiciona o personagem **instantaneamente** até `blinkRange` px na direção do movimento (ou na direção do alvo clicado), com `blinkCooldown`.
