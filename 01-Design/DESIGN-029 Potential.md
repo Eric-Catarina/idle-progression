@@ -31,9 +31,9 @@ Cada equipamento tem **linhas de Potential** (**1 a 6**, pela raridade do item).
 - **Limite de roll:** um item de raridade `R` só pode ter linhas de raridade **`≤ R`**. Ex.: item **Épico** → linhas **Comum / Raro / Épico** (nunca Lendário+).
 
 ## 3. Valor por raridade da linha
-Exemplo canônico (**ATT%**): o valor **cresce com a raridade da linha**:
+Exemplo canônico (**Damage%**, que substitui o antigo `ATT%`): o valor **cresce com a raridade da linha**:
 
-| Raridade da linha | ATT% |
+| Raridade da linha | Damage% |
 | :--- | :--- |
 | Comum | **3%** |
 | Raro | **6%** |
@@ -42,7 +42,7 @@ Exemplo canônico (**ATT%**): o valor **cresce com a raridade da linha**:
 | Extraordinário | **15%** |
 | Divino | **25%** |
 
-> Os demais stats (Boss Damage%, IED%, Damage%, Crit Dmg%, stat%, HP%…) seguem a **mesma lógica** porém com **suas próprias tabelas** → [[DATA-007 Potentials|DATA-007]].
+> Os demais stats (Boss Damage%, IED%, Crit Dmg%, stat%, HP%…) seguem a **mesma lógica** porém com **suas próprias tabelas** → [[DATA-007 Potentials|DATA-007]].
 
 ## 4. Roll (sorteio das linhas)
 1. Sorteia-se **1 raridade por linha** (peso decrescente; raridades altas são raras), limitada pela raridade do item.

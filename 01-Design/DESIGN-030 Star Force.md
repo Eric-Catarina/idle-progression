@@ -22,7 +22,7 @@ data_spec: "[[DATA-008 Star Force|DATA-008]]"
 - **Justificativa:** o eixo de **upgrade com risco** (custo vs. recompensa) que dá "projeto de longo prazo" ao gear. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
-Cada peça recebe **estrelas (★)** pagando **Ouro**. As estrelas dão **stats flat** e — a partir de **16★** — **ATT/MA**. É um **loop de risco**: falhar pode **manter**, **derrubar ★** ou **destruir o item**. Existe um "ponto de ouro" (**21★**) onde o item "fica pronto".
+Cada peça recebe **estrelas (★)** pagando **Ouro**. As estrelas dão **stats flat** (STR/DEX/INT/LUK) e — a partir de **16★** — **Damage**. É um **loop de risco**: falhar pode **manter**, **derrubar ★** ou **destruir o item**. Existe um "ponto de ouro" (**21★**) onde o item "fica pronto".
 
 ## 2. Faixas de Estrela
 | Faixa | Comportamento |
@@ -30,7 +30,7 @@ Cada peça recebe **estrelas (★)** pagando **Ouro**. As estrelas dão **stats 
 | **0★–15★** | custo relativamente baixo, risco gerenciável; +**stat flat** por ★ |
 | **12★+** | existe risco de **destruição** (exceto **níveis de proteção**) |
 | **após 15★** | falha pode **derrubar 1★** |
-| **16★+** | ganha **ATT/MA por ★**, **escalando com o nível do item** |
+| **16★+** | ganha **Damage por ★**, **escalando com o nível do item** |
 | **20★ → 21★** | **marco**: um dos maiores incrementos individuais de dano |
 | **21★** | **ponto de ouro** ("item finalizado"), custo acessível |
 | **22★** | **máximo de eficiência**, mas custo **desproporcional** (2 sucessos seguidos, risco alto) |
@@ -45,8 +45,8 @@ Cada peça recebe **estrelas (★)** pagando **Ouro**. As estrelas dão **stats 
 
 ## 4. Bônus por Estrela
 - **0–15★:** `statFlat = statPerStar × ★`, onde `statPerStar = f(nível do item)`.
-- **16★+:** além do flat, `ATT = attPerStar × (★ − 15)` (escala com o nível do item).
-- **Marco 21★:** incremento de ATT **maior** que o normal (o "salto").
+- **16★+:** além do flat, `Damage = dmgPerStar × (★ − 15)` (escala com o nível do item).
+- **Marco 21★:** incremento de **Damage** **maior** que o normal (o "salto").
 - Fórmulas/tabelas → [[DATA-008 Star Force|DATA-008]].
 
 ## 5. Contrato Funcional (I/O)

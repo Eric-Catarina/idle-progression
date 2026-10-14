@@ -7,7 +7,7 @@ type: system-design
 subtype: mechanic
 status: Draft
 moscow: Must
-moscow_note: Combate básico é Must; sem a fórmula o combate não resolve. Os blocos avançados (IED/Boss) são profundidade Should.
+moscow_note: Combate básico é Must; sem a fórmula o combate não resolve.
 dependencies:
   - "[[DESIGN-028 Equipamentos|DESIGN-028]]"
   - "[[DESIGN-029 Potential|DESIGN-029]]"
@@ -16,47 +16,56 @@ data_spec: "[[DATA-009 Dano|DATA-009]]"
 
 # [DESIGN-031] Cálculo de Dano (Multiplicativo)
 
-> Inspiração: fórmula do **MapleStory** (blocos multiplicativos). Referência bruta em `99-Inbox/reference/MAPLESTORY_GEAR_REFERENCE.md`.
+> Inspiração: fórmula do **MapleStory** (blocos multiplicativos), **com duas mudanças nossas**: (1) o **ATT foi removido** e virou **Damage**; (2) **não há bloco aditivo** — `Damage%` e `Boss Damage%` são **blocos próprios**.
+> Referência bruta em `99-Inbox/reference/MAPLESTORY_GEAR_REFERENCE.md`.
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Must
-- **Justificativa:** sem a fórmula **não há combate**. Os **blocos avançados** (IED, Boss Damage) são profundidade de endgame (Should), mas a **estrutura** é Must. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
+- **Justificativa:** sem a fórmula **não há combate**. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
-O dano é **multiplicativo entre blocos** e **aditivo dentro de cada bloco**. Isso é o que faz o **balanceamento** importar: empilhar um só tipo de bônus rende cada vez menos, então o jogador **equilibra** as fontes (gear, Potential, estrelas, skills).
+O dano é **multiplicativo entre todos os blocos**. Cada fonte de aumento (gear, Potential, estrelas, skills, sets) é **um multiplicador próprio**. Empilhar o mesmo multiplicador não sofre "desgaste" — então o balanceamento é controlado pelo **número** de blocos e pelos **caps**, não por retorno decrescente.
 
 ## 2. Fórmula (blocos)
 
 ```text
-DanoFinal ≈ DanoSkill × (Main×4 + Sec) × (ATT_arma / 100) × (1 + ATT%) × (1 + Damage% + BossDmg%) × Fator_IED × Fator_Crit × (1 + FinalDmg%)
+DanoFinal ≈ DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 + Damage%) × (1 + BossDamage%) × Fator_IED × Fator_Crit × (1 + FinalDamage%)
 ```
 
-| Bloco | Fórmula | Origem típica |
+| Bloco | Fórmula | Origem |
 | :--- | :--- | :--- |
 | **DanoSkill** | multiplicador da skill | skills |
-| **Stat** | `Main×4 + Sec` | stats base (STR/DEX/INT/LUK) |
-| **Weapon ATT** | `ATT_arma / 100` | arma (+ ★16★+) |
-| **Attack%** | `1 + ATT%` | **WSE** ([[DESIGN-028 Equipamentos\|DESIGN-028]] §5) |
-| **Dano Total** | `1 + Damage% + BossDmg%` | gear/potential/skills |
-| **IED** | `1 − PDR_alvo × (1 − IED_total)` | **WSE** |
-| **Crítico** | `1 + CritChance × CritDmg%` (esperado) | gear/potential |
-| **Final Damage%** | `1 + FinalDmg%` | raro/endgame |
+| **Stat** | `Main×4 + Sec + Tert` | stats base (STR/DEX/INT/LUK) |
+| **Damage (flat)** | `Damage_arma / 100` | **arma** (+ bônus de ★16★+) |
+| **Damage%** | `1 + Damage%` | **WSE** (arma/badge) |
+| **Boss Damage%** | `1 + BossDamage%` | **WSE** |
+| **IED** | `1 − PDR × (1 − IED_total)` | **WSE** |
+| **Crítico** | `1 + CritChance × CritDamage%` | gear |
+| **Final Damage%** | `1 + FinalDamage%` | endgame |
 
-> **Main/Sec** por classe (MapleStory-like): Guerreiro → **STR** (sec: DEX); Arqueiro → **DEX** (sec: STR); Mago → **INT** (sec: LUK). Arqueiro usa **ATT**, Mago usa **MATT**.
+### Stats por classe (Main / Sec / Tert)
+| Classe | Main ×4 | Sec ×1 | Tert ×1 |
+| :--- | :--- | :--- | :--- |
+| **Guerreiro** | STR | DEX | LUK |
+| **Arqueiro** | DEX | STR | LUK |
+| **Mago** | INT | LUK | DEX |
 
-## 3. Regra de Ouro
-- **Aditivo DENTRO do bloco:** `Damage%` **soma** com `BossDmg%` → retorno **decrescente**.
-- **Multiplicativo ENTRE blocos:** cada bloco **multiplica** os outros → equilíbrio > concentração.
-- Consequência prática: no endgame, **ATT%** costuma valer mais que **BossDmg%** (porque Boss já acumulou).
+> Assim **todos os 4 stats têm utilidade** (cada um é Main de uma classe e Sec/Tert de outras). Pesos (`4/1/1`) são configuráveis.
+
+## 3. Regra Geral
+- **Multiplicativo** entre **todos** os blocos → sem retorno decrescente por empilhamento.
+- `Damage vs Monsters%` (normal) e `Boss Damage%` (chefe) são **blocos condicionais** ao tipo de alvo.
+- **Implicação de balanceamento:** o poder cresce com o **produto** dos blocos; como não há "desgaste", é preciso **limitar** quantos blocos existem e seus **caps** (ex.: IED ≤ 100%).
 
 ## 4. IED (Ignore Enemy Defense)
 - **Combinação multiplicativa** de várias fontes: `IED_total = 1 − Π(1 − ied_i)`.
 - Aplicado à defesa do alvo (**PDR**): dano efetivo **×** `(1 − PDR × (1 − IED_total))`.
-- **Retorno decrescente:** se o alvo tem PDR alto e você tem **pouco** IED, subir IED é o **maior** ganho de dano; se já tem muito, o ganho cai.
+- Mesmo com tudo multiplicativo, o IED tem **retorno decrescente** *por natureza* (progresso assintótico a 100%).
 
 ## 5. Crítico e nossos stats extras
-- **Crítico:** `CritChance` (%) × `CritDmg%`. Valor **esperado** = `1 + (CritChance × CritDmg%)`.
-- **`Damage%`** e **`Critical Damage%`** são stats **desta game** (não existem como bloco separado no MapleStory; aqui `Damage%` entra em **Dano Total** e `CritDmg%` entra em **Crítico**).
+- **Crítico:** `CritChance` (%) × `CritDamage%`. Valor **esperado** = `1 + (CritChance × CritDamage%)`.
+- **`Critical Damage%`** é stat desta game (não existe como bloco no MapleStory); entra no bloco **Crítico**.
+- **`Damage%` substitui o `ATT%`** (o ATT foi removido) — mesma função, nome único.
 
 ## 6. Contrato Funcional (I/O)
 - **Entrada:** stats agregados do personagem + stats da skill + **PDR** do alvo.
@@ -64,14 +73,14 @@ DanoFinal ≈ DanoSkill × (Main×4 + Sec) × (ATT_arma / 100) × (1 + ATT%) × 
 
 ## 7. Casos de Borda
 - **PDR = 0** → IED é irrelevante (fator 1).
-- **IED = 100%** → ignora toda a defesa (cap: definir se 100% é atingível).
+- **IED = 100%** → ignora toda a defesa (cap a definir).
 - **Sem crit** → bloco crítico = 1.
 - Overflow/exponenciais → BigNumber ([[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
 
 ## 8. UI/UX e Feedback
-- Tooltip de stats **separado por bloco** (ajuda o jogador a ver o que está "curto").
+- Tooltip de stats **separado por bloco** (mostra o que está "curto").
 - Preview do **Δ de dano** ao trocar gear/Potential.
 
 ## 9. Relacionados
-- Equipamentos: [[DESIGN-028 Equipamentos|DESIGN-028]] · Potential: [[DESIGN-029 Potential|DESIGN-029]] · Estrelas: [[DESIGN-030 Star Force|DESIGN-030]].
+- Equipamentos: [[DESIGN-028 Equipamentos|DESIGN-028]] · Potential: [[DESIGN-029 Potential|DESIGN-029]] · Estrelas: [[DESIGN-030 Star Force|DESIGN-030]] · Sets: [[DESIGN-032 Gear Sets|DESIGN-032]].
 - Valores: [[DATA-009 Dano|DATA-009]]. Referência: `99-Inbox/reference/MAPLESTORY_GEAR_REFERENCE.md`.

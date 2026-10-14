@@ -22,16 +22,16 @@ dependencies:
 | `L` | nível do item |
 | `custoMult(s)` | multiplicador de custo (× `L`) |
 | `statPerStar` | stat flat por estrela |
-| `attPerStar` | ATT/MA por estrela (só `s ≥ 16`) |
+| `dmgPerStar` | Damage flat por estrela (só `s ≥ 16`) |
 
 - `custo(s) = custoMult(s) × L` (em **Ouro**).
 - `statPerStar = max(1, floor(L / 20))`.
-- `attPerStar = max(1, floor(L / 20))` (idêntico ao stat; escalar separado se preciso).
+- `dmgPerStar = max(1, floor(L / 20))` (idêntico ao stat; escalar separado se preciso).
 
 ## 2. Tabela por Estrela
 `P(Sucesso)` = chance de `s → s+1`. As demais colunas são **probabilidades absolutas por tentativa** (somam 100%).
 
-| ★ | custoMult | Sucesso | Mantém | −1★ | Destrói | stat flat | ATT/★ |
+| ★ | custoMult | Sucesso | Mantém | −1★ | Destrói | stat flat | Damage/★ |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 0 | 0.10 | 95% | 5% | — | — | +1 | — |
 | 1 | 0.15 | 95% | 5% | — | — | +1 | — |
@@ -64,11 +64,11 @@ dependencies:
 
 ## 3. Fórmulas de Bônus
 - **Stat flat acumulado** (`s ≤ 15`): `flat(s) = statPerStar × s`.
-- **ATT acumulado** (`s ≥ 16`): `att(s) = attPerStar × (s − 15)` — **escala com `L`**.
-- **Marco 21★:** o incremento de ATT dobra nesse passo (`+2×attPerStar` em vez de `+1×`) — é o "salto".
-- Exemplo (`L = 100` → `statPerStar = attPerStar = 5`):
+- **Damage acumulado** (`s ≥ 16`): `dmg(s) = dmgPerStar × (s − 15)` — **escala com `L`**.
+- **Marco 21★:** o incremento de **Damage** dobra nesse passo (`+2×dmgPerStar` em vez de `+1×`) — é o "salto".
+- Exemplo (`L = 100` → `statPerStar = dmgPerStar = 5`):
 
-| ★ | flat stat | ATT |
+| ★ | flat stat | Damage |
 | :--- | :--- | :--- |
 | 10 | +50 | +0 |
 | 15 | +75 | +0 |
@@ -91,7 +91,7 @@ dependencies:
   "success": [0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.90, 0.90, 0.90, 0.90, 0.30, 0.95, 0.90, 0.90, 0.90, 0.70, 0.40, 0.30, 0.20, 0.15, 0.10],
   "destroy": [0,0,0,0,0,0,0,0,0,0,0, 0.01,0.01,0.01,0.01, 0.05, 0.03,0.03,0.03,0.03, 0.05, 0.08, 0.10, 0.15, 0.20, 0.25],
   "statPerStarDivisor": 20,
-  "attPerStarDivisor": 20,
+  "dmgPerStarDivisor": 20,
   "milestoneStar": 21,
   "protectedStars": [12, 15],
   "chanceTimeFails": 2

@@ -59,7 +59,7 @@ Cada personagem veste **8 peças**. Cada peça tem uma **raridade** (6 tiers, [[
 | Cajado · Varinha | **Mago** |
 
 - A arma só pode ser **equipada** por personagens da classe (base) correspondente — ex.: **arco só Arqueiro**, **machado só Guerreiro** ([[DESIGN-005 Classes|DESIGN-005]]).
-- O tipo de arma define o **stat de dano**: físico (**ATT**) ou mágico (**MATT**).
+- Toda arma dá **Damage** (dano flat) — não há ATT/MATT separados ([[DESIGN-031 Calculo de Dano|DESIGN-031]]).
 
 ## 4. Raridade do Equipamento (6 tiers)
 Mesma escala compartilhada ([[CONTEXT-007 Raridades|CONTEXT-007]]). Define o **nº de linhas de Potential**:
@@ -79,13 +79,13 @@ Mesma escala compartilhada ([[CONTEXT-007 Raridades|CONTEXT-007]]). Define o **n
 | Tipo | Stats base (flat) | Linhas de Potential (pool) |
 | :--- | :--- | :--- |
 | **Armadura** | DEF, HP, MP | `HP%`, `STR/DEX/INT/LUK%`, `All Stat%`, `DEF%`, `MP%` |
-| **Weapon** | ATT *ou* MATT | `ATT%/MATT%`, `Boss Damage%`, `IED%`, `Damage%`, `Crit Damage%`, `Crit Chance%`, `STR/DEX/INT/LUK%` |
+| **Weapon** | Damage (flat) | `Damage%`, `Boss Damage%`, `IED%`, `Crit Damage%`, `Crit Chance%`, `STR/DEX/INT/LUK%` |
 | **Accessory** | HP, MP | `All Stat%`, `STR/DEX/INT/LUK%`, `HP%`, `Crit Chance%`, `Crit Damage%`, `Drop Rate%`, `Money%` |
-| **Badge** | — | `ATT%/MATT%`, `Boss Damage%`, `IED%`, `Damage%`, `Crit Damage%` (linhas **WSE**) |
+| **Badge** | — | `Damage%`, `Boss Damage%`, `IED%`, `Crit Damage%` (linhas **WSE**) |
 
-- **WSE** = **W**eapon + **B**adge + (Secondary; aqui o **Badge** faz esse papel) → é onde `ATT%`, `Boss Damage%` e `IED%` "pegam".
+- **WSE** = **W**eapon + **B**adge + (Secondary; aqui o **Badge** faz esse papel) → é onde `Damage%`, `Boss Damage%` e `IED%` "pegam".
 - Valores por raridade de linha → [[DATA-007 Potentials|DATA-007]].
-- Novos stats desta game (vs MapleStory): **Damage%** e **Critical Damage%** ([[DESIGN-031 Calculo de Dano|DESIGN-031]]).
+- **Removemos o ATT:** `Damage%` (potencial) substitui o `ATT%`; **Critical Damage%** é stat novo ([[DESIGN-031 Calculo de Dano|DESIGN-031]]).
 
 ## 6. Contrato Funcional (I/O)
 - **Gatilho:** equipar/desequipar; dropar item; aplicar Potential/estrela.

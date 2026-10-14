@@ -14,32 +14,38 @@ dependencies:
 
 # [DATA-009] Dano: Stats e Blocos Multiplicativos
 
-> Stats base e blocos da fórmula de dano ([[DESIGN-031 Calculo de Dano|DESIGN-031]]). `Draft` — calibrar.
+> Stats base e blocos da fórmula de dano ([[DESIGN-031 Calculo de Dano|DESIGN-031]]). **ATT removido → Damage.** `Draft` — calibrar.
 
-## 1. Stats Base por Classe (Main / Sec)
-| Base | Main | Sec | Ataque | Recurso |
+## 1. Stats Base por Classe (Main / Sec / Tert)
+Peso: `Main×4 + Sec×1 + Tert×1`.
+
+| Base | Main ×4 | Sec ×1 | Tert ×1 | Recurso |
 | :--- | :--- | :--- | :--- | :--- |
-| **Guerreiro** | STR | DEX | **ATT** (físico) | HP |
-| **Arqueiro** | DEX | STR | **ATT** (físico) | MP |
-| **Mago** | INT | LUK | **MATT** (mágico) | MP |
-| **Genérica** (0–9) | — (usa a menor) | — | ATT | HP |
+| **Guerreiro** | STR | DEX | LUK | HP |
+| **Arqueiro** | DEX | STR | LUK | MP |
+| **Mago** | INT | LUK | DEX | MP |
+| **Genérica** (0–9) | — (menor entre os 4) | — | — | HP |
 
-- `Main` e `Sec` são os stats primários; `Main×4 + Sec` alimenta o bloco **Stat**.
+- Um stat pode ser **Main** de uma classe e **Sec/Tert** de outras → **todos os 4 têm utilidade**.
+- Pesos `4/1/1` são configuráveis (alternativa: `4/2/1`).
 
 ## 2. Fórmula (blocos)
 ```text
-DanoFinal = DanoSkill × (Main×4 + Sec) × (ATT_arma / 100) × (1 + ATT%) × (1 + Damage% + BossDmg%) × Fator_IED × Fator_Crit × (1 + FinalDmg%)
+DanoFinal = DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 + Damage%) × (1 + BossDamage%) × Fator_IED × Fator_Crit × (1 + FinalDamage%)
 ```
 
 | Bloco | Fórmula | Tipo |
 | :--- | :--- | :--- |
-| Stat | `Main×4 + Sec` | multiplicativo |
-| Weapon ATT | `ATT_arma / 100` | multiplicativo |
-| Attack% | `1 + ATT%` | multiplicativo |
-| Dano Total | `1 + Damage% + BossDmg%` | **aditivo dentro** |
+| Stat | `Main×4 + Sec + Tert` | multiplicativo |
+| Damage (flat) | `Damage_arma / 100` | multiplicativo |
+| Damage% | `1 + Damage%` | multiplicativo |
+| Boss Damage% | `1 + BossDamage%` | multiplicativo (condicional: chefes) |
+| Damage vs Monsters% | `1 + DamageVsMobs%` | multiplicativo (condicional: mobs) |
 | IED | `1 − PDR × (1 − IED_total)` | multiplicativo |
-| Crítico | `1 + CritChance × CritDmg%` | multiplicativo (esperado) |
-| Final Damage | `1 + FinalDmg%` | multiplicativo |
+| Crítico | `1 + CritChance × CritDamage%` | multiplicativo (esperado) |
+| Final Damage% | `1 + FinalDamage%` | multiplicativo |
+
+> **Não há mais bloco aditivo** (`Damage% + Boss%` do MapleStory foi desfeito). Todos os blocos **multiplicam**.
 
 ## 3. IED (combinação multiplicativa)
 ```text
@@ -48,15 +54,15 @@ IED_total = 1 − Π(1 − ied_i)
 - Fontes separadas **não somam**: 30% + 30% → `1 − (0.7×0.7) = 51%`.
 - Efeito na defesa do alvo: `dano × (1 − PDR × (1 − IED_total))`.
 
-| IED_total | PDR 300% → dano efetivo |
+| IED_total | PDR 300% → multiplicador |
 | :--- | :--- |
-| 0% | ×0.00 (bloqueado) |
-| 50% | ×0.50 → -50% |
+| 0% | ×0.00 |
+| 50% | ×0.50 |
 | 90% | ×0.90 |
 | 96% | ×0.96 |
 
 ## 4. Crítico
-- `Fator_Crit = 1 + (CritChance × CritDmg%)`.
+- `Fator_Crit = 1 + (CritChance × CritDamage%)`.
 - Ex.: 50% chance × 20% dano = `1 + 0.10 = ×1.10` (esperado).
 
 ## 5. Schema de Configuração (JSON)
@@ -64,27 +70,27 @@ IED_total = 1 − Π(1 − ied_i)
 {
   "id": "damage",
   "classes": {
-    "guerreiro": { "main": "STR", "sec": "DEX", "attack": "ATT" },
-    "arqueiro":  { "main": "DEX", "sec": "STR", "attack": "ATT" },
-    "mago":      { "main": "INT", "sec": "LUK", "attack": "MATT" }
+    "guerreiro": { "main": "STR", "sec": "DEX", "tert": "LUK" },
+    "arqueiro":  { "main": "DEX", "sec": "STR", "tert": "LUK" },
+    "mago":      { "main": "INT", "sec": "LUK", "tert": "DEX" }
   },
-  "blocks": ["skill", "stat", "weaponAtt", "attackPct", "totalDamage", "ied", "crit", "finalDamage"],
-  "totalDamageFormula": "1 + Damage% + BossDmg%",
+  "weights": { "main": 4, "sec": 1, "tert": 1 },
+  "blocks": ["skill", "stat", "weaponDamage", "damagePct", "bossDamage", "ied", "crit", "finalDamage"],
   "iedFormula": "1 - (1 - PDR)*(1 - IED_total)",
-  "critFormula": "1 + CritChance*CritDmg"
+  "critFormula": "1 + CritChance*CritDamage"
 }
 ```
 
 ## 6. Tabela de Simulação — ganho por bloco (base 100)
-| Cenário | ATT% | Damage% | BossDmg% | IED% | Crit | DanoFinal |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Base | 0 | 0 | 0 | 0 | 0 | **100** |
-| +50% ATT | 50 | 0 | 0 | 0 | 0 | **150** |
-| +50% Damage | 0 | 50 | 0 | 0 | 0 | **150** |
-| +50% Boss (soma c/ Damage) | 0 | 50 | 50 | 0 | 0 | **200** |
-| Sharp: +25% ATT **vs** +50% Boss | 25 | 0 | 50 | 0 | 0 | ATT: 125 · Boss: 150 |
-| IED: +30% IED vs PDR 300% | 0 | 0 | 0 | 30 | 0 | ×0.30 no dano efetivo |
+| Cenário | Damage% | BossDmg% | IED% | Crit | DanoFinal |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Base | 0 | 0 | 0 | 0 | **100** |
+| +50% Damage | 50 | 0 | 0 | 0 | **150** |
+| +50% Boss (bloco próprio) | 0 | 50 | 0 | 0 | **150** |
+| Ambos | 50 | 50 | 0 | 0 | **225** |
+| +10% Crit dmg a 50% chance | — | — | — | ×1.05 | **×1.05** |
+| IED 30% vs PDR 300% | — | — | 30 | — | ×0.30 no efetivo |
 
-> Demonstra a **regra de ouro**: blocos **aditivos** (Damage+Boss) sofrem retorno decrescente; blocos **novos** multiplicam.
+> Confirma que os blocos agora **multiplicam** (não somam): `1.5 × 1.5 = 2.25`.
 
 > Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]. `Draft` — calibrar em simulação.

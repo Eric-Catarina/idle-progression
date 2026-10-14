@@ -40,7 +40,7 @@ Valores em **flat** (a menos que marcado `%`).
 
 | Stat | Comum | Raro | Épico | Lendário | Extraordinário | Divino |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ATT% / MATT%** | 3% | 6% | 9% | 12% | **15%** | **25%** |
+| **Damage%** | 3% | 6% | 9% | 12% | **15%** | **25%** |
 | **Boss Damage%** | 10% | 20% | 30% | 35% | 40% | 60% |
 | **IED%** | 5% | 10% | 15% | 20% | 25% | 35% |
 | **Damage%** | 3% | 6% | 9% | 12% | 15% | 20% |
@@ -51,7 +51,7 @@ Valores em **flat** (a menos que marcado `%`).
 | **HP% / MP% / DEF%** | 3% | 6% | 9% | 12% | 15% | 21% |
 | **Drop Rate% / Money%** | 5% | 10% | 15% | 20% | 25% | 35% |
 
-> **Exemplo canônico:** `ATT%` = **3 / 6 / 9 / 12 / 15 / 25** (os valores que você definiu: Raro 6, Épico 9, Extraordinário 15, Divino 25).
+> **Exemplo canônico:** `Damage%` = **3 / 6 / 9 / 12 / 15 / 25** (os valores que você definiu: Raro 6, Épico 9, Extraordinário 15, Divino 25). O **ATT foi removido** — `Damage%` faz o papel que era do `ATT%`.
 
 ## 4. Pesos de Sorteio (raridade da linha)
 | Raridade da linha | Peso |
@@ -81,9 +81,9 @@ Valores em **flat** (a menos que marcado `%`).
 | Tipo | Stats possíveis |
 | :--- | :--- |
 | Armadura | HP%, STR/DEX/INT/LUK%, All Stat%, DEF%, MP% |
-| Weapon | ATT%/MATT%, Boss Damage%, IED%, Damage%, Critical Damage%, Critical Chance%, STR/DEX/INT/LUK% |
+| Weapon | Damage%, Boss Damage%, IED%, Critical Damage%, Critical Chance%, STR/DEX/INT/LUK% |
 | Accessory | All Stat%, STR/DEX/INT/LUK%, HP%, Critical Chance%, Critical Damage%, Drop Rate%, Money% |
-| Badge | ATT%/MATT%, Boss Damage%, IED%, Damage%, Critical Damage% |
+| Badge | Damage%, Boss Damage%, IED%, Critical Damage% |
 
 ## 7. Schema de Configuração (JSON)
 ```json
@@ -92,7 +92,7 @@ Valores em **flat** (a menos que marcado `%`).
   "linesByRarity": { "Comum": 1, "Raro": 2, "Epico": 3, "Lendario": 4, "Extraordinario": 5, "Divino": 6 },
   "lineRarityWeights": { "Comum": 100, "Raro": 45, "Epico": 15, "Lendario": 5, "Extraordinario": 1.5, "Divino": 0.4 },
   "values": {
-    "ATTpct": [3, 6, 9, 12, 15, 25],
+    "DamagePct": [3, 6, 9, 12, 15, 25],
     "BossDmg": [10, 20, 30, 35, 40, 60],
     "IED": [5, 10, 15, 20, 25, 35],
     "Damage": [3, 6, 9, 12, 15, 20],
@@ -108,14 +108,14 @@ Valores em **flat** (a menos que marcado `%`).
 ## 8. Tabela de Simulação — item **Divino** (6 linhas, raridade Divina)
 | # | Stat | Valor (Divino) |
 | :--- | :--- | :--- |
-| 1 | ATT% | 25% |
+| 1 | Damage% | 25% |
 | 2 | Boss Damage% | 60% |
 | 3 | IED% | 35% |
 | 4 | Critical Damage% | 20% |
 | 5 | Damage% | 20% |
 | 6 | STR% | 21% |
 
-## 9. Gráfico — ATT% por Raridade da Linha (Charts View)
+## 9. Gráfico — Damage% por Raridade da Linha (Charts View)
 ```chartsview
 #-----------------#
 #- chart type    -#
@@ -128,19 +128,19 @@ type: Bar
 data: |
   dataviewjs:
   return [
-    { raridade: 'Comum', att: 3 },
-    { raridade: 'Raro', att: 6 },
-    { raridade: 'Epico', att: 9 },
-    { raridade: 'Lendario', att: 12 },
-    { raridade: 'Extraord.', att: 15 },
-    { raridade: 'Divino', att: 25 }
+    { raridade: 'Comum', damage: 3 },
+    { raridade: 'Raro', damage: 6 },
+    { raridade: 'Epico', damage: 9 },
+    { raridade: 'Lendario', damage: 12 },
+    { raridade: 'Extraord.', damage: 15 },
+    { raridade: 'Divino', damage: 25 }
   ];
 
 #-----------------#
 #- chart options -#
 #-----------------#
 options:
-  xField: 'att'
+  xField: 'damage'
   yField: 'raridade'
   color: ['#9775fa']
 ```
