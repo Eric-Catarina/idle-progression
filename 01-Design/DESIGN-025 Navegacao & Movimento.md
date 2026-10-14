@@ -13,6 +13,7 @@ dependencies:
   - "[[DESIGN-005 Classes|DESIGN-005]]"
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
 data_spec: "[[DATA-XXX]]"
+tech_spec: "[[SYSTEM-002 NavGraph & Pathfinding|SYSTEM-002]]"
 ---
 
 # [DESIGN-025] Navegação & Movimento (Tap-to-Move)
@@ -108,4 +109,5 @@ O planejador decide o modo pela **geometria do alvo** — **não pelo tile em si
 - [[DESIGN-006 Meta Espacial|DESIGN-006]] — mapa favorece builds móveis.
 - [[DESIGN-017 Interactables & Hub|DESIGN-017]] — clique em interactable = destino.
 - Habilidades: [[DESIGN-012 Jump Dash|DESIGN-012]] · [[DESIGN-026 Blink|DESIGN-026]] · [[DESIGN-027 Slide Jump|DESIGN-027]].
+- **Arquitetura:** [[SYSTEM-000 Navegacao (ADR-001)|SYSTEM-000]] (visão) · [[SYSTEM-001 Input & Movement Intents|SYSTEM-001]] · [[SYSTEM-002 NavGraph & Pathfinding|SYSTEM-002]] · [[SYSTEM-003 Kinematics & Motion Primitives|SYSTEM-003]].
 - Valores (velocidades, alcances, cooldowns) → [[DATA-XXX]].

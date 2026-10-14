@@ -29,7 +29,7 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 
 | ID | Feature | Status | SYSTEM | DATA |
 | :--- | :--- | :--- | :--- | :--- |
-| [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] | Movimento **tap-to-move** (destino via grafo de nós) | Spec Ready | — | [[DATA-XXX]] |
+| [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] | Movimento **tap-to-move** (destino via grafo de nós) | Spec Ready | [[SYSTEM-002 NavGraph & Pathfinding|SYSTEM-002]] | [[DATA-XXX]] |
 
 ### Candidatos Must derivados do Core Loop (a especificar)
 - ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
