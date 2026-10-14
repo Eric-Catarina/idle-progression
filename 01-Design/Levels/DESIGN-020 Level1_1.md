@@ -60,7 +60,28 @@ for (let x = 0; x <= lvl.cols; x++) { g.strokeStyle = x % 5 ? "rgba(255,255,255,
 for (let y = 0; y <= lvl.rows; y++) { g.strokeStyle = y % 5 ? "rgba(255,255,255,.16)" : "rgba(255,255,255,.34)"; g.beginPath(); g.moveTo(0, y*s+.5); g.lineTo(cv.width, y*s+.5); g.stroke(); }
 (lvl.interactables || []).forEach((e, i) => { const cx = e.x*s + s/2, cy = e.y*s + s/2; g.beginPath(); g.arc(cx, cy, s*0.34, 0, 7); g.fillStyle = ["#38d9a9","#b197fc","#ffa94d"][i % 3]; g.fill(); g.strokeStyle = "#101010"; g.lineWidth = 2; g.stroke(); });
 this.container.appendChild(cv);
+const bar = document.createElement("div");
+bar.style = "display:flex;gap:8px;align-items:center;margin:8px 0";
+const btn = document.createElement("button");
+btn.textContent = "📋 Copiar JSON";
+btn.style = "cursor:pointer;padding:4px 10px;border-radius:6px;border:1px solid #2c313a;background:#1b1f27;color:inherit";
+const fb = document.createElement("span");
+fb.style = "font-size:0.85em;opacity:.85";
+btn.onclick = async () => {
+  try { await navigator.clipboard.writeText(raw); }
+  catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = raw; ta.style = "position:fixed;opacity:0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e2) {}
+    document.body.removeChild(ta);
+  }
+  fb.textContent = "Copiado! ✓";
+  setTimeout(() => { fb.textContent = ""; }, 1500);
+};
+bar.appendChild(btn); bar.appendChild(fb);
+this.container.appendChild(bar);
 const det = document.createElement("details");
-det.innerHTML = "<summary style='cursor:pointer'>📋 JSON do nível (clique para expandir/copiar)</summary><pre style='max-height:320px;overflow:auto;background:#0f1115;padding:8px;border-radius:8px'>" + raw.replace(/&/g,"&amp;").replace(/</g,"&lt;") + "</pre>";
+det.innerHTML = "<summary style='cursor:pointer'>📋 JSON do nível (clique para expandir)</summary><pre style='max-height:320px;overflow:auto;background:#0f1115;padding:8px;border-radius:8px'>" + raw.replace(/&/g,"&amp;").replace(/</g,"&lt;") + "</pre>";
 this.container.appendChild(det);
 ```
