@@ -145,4 +145,5 @@ options:
   color: ['#9775fa']
 ```
 
+> **Caps:** os stats agregados (soma das linhas) respeitam os limites de [[DATA-009 Dano|DATA-009]] §5.
 > Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]; gráficos usam **Charts View** (ver [[DATA-002 Selos Curvas|DATA-002]]). `Draft` — calibrar.

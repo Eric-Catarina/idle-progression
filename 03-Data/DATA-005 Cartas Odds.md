@@ -67,6 +67,7 @@ Exemplo (`card_1_1`, `base=12`): tier 1 → **+12** HP · tier 3 → **+36** HP 
 | `newCardMultiplier` | ×10 (1 em 50 enquanto não possui nenhuma) |
 
 > A carta `card_1_5` (`+{5 per tier}%` Card Drop Chance) **aumenta** `1/chance` de todas as cartas.
+> **Cap:** a chance final de drop é limitada a **100%** (ver [[DATA-009 Dano|DATA-009]] §5).
 
 ## 5. Pacotinhos (por raridade)
 Cartas por pacote: **3** (Comum…Lendário) · **5** (Extraordinário/Divino). Odds em % (somam 100 por linha).

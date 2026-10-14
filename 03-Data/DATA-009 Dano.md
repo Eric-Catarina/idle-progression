@@ -65,7 +65,21 @@ IED_total = 1 − Π(1 − ied_i)
 - `Fator_Crit = 1 + (CritChance × CritDamage%)`.
 - Ex.: 50% chance × 20% dano = `1 + 0.10 = ×1.10` (esperado).
 
-## 5. Schema de Configuração (JSON)
+## 5. Caps & Limites
+
+| Stat | Faixa | Motivo |
+| :--- | :--- | :--- |
+| `CritChance%` | **0 – 100%** | não se pode critar mais que sempre |
+| `IED%` | **0 – 100%** | não se pode ignorar mais que toda a defesa (assíntota) |
+| `PDR` (alvo) | **0% – sem teto** | chefes podem ter PDR > 100% |
+| `CritDamage%` | **sem cap** | adendo dentro do bloco Crítico |
+| `Damage%` · `BossDamage%` · `DamageVsMobs%` · `FinalDamage%` | **sem cap** | escalam com o progresso |
+| `Damage Reduction` (futuro) | 0 – 100% | análogo ao IED |
+| `Hit Rate` / acerto (futuro) | 0 – 100% | idem |
+
+> **Regra:** valores **acima do cap são truncados** no agregado — a UI pode mostrar o excedente, mas o cálculo usa o **valor limitado**.
+
+## 6. Schema de Configuração (JSON)
 ```json
 {
   "id": "damage",
@@ -77,11 +91,12 @@ IED_total = 1 − Π(1 − ied_i)
   "weights": { "main": 4, "sec": 1, "tert": 1 },
   "blocks": ["skill", "stat", "weaponDamage", "damagePct", "bossDamage", "ied", "crit", "finalDamage"],
   "iedFormula": "1 - (1 - PDR)*(1 - IED_total)",
-  "critFormula": "1 + CritChance*CritDamage"
+  "critFormula": "1 + CritChance*CritDamage",
+  "caps": { "critChance": 100, "ied": 100, "critDamage": null, "damagePct": null, "bossDamage": null, "finalDamage": null, "pdr": null }
 }
 ```
 
-## 6. Tabela de Simulação — ganho por bloco (base 100)
+## 7. Tabela de Simulação — ganho por bloco (base 100)
 | Cenário | Damage% | BossDmg% | IED% | Crit | DanoFinal |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Base | 0 | 0 | 0 | 0 | **100** |

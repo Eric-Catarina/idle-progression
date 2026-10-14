@@ -55,7 +55,7 @@ DanoFinal ≈ DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 +
 ## 3. Regra Geral
 - **Multiplicativo** entre **todos** os blocos → sem retorno decrescente por empilhamento.
 - `Damage vs Monsters%` (normal) e `Boss Damage%` (chefe) são **blocos condicionais** ao tipo de alvo.
-- **Implicação de balanceamento:** o poder cresce com o **produto** dos blocos; como não há "desgaste", é preciso **limitar** quantos blocos existem e seus **caps** (ex.: IED ≤ 100%).
+- **Implicação de balanceamento:** o poder cresce com o **produto** dos blocos; como não há "desgaste", é preciso **limitar** quantos blocos existem e seus **caps** (ex.: IED ≤ 100%, Crit Chance ≤ 100% — [[DATA-009 Dano|DATA-009]] §5).
 
 ## 4. IED (Ignore Enemy Defense)
 - **Combinação multiplicativa** de várias fontes: `IED_total = 1 − Π(1 − ied_i)`.
@@ -73,7 +73,9 @@ DanoFinal ≈ DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 +
 
 ## 7. Casos de Borda
 - **PDR = 0** → IED é irrelevante (fator 1).
-- **IED = 100%** → ignora toda a defesa (cap a definir).
+- **IED = 100%** → ignora toda a defesa (cap em 100%; ver [[DATA-009 Dano|DATA-009]] §5).
+- **Crit Chance = 100%** → sempre crita (cap).
+- Valores **acima do cap** → truncados no agregado.
 - **Sem crit** → bloco crítico = 1.
 - Overflow/exponenciais → BigNumber ([[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
 

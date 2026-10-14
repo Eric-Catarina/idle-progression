@@ -17,6 +17,7 @@
 - **Precisão numérica:** use BigNumber/BreakEternity para qualquer variável que escale exponencialmente.
 - **Validação:** rode `npm run validate` antes de commitar (há hook de pré-commit em `.githooks/`).
 - **Decomposição proativa:** em descrições de alto nível (mecânicas, skills, sistemas), extraia os elementos específicos e crie/atualize os documentos correspondentes no vault (`DESIGN`/`SYSTEM`/`DATA`) — sem esperar pedido.
+- **Dados óbvios em `DATA`:** em documentos `DATA`, **implemente** o que for **óbvio** (caps, faixas, defaults, limites, tabelas derivadas das regras já definidas) **sem esperar pedido** — nunca preencha lacunas de **design** por conta própria.
 - **Automação proativa:** ao executar algo que **vai se repetir** (ex: implementar níveis, mecânicas, specs), **já adiante a automação** no mesmo passo — template em `00-Context/_templates/` e/ou script em `tools/` (ex: `node tools/new-level.mjs LevelX_Y`). Nunca repita trabalho manual que dá pra padronizar.
 - **Economia de contexto:** dumps de referência de outros jogos ficam em `99-Inbox/reference/` e **só** devem ser lidos quando se trabalha no sistema correspondente (ex: selos → `IDLEON_STAMPS_REFERENCE.md`). Nunca incluí-los em contexto sempre-carregado.
 
