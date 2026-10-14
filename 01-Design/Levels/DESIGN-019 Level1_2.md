@@ -51,7 +51,7 @@ dependencies:
 const path = "03-Data/levels/Level1_2.json";
 const raw = await app.vault.adapter.read(path);
 const lvl = JSON.parse(raw);
-const COLORS = { 0:"#0b0d10", 1:"#9e9e9e", 2:"#4dabf7", 3:"#5c636a", 4:"#51cf66", 5:"#f783ac", 6:"#ffd43b" };
+const COLORS = { 0:"#0b0d10", 1:"#9e9e9e", 2:"#fcc419", 3:"#5c636a", 4:"#51cf66", 5:"#f783ac", 6:"#ffd43b" };
 const s = 14;
 const cv = document.createElement("canvas");
 cv.width = lvl.cols * s; cv.height = lvl.rows * s;

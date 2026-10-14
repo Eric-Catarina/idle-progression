@@ -49,6 +49,7 @@ dependencies:
 | `levels/Level1_2.json` | **Level1_2** | Combate — 1º NPC (`selos`) |
 | `levels/Level1_3.json` | **Level1_3** | Combate — NPC `osiris` |
 | `levels/Level1_4.json` | **Level1_4** | Combate — **vertical** (25×45) |
+| `levels/Level1_5.json` | **Level1_5** | **Final** — 3 andares + Portal Intrafase |
 
 ## 3. Level1_0 (Hub) — resumo
 - **Dimensões:** 55 × 21.
@@ -67,6 +68,11 @@ dependencies:
 
 ### Level1_4
 - 25×45 · **vertical** · Spawn `(2,43)` · Entrada `(1,43)` · Saída `(23,3)`.
+
+### Level1_5
+- 50×21 · **3 andares** · Spawn `(2,19)` · Entrada `(1,19)` · Saída `(48,19)`.
+- **Portal Intrafase:** `(1,3)` ↔ `(44,19)` (par).
+- **Fecha o Mundo 1** → libera o Mundo 2.
 
 ## 4. Relacionados
 - [[DESIGN-017 Interactables & Hub|DESIGN-017]] — interactables & hub.
