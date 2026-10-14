@@ -47,7 +47,7 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 | :--- | :--- | :--- | :--- |
 | `selos` | [[DESIGN-013 Selos|DESIGN-013]] | **Level1_2** | sim (após 1ª interação) |
 | `osiris` | [[DESIGN-014 Osiris|DESIGN-014]] | _(a definir)_ | sim (após 1ª interação) |
-| `cartas` | [[DESIGN-016 Cartas|DESIGN-016]] | _(a definir)_ | sim (após 1ª interação) |
+| `cartas` | [[DESIGN-016 Cartas|DESIGN-016]] | **Level1_4** | sim (após 1ª interação) |
 
 ## 5. Estado / Flags
 - `discovered[interactableId]: bool` — persistente.

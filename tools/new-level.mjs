@@ -37,6 +37,11 @@ const id = "DESIGN-" + String(max + 1).padStart(3, "0");
 const lvl = JSON.parse(readFileSync(join(ROOT, jsonRel), "utf8"));
 const find = (v) => { for (let y = 0; y < lvl.grid.length; y++) for (let x = 0; x < lvl.grid[y].length; x++) if (lvl.grid[y][x] === v) return `(${x},${y})`; return "—"; };
 const inter = (lvl.interactables || []).map((e) => `${e.slot} (${e.x},${e.y})`).join(" · ") || "—";
+const scan = (v) => { const out = []; for (let y = 0; y < lvl.grid.length; y++) for (let x = 0; x < lvl.grid[y].length; x++) if (lvl.grid[y][x] === v) out.push(`(${x},${y})`); return out; };
+const p2 = scan(2);
+const pairs = [];
+for (let i = 0; i < p2.length; i += 2) pairs.push(p2[i + 1] ? `${p2[i]} ↔ ${p2[i + 1]}` : `${p2[i]} (sem par)`);
+const intrafase = pairs.join(" · ") || "—";
 const ratio = lvl.rows / lvl.cols;
 const orientation = ratio > 1.3 ? "vertical" : ratio < 0.77 ? "horizontal" : "neutro";
 
@@ -50,6 +55,7 @@ const page = tpl
   .replaceAll("{{SPAWN}}", find(6))
   .replaceAll("{{ENTRADA}}", find(4))
   .replaceAll("{{SAIDA}}", find(5))
+  .replaceAll("{{INTRAFASE}}", intrafase)
   .replaceAll("{{INTERACTABLES}}", inter);
 
 const levelsDir = join(ROOT, "01-Design/Levels");

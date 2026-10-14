@@ -48,7 +48,7 @@ dependencies:
 | `levels/Level1_1.json` | **Level1_1** | 1º combate |
 | `levels/Level1_2.json` | **Level1_2** | Combate — 1º NPC (`selos`) |
 | `levels/Level1_3.json` | **Level1_3** | Combate — NPC `osiris` |
-| `levels/Level1_4.json` | **Level1_4** | Combate — **vertical** (25×45) |
+| `levels/Level1_4.json` | **Level1_4** | Combate — **vertical** (25×45) + NPC `cartas` |
 | `levels/Level1_5.json` | **Level1_5** | **Final** — 3 andares + Portal Intrafase |
 
 ## 3. Level1_0 (Hub) — resumo
@@ -68,6 +68,8 @@ dependencies:
 
 ### Level1_4
 - 25×45 · **vertical** · Spawn `(2,43)` · Entrada `(1,43)` · Saída `(23,3)`.
+- **Portal Intrafase:** `(12,2)` ↔ `(16,43)` (par).
+- **Interactable:** `cartas` `(8,2)` — libera a UI de Cartas ([[DESIGN-016 Cartas|DESIGN-016]]).
 
 ### Level1_5
 - 50×21 · **3 andares** · Spawn `(2,19)` · Entrada `(1,19)` · Saída `(48,19)`.

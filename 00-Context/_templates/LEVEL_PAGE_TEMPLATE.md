@@ -29,6 +29,7 @@ dependencies:
 - **{{SIZE}}** (ver `03-Data/levels/LevelX_Y.json` / [[DATA-006 Level Layout|DATA-006]]).
 - **Formato:** {{ORIENTATION}} (ver [[DESIGN-006 Meta Espacial|DESIGN-006]]).
 - **Spawn** `{{SPAWN}}` · **Portal Entrada** `{{ENTRADA}}` · **Portal Saída** `{{SAIDA}}`.
+- **Portal Intrafase:** {{INTRAFASE}}.
 - **Interactables:** {{INTERACTABLES}}.
 
 ## 3. População

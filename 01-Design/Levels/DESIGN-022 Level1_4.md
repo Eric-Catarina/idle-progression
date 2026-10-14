@@ -29,7 +29,8 @@ dependencies:
 - **25×45** (ver `03-Data/levels/Level1_4.json` / [[DATA-006 Level Layout|DATA-006]]).
 - **Formato:** vertical (ver [[DESIGN-006 Meta Espacial|DESIGN-006]]).
 - **Spawn** `(2,43)` · **Portal Entrada** `(1,43)` · **Portal Saída** `(23,3)`.
-- **Interactables:** —.
+- **Portal Intrafase:** `(12,2)` ↔ `(16,43)` — atalho do piso ao topo ([[DESIGN-023 Plataformas & Portais|DESIGN-023]]).
+- **Interactables:** `cartas` `(8,2)` — **NPC que libera a UI de Cartas** ([[DESIGN-016 Cartas|Cartas]] · [[DESIGN-017 Interactables & Hub|DESIGN-017]]).
 
 ## 3. População
 - _(a definir)_ tipos/quantidade de monstros.
@@ -37,6 +38,7 @@ dependencies:
 ## 4. Gating & Desbloqueio
 - **Entrada:** vir do Level1_3.
 - **Saída:** completar libera o **Level1_5**.
+- **Descoberta:** o NPC `cartas` `(8,2)` dispara o **primeiro encontro** → `discovered[cartas]=true` → libera **Cartas** no Hub e no Menu de Acesso Rápido ([[DESIGN-017 Interactables & Hub|DESIGN-017]]).
 
 ## 5. Casos de Borda
 - Morte total, monstros presos em plataforma, limites da tela.
