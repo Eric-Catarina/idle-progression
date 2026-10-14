@@ -77,4 +77,5 @@ Definir uma **escala única de raridade** reutilizável por **todos** os sistema
 
 ## 5. Relacionado
 - [[CONTEXT-000 Manifesto|CONTEXT-000]] — Manifesto mestre.
+- [[CONTEXT-009 Direcao de Arte|CONTEXT-009]] — estilo visual (a raridade injeta cor/glow em tudo).
 - [[DESIGN-016 Cartas|DESIGN-016]] — Cartas (primeiro consumidor).
