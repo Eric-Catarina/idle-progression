@@ -34,7 +34,7 @@ dependencies: []
 ```text
 Campanha
 └── Mundo 1
-    └── Nível 1-1
+    └── Level1_1
 ```
 
 ## 5. Parâmetros

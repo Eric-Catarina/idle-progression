@@ -27,11 +27,11 @@ dependencies:
 - _(a definir)_ tema visual e ambientação.
 
 ## 2. Níveis
-- **Hub (1-0)** + **5 níveis com inimigos (1-1…1-5)** (`parent` aponta para este mundo). Semente: [[DESIGN-004 Nivel 1-0|DESIGN-004]].
+- **Hub (Level1_0)** + **5 níveis com inimigos (Level1_1…Level1_5)** (`parent` aponta para este mundo). Semente: [[DESIGN-004 Level1_0|DESIGN-004]].
 
 ## 3. Desbloqueio
 - **Entrada:** início da campanha.
-- **Saída:** completar o Nível 1-5 libera o Mundo 2.
+- **Saída:** completar o Level1_5 libera o Mundo 2.
 
 ## 4. População & Inimigos
 - _(a definir)_.
@@ -49,7 +49,7 @@ dependencies:
 ## 7. Mapa da Árvore
 ```text
 Mundo 1
-├── Nível 1-0 (Hub)
-├── Nível 1-1
-└── Nível 1-2
+├── Level1_0 (Hub)
+├── Level1_1
+└── Level1_2
 ```

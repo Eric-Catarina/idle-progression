@@ -51,7 +51,7 @@ A campanha organiza todo o conteúdo jogável numa progressão **Mundo → Níve
 ```text
 Campanha (DESIGN-002)
 └── Mundo 1 (DESIGN-003)
-    └── Nível 1-0 (DESIGN-004)
+    └── Level1_0 (DESIGN-004)
         └── ...
 ```
 

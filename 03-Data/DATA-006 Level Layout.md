@@ -6,15 +6,16 @@ title: "Level Layout (Schema & Níveis)"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-004 Nivel 1-0|DESIGN-004]]"
+system: "[[DESIGN-004 Level1_0|DESIGN-004]]"
 dependencies:
-  - "[[DESIGN-004 Nivel 1-0|DESIGN-004]]"
+  - "[[DESIGN-004 Level1_0|DESIGN-004]]"
   - "[[DESIGN-017 Interactables & Hub|DESIGN-017]]"
 ---
 
 # [DATA-006] Level Layout (Schema & Níveis)
 
 > Schema do JSON exportado pelo **editor de nível** (`tools/level-editor.html`). Os níveis brutos ficam em `03-Data/levels/`.
+> **Convenção de nome do nível:** `Level<world>_<level>` (ex.: `Level1_0`, `Level1_2`).
 
 ## 1. Schema do Nível (JSON)
 | Campo | Tipo | Descrição |
@@ -40,18 +41,18 @@ dependencies:
 ## 2. Níveis
 | Arquivo                 | Nível   | Papel                   |
 | :---------------------- | :------ | :---------------------- |
-| `levels/level-1-0.json` | **1-0** | **Hub** (NPCs/estações) |
-| `levels/level-1-2.json` | **1-2** | Combate — 1º NPC (`selos`) |
+| `levels/Level1_0.json` | **Level1_0** | **Hub** (NPCs/estações) |
+| `levels/Level1_2.json` | **Level1_2** | Combate — 1º NPC (`selos`) |
 
-## 3. Nível 1-0 (Hub) — resumo
+## 3. Level1_0 (Hub) — resumo
 - **Dimensões:** 55 × 21.
 - **Spawn:** `(2, 19)`. **Portal Saída:** `(53, 19)`. *(Hub não tem Portal Entrada — é o ponto inicial.)*
 - **Interactables:** `osiris` `(15,8)` · `cartas` `(39,8)` · `selos` `(27,13)`.
 - **Piso:** linha 20 inteira (Plataforma) + plataformas internas.
 
-### Nível 1-2
+### Level1_2
 - Spawn `(2,19)` · Portal Entrada `(1,19)` · Portal Saída `(53,19)` · NPC `selos` `(27,14)`.
 
 ## 4. Relacionados
 - [[DESIGN-017 Interactables & Hub|DESIGN-017]] — interactables & hub.
-- [[DESIGN-004 Nivel 1-0|DESIGN-004]] — design do nível.
+- [[DESIGN-004 Level1_0|DESIGN-004]] — design do nível.

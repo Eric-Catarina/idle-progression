@@ -22,7 +22,7 @@ dependencies:
 - **Justificativa:** A "costura" que faz o jogador explorar para desbloquear os sistemas no Hub (estilo Idleon). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito
-Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014 Osiris|Osíris]], [[DESIGN-016 Cartas|Cartas]]) são acessados via **interactables** (NPCs/estações). O **Hub = Nível 1-0** é onde eles ficam disponíveis. Explorar os **níveis seguintes** e interagir pela 1ª vez **descobre** um interactable, que então **aparece no Hub**.
+Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014 Osiris|Osíris]], [[DESIGN-016 Cartas|Cartas]]) são acessados via **interactables** (NPCs/estações). O **Hub = Level1_0** é onde eles ficam disponíveis. Explorar os **níveis seguintes** e interagir pela 1ª vez **descobre** um interactable, que então **aparece no Hub**.
 
 > Modelo: *Idleon* — você encontra o sistema no mapa e ele fica disponível na sua base.
 
@@ -44,7 +44,7 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 ## 4. Tabela de Interactables (Mundo 1)
 | id | Sistema | Aparece em | Desbloqueia no Hub |
 | :--- | :--- | :--- | :--- |
-| `selos` | [[DESIGN-013 Selos|DESIGN-013]] | **1-2** | sim (após 1ª interação) |
+| `selos` | [[DESIGN-013 Selos|DESIGN-013]] | **Level1_2** | sim (após 1ª interação) |
 | `osiris` | [[DESIGN-014 Osiris|DESIGN-014]] | _(a definir)_ | sim (após 1ª interação) |
 | `cartas` | [[DESIGN-016 Cartas|DESIGN-016]] | _(a definir)_ | sim (após 1ª interação) |
 

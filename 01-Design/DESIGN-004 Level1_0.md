@@ -2,21 +2,21 @@
 id: DESIGN-004
 aliases:
   - DESIGN-004
-title: "Nível 1-0 (Hub)"
+title: "Level1_0 (Hub)"
 type: system-design
 subtype: level
 status: Draft
 moscow: Should
 moscow_note: Hub do Mundo 1 (NPCs/estações) + primeiro nível.
 parent: "[[DESIGN-003 Mundo 1|DESIGN-003]]"
-path: "Campanha / Mundo 1 / Nível 1-0"
+path: "Campanha / Mundo 1 / Level1_0"
 data_spec: "[[DATA-006 Level Layout|DATA-006]]"
 dependencies:
   - "[[CONTEXT-006 Hierarquia|CONTEXT-006]]"
   - "[[DESIGN-017 Interactables & Hub|DESIGN-017]]"
 ---
 
-# [DESIGN-004] Nível 1-0 (Hub)
+# [DESIGN-004] Level1_0 (Hub)
 
 > Nó-semente de exemplo ([[CONTEXT-006 Hierarquia|CONTEXT-006]]).
 
@@ -37,7 +37,7 @@ dependencies:
 
 ## 4. Gating & Desbloqueio
 - **Entrada:** início da campanha.
-- **Saída:** matar **X** monstros libera o Nível 1-2. `X` → [[DATA-XXX]].
+- **Saída:** matar **X** monstros libera o Level1_2. `X` → [[DATA-XXX]].
 
 ## 5. Casos de Borda
 - Morte total, monstros presos em plataforma, limites da tela.
