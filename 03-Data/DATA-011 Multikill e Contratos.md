@@ -51,13 +51,13 @@ dependencies:
 ## 5. Recurso Base por Mob (Mundo 1)
 | Mob | Recurso base |
 | :--- | :--- |
-| Mob 1-1 | (1º drop do mob — a definir com a população) |
-| Mob 1-2 | (idem) |
-| Mob 1-3 | (idem) |
-| Mob 1-4 | (idem) |
-| Mob 1-5 | (idem) |
+| **Lesma** (1-1) | **Gosma** |
+| **Cogumelo** (1-2) | **Esporo** |
+| **Vespão** (1-3) | **Ferrão** |
+| **Esquilo Coletor** (1-4) | **Avelã** |
+| **Coruja Sábia** (1-5) | **Pena** |
 
-> Depende da **população de mobs** ([[DESIGN-003 Mundo 1|DESIGN-003]] §4, *a definir*). O `recursoBase` é sempre o **1º item** da drop table.
+> `recursoBase` = **1º item** da drop table do mob (o único afetado pelo Multikill). População em [[DESIGN-003 Mundo 1|DESIGN-003]] §4.
 
 ## 6. Schema de Configuração (JSON)
 ```json

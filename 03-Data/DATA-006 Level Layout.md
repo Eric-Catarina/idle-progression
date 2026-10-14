@@ -45,11 +45,11 @@ dependencies:
 | Arquivo                 | Nível   | Papel                   |
 | :---------------------- | :------ | :---------------------- |
 | `levels/Level1_0.json` | **Level1_0** | **Hub** (NPCs/estações) |
-| `levels/Level1_1.json` | **Level1_1** | 1º combate |
-| `levels/Level1_2.json` | **Level1_2** | Combate — 1º NPC (`selos`) |
-| `levels/Level1_3.json` | **Level1_3** | Combate — NPC `osiris` |
-| `levels/Level1_4.json` | **Level1_4** | Combate — **vertical** (25×45) + NPC `cartas` |
-| `levels/Level1_5.json` | **Level1_5** | **Final** — 3 andares + Portal Intrafase |
+| `levels/Level1_1.json` | **Level1_1** | Raízes/solo — **Lesma** |
+| `levels/Level1_2.json` | **Level1_2** | Mata baixa — **Cogumelo** + NPC `selos` |
+| `levels/Level1_3.json` | **Level1_3** | Mata média — **Vespão** + NPC `osiris` |
+| `levels/Level1_4.json` | **Level1_4** | **Escalada no tronco** (vertical 25×45) — **Esquilo** + NPC `cartas` |
+| `levels/Level1_5.json` | **Level1_5** | **Copa** — **Coruja** + chefe **Vorax** + Livro dos Contratos |
 
 ## 3. Level1_0 (Hub) — resumo
 - **Dimensões:** 55 × 21.

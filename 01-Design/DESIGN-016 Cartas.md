@@ -51,13 +51,13 @@ O **tier da carta usa a escala compartilhada** ([[CONTEXT-007 Raridades|CONTEXT-
 ## 5. Cartas do Mundo 1
 | Nível | Carta | Bônus (por tier) |
 | :--- | :--- | :--- |
-| **Level1_1** | Carta do Mob 1-1 | `+{12 per tier}` **Base HP** |
-| **Level1_2** | Carta do Mob 1-2 | `+{7 per tier}` **Base Damage** |
-| **Level1_3** | Carta do Mob 1-3 | `+{1 per tier}%` **Critical Chance** |
-| **Level1_4** | Carta do Mob 1-4 | `+{5 per tier}%` **Money from Monsters** |
-| **Level1_5** | Carta do Mob 1-5 | `+{5 per tier}%` **Card Drop Chance** |
+| **Level1_1** | Carta da **Lesma** | `+{12 per tier}` **Base HP** |
+| **Level1_2** | Carta do **Cogumelo** | `+{7 per tier}` **Base Damage** |
+| **Level1_3** | Carta do **Vespão** | `+{1 per tier}%` **Critical Chance** |
+| **Level1_4** | Carta do **Esquilo Coletor** | `+{5 per tier}%` **Money from Monsters** |
+| **Level1_5** | Carta da **Coruja Sábia** | `+{5 per tier}%` **Card Drop Chance** |
 
-> O **nome final** de cada carta = nome do **mob** daquele nível (população em [[DESIGN-003 Mundo 1|DESIGN-003]] §4).
+> O **nome da carta = nome do mob** (população em [[DESIGN-003 Mundo 1|DESIGN-003]] §4).
 
 ## 6. Cartas Novas (drop reforçado)
 Uma carta com **0 cópias** tem chance de drop **muito maior** — para acelerar a coleção. Após ter **≥ 1** cópia, cai para a chance normal. Fator exato → [[DATA-005 Cartas Odds|DATA-005]].

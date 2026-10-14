@@ -24,6 +24,7 @@ dependencies:
 
 ## 1. Visão & Objetivo
 - Mapa **extremamente vertical** (25×45) — favorece skills de **eixo Y / física** ([[DESIGN-006 Meta Espacial|DESIGN-006]]): [[DESIGN-007 Meteoro|Meteoro]], [[DESIGN-009 Perfuracao Vertical|Perfuração Vertical]].
+- **Jornada:** a **escalada por dentro do tronco** da Árvore Gigante, rumo à copa ([[DESIGN-003 Mundo 1|DESIGN-003]]).
 
 ## 2. Layout
 - **25×45** (ver `03-Data/levels/Level1_4.json` / [[DATA-006 Level Layout|DATA-006]]).

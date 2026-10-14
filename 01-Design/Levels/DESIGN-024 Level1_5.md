@@ -23,6 +23,7 @@ dependencies:
 - Ver [[CONTEXT-005 Roadmap|CONTEXT-005]].
 
 ## 1. Visão & Objetivo
+- **Jornada:** a **copa da Árvore Gigante** — onde está o **chefe Vorax** ([[DESIGN-003 Mundo 1|DESIGN-003]] §4).
 - **Fechamento do Mundo 1:** o jogador atravessa um mapa de **3 andares** e termina no **Portal Saída**.
 - **Ensina o Portal Intrafase** ([[DESIGN-023 Plataformas & Portais|DESIGN-023]]): um par `(1,3)` ↔ `(44,19)` permite subir/voltar rápido entre o topo-esquerda e o piso-direita.
 - Prepara a transição para o **Mundo 2**.

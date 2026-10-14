@@ -49,11 +49,11 @@ Base (`base`) = incremento por tier. `Bônus(tier) = base × tier`.
 
 | id | Nível | Carta | Stat | base | Tipo |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `card_1_1` | Level1_1 | Carta do Mob 1-1 | Base HP | **12** | flat |
-| `card_1_2` | Level1_2 | Carta do Mob 1-2 | Base Damage | **7** | flat |
-| `card_1_3` | Level1_3 | Carta do Mob 1-3 | Critical Chance | **1** | % |
-| `card_1_4` | Level1_4 | Carta do Mob 1-4 | Money from Monsters | **5** | % |
-| `card_1_5` | Level1_5 | Carta do Mob 1-5 | Card Drop Chance | **5** | % |
+| `card_1_1` | Level1_1 | Carta da **Lesma** | Base HP | **12** | flat |
+| `card_1_2` | Level1_2 | Carta do **Cogumelo** | Base Damage | **7** | flat |
+| `card_1_3` | Level1_3 | Carta do **Vespão** | Critical Chance | **1** | % |
+| `card_1_4` | Level1_4 | Carta do **Esquilo Coletor** | Money from Monsters | **5** | % |
+| `card_1_5` | Level1_5 | Carta da **Coruja Sábia** | Card Drop Chance | **5** | % |
 
 Exemplo (`card_1_1`, `base=12`): tier 1 → **+12** HP · tier 3 → **+36** HP · tier 6 → **+72** HP.
 
