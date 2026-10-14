@@ -42,6 +42,7 @@
     <button id="undo">↶ Desfazer</button>
     <button id="redo">↷ Refazer</button>
     <button id="export">⬇ Exportar JSON</button>
+    <button id="pasteImport">📋 Colar JSON</button>
     <button id="copy">⧉ Copiar JSON</button>
     <label style="margin-left:6px">Importar <input type="file" id="import" accept=".json"></label>
   </div>
@@ -71,7 +72,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      <b>Ctrl</b> pintando = traço <b>horizontal</b> · <b>Shift+arrastar</b> = selecionar · <b>Ctrl+C/V</b> = copiar/colar · <b>G</b> = mover · <b>ESC</b> = pincel · <b>🔗 Interact.</b> coloca NPCs (escolha no dropdown).
+      <b>Ctrl</b> pintando = traço <b>horizontal</b> · <b>Shift+arrastar</b> = selecionar · <b>Ctrl+C/V</b> = copiar/colar (grade) · <b>G</b> = mover · <b>ESC</b> = pincel · <b>🔗 Interact.</b> coloca NPCs · <b>📋 Colar JSON</b> importa da área de transferência.
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -387,11 +388,34 @@ $("export").onclick = () => {
   a.click();
 };
 $("copy").onclick = async () => { await navigator.clipboard.writeText(JSON.stringify(toJSON())); $("copy").textContent = "✓"; setTimeout(()=>$("copy").textContent="⧉ Copiar JSON", 900); };
+function loadLevelJSON(text) {
+  let d;
+  try { d = JSON.parse(text); } catch (err) { $("status").textContent = "JSON inválido — não deu para importar."; return; }
+  if (!d || !Array.isArray(d.grid)) { $("status").textContent = "JSON sem 'grid' de nível."; return; }
+  snapshot();
+  $("name").value = d.name || "";
+  state.cols = d.cols || d.grid[0].length;
+  state.rows = d.rows || d.grid.length;
+  state.cell = d.cellSize || state.cell;
+  grid = d.grid.map((row) => row.map((v) => v ?? 0));
+  entities = d.interactables || [];
+  normalize(); draw(); refreshJSON();
+  $("status").textContent = `Nível "${d.name || "?"}" carregado (${state.cols}×${state.rows}).`;
+}
 $("import").onchange = (e) => {
   const f = e.target.files[0]; if (!f) return;
   const r = new FileReader();
-  r.onload = () => { snapshot(); const d = JSON.parse(r.result); $("name").value = d.name || ""; state.cols = d.cols; state.rows = d.rows; state.cell = d.cellSize || 24; grid = d.grid; entities = d.interactables || []; normalize(); draw(); refreshJSON(); };
+  r.onload = () => loadLevelJSON(r.result);
   r.readAsText(f);
+};
+$("pasteImport").onclick = async () => {
+  try {
+    const t = await navigator.clipboard.readText();
+    if (!t || !t.trim()) { $("status").textContent = "Área de transferência vazia."; return; }
+    loadLevelJSON(t.trim());
+  } catch (err) {
+    $("status").textContent = "Não consegui ler a área de transferência — veja se o navegador pediu permissão; senão, use Importar (arquivo).";
+  }
 };
 function setTool(name) {
   state.tool = name;
