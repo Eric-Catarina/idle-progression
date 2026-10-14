@@ -18,6 +18,7 @@ data_spec: "[[DATA-011 Multikill e Contratos|DATA-011]]"
 
 > Nosso equivalente ao **Death Note** do IdleOn (nome escolhido por ser **temático de contratos**: cada espécie de mob é um *contrato de abate*, e cumprir **tiers** = cumprir cláusulas).
 > Alternativas consideradas: *Tomo dos Contratos*, *Livro dos Abates*, *Registro de Caça*.
+> Referência bruta: `99-Inbox/reference/IDLEON_MULTIKILL_REFERENCE.md`.
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should

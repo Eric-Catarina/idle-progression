@@ -17,7 +17,7 @@ data_spec: "[[DATA-011 Multikill e Contratos|DATA-011]]"
 
 # [DESIGN-033] Multikill
 
-> Inspiração: **Multikill do IdleOn**. Referência: mecânica descrita no `99-Inbox/reference/` (Death Note).
+> Inspiração: **Multikill / Death Note do IdleOn**. Referência bruta: `99-Inbox/reference/IDLEON_MULTIKILL_REFERENCE.md`.
 > Nome do sistema-tracking: **[[DESIGN-034 Livro dos Contratos|Livro dos Contratos]]**.
 
 ## 0. Prioridade MoSCoW
