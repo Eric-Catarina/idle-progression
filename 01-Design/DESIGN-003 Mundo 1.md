@@ -55,7 +55,8 @@ Roleta **F1 — Bichinhos da Mata**:
 | 1-4 | **Esquilo Coletor** | `+{5/tier}%` Money from Monsters |
 | 1-5 | **Coruja Sábia** | `+{5/tier}%` Card Drop Chance |
 
-- **Drop:** **todos** os mobs do Mundo 1 dropam a **mesma** coisa — **Essência Verde** (a **essência do Mundo 1**). **Não há drops específicos por mob.**
+- **Recurso:** o **único recurso** de mob é a **Essência Verde** (essência do Mundo 1). **Não há recursos por mob** (o cogumelo não dropa "chapéu de cogumelo").
+- **Drop table:** além da Essência, os mobs têm **drop table** com **coleções** (cartas/selos/gear) em **rolls separados**.
 - **Chefe:** **Vorax** (copa da Árvore, **Level1_5**) → dá a **Relíquia de Vorax** ([[DESIGN-032 Gear Sets|DESIGN-032]]).
 - **Cartas** levam o nome do mob ([[DESIGN-016 Cartas|DESIGN-016]]). **Visuais/ícones** → [[CONTEXT-009 Direcao de Arte|CONTEXT-009]] (Apêndice B).
 

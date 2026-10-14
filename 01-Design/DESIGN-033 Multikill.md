@@ -38,7 +38,7 @@ Quando alguém causa **dano muito acima do HP** de um mob, esse "excesso" vira r
 ## 3. Interações
 - **Dano** ([[DESIGN-031 Calculo de Dano|DESIGN-031]]): builds de dano alto (overkill) se beneficiam.
 - **Livro dos Contratos** ([[DESIGN-034 Livro dos Contratos|DESIGN-034]]): concede o `MK%` **por mundo**.
-- **Drops:** o **único** drop de mob é a **Essência do Mundo** (verde no Mundo 1) → é **ela** que é multiplicada. Não há drops por mob.
+- **Drops:** o **único recurso** de mob é a **Essência do Mundo** (verde no Mundo 1) → é **ela** que é multiplicada. **Cartas/selos/gear** caem em **rolls separados** (coleções) e **não** são multiplicados.
 - **Contagem de kills:** o Multikill **aumenta o kill count** (ajuda a destravar coisas por contagem) — **sem** XP/moeda extra.
 
 ## 4. O que **NÃO** é afetado

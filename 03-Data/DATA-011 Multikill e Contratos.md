@@ -49,8 +49,9 @@ dependencies:
 | Mundo 2+ | (a definir) | idem |
 
 ## 5. Essência (Recurso do Mundo 1)
-- **Todos** os mobs do Mundo 1 dropam a **mesma** coisa: **Essência Verde** (a **essência do Mundo 1**).
-- **Não há drops específicos por mob** — a essência é o único drop, e é o que o **Multikill** multiplica.
+- O **único recurso** de mob no Mundo 1 é a **Essência Verde** (sem recursos por mob — o cogumelo não dropa "chapéu de cogumelo").
+- Os mobs têm **drop table** com **coleções** (cartas/selos/gear) em rolls separados, mas essas **não** são multiplicadas pelo Multikill.
+- É a **Essência** que o **Multikill** multiplica.
 
 ## 6. Schema de Configuração (JSON)
 ```json
