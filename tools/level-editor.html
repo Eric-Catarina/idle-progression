@@ -353,7 +353,7 @@ function toJSON() {
     name: $("name").value,
     cols: grid[0]?.length ?? 0, rows: grid.length, cellSize: state.cell,
     legend: Object.fromEntries(PALETTE.map(p => [p.id, p.name])),
-    grid: grid,
+    grid: grid.map((row) => row.map((v) => v ?? 0)),
     interactables: entities
   };
 }

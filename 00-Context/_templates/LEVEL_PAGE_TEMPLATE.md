@@ -26,8 +26,9 @@ dependencies:
 - O que este nível ensina/entrega.
 
 ## 2. Layout
-- 55×21 (ver `levels/LevelX_Y.json` / [[DATA-006 Level Layout|DATA-006]]).
-- **Spawn** `(x,y)` · **Portal Entrada** `(x,y)` · **Portal Saída** `(x,y)`.
+- **{{SIZE}}** (ver `03-Data/levels/LevelX_Y.json` / [[DATA-006 Level Layout|DATA-006]]).
+- **Spawn** `{{SPAWN}}` · **Portal Entrada** `{{ENTRADA}}` · **Portal Saída** `{{SAIDA}}`.
+- **Interactables:** {{INTERACTABLES}}.
 
 ## 3. População
 - _(a definir)_ tipos/quantidade de monstros.

@@ -34,11 +34,20 @@ for (const f of walk(join(ROOT, "01-Design"))) {
 }
 const id = "DESIGN-" + String(max + 1).padStart(3, "0");
 
+const lvl = JSON.parse(readFileSync(join(ROOT, jsonRel), "utf8"));
+const find = (v) => { for (let y = 0; y < lvl.grid.length; y++) for (let x = 0; x < lvl.grid[y].length; x++) if (lvl.grid[y][x] === v) return `(${x},${y})`; return "—"; };
+const inter = (lvl.interactables || []).map((e) => `${e.slot} (${e.x},${e.y})`).join(" · ") || "—";
+
 const tpl = readFileSync(join(ROOT, "00-Context/_templates/LEVEL_PAGE_TEMPLATE.md"), "utf8");
 const page = tpl
   .replaceAll("LevelX_Y", name)
   .replaceAll("DESIGN-XXX", id)
-  .replaceAll("Mundo W", "Mundo " + world);
+  .replaceAll("Mundo W", "Mundo " + world)
+  .replaceAll("{{SIZE}}", `${lvl.cols}×${lvl.rows}`)
+  .replaceAll("{{SPAWN}}", find(6))
+  .replaceAll("{{ENTRADA}}", find(4))
+  .replaceAll("{{SAIDA}}", find(5))
+  .replaceAll("{{INTERACTABLES}}", inter);
 
 const levelsDir = join(ROOT, "01-Design/Levels");
 const already = existsSync(levelsDir) && readdirSync(levelsDir).some((f) => f.endsWith(`${name}.md`));

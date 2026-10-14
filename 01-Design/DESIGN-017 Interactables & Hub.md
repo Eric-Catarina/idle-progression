@@ -40,6 +40,7 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 6. **Aproximação:** clicar num interactable define o **destino (tap-to-move)** do jogador até ele — o jogador **anda** até chegar (não teletransporta).
 7. **Primeiro Encontro:** na **1ª vez** que o jogador **alcança** o interactable, disparam-se os **eventos de primeiro encontro** (diálogo/cena) e marca-se `discovered[id] = true`.
 8. **Desbloqueio:** o sistema passa a aparecer no **Hub (1-0)** e no **Menu de Acesso Rápido** ([[DESIGN-018 Menu de Acesso Rapido|DESIGN-018]]).
+9. **Persistência no campo:** após o **primeiro encontro**, o interactable é **removido do nível de campo** (o NPC "vai" para o Hub) e passa a existir **apenas no Hub (1-0) + Menu Rápido**. Ex.: o **Osíris** some do `Level1_3` depois de interagido.
 
 ## 4. Tabela de Interactables (Mundo 1)
 | id | Sistema | Aparece em | Desbloqueia no Hub |
