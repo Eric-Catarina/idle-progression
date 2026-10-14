@@ -6,9 +6,9 @@ title: "Level Layout (Schema & Níveis)"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-004 Nivel 1-1|DESIGN-004]]"
+system: "[[DESIGN-004 Nivel 1-0|DESIGN-004]]"
 dependencies:
-  - "[[DESIGN-004 Nivel 1-1|DESIGN-004]]"
+  - "[[DESIGN-004 Nivel 1-0|DESIGN-004]]"
   - "[[DESIGN-017 Interactables & Hub|DESIGN-017]]"
 ---
 
@@ -40,9 +40,9 @@ dependencies:
 ## 2. Níveis
 | Arquivo | Nível | Papel |
 | :--- | :--- | :--- |
-| `levels/level-1-1.json` | **1-1** | **Hub** (NPCs/estações) |
+| `levels/level-1-0.json` | **1-0** | **Hub** (NPCs/estações) |
 
-## 3. Nível 1-1 (Hub) — resumo
+## 3. Nível 1-0 (Hub) — resumo
 - **Dimensões:** 55 × 21.
 - **Spawn:** `(2, 19)`. **Portal Saída:** `(53, 19)`. *(Hub não tem Portal Entrada — é o ponto inicial.)*
 - **Interactables:** `osiris` `(15,8)` · `cartas` `(39,8)` · `selos` `(27,13)`.
@@ -50,4 +50,4 @@ dependencies:
 
 ## 4. Relacionados
 - [[DESIGN-017 Interactables & Hub|DESIGN-017]] — interactables & hub.
-- [[DESIGN-004 Nivel 1-1|DESIGN-004]] — design do nível.
+- [[DESIGN-004 Nivel 1-0|DESIGN-004]] — design do nível.

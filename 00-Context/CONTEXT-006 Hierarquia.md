@@ -67,18 +67,18 @@ O nó raiz (**Campanha**) mantém a seção **"Mapa da Árvore"** listando seus 
 ```text
 Campanha (DESIGN-002)
 └── Mundo 1 (DESIGN-003)
-    ├── Nível 1-1 (DESIGN-004)
+    ├── Nível 1-0 (DESIGN-004)
     ├── Nível 1-2 (DESIGN-005)
     ├── ...
     └── Nível 1-5 (DESIGN-008)
 ```
 
 ```yaml
-# Nível 1-1
+# Nível 1-0
 id: DESIGN-004
 subtype: level
 parent: "[[DESIGN-003]]"        # Mundo 1
-path: "Campanha / Mundo 1 / Nível 1-1"
+path: "Campanha / Mundo 1 / Nível 1-0"
 ```
 
 ## 8. Relacionado

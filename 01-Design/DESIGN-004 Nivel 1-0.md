@@ -2,21 +2,21 @@
 id: DESIGN-004
 aliases:
   - DESIGN-004
-title: "Nível 1-1 (Hub)"
+title: "Nível 1-0 (Hub)"
 type: system-design
 subtype: level
 status: Draft
 moscow: Should
 moscow_note: Hub do Mundo 1 (NPCs/estações) + primeiro nível.
 parent: "[[DESIGN-003 Mundo 1|DESIGN-003]]"
-path: "Campanha / Mundo 1 / Nível 1-1"
+path: "Campanha / Mundo 1 / Nível 1-0"
 data_spec: "[[DATA-006 Level Layout|DATA-006]]"
 dependencies:
   - "[[CONTEXT-006 Hierarquia|CONTEXT-006]]"
   - "[[DESIGN-017 Interactables & Hub|DESIGN-017]]"
 ---
 
-# [DESIGN-004] Nível 1-1 (Hub)
+# [DESIGN-004] Nível 1-0 (Hub)
 
 > Nó-semente de exemplo ([[CONTEXT-006 Hierarquia|CONTEXT-006]]).
 
