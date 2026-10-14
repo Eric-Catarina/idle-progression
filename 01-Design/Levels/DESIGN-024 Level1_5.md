@@ -41,6 +41,7 @@ dependencies:
 ## 4. Gating & Desbloqueio
 - **Entrada:** vir do **Portal Saída** do nível anterior (`Level1_4`).
 - **Saída:** completar o `Level1_5` **libera o Mundo 2** ([[DESIGN-003 Mundo 1|DESIGN-003]] §3).
+- **Chefe do Mundo 1:** liberar o **portal do Level1_5** (o chefe) também desbloqueia o **Livro dos Contratos** ([[DESIGN-034 Livro dos Contratos|DESIGN-034]]).
 
 ## 5. Casos de Borda
 - **Nº ímpar de portais intrafase** → o último fica inativo (aqui são 2, ok).

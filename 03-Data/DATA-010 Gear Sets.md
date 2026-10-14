@@ -106,7 +106,7 @@ Bônus **acumulativos** (a faixa 3 soma as anteriores).
 | Stat | Significado |
 | :--- | :--- |
 | `xpOnline%` | ganho de XP **enquanto online** |
-| `multikill` | kills contam como múltiplas (a definir — ver DESIGN-032) |
+| `multikill` | tier de abate → +recurso base ([[DESIGN-033 Multikill\|DESIGN-033]]) |
 | `stampDrop%` / `stampEffect%` | drop / efeito dos **Selos** |
 | `osirisOutput%` | produção do **Osíris** |
 | `cardDrop%` / `cardEffect%` | drop / efeito das **Cartas** |

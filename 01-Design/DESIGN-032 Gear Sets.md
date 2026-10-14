@@ -59,7 +59,7 @@ Um conjunto é um grupo de peças com um **tema**. Vestir mais peças do mesmo s
 > O **primeiro** set a dropar e o **mais comum** (drop rate maior que os outros) — feito para **destravar o avanço** do jogador no Mundo 1.
 - **2 peças:** +10% **DEF** · +10% **Max HP** · +5% **HP Regen** · +10% **XP (online)**
 - **3 peças:** +10% **DEF** · +10% **Max HP** · +10% **XP (online)**
-- **4 peças:** **+1 Multikill**
+- **4 peças:** **+1 Multikill** ([[DESIGN-033 Multikill|Multikill]])
 
 ### 4.3 Ganância (loot)
 - **2 peças:** +10% **Money from Monsters** · +10% **Drop Rate**

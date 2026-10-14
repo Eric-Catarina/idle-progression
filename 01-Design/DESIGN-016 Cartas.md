@@ -76,6 +76,7 @@ Montar **conjuntos** (por mundo/mob) concede bônus extra; a "força" do set pon
 - Duplicata de tier alto → poeira proporcional.
 - Overflow de bônus (BigNumber / [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
 - Equipar carta não coletada (bloqueado).
+- **Multikill não afeta cartas** ([[DESIGN-033 Multikill|DESIGN-033]] §4).
 
 ## 10. UI/UX e Feedback
 - **Álbum** com a **borda por tier** ([[CONTEXT-007 Raridades|CONTEXT-007]]); brilho/animação crescem com o tier.

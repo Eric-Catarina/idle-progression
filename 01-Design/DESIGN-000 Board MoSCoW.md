@@ -55,6 +55,8 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 | [[DESIGN-029 Potential|DESIGN-029]] | **Linhas de Potential** (1–6) + reset com Ouro | Draft | [[DATA-007 Potentials\|DATA-007]] |
 | [[DESIGN-030 Star Force|DESIGN-030]] | **Estrelas** (0–25) com risco de destruição | Draft | [[DATA-008 Star Force\|DATA-008]] |
 | [[DESIGN-032 Gear Sets|DESIGN-032]] | **Sets de gear** (bônus por conjunto) | Draft | [[DATA-010 Gear Sets\|DATA-010]] |
+| [[DESIGN-033 Multikill|DESIGN-033]] | **Multikill** (tiers de abate → recurso base) | Draft | [[DESIGN-034 Livro dos Contratos\|DESIGN-034]] |
+| [[DESIGN-034 Livro dos Contratos|DESIGN-034]] | **Livro dos Contratos** (farm account-wide) | Draft | [[DATA-011 Multikill e Contratos\|DATA-011]] |
 
 ---
 

@@ -43,6 +43,7 @@ dependencies:
 - **#1 — [[DESIGN-013 Selos|Selos (Stamps)]]** (coleção dropada de mobs; account-wide).
 - #2 — [[DESIGN-014 Osiris|Osíris (Golem dos Cristais)]]
 - #3 — [[DESIGN-016 Cartas|Cartas & Pacotinhos]]
+- **#4 — [[DESIGN-034 Livro dos Contratos|Livro dos Contratos]]** (tracking de abates → **Multikill**; desbloqueado no **chefe do Mundo 1**).
 - **Hub (1-1):** [[DESIGN-017 Interactables & Hub|DESIGN-017]] — NPCs/estações dos sistemas (Selos, Osíris, Cartas).
 - **Acesso Rápido:** [[DESIGN-018 Menu de Acesso Rapido|DESIGN-018]] — atalhos na UI para os sistemas já desbloqueados.
 
