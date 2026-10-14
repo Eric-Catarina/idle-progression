@@ -21,7 +21,7 @@ dependencies:
 | `setId` | id do conjunto |
 | `pecas` | nº de peças do set equipadas |
 | `faixa` | faixa destravada (1..3) conforme `pecas` |
-| `cond` | condição opcional (ex.: `map:vertical`) |
+| `dropWeight` | peso relativo de drop das peças do set (maior = cai mais) |
 
 ## 2. Tabela de Bônus por Set × Faixa
 Bônus **acumulativos** (a faixa 3 soma as anteriores).
@@ -29,29 +29,27 @@ Bônus **acumulativos** (a faixa 3 soma as anteriores).
 | Set | Peças | Faixa 1 (2 peças) | Faixa 2 (3 peças) | Faixa 3 (4 peças) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Relíquia de Vorax** | 7 (3/5/7) | +10% Boss Damage · +5% IED | +15% Damage · +5% Crit Damage | +15% IED · +10% Final Damage |
-| **Recruta** | 4 | +10% HP | +10% EXP (mobs) | +15% DEF · +10% HP |
-| **Selador** | 4 | +10% Drop Rate | +15% Stamp Drop | +10% EXP · +10% Drop Rate |
-| **Minerador** | 4 | +10% Money | +10% Crystal gain | +15% Drop Rate · +10% Money |
-| **Colecionador** | 4 | +10% Card Drop | +10% Drop Rate | +15% Card Drop · +5% Crit Chance |
-| **Caçador** | 4 | +10% Damage vs Mobs | +10% Crit Chance | +15% Damage vs Mobs · +10% Crit Damage |
-| **Alpinista** | 4 | +10% Damage (mapa vertical) | +10% Damage vs Mobs | +15% Damage (vertical) · +5% Crit Chance |
-| **Corredor** | 4 | +10% Damage (mapa horizontal) | +10% EXP | +15% Damage (horizontal) · +5% Crit Chance |
+| **Recruta** | 4 | +10% DEF · +10% Max HP · +5% HP Regen · +10% XP (online) | +10% DEF · +10% Max HP · +10% XP (online) | **+1 Multikill** |
+| **Ganância** | 4 | +10% Money · +10% Drop Rate | +15% Stamp Drop · +15% Card Drop | +15% Money · +15% Drop Rate |
+| **Legado do Mundo 1** | 4 | +10% efeito dos Selos | +10% produção do Osíris | +10% efeito das Cartas |
 
-> **Relíquia de Vorax** usa faixas **3 / 5 / 7** (é o set do chefe, maior).
+## 3. Peso de Drop por Set (o Recruta cai mais)
+| Set | `dropWeight` | Observação |
+| :--- | :--- | :--- |
+| **Recruta** | **100** | 1º a dropar; mais comum |
+| **Ganância** | 40 | comum nos níveis médios |
+| **Legado do Mundo 1** | 30 | comum nos níveis altos |
+| **Relíquia de Vorax** | 5 | raro (chefe) |
 
-## 3. Fonte & Peças
+## 4. Fonte & Peças
 | Set | Fonte | Peças disponíveis |
 | :--- | :--- | :--- |
 | Relíquia de Vorax | Chefe do Mundo 1 | 7 (todos os slots) |
 | Recruta | Level1_1 / Level1_2 | 4 (armadura) |
-| Selador | Level1_2 | 4 (armadura) |
-| Minerador | Level1_3 | 4 (armadura) |
-| Colecionador | Level1_4 | 4 (armadura) |
-| Caçador | mobs gerais | 4 (armadura) |
-| Alpinista | Level1_4 | 4 (armadura) |
-| Corredor | Level1_5 | 4 (armadura) |
+| Ganância | Level1_3 / Level1_4 | 4 (armadura) |
+| Legado do Mundo 1 | Level1_4 / Level1_5 | 4 (armadura) |
 
-## 4. Schema de Configuração (JSON)
+## 5. Schema de Configuração (JSON)
 ```json
 {
   "id": "gear_sets",
@@ -60,6 +58,7 @@ Bônus **acumulativos** (a faixa 3 soma as anteriores).
       "id": "vorax_relic",
       "name": "Relíquia de Vorax",
       "pieces": 7,
+      "dropWeight": 5,
       "tiers": [
         { "need": 3, "mods": { "bossDamage%": 10, "ied%": 5 } },
         { "need": 5, "mods": { "damage%": 15, "critDamage%": 5 } },
@@ -70,29 +69,51 @@ Bônus **acumulativos** (a faixa 3 soma as anteriores).
       "id": "recruit",
       "name": "Recruta",
       "pieces": 4,
+      "dropWeight": 100,
       "tiers": [
-        { "need": 2, "mods": { "hp%": 10 } },
-        { "need": 3, "mods": { "expFromMobs%": 10 } },
-        { "need": 4, "mods": { "def%": 15, "hp%": 10 } }
+        { "need": 2, "mods": { "def%": 10, "maxHp%": 10, "hpRegen%": 5, "xpOnline%": 10 } },
+        { "need": 3, "mods": { "def%": 10, "maxHp%": 10, "xpOnline%": 10 } },
+        { "need": 4, "mods": { "multikill": 1 } }
       ]
     },
     {
-      "id": "alpinist",
-      "name": "Alpinista",
+      "id": "greed",
+      "name": "Ganância",
       "pieces": 4,
+      "dropWeight": 40,
       "tiers": [
-        { "need": 2, "mods": { "damage%": 10 }, "cond": "map:vertical" },
-        { "need": 3, "mods": { "damageVsMobs%": 10 } },
-        { "need": 4, "mods": { "damage%": 15, "critChance%": 5 }, "cond": "map:vertical" }
+        { "need": 2, "mods": { "moneyFromMobs%": 10, "dropRate%": 10 } },
+        { "need": 3, "mods": { "stampDrop%": 15, "cardDrop%": 15 } },
+        { "need": 4, "mods": { "moneyFromMobs%": 15, "dropRate%": 15 } }
+      ]
+    },
+    {
+      "id": "w1_legacy",
+      "name": "Legado do Mundo 1",
+      "pieces": 4,
+      "dropWeight": 30,
+      "tiers": [
+        { "need": 2, "mods": { "stampEffect%": 10 } },
+        { "need": 3, "mods": { "osirisOutput%": 10 } },
+        { "need": 4, "mods": { "cardEffect%": 10 } }
       ]
     }
   ]
 }
 ```
 
-## 5. Notas
-- `cond` = bônus **condicional** (só vale no contexto). Sets Alpinista/Corredor usam `map:vertical` / `map:horizontal` ([[DESIGN-006 Meta Espacial|DESIGN-006]]).
-- Bônus de set entram no **agregado de stats** junto com Potential/estrelas (pipeline de [[DESIGN-031 Calculo de Dano|DESIGN-031]]).
-- `Draft` — calibrar; valores crescem com a profundidade do mundo.
+## 6. Stats Novos Referenciados
+| Stat | Significado |
+| :--- | :--- |
+| `xpOnline%` | ganho de XP **enquanto online** |
+| `multikill` | kills contam como múltiplas (a definir — ver DESIGN-032) |
+| `stampDrop%` / `stampEffect%` | drop / efeito dos **Selos** |
+| `osirisOutput%` | produção do **Osíris** |
+| `cardDrop%` / `cardEffect%` | drop / efeito das **Cartas** |
+
+## 7. Notas
+- `dropWeight` é **relativo** (comparado com outros sets/itens), não uma chance absoluta.
+- Bônus de set entram no **agregado de stats** (pipeline de [[DESIGN-031 Calculo de Dano|DESIGN-031]]); os **caps** de [[DATA-009 Dano|DATA-009]] §5 se aplicam.
+- `Draft` — calibrar.
 
 > Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]].
