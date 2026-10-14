@@ -64,15 +64,15 @@ O jogador **não dirige** o personagem tecla a tecla: ele **aponta um destino** 
 ## 6. Regras de Uso do Jump Dash (Guerreiro)
 > O dash **não** serve para subir plataformas em **90°** — para isso usa-se o **pulo** (e a passagem one-way de [[DESIGN-023 Plataformas & Portais|DESIGN-023]]).
 
-O planejador classifica o alvo pela **geometria** e escolhe um dos três modos:
+O planejador decide o modo pela **geometria do alvo** — **não pelo tile em si**. Os números do exemplo são apenas **tiles** da legenda do nível ([[DATA-006 Level Layout|DATA-006]]): `0` Vazio · `1` Plataforma · `2` Portal Intrafase · `3` Parede/Sólido · `4` Portal Entrada · `5` Portal Saída · `6` Spawn Jogador.
 
-| Modo | Alvo (relativo ao jogador) | Uso do dash |
-| :--- | :--- | :--- |
-| **0 — Sem dash** | mesma altura / degrau pequeno (tiles `4`/`2` do exemplo) | **andar**, ou **andar + pular normal**. **Nunca** dash. |
-| **1 — Dash no ápice** | **acima e na diagonal** (tile `3`) | **pular normal**; **no ápice** do pulo, dar o **dash na direção** → ganha alcance horizontal mantendo a altura. |
-| **2 — Dash antecipado** | alvo logo abaixo de uma plataforma (não pode ultrapassar) | **andar + pular**; **no ar, antes do ápice**, dar o dash → arco mais **raso**, para **não pular alto demais e pousar sem querer na plataforma de cima**. |
+| Modo | Geometria do alvo (relativa ao jogador) | Uso do dash | No exemplo |
+| :--- | :--- | :--- | :--- |
+| **0 — Sem dash** | mesma altura / degrau pequeno | **andar**, ou **andar + pular normal**. **Nunca** dash. | tiles `4`/`2` no **mesmo nível** |
+| **1 — Dash no ápice** | **acima e na diagonal** | **pular normal**; **no ápice** do pulo, dar o **dash na direção** → ganha alcance horizontal mantendo a altura. | tile `3` (parede/sólido) **acima** |
+| **2 — Dash antecipado** | alvo **logo abaixo de uma plataforma** (não pode ultrapassar) | **andar + pular**; **no ar, antes do ápice**, dar o dash → arco mais **raso**, para **não pular alto demais e pousar sem querer na plataforma de cima**. | tile `2` **sob** plataforma |
 
-> ⚠️ **Ambiguidade a confirmar:** o marcador `2` aparece nos **Modos 0 e 2** (provavelmente um dos dois é outro tile no exemplo). Além disso, o grid enviado **não contém os tiles `4`/`5`** — se o "JSON de exemplo custom" é outro, mande-o para eu fixar o mapeamento marcador → modo.
+> **O mesmo tile pode cair em modos diferentes** — o que decide é a **posição relativa** do alvo (e o que há acima dele). Ex.: um `2` no **mesmo nível** → Modo 0; um `2` com **plataforma logo acima** → Modo 2.
 
 ## 7. Input Manual da Habilidade
 - **No ar:** um **2º input de pulo** → **dispara o dash** automaticamente.
