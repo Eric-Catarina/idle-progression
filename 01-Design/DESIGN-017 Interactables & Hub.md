@@ -50,9 +50,10 @@ Os **sistemas permanentes** do Mundo 1 ([[DESIGN-013 Selos|Selos]], [[DESIGN-014
 - O Hub resolve seus **slots** contra `discovered` ao carregar.
 
 ## 6. Como fazer no Editor de Level
-1. Pinte os interactables com os tiles da paleta (**Interact. Selos/Osíris/Cartas**, ou **Interactável** genérico) — isso captura a **posição**.
-2. O **comportamento** (qual sistema, condição de desbloqueio, diálogo) vive **aqui (DESIGN)** e no `DATA` — a grade só dá a posição.
-3. No Hub (1-1), deixe os **slots** dos interactables de campo presentes (ocultos até serem descobertos).
+1. Selecione a ferramenta **🔗 Interact.** e escolha o interactável no **dropdown** (lista editável — escala para N interactables por mundo, sem tile fixo por tipo).
+2. Pinte no mapa → o editor grava uma **entidade** `{x, y, slot}` (camada separada da grade) e a exporta no JSON em `interactables`.
+3. O **comportamento** (sistema, condição de desbloqueio, diálogo) vive **aqui (DESIGN)** e no `DATA` — a entidade só dá **posição + qual**.
+4. No Hub (1-1), deixe os **slots** dos interactables de campo presentes (ocultos até serem descobertos).
 
 ## 7. Casos de Borda
 - Interagir 2× (não re-descobre; só abre).

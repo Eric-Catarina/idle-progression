@@ -52,8 +52,15 @@
     <button class="tool" data-tool="fill">🪣 Preencher</button>
     <button class="tool" data-tool="select">⬚ Selecionar</button>
     <button class="tool" data-tool="move">✋ Mover (G)</button>
+    <button class="tool" data-tool="interact">🔗 Interact.</button>
     <button id="copySel">⧉ Copiar área</button>
     <button id="pasteSel">📥 Colar</button>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <label>Interactáveis (separe por vírgula)</label>
+    <input type="text" id="interactList" value="selos,osiris,cartas" style="width:240px">
+    <label>Colocar</label>
+    <select id="interactSel"></select>
   </div>
   <div class="palette" id="palette"></div>
 </header>
@@ -64,7 +71,7 @@
     <div class="status" id="status">—</div>
     <div class="hint">
       <b>Pincel:</b> clique/arraste pinta. <b>Borracha:</b> clique/arraste apaga (ou clique direito).
-      <b>Ctrl</b> pintando = traço <b>horizontal</b> · <b>Shift+arrastar</b> = selecionar · <b>Ctrl+C / Ctrl+V</b> copia/cola · <b>G</b> = mover · <b>ESC</b> = pincel.
+      <b>Ctrl</b> pintando = traço <b>horizontal</b> · <b>Shift+arrastar</b> = selecionar · <b>Ctrl+C/V</b> = copiar/colar · <b>G</b> = mover · <b>ESC</b> = pincel · <b>🔗 Interact.</b> coloca NPCs (escolha no dropdown).
     </div>
     <p style="margin:12px 0 6px"><b>JSON do nível</b></p>
     <textarea id="json" readonly></textarea>
@@ -81,10 +88,6 @@ const PALETTE = [
   { id: 4, name: "Portal Entrada", color: "#51cf66", kind: "portal_in" },
   { id: 5, name: "Portal Saída",   color: "#f783ac", kind: "portal_out" },
   { id: 6, name: "Spawn Jogador",  color: "#ffd43b", kind: "spawn" },
-  { id: 7, name: "Interact. Selos",  color: "#38d9a9", kind: "interactable" },
-  { id: 8, name: "Interact. Osíris", color: "#b197fc", kind: "interactable" },
-  { id: 9, name: "Interact. Cartas", color: "#ffa94d", kind: "interactable" },
-  { id: 10, name: "Interactável",    color: "#63e6be", kind: "interactable" },
 ];
 
 const state = { cols: 55, rows: 21, cell: 21, tool: "brush", current: 1 };
@@ -93,6 +96,8 @@ let selection = null;   // {x0,y0,x1,y1}
 let clipboard = null;   // {w,h,data}
 let hover = { x: 0, y: 0 };
 let moving = null;
+let entities = [];   // [{x,y,slot}] — interactáveis (camada separada)
+const ENTITY_COLORS = ["#38d9a9", "#b197fc", "#ffa94d", "#4dabf7", "#ff6b6b", "#ffd43b"];
 const undoStack = [], redoStack = [];
 const MAX_HISTORY = 200;
 function snapshot() {
@@ -207,6 +212,19 @@ function draw() {
     ctx.strokeStyle = "#4dabf7"; ctx.lineWidth = 2;
     ctx.strokeRect(r.x0*state.cell+1, r.y0*state.cell+1, (r.x1-r.x0+1)*state.cell-2, (r.y1-r.y0+1)*state.cell-2);
   }
+
+  // interactáveis (entidades) — camada por cima
+  const ilist = getInteractables();
+  for (const e of entities) {
+    const i = Math.max(0, ilist.indexOf(e.slot));
+    const cx2 = e.x*state.cell + state.cell/2, cy2 = e.y*state.cell + state.cell/2;
+    ctx.beginPath(); ctx.arc(cx2, cy2, state.cell*0.34, 0, Math.PI*2);
+    ctx.fillStyle = ENTITY_COLORS[i % ENTITY_COLORS.length]; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = "#101010"; ctx.stroke();
+    ctx.fillStyle = "#101010"; ctx.font = `${Math.round(state.cell*0.55)}px system-ui,sans-serif`;
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(String(i + 1), cx2, cy2 + 1);
+  }
 }
 
 let painting = false, eraseMode = false, strokeStart = null, lastPaint = null, selStart = null;
@@ -217,6 +235,19 @@ function pos(e) {
 function normRect(r) { return { x0: Math.min(r.x0, r.x1), y0: Math.min(r.y0, r.y1), x1: Math.max(r.x0, r.x1), y1: Math.max(r.y0, r.y1) }; }
 function cellBrush() { return (eraseMode || state.tool === "erase") ? 0 : state.current; }
 function setCell(x, y, id) { if (x < 0 || y < 0 || x >= state.cols || y >= state.rows) return; grid[y][x] = id; }
+
+function getInteractables() { return $("interactList").value.split(",").map(s => s.trim()).filter(Boolean); }
+function refreshInteractSelect() {
+  const list = getInteractables(), sel = $("interactSel"), cur = sel.value;
+  sel.innerHTML = list.map((n, i) => `<option value="${n}">${i+1}. ${n}</option>`).join("");
+  if (list.includes(cur)) sel.value = cur;
+}
+function setEntity(x, y, slot) {
+  if (x < 0 || y < 0 || x >= state.cols || y >= state.rows) return;
+  entities = entities.filter(e => !(e.x === x && e.y === y));
+  entities.push({ x, y, slot });
+}
+function removeEntity(x, y) { entities = entities.filter(e => !(e.x === x && e.y === y)); }
 
 function startMove(r, follow, anchor) {
   snapshot();
@@ -247,6 +278,11 @@ function grabSelection() {
 
 function apply(e) {
   const { x, y } = pos(e);
+  if (state.tool === "interact") {
+    if (eraseMode) removeEntity(x, y);
+    else { const slot = $("interactSel").value; if (slot) setEntity(x, y, slot); }
+    draw(); return;
+  }
   const id = cellBrush();
   if (state.tool === "fill") { fill(x, y, id); lastPaint = { x, y }; return; }
   const horiz = e.ctrlKey || e.metaKey; // segura Ctrl = traço horizontal
@@ -317,7 +353,8 @@ function toJSON() {
     name: $("name").value,
     cols: grid[0]?.length ?? 0, rows: grid.length, cellSize: state.cell,
     legend: Object.fromEntries(PALETTE.map(p => [p.id, p.name])),
-    grid: grid
+    grid: grid,
+    interactables: entities
   };
 }
 function refreshJSON() { $("json").value = JSON.stringify(toJSON(), null, 2); }
@@ -341,7 +378,7 @@ let sizeTimer = null;
   el.addEventListener("input", () => { clearTimeout(sizeTimer); sizeTimer = setTimeout(() => applySize(false), 250); });
   el.addEventListener("change", () => applySize(true));
 });
-$("clear").onclick = () => { snapshot(); grid = defaultGrid(state.cols, state.rows); draw(); refreshJSON(); };
+$("clear").onclick = () => { snapshot(); grid = defaultGrid(state.cols, state.rows); entities = []; draw(); refreshJSON(); };
 $("export").onclick = () => {
   const blob = new Blob([JSON.stringify(toJSON(), null, 2)], { type: "application/json" });
   const a = document.createElement("a");
@@ -353,7 +390,7 @@ $("copy").onclick = async () => { await navigator.clipboard.writeText(JSON.strin
 $("import").onchange = (e) => {
   const f = e.target.files[0]; if (!f) return;
   const r = new FileReader();
-  r.onload = () => { snapshot(); const d = JSON.parse(r.result); $("name").value = d.name || ""; state.cols = d.cols; state.rows = d.rows; state.cell = d.cellSize || 24; grid = d.grid; normalize(); draw(); refreshJSON(); };
+  r.onload = () => { snapshot(); const d = JSON.parse(r.result); $("name").value = d.name || ""; state.cols = d.cols; state.rows = d.rows; state.cell = d.cellSize || 24; grid = d.grid; entities = d.interactables || []; normalize(); draw(); refreshJSON(); };
   r.readAsText(f);
 };
 function setTool(name) {
@@ -378,6 +415,8 @@ document.addEventListener("keydown", (e) => {
 });
 cv.addEventListener("mouseleave", () => $("status").textContent = "—");
 
+$("interactList").addEventListener("input", () => { refreshInteractSelect(); draw(); });
+refreshInteractSelect();
 grid = defaultGrid(state.cols, state.rows);
 buildPalette(); draw(); refreshJSON();
 </script>
