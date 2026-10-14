@@ -69,7 +69,7 @@ dependencies:
   "affected": ["baseResource"],
   "unaffected": ["cards", "xp", "coins", "secondaryDrops"],
   "worlds": {
-    "w1": { "unlockedBy": "Level1_5_portal", "points": 0, "multikillPct": 0.0 }
+    "w1": { "unlockedBy": "Level1_5_portal", "points": 0, "multikillPct": 0.0, "retroactive": true }
   }
 }
 ```
@@ -78,6 +78,7 @@ dependencies:
 - **Tier mínimo 1** (golpe de 100%); dano abaixo do HP **não** conta tier.
 - **`MK%` sem cap** (multiplicador puro); **Cartas/XP/moedas nunca** são multiplicados ([[DESIGN-033 Multikill|DESIGN-033]] §4).
 - **Pontos sem cap** — cada mob contribui até o `tierCap` (10).
+- **Retroativo:** `tierRecorde` conta mesmo antes do desbloqueio (`retroactive: true`).
 - **Stats agregados** respeitam os caps de [[DATA-009 Dano|DATA-009]] §5.
 
 > Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]. `Draft` — calibrar.

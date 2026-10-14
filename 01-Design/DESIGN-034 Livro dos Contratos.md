@@ -53,7 +53,7 @@ Um **livro account-wide** que registra os **abates por espécie de mob**. Cada *
 4. Aplica `MK%` nas mortes seguintes.
 
 ## 6. Casos de Borda
-- **Livro bloqueado:** tiers não contam (nada acumula antes do desbloqueio) — *a definir se retroage*.
+- **Retroatividade:** tiers alcançados **antes** de desbloquear o livro **contam** — o `tierRecorde` por mob é rastreado mesmo com o livro bloqueado; no desbloqueio, os pontos são calculados a partir dele.
 - **Mob de outro mundo:** conta no livro **daquele** mundo.
 - **Mob removido/renomeado** (refator de população): preservar pontos por `mobId`.
 - **Overflow** de pontos (BigNumber / [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
