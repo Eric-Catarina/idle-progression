@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Vault de documentacao e design do Progression Idle.",
   "scripts": {
-    "validate": "node tools/validate-vault.mjs"
+    "validate": "node tools/validate-vault.mjs",
+    "new-level": "node tools/new-level.mjs"
   }
 }

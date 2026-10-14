@@ -148,6 +148,8 @@ Quando solicitado a processar itens da pasta `99-Inbox/`:
     - Todos os sistemas (cartas, itens, potencial, monstros, mundos) usam a escala de [[CONTEXT-007 Raridades|CONTEXT-007]] (Comum→Divino). Nunca criar escalas paralelas; **pesos/odds** ficam no `DATA` de cada sistema.
 12. **Proporções Visuais (Fibonacci / Áurea):**
     - Tudo que for **visual** (UI, níveis, cartas, sprites, espaçamentos) usa [[CONTEXT-008 Escala Visual|CONTEXT-008]] (Fibonacci + φ). Guia de render; o gameplay vence quando exigir valor específico.
+13. **Automação Proativa (Trabalho Repetitivo):**
+    - Ao executar algo que **vai se repetir** (ex: implementar níveis, mecânicas, specs), **já adiante a automação** no mesmo passo: template em `00-Context/_templates/` e/ou script em `tools/`. Nunca repita trabalho manual que pode ser padronizado.
 
 ---
 
@@ -300,6 +302,7 @@ system: "[[DESIGN-XXX]]"
 - `_templates/CAMPAIGN_TEMPLATE.md` — raiz da árvore de conteúdo.
 - `_templates/WORLD_TEMPLATE.md` — mundos (agrupam níveis).
 - `_templates/LEVEL_TEMPLATE.md` — níveis (layout, população, desbloqueio).
+- `_templates/LEVEL_PAGE_TEMPLATE.md` — **página Obsidian de nível** (visual via DataviewJS + JSON retraído); gere com `node tools/new-level.mjs LevelX_Y`.
 - `_templates/SKILL_TEMPLATE.md` — habilidades (ativação, targeting, escalonamento).
 - `_templates/MECHANIC_TEMPLATE.md` — mecânicas transversais.
 
