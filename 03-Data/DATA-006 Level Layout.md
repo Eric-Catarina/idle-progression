@@ -32,11 +32,14 @@ dependencies:
 | :--- | :--- |
 | 0 | Vazio |
 | 1 | Plataforma |
-| 2 | Plataforma one-way |
+| 2 | Portal Intrafase (amarelo) |
 | 3 | Parede/Sólido |
 | 4 | Portal Entrada |
 | 5 | Portal Saída |
 | 6 | Spawn Jogador |
+
+> **Plataformas (id 1):** todas são **one-way** — atravessa de **baixo→cima** sempre, e de **cima→baixo** se quiser; **exceto a última linha (piso), que é sólida**. Ver [[DESIGN-023 Plataformas & Portais|DESIGN-023]].
+> **Portal Intrafase (id 2):** teleporta para outro ponto da **mesma fase** (par em ordem de leitura).
 
 ## 2. Níveis
 | Arquivo                 | Nível   | Papel                   |
