@@ -42,6 +42,7 @@ dependencies:
 | Arquivo                 | Nível   | Papel                   |
 | :---------------------- | :------ | :---------------------- |
 | `levels/Level1_0.json` | **Level1_0** | **Hub** (NPCs/estações) |
+| `levels/Level1_1.json` | **Level1_1** | 1º combate |
 | `levels/Level1_2.json` | **Level1_2** | Combate — 1º NPC (`selos`) |
 
 ## 3. Level1_0 (Hub) — resumo
@@ -49,6 +50,9 @@ dependencies:
 - **Spawn:** `(2, 19)`. **Portal Saída:** `(53, 19)`. *(Hub não tem Portal Entrada — é o ponto inicial.)*
 - **Interactables:** `osiris` `(15,8)` · `cartas` `(39,8)` · `selos` `(27,13)`.
 - **Piso:** linha 20 inteira (Plataforma) + plataformas internas.
+
+### Level1_1
+- Spawn `(2,19)` · Portal Entrada `(1,19)` · Portal Saída `(53,19)`.
 
 ### Level1_2
 - Spawn `(2,19)` · Portal Entrada `(1,19)` · Portal Saída `(53,19)` · NPC `selos` `(27,14)`.
