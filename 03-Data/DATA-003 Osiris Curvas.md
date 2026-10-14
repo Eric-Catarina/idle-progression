@@ -13,7 +13,7 @@ dependencies:
 
 # [DATA-003] Osíris: Geração de Cristais, Custos e Megacristais
 
-> Números da *enterprise* idle de Osíris (modelo Orion). Ver [[DESIGN-014 Osiris|DESIGN-014]].
+> Números da *enterprise* idle de Osíris (modelo Orion). Ver [[DESIGN-014 Osiris|DESIGN-014]]. **Impulso de Essência** → [[DATA-012 Essencia Custos|DATA-012]] §2.3.
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |

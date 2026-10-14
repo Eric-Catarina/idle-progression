@@ -30,11 +30,12 @@ data_spec: "[[DATA-005 Cartas Odds|DATA-005]]"
 Uma **coleção de cartas** que **cresce sozinha**: cada carta **sobe de tier** conforme você junta cópias, ficando mais forte e mais bonita. Diferente de um gacha de raridade fixa, aqui a **raridade é uma conquista** — o fim é ter a carta **Divina**. É o eixo "farmar por coleção" que **conversa com mapas, mobs e drops**.
 
 ## 2. Como Funcionam
-- **Carta:** ligada a um **mob** (logo, a um nível/mundo). Ex.: `Level1_1` → *Carta do Mob 1-1*.
+- **Carta:** ligada a um **mob** (logo, a um nível/mundo). Ex.: `Level1_1` → *Carta da **Lesma***.
 - **Obtenção:** drop do mob (cada roll dá **1 cópia**) **ou** abertura de **pacotinhos**.
 - **Coleção account-wide:** `cards[id] = nº de cópias` (compartilhada por todos os personagens).
 - **Equipar por personagem:** a carta só dá bônus a quem **equipou** (N slots por personagem).
 - **Subir de tier:** ao atingir o **requisito de cópias** (§3), a carta sobe de tier e o bônus cresce.
+- **Forjar carta específica:** gastar **Essência** ([[DESIGN-035 Essencia|DESIGN-035]]) **+ poeira** → **1 cópia** de uma carta escolhida.
 
 ## 3. Tiers das Cartas (escala de raridade)
 O **tier da carta usa a escala compartilhada** ([[CONTEXT-007 Raridades|CONTEXT-007]]) — **Comum → Raro → Épico → Lendário → Extraordinário → Divino** (mesmas cores/bordas, glow crescente).

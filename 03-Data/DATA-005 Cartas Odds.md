@@ -14,7 +14,7 @@ dependencies:
 
 # [DATA-005] Cartas: Tiers, Drops e Pacotes
 
-> Curvas e odds das **cartas** ([[DESIGN-016 Cartas|DESIGN-016]]). O **tier da carta** usa a escala de [[CONTEXT-007 Raridades|CONTEXT-007]]. Valores `Draft` — calibrar.
+> Curvas e odds das **cartas** ([[DESIGN-016 Cartas|DESIGN-016]]). O **tier da carta** usa a escala de [[CONTEXT-007 Raridades|CONTEXT-007]]. Custo de **forjar** carta → [[DATA-012 Essencia Custos|DATA-012]] §2.2. Valores `Draft` — calibrar.
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |

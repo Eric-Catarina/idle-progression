@@ -28,7 +28,7 @@ data_spec: "[[DATA-002 Selos Curvas|DATA-002]]"
 
 ## 2. Como Funcionam
 - **Drop:** mobs dropam selos; cada selo é único na coleção.
-- **Nível:** selos são **upgradeáveis com moedas**; o bônus escala com o nível ([[DATA-002 Selos Curvas|DATA-002]]).
+- **Nível:** selos são **upgradeáveis com Essência** ([[DESIGN-035 Essencia|DESIGN-035]]); o bônus escala com o nível ([[DATA-002 Selos Curvas|DATA-002]]).
 - **Account-wide:** o progresso vale para a **conta**, não por personagem.
 - **Persistência:** nível de cada selo salvo no estado global.
 
@@ -61,7 +61,7 @@ Apenas os selos cujo papel são **pilares numéricos** e que não mudam. Fórmul
 - Bônus de selos são **aditivos entre si** por camada, salvo indicação.
 
 ## 6. Casos de Borda
-- **Drop duplicado:** converte em moedas/materiais.
+- **Drop duplicado:** converte em **Essência** ([[DESIGN-035 Essencia|DESIGN-035]]).
 - **Overflow de nível / bônus gigantes:** BigNumber.
 - **Upgrades offline (catch-up):** custo acumulado por fórmula analítica, sem simular tick a tick.
 

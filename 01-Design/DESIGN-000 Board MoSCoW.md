@@ -57,6 +57,7 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 | [[DESIGN-032 Gear Sets|DESIGN-032]] | **Sets de gear** (bônus por conjunto) | Draft | [[DATA-010 Gear Sets\|DATA-010]] |
 | [[DESIGN-033 Multikill|DESIGN-033]] | **Multikill** (tiers de abate → recurso base) | Draft | [[DESIGN-034 Livro dos Contratos\|DESIGN-034]] |
 | [[DESIGN-034 Livro dos Contratos|DESIGN-034]] | **Livro dos Contratos** (farm account-wide) | Draft | [[DATA-011 Multikill e Contratos\|DATA-011]] |
+| [[DESIGN-035 Essencia|DESIGN-035]] | **Essência** (recurso do mundo; alimenta os 4 sistemas) | Draft | [[DATA-012 Essencia Custos\|DATA-012]] |
 
 ---
 

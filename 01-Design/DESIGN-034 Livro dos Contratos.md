@@ -39,6 +39,11 @@ Um **livro account-wide** que registra os **abates por espécie de mob**. Cada *
 5. **Bônus do mundo:** `MK% = pontos × 1%` (de *Multikill por Damage Tier*).
 6. Efeito prático do `MK%` → [[DESIGN-033 Multikill|DESIGN-033]] §2.
 
+### Renegociar & Expandir Contratos (Essência)
+- **Expandir:** gastar **Essência** ([[DESIGN-035 Essencia|DESIGN-035]]) para **subir o `tierCap`** de um contrato (mob) → mais pontos possíveis.
+- **Renegociar:** gastar Essência para **aumentar o `MK%` por ponto** do mundo.
+- Custos → [[DATA-012 Essencia Custos|DATA-012]] §2.4.
+
 ## 4. Contrato Funcional (I/O)
 - **Gatilho:** morte de mob com `tier ≥ 1`.
 - **Pré-requisitos:** livro do mundo desbloqueado.

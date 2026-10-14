@@ -63,6 +63,8 @@ O Grande Reinício (prestígio) = CONFRONTO DIVINO
 | **Super Barateador** | 5 B | Melhorias `{20 por nível}%` mais baratas |
 | **O Grande Reinício** | 100 B | Reset quase total → **+1 Megacristal** permanente |
 
+> **Impulso de Essência:** gastar **Essência** ([[DESIGN-035 Essencia|DESIGN-035]]) ativa um **acelerador temporário** de geração (`gen × mult` por `T`) — o sink de essência do Osíris ([[DATA-012 Essencia Custos|DATA-012]] §2.3).
+
 ## 5. Bônus do Golem (rotativo)
 Cada nível concede **um** bônus, na ordem, ciclando (modelo Orion):
 

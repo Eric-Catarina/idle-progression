@@ -13,7 +13,7 @@ dependencies:
 
 # [DATA-002] Selos: Curvas de Bônus
 
-> Curvas de ganho de bônus por nível de selo. Ver [[DESIGN-013 Selos|DESIGN-013]].
+> Curvas de ganho de bônus por nível de selo. Ver [[DESIGN-013 Selos|DESIGN-013]]. Custo em **Essência** para subir nível → [[DATA-012 Essencia Custos|DATA-012]] §2.1.
 
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |
