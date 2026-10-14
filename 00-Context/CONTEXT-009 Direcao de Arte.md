@@ -99,7 +99,7 @@ Definir o **estilo visual** do jogo: **barato de produzir** (quase tudo por cód
 - **Mundo 1 = Floresta** (ilha verde flutuante sob o céu estrelado) — fauna **fofa/selvagem**.
 - O **arcano/autômato** (robôs, grimórios, engenhocas) fica para **mundos tardios**.
 
-## 11. Apêndice — Prompts de Concept (IA)
+## 11. Apêndice A — Prompts de Concept (IA)
 
 > Miolo de estilo **idêntico** nos três (flat vector + silhueta/glow + ícones emoji, fundo escuro); só muda a ambientação. Negative prompt comum ao fim.
 
@@ -125,6 +125,27 @@ photorealistic, 3D render, pixel art, detailed textures, soft gradients, lens fl
 
 > Midjourney: `--ar 16:9 --style raw` (+ `--seed <n>` igual nos 3). Flux/SDXL: negative no campo próprio.
 
-## 12. Relacionados
+## 12. Apêndice B — Folha de Arte: Mobs do Mundo 1
+
+> Cada mob = **2–3 formas flat** (por código) + **glow** + **1 emoji** de ícone. **Drop de todos = Essência Verde** (🟢) — sem drops por mob ([[DESIGN-003 Mundo 1|DESIGN-003]] §4).
+> **Silhueta** vale para: carta, álbum e o bicho no campo (mesma forma, escalada).
+
+| Mob | Silhueta (formas) | Cor do glow | Ícone | Animação |
+| :--- | :--- | :--- | :--- | :--- |
+| **Lesma** (1-1) | corpo em gota + concha | verde-limão | 🐌 | bob lento + squash |
+| **Cogumelo** (1-2) | chapéu + caule | vermelho/âmbar | 🍄 | bob + squash |
+| **Vespão** (1-3) | corpo oval + asas | amarelo/âmbar | 🐝 | hover + dash |
+| **Esquilo Coletor** (1-4) | corpo + cauda grande | laranja | 🐿️ | pulinho |
+| **Coruja Sábia** (1-5) | corpo + olhos grandes | azul/dourado | 🦉 | bob + pisca |
+| **Vorax** (chefe) | massa de sombra + chifres | roxo/magenta | 👹 | idle pesado |
+
+### Recursos (ícones)
+| Recurso | Ícone | Onde |
+| :--- | :--- | :--- |
+| **Essência Verde** (Mundo 1) | 🟢 | drop de todos os mobs / HUD / Livro |
+| Cartas | 🎴 | álbum / pacotes |
+| Moeda | 💰 | loja / Potential / Star Force |
+
+## 13. Relacionados
 - Raridades: [[CONTEXT-007 Raridades|CONTEXT-007]] · Hierarquia: [[CONTEXT-006 Hierarquia|CONTEXT-006]].
 - Consumidores: [[DESIGN-028 Equipamentos|DESIGN-028]] · [[DESIGN-016 Cartas|DESIGN-016]] · [[DESIGN-013 Selos|DESIGN-013]].

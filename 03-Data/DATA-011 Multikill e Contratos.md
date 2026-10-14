@@ -22,7 +22,7 @@ dependencies:
 | `tier` | Tier de Abate: `max(1, floor(dano_golpe / HP_mob))` |
 | `MK%` | bônus de Multikill do mundo (= `pontos × 1%` + gear) |
 | `pontos` | pontos do livro do mundo |
-| `recursoBase` | 1º item da drop table do mob (único afetado) |
+| `essencia` | **Essência do mundo** (verde no Mundo 1) — único drop de mob, único afetado pelo Multikill |
 
 ## 2. Tiers de Abate
 | Tier | Dano necessário | Bônus no recurso base |
@@ -38,7 +38,7 @@ dependencies:
 
 ## 3. Formulação
 - **Tier:** `tier = max(1, floor(dano_golpe / HP_mob))`.
-- **Recurso base:** `recursoBaseFinal = base × (1 + (tier − 1) × MK%)`.
+- **Essência:** `essenciaFinal = essencia × (1 + (tier − 1) × MK%)`.
 - **Multikill do mundo:** `MK% = pontos × 1%`.
 - **CAP:** `MK%` **sem cap** (é multiplicador); **não** afeta Cartas/XP/moedas.
 
@@ -48,16 +48,9 @@ dependencies:
 | **Mundo 1** | portal do **Level1_5** (chefe) | `pontos × 1%` |
 | Mundo 2+ | (a definir) | idem |
 
-## 5. Recurso Base por Mob (Mundo 1)
-| Mob | Recurso base |
-| :--- | :--- |
-| **Lesma** (1-1) | **Gosma** |
-| **Cogumelo** (1-2) | **Esporo** |
-| **Vespão** (1-3) | **Ferrão** |
-| **Esquilo Coletor** (1-4) | **Avelã** |
-| **Coruja Sábia** (1-5) | **Pena** |
-
-> `recursoBase` = **1º item** da drop table do mob (o único afetado pelo Multikill). População em [[DESIGN-003 Mundo 1|DESIGN-003]] §4.
+## 5. Essência (Recurso do Mundo 1)
+- **Todos** os mobs do Mundo 1 dropam a **mesma** coisa: **Essência Verde** (a **essência do Mundo 1**).
+- **Não há drops específicos por mob** — a essência é o único drop, e é o que o **Multikill** multiplica.
 
 ## 6. Schema de Configuração (JSON)
 ```json
@@ -66,7 +59,7 @@ dependencies:
   "tierCap": 10,
   "multikillPerPoint": 0.01,
   "worldPointsPerTier": 1,
-  "affected": ["baseResource"],
+  "affected": ["worldEssence"],
   "unaffected": ["cards", "xp", "coins", "secondaryDrops"],
   "worlds": {
     "w1": { "unlockedBy": "Level1_5_portal", "points": 0, "multikillPct": 0.0, "retroactive": true }

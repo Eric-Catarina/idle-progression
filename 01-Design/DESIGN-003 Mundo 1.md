@@ -47,16 +47,17 @@ dependencies:
 ## 4. População & Inimigos
 Roleta **F1 — Bichinhos da Mata**:
 
-| Nível | Mob | Recurso base | Carta (bônus por tier) |
-| :--- | :--- | :--- | :--- |
-| 1-1 | **Lesma** | **Gosma** | `+{12/tier}` Base HP |
-| 1-2 | **Cogumelo** | **Esporo** | `+{7/tier}` Base Damage |
-| 1-3 | **Vespão** | **Ferrão** | `+{1/tier}%` Crit Chance |
-| 1-4 | **Esquilo Coletor** | **Avelã** | `+{5/tier}%` Money from Monsters |
-| 1-5 | **Coruja Sábia** | **Pena** | `+{5/tier}%` Card Drop Chance |
+| Nível | Mob | Carta (bônus por tier) |
+| :--- | :--- | :--- |
+| 1-1 | **Lesma** | `+{12/tier}` Base HP |
+| 1-2 | **Cogumelo** | `+{7/tier}` Base Damage |
+| 1-3 | **Vespão** | `+{1/tier}%` Crit Chance |
+| 1-4 | **Esquilo Coletor** | `+{5/tier}%` Money from Monsters |
+| 1-5 | **Coruja Sábia** | `+{5/tier}%` Card Drop Chance |
 
+- **Drop:** **todos** os mobs do Mundo 1 dropam a **mesma** coisa — **Essência Verde** (a **essência do Mundo 1**). **Não há drops específicos por mob.**
 - **Chefe:** **Vorax** (copa da Árvore, **Level1_5**) → dá a **Relíquia de Vorax** ([[DESIGN-032 Gear Sets|DESIGN-032]]).
-- Nome das **cartas** = nome do mob ([[DESIGN-016 Cartas|DESIGN-016]]); o **recurso base** alimenta o [[DESIGN-034 Livro dos Contratos|Livro dos Contratos]].
+- **Cartas** levam o nome do mob ([[DESIGN-016 Cartas|DESIGN-016]]). **Visuais/ícones** → [[CONTEXT-009 Direcao de Arte|CONTEXT-009]] (Apêndice B).
 
 ## 5. Parâmetros
 - Curvas → [[DATA-XXX]].
