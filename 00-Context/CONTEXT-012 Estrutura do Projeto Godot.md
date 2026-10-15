@@ -93,6 +93,7 @@ game/
 - `game/data/` é **gerado** e **gitignored** — regenera-se com o script; **nunca** editar lá.
 - **Nunca** copiar tabela do vault para dentro do código. Se o valor muda no vault, o jogo muda no próximo export.
 - Detalhes do schema: [[DATA-006 Level Layout|DATA-006]]; balanceamento: [[DATA-013 XP e Nivel|DATA-013]], [[DATA-014 Populacao Mundo 1|DATA-014]].
+- **Como o jogo carrega essa massa:** [[SYSTEM-006 Dados Imutáveis & Carregamento|SYSTEM-006]] — `DataDB` (uma carga no boot), grade em **array plano**, **sem ECS/Blob**.
 
 ## 7. Fluxo de Trabalho com IA
 1. **Ler** o DESIGN/SYSTEM/DATA relevante no vault **antes** de codar (ordem: DESIGN → SYSTEM → DATA).
