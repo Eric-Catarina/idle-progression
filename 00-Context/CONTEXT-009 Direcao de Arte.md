@@ -20,7 +20,7 @@ tags:
 # 🎨 [CONTEXT-009] Direção de Arte (Estilo Visual)
 
 ## 1. Propósito
-Definir o **estilo visual** do jogo: **barato de produzir** (quase tudo por código + emoji), **coeso** e **engine-agnóstico** (não depende de Godot/Phaser/qualquer engine).
+Definir o **estilo visual** do jogo: **barato de produzir** (quase tudo por código + emoji), **coeso** e **engine-agnóstico** (não depende da engine escolhida).
 
 ## 2. Os 3 Pilares (mistura)
 | Pilar | Onde é usado | Como |

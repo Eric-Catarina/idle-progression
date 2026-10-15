@@ -29,7 +29,7 @@ tags:
 
 ## 2. Por quê
 - **Performance mobile + compatibilidade:** o renderer **Compatibility** é o recomendado para **jogos 2D** e para **hardware modesto/antigo**, e dá "o melhor desempenho possível em todos os dispositivos". Roda de **low-end a topo** e o **mesmo renderer serve o web** (→ dá pra manter um build **PWA** de brinde).
-- **IA:** GDScript é a linguagem mais "treinada" e o **MCP com runtime** fecha o loop (o agente **joga e vê**) — no protótipo anterior o agente **não conseguia ver a tela**.
+- **IA:** GDScript é a linguagem mais "treinada" e o **MCP com runtime** fecha o loop (o agente **joga e vê**) — o ponto fraco do fluxo anterior era o agente **não conseguir ver a tela**.
 - **Monorepo:** o jogo lê os dados do vault (`03-Data/levels/*.json`) **sem duplicar** — casa com "o vault é a fonte de verdade".
 
 ## 3. Configuração aplicada (`game/project.godot`)
@@ -46,7 +46,7 @@ tags:
 - **Forward+ / Mobile**: exigem **Vulkan/D3D12/Metal** (hardware novo); desnecessário para **2D**. O Godot 4.4+ ainda faz *fallback* automático.
 - **Godot 3.5 (GLES2)**: só se o alvo fossem celulares **muito** antigos (pré-GLES3) — mas perde o **MCP/IA**.
 - **C#**: export Android ainda **experimental**; GDScript é melhor para IA e gera **APK menor**.
-- **Unity/Phaser**: o protótipo foi em **Phaser** (descartável); os aprendizados estão documentados.
+- **Outros motores** (Unity e afins): avaliados e descartados — trocam o **controle de runtime** e o **loop de IA** por editores pesados. Os aprendizados do protótipo descartável já estão documentados (engine-agnósticos).
 
 ## 5. Relacionados
 - UI: [[CONTEXT-010 UI de Jogo|CONTEXT-010]] · Arte: [[CONTEXT-009 Direcao de Arte|CONTEXT-009]] · Hierarquia: [[CONTEXT-006 Hierarquia|CONTEXT-006]].

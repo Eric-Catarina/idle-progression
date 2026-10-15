@@ -25,7 +25,7 @@ C:\Users\ormen\Documents\dev\Godot_v4.7.2-stable_win64.exe --path . --editor
 - Addon em **`addons/godot_mcp_toolkit`** (habilitado em `project.godot` → `[editor_plugins]`).
 - Config do cliente: **`.mcp.json`** (aqui) + **`../opencode.jsonc`** (servidor `godot`).
 - **Ao abrir o editor**, o dock mostra `[MCPServer] listening on 127.0.0.1:6550` → aí o agente consegue
-  **criar cena, rodar o jogo, ver *screenshot* e ler os logs** (o que faltava no protótipo em Phaser).
+  **criar cena, rodar o jogo, ver *screenshot* e ler os logs** (fecha o loop de IA: o agente **joga e vê**).
 - Skill companheira do agente: `../skills/godot-mcp-toolkit/`.
 
 ## 📚 Dados de design (vault)
