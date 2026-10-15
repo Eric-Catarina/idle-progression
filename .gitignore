@@ -26,3 +26,9 @@ node_modules/
 
 # Projeto Android do PROTÓTIPO (pertence à branch de teste do protótipo, não ao planejamento)
 android/
+
+# Godot (o jogo) — o game/.gitignore cobre .godot/ e game/android/
+game/exports/
+game/build/
+*.apk
+*.aab

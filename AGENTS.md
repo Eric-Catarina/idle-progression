@@ -24,6 +24,7 @@
 - **Engine de protótipo ≠ engine final:** o protótipo serve **só** para validar design; os aprendizados são **engine-agnósticos**.
 - **Balanceamento por solver:** números de combate/progressão saem de um **script que resolve metas** (as metas vivem no `DATA`), **nunca** de chute.
 - **`proto/` é descartável; o vault é a fonte de verdade:** o protótipo **consome** os dados do vault — **nada** de duplicar dados no protótipo.
+- **Engine & jogo:** o jogo vive em **`game/`** (**Godot 4.7** + renderer **Compatibility** + **GDScript**) — ver `00-Context/CONTEXT-011 Engine & Plataforma.md`. O **vault** continua sendo a **fonte de verdade** dos dados (o jogo lê `03-Data/`).
 
 ## Escopo deste arquivo
 
