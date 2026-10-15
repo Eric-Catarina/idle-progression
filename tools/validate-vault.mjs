@@ -188,6 +188,33 @@ for (const [id] of parentOf) {
   }
 }
 
+// --- Tags de skill (CONTEXT-015) ---------------------------------------
+// O vocabulario vem do proprio CONTEXT-015 (fonte de verdade): todo `dim:valor`
+// escrito entre backticks la e valido. Aqui so garantimos o contrato.
+const tagDoc = docs.find((d) => d.fm.id === "CONTEXT-015");
+const SKILL_TAG_VOCAB = new Set();
+if (tagDoc) {
+  for (const m of tagDoc.text.matchAll(/`([a-z_]+:[a-z_]+)`/g)) SKILL_TAG_VOCAB.add(m[1]);
+}
+const TAG_DIMS_REQUIRED = ["delivery", "target", "role"];
+
+for (const { rel, fm } of docs) {
+  const tags = Array.isArray(fm.skill_tags) ? fm.skill_tags.map(String) : [];
+  const isSkill = fm.subtype === "skill";
+  if (!isSkill && tags.length === 0) continue; // mechanic sem tags: nao exige
+  if (tags.length === 0) {
+    err(rel, 'habilidade sem "skill_tags" (ver CONTEXT-015)');
+    continue;
+  }
+  for (const t of tags) {
+    if (!SKILL_TAG_VOCAB.has(t)) err(rel, `tag fora do vocabulario: "${t}" (ver CONTEXT-015)`);
+  }
+  const dims = new Set(tags.map((t) => t.split(":")[0]));
+  for (const dim of TAG_DIMS_REQUIRED) {
+    if (!dims.has(dim)) err(rel, `skill_tags sem a dimensao obrigatoria "${dim}:"`);
+  }
+}
+
 console.log(`Vault: ${docs.length} documentos indexados, ${targets.size} alvos de link.`);
 if (warnings.length) {
   console.log(`\n⚠  ${warnings.length} aviso(s):`);

@@ -335,6 +335,7 @@ Todos usam `id: DESIGN-XXX` com o campo `subtype` correspondente.
 | **Cartas & Pacotinhos** | Coleção com raridades; 3ª mecânica transversal do Mundo 1. Ver [[DESIGN-016 Cartas|DESIGN-016]]. | — |
 | **Pet** | Seguidor de **coleção** com bônus passivo **account-wide**, obtido por **tiros** (tokens diário/semanal). Ver [[DESIGN-038 Pets|DESIGN-038]]. | Não confundir com mob/aliado de combate. |
 | **Moeda Premium (Gemas)** | **Única** moeda premium do jogo (obtida via IAP, gasta em trocas explícitas). Ver [[CONTEXT-013 Moeda Premium|CONTEXT-013]]. | Não criar outra "moeda premium" por sistema. Não é dropável. |
+| **Tag de Skill** | Vocabulário fechado que classifica habilidades em dimensões (`delivery`/`trajectory`/`target`/`role`/`behavior`/`archetype`). Ver [[CONTEXT-015 Tags de Skill|CONTEXT-015]]. | Não inventar tag fora do vocabulário; não descrever "tipo" em prosa. |
 | **Raridade** | Escala única reutilizável (6 tiers: Comum→Divino). Ver [[CONTEXT-007 Raridades|CONTEXT-007]]. | Não criar escalas de raridade paralelas por sistema. |
 | **Escala Visual** | Proporções visuais por Fibonacci/áurea. Ver [[CONTEXT-008 Escala Visual|CONTEXT-008]]. | Não se aplica à simulação. |
 

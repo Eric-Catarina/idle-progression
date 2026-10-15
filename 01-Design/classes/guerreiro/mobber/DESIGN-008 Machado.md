@@ -10,6 +10,13 @@ moscow: Should
 moscow_note: Skill de física com retorno (estilo Vampire Survivors); brilha em mapas abertos.
 dependencies:
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
+skill_tags:
+  - delivery:projectile
+  - trajectory:arc
+  - trajectory:boomerang
+  - target:line
+  - role:damage
+  - archetype:mobber
 ---
 
 # [DESIGN-008] Skill: Lançamento de Machado

@@ -12,6 +12,10 @@ promote_when: "Somente para Could: condição que justifica promoção."
 dependencies: []
 tech_spec: "[[SYSTEM-XXX]]"
 data_spec: "[[DATA-XXX]]"
+skill_tags:            # [[CONTEXT-015 Tags de Skill|CONTEXT-015]] — ≥1 de cada: delivery, target, role
+  - delivery:XXX
+  - target:XXX
+  - role:XXX
 ---
 
 # [DESIGN-XXX] Skill: Nome da Skill
@@ -31,7 +35,7 @@ data_spec: "[[DATA-XXX]]"
 - **Saída:** dano/buff aplicado e mudança de estado.
 
 ## 3. Regras de Combate
-- **Targeting:** único | área | self | projétil.
+- **Tags:** `delivery` / `trajectory` / `target` / `role` / `behavior` / `archetype` → [[CONTEXT-015 Tags de Skill|CONTEXT-015]].
 - **Alcance (px) / Hitbox:** valores exatos.
 - **Knockback (px):** impulso horizontal aplicado.
 - **Duração/ticks:** janelas em ms.

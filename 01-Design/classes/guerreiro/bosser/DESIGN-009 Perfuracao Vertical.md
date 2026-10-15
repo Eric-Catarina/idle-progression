@@ -10,6 +10,12 @@ moscow: Should
 moscow_note: Skill vertical de perfuração; brilha em mapas altos.
 dependencies:
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
+skill_tags:
+  - delivery:field
+  - target:line
+  - role:damage
+  - behavior:dot
+  - archetype:bosser
 ---
 
 # [DESIGN-009] Skill: Perfuração Vertical

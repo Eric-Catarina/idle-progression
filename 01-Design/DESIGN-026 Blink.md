@@ -11,6 +11,11 @@ moscow_note: Habilidade de movimento do Mago; o core loop valida sem ela.
 dependencies:
   - "[[DESIGN-005 Classes|DESIGN-005]]"
   - "[[DESIGN-025 Navegacao & Movimento|DESIGN-025]]"
+skill_tags:
+  - delivery:instant
+  - target:self
+  - role:mobility
+  - archetype:all
 ---
 
 # [DESIGN-026] Mechanic: Blink

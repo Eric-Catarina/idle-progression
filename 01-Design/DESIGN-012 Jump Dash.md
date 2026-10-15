@@ -11,6 +11,11 @@ moscow_note: Habilidade de movimento do Guerreiro; melhora muito o feel, mas o c
 dependencies:
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
   - "[[DESIGN-025 Navegacao & Movimento|DESIGN-025]]"
+skill_tags:
+  - delivery:instant
+  - target:self
+  - role:mobility
+  - archetype:all
 ---
 
 # [DESIGN-012] Mechanic: Jump Dash

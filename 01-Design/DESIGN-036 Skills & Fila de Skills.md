@@ -33,7 +33,7 @@ O jogador **monta uma fila** de skills. Elas são **castadas automaticamente em 
 4. **Ataque básico = MELEE** — só acerta quando o player está **encostando/muito perto** de um mob.
    - ⚠️ *Validação:* no 1º protótipo o ataque básico era **de longo alcance** e acertava mobs "aleatórios" — **errado**.
    - **Alcance longo é uma SKILL** (ex.: **Onda de Corte**, em **área à frente**).
-5. Skills têm **tipo**: `single` (alvo), `aoe` (área/projétil longo), `buff`, `heal`.
+5. Skills são classificadas por **tags** ([[CONTEXT-015 Tags de Skill|CONTEXT-015]]): **`delivery:*`** (melee, projectile, beam, instant, **summon**, field, aura, orbit), **`target:*`**, **`role:*`** — + `trajectory`/`behavior`/`archetype` quando fizer sentido. **Não existe "tipo único"**.
 6. Cada skill declara **`lines`** (nº de linhas de dano por cast) — **base = 3** — e um acerto pode gerar **vários números** (ver [[DESIGN-037 Linhas de Dano|DESIGN-037]]). O **crítico é rolado por linha** (independente).
 
 ## 3. Fila (UI)
@@ -56,7 +56,7 @@ O jogador **monta uma fila** de skills. Elas são **castadas automaticamente em 
 - HUD mostra a **fila ativa**.
 
 ## 7. Ganchos para o Futuro
-- **Presets** de fila, **auto-fila** por papel (boss/mob), skills com **carga**/canais.
+- **Presets** de fila, **auto-fila por arquétipo** (`archetype:*` das tags — [[CONTEXT-015 Tags de Skill|CONTEXT-015]] §9), skills com **carga**/canais.
 - Skills por classe: [[DESIGN-007 Meteoro|DESIGN-007]] … [[DESIGN-012 Jump Dash|DESIGN-012]].
 
 ## 8. Relacionados

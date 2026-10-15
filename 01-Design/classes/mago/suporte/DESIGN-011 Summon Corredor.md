@@ -10,6 +10,12 @@ moscow: Should
 moscow_note: Invocação horizontal (Suporte/Mobbing); brilha em mapas largos.
 dependencies:
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
+skill_tags:
+  - delivery:summon
+  - trajectory:straight
+  - target:line
+  - role:damage
+  - archetype:mobber
 ---
 
 # [DESIGN-011] Skill: Summon Corredor

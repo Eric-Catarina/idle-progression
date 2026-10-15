@@ -10,6 +10,13 @@ moscow: Should
 moscow_note: Skill horizontal de linha; brilha em mapas largos.
 dependencies:
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
+skill_tags:
+  - delivery:beam
+  - target:line
+  - role:damage
+  - behavior:channel
+  - behavior:dot
+  - archetype:bosser
 ---
 
 # [DESIGN-010] Skill: Raio Laser

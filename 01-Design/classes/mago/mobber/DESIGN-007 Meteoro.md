@@ -10,6 +10,14 @@ moscow: Should
 moscow_note: Skill de Mobbing vertical; brilha em mapas altos (meta espacial).
 dependencies:
   - "[[DESIGN-006 Meta Espacial|DESIGN-006]]"
+skill_tags:
+  - delivery:projectile
+  - trajectory:falling
+  - target:line
+  - target:aoe
+  - role:damage
+  - behavior:on_hit
+  - archetype:mobber
 ---
 
 # [DESIGN-007] Skill: Meteoro
