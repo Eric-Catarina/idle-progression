@@ -110,3 +110,4 @@ IED_total = 1 − Π(1 − ied_i)
 
 > Formatação segue [[CONTEXT-004 Notacao Numerica|CONTEXT-004]]. `Draft` — calibrar em simulação.
 > Curvas de **progressão por nível** (XP, stats, damage flat) → [[DATA-013 XP e Nivel|DATA-013]].
+> **Linhas de dano:** a fórmula é **por linha** — `total = Σ linhas`, e o alvo pode ter **teto por linha** (`capLinha`) → [[DESIGN-037 Linhas de Dano|DESIGN-037]].

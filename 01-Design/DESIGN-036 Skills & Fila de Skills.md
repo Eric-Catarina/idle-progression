@@ -34,6 +34,7 @@ O jogador **monta uma fila** de skills. Elas são **castadas automaticamente em 
    - ⚠️ *Validação:* no 1º protótipo o ataque básico era **de longo alcance** e acertava mobs "aleatórios" — **errado**.
    - **Alcance longo é uma SKILL** (ex.: **Onda de Corte**, em **área à frente**).
 5. Skills têm **tipo**: `single` (alvo), `aoe` (área/projétil longo), `buff`, `heal`.
+6. Cada skill declara **`lines`** (nº de linhas de dano por cast) — um acerto pode gerar **vários números** (ver [[DESIGN-037 Linhas de Dano|DESIGN-037]]).
 
 ## 3. Fila (UI)
 - **Adicionar / remover / reordenar** skills; mostrar **cooldown** de cada uma.

@@ -83,7 +83,12 @@ DanoFinal ≈ DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 +
 - Tooltip de stats **separado por bloco** (mostra o que está "curto").
 - Preview do **Δ de dano** ao trocar gear/Potential.
 
-## 9. Escalonamento por Nível (validado no protótipo)
+## 9. Linhas de Dano (multi-hit)
+- A fórmula é **por linha**: uma skill com `lines = N` aplica a fórmula **N vezes**.
+- **Dano total** = `Σ linhas`; o alvo pode ter **teto por linha** (`capLinha`) → **mais linhas vencem** contra esses alvos.
+- Detalhes → [[DESIGN-037 Linhas de Dano|DESIGN-037]].
+
+## 10. Escalonamento por Nível (validado no protótipo)
 - **Stats base:** `10 + (nível − 1)` por stat.
 - **Damage (flat) do jogador:** `8 + 3·(nível − 1)` (+ gear).
 - ⚠️ **Armadilha:** com isso o dano cresce **~nível²** — a **curva de XP tem que acompanhar**, senão o leveling **dispara** (no 1º teste o jogador chegou a **nível 300+**). Ver [[DATA-013 XP e Nivel|DATA-013]].

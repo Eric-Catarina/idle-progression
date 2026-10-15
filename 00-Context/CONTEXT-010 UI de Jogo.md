@@ -39,6 +39,7 @@ Definir o **layout de UI do jogo** — que é **diferente de um site**.
 - **Não bloquear o jogo:** só os **controles** capturam o toque (`pointer-events`); o resto **deixa passar** para o mapa.
 - **Alvos generosos** (dedo): botões grandes, com **ícone + rótulo**.
 - **Janelas arrastáveis** pela barra de título e fecháveis no **✕** — podem **ficar abertas sobre o jogo** (o jogo continua rodando).
+- **Números de dano em camadas:** um acerto **multi-linha** empilha **um número por linha** (offset + *stagger*) — ver [[DESIGN-037 Linhas de Dano|DESIGN-037]].
 
 ## 5. Orientação & Tela
 - **Sempre paisagem** no mobile.
