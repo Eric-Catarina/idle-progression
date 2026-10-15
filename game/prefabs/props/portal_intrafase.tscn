@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://prefabs/props/portal_intrafase.gd" id="1_portal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(20, 20)
+
+[node name="PortalIntrafase" type="Area2D"]
+monitorable = false
+script = ExtResource("1_portal")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_portal")

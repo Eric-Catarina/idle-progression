@@ -33,4 +33,6 @@ Aqui ficam **apenas diretrizes transversais, sempre válidas**. Nada **específi
 ## Detalhes
 
 - Manifesto completo (templates, protocolos A/B/C, glossário): `00-Context/CONTEXT-000 Manifesto.md`
-- Skill do projeto: `skills/progression-idle/SKILL.md`
+- Estrutura do jogo (Godot): `00-Context/CONTEXT-012 Estrutura do Projeto Godot.md` + `02-Architecture/SYSTEM-004 Cenas & Prefabs.md`
+- Skills do agente (todas): `.opencode/skills/` — atribuição em `.opencode/skills/ATTRIBUTION.md`
+- Skill do projeto: `.opencode/skills/progression-idle/SKILL.md`

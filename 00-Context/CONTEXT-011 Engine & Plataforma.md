@@ -47,6 +47,7 @@ tags:
 - **Godot 3.5 (GLES2)**: só se o alvo fossem celulares **muito** antigos (pré-GLES3) — mas perde o **MCP/IA**.
 - **C#**: export Android ainda **experimental**; GDScript é melhor para IA e gera **APK menor**.
 - **Outros motores** (Unity e afins): avaliados e descartados — trocam o **controle de runtime** e o **loop de IA** por editores pesados. Os aprendizados do protótipo descartável já estão documentados (engine-agnósticos).
+- **Outros MCPs de Godot** (ex.: Coding-Solo/godot-mcp, ~6k★): existem e são maduros, mas **não** rodamos dois MCPs controlando o mesmo editor. O **Toolkit** fica por ter o **canal de runtime** (roda/ver screenshot) + `discover_tools` + **API de extensão** em GDScript. Ver [[CONTEXT-012 Estrutura do Projeto Godot|CONTEXT-012]] §7.
 
 ## 5. Relacionados
 - UI: [[CONTEXT-010 UI de Jogo|CONTEXT-010]] · Arte: [[CONTEXT-009 Direcao de Arte|CONTEXT-009]] · Hierarquia: [[CONTEXT-006 Hierarquia|CONTEXT-006]].

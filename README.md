@@ -38,6 +38,9 @@ A documentação é dividida em **4 pilares obrigatórios**, identificados por p
 │   └── 📁 backlog/      -> [DESIGN-XXX] Features "Could" guardadas para o futuro.
 ├── 📁 02-Architecture/  -> [SYSTEM-XXX] Arquitetura de Software, Design Patterns, TDD e ADRs.
 ├── 📁 03-Data/          -> [DATA-XXX] Fórmulas, curvas de escala, tabelas e schemas JSON.
+├── 📁 game/             -> 🎮 O JOGO (Godot 4.7 · GDScript) — ver `game/AGENTS.md` e `CONTEXT-012`.
+├── 📁 tools/            -> 🔧 Scripts Node: validação do vault, solver, ponte de dados (`export-data`).
+├── 📁 .opencode/skills/ -> 🧠 Skills do agente (ver `ATTRIBUTION.md`).
 └── 📁 99-Inbox/         -> Ideias brutas, consolidadas pelo "Modo C" do manifesto.
 ```
 
