@@ -33,7 +33,6 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 | [[DESIGN-031 Calculo de Dano|DESIGN-031]] | Cálculo de **dano multiplicativo** | Draft | — | [[DATA-009 Dano|DATA-009]] |
 | [[DESIGN-036 Skills & Fila de Skills|DESIGN-036]] | **Skills & Fila de Skills** (combate idle) | Draft | — | [[DATA-009 Dano\|DATA-009]] · [[DATA-013 XP e Nivel\|DATA-013]] |
 | [[DESIGN-038 Pets|DESIGN-038]] | **Pets** (coleção account-wide, tiros diário/semanal, premium) | Draft | [[SYSTEM-005 Pets & Gacha\|SYSTEM-005]] | [[DATA-015 Pets Odds\|DATA-015]] |
-
 ### Candidatos Must derivados do Core Loop (a especificar)
 - ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
 - **One-Way Platforms** (colisão e passagem de baixo para cima).
@@ -61,6 +60,7 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 | [[DESIGN-034 Livro dos Contratos|DESIGN-034]] | **Livro dos Contratos** (farm account-wide) | Draft | [[DATA-011 Multikill e Contratos\|DATA-011]] |
 | [[DESIGN-035 Essencia|DESIGN-035]] | **Essência** (recurso do mundo; alimenta os 4 sistemas) | Draft | [[DATA-012 Essencia Custos\|DATA-012]] |
 | [[DESIGN-037 Linhas de Dano|DESIGN-037]] | **Linhas de dano** (multi-hit + teto por linha) | Draft | [[DATA-009 Dano\|DATA-009]] |
+| [[DESIGN-039 Loja de Gemas|DESIGN-039]] | **Loja de Gemas** (IAP, 1 USD = 500 gemas) | Draft | [[DATA-016 Loja de Gemas\|DATA-016]] |
 
 ---
 

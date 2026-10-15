@@ -96,7 +96,7 @@ Um pet **repetido** gera **1 cópia**. O jogador escolhe, **por cópia**:
 | `shot_common` | **100** |
 | `shot_epic` | **1.500** |
 
-> ⚠️ **Calibrar** com a tabela de pacotes IAP ([[CONTEXT-013 Moeda Premium|CONTEXT-013]]) — valores iniciais.
+> ⚠️ **Calibrar** com a tabela de pacotes IAP ([[DATA-016 Loja de Gemas|DATA-016]]) — em USD: `shot_common` = **$0.20**, `shot_epic` = **$3.00** (câmbio 500 Gemas/USD).
 
 ## 6. Schema de Configuração (JSON)
 ```json

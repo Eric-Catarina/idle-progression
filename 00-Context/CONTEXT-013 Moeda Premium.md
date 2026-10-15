@@ -24,6 +24,7 @@ tags:
 
 ## 2. Regra
 - **Gemas** (`gems`) é a **única** moeda premium do jogo.
+- **Câmbio base:** **1 USD = 500 Gemas**. Os **preços locais** (R$, etc.) são definidos pela loja (Google Play/App Store); o que se mantém é o **rateio de Gemas por pacote** ([[DATA-016 Loja de Gemas|DATA-016]]).
 - **Natureza:** comprada com **dinheiro real** (IAP). É o **canal de monetização principal**.
 - **Aquisição:** loja de gemas (pacotes IAP). Fontes **in-game** (login, conquistas, eventos) são **`Could`** — não implementar agora; deixar o **gancho**.
 - **Consumo:** sistemas **gastam** gemas em trocas explícitas (ex.: comprar tiros de pet — [[DESIGN-038 Pets|DESIGN-038]]). **Nunca** consumir gemas automaticamente.
@@ -46,4 +47,5 @@ tags:
 
 ## 4. Relacionado
 - Manifesto: [[CONTEXT-000 Manifesto|CONTEXT-000]] · Primeiro consumidor: [[DESIGN-038 Pets|DESIGN-038]].
+- Aquisição: [[DESIGN-039 Loja de Gemas|DESIGN-039]] · Preços: [[DATA-016 Loja de Gemas|DATA-016]].
 - Notação numérica: [[CONTEXT-004 Notacao Numerica|CONTEXT-004]] · Arte/ícone: [[CONTEXT-009 Direcao de Arte|CONTEXT-009]].

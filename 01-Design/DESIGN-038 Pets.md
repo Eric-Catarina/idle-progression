@@ -74,6 +74,7 @@ data_spec: "[[DATA-015 Pets Odds|DATA-015]]"
 ## 6. Ganchos para o Futuro (Should/Could)
 - **Fortalecimento (cópias):** já implementado no núcleo (nível 1..6, como as cartas) — os **valores** de bônus por pet é que são conteúdo.
 - **Pet Mart:** loja que **vende pets** (por Gemas) — `Should`.
+- **Loja de Gemas** (IAP): [[DESIGN-039 Loja de Gemas|DESIGN-039]] — `Should` (no protótipo, Gemas entram por **debug**).
 - **Pity:** garantia após `N` tiros sem raridade alta — `Should`.
 - **Quebra em lote** ("quebrar todas as duplicatas de tier ≤ X") — `Should` (QoL).
 - **Pets exclusivos** (evento/bundle) e **Pet Food** (tiers que mudam as odds, como no IdleOn) — `Could`.
