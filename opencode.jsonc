@@ -24,6 +24,16 @@
           "--vault",
           "idle=E:/projects/IdleProgression"
         ]
+      },
+      "godot": {
+        "type": "local",
+        "command": [
+          "cmd",
+          "/c",
+          "npx",
+          "-y",
+          "@npgamedev/godot-mcp-server"
+        ]
       }
     }
   }
