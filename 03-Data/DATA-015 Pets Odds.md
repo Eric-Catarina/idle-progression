@@ -25,7 +25,8 @@ dependencies:
 | `oddsComum[tier]` | chance (%) do **tiro comum** |
 | `M` | multiplicador do tiro épico nos tiers altos = **20** |
 | `tierMin` | primeiro tier afetado por `M` = **3** (Épico) |
-| `crysValue[tier]` | Cristais de Pet ganhos por **duplicata** |
+| `strengthenReq[n]` | cópias necessárias p/ o nível `n` de fortalecimento |
+| `shatterFragments[tier]` | fragmentos de Gema ganhos ao **quebrar** uma duplicata (**100 = 1 Gema**) |
 | `gemCost[kind]` | custo em **Gemas** ([[CONTEXT-013 Moeda Premium\|CONTEXT-013]]) |
 
 ## 2. Tokens & Períodos
@@ -68,12 +69,26 @@ para t >= tierMin: oddsEpico[t] = oddsComum[t] * M    # Divino: 0.05 * 20 = 1.00
 # sorteia o tier por pesos inteiros (odds * 100 → base 10000)
 ```
 
-## 4. Duplicatas → Cristais de Pet
-Pet **repetido** vira `petCrystals` por raridade (sink futuro: Pet+ — [[DESIGN-038 Pets|DESIGN-038]] §6).
+## 4. Duplicatas — Fortalecer OU Quebrar
+Um pet **repetido** gera **1 cópia**. O jogador escolhe, **por cópia**:
+- **Fortalecer (padrão):** a cópia acumula no pet; ao cruzar o limiar, o pet sobe de **nível de fortalecimento** (1→6) e o bônus multiplica — **mesma escada das cartas** ([[DATA-005 Cartas Odds|DATA-005]] §2).
+- **Quebrar:** converte a cópia em **fragmentos de Gema** (`gemFragments`, **100 = 1 Gema**) — uma **fração** da moeda premium ([[CONTEXT-013 Moeda Premium|CONTEXT-013]]).
 
-| tier | 1 | 2 | 3 | 4 | 5 | 6 |
+`Bonus(pet) = base(pet) × nível` · **limiar cumulativo de cópias** (espelha as cartas):
+
+| nível | 1 | 2 | 3 | 4 | 5 | 6 |
 | :--- | --: | --: | --: | --: | --: | --: |
-| Cristais | 1 | 4 | 12 | 40 | 150 | 600 |
+| Cópias acumuladas | 1 | 7 | 21 | 35 | 112 | 3.22 K |
+| Multiplicador do bônus | ×1 | ×2 | ×3 | ×4 | ×5 | ×6 |
+
+**Fragmentos por quebra (por raridade):**
+
+| tier | 1 Comum | 2 Raro | 3 Épico | 4 Lendário | 5 Extraord. | 6 Divino |
+| :--- | --: | --: | --: | --: | --: | --: |
+| `gemFragments` | 1 | 4 | 12 | 40 | 150 | 600 |
+| = **Gemas** | 0.01 | 0.04 | 0.12 | 0.40 | 1.50 | 6.00 |
+
+> 🎯 **Escolha do jogador:** fortalecer um pet **raro** (bônus alto) ou quebrar pets **comuns** que não usa para acumular Gemas aos poucos.
 
 ## 5. Custos em Gemas (compra de tiros)
 | Tiro | Gemas (`gemCost`) |
@@ -95,7 +110,9 @@ Pet **repetido** vira `petCrystals` por raridade (sink futuro: Pet+ — [[DESIGN
   "oddsCommon": [68.0, 28.0, 3.0, 0.8, 0.15, 0.05],
   "epicMultiplier": 20,
   "epicBoostFromTier": 3,
-  "crystalsByTier": [1, 4, 12, 40, 150, 600],
+  "strengthenReq": [1, 7, 21, 35, 112, 3220],
+  "shatterFragmentsByTier": [1, 4, 12, 40, 150, 600],
+  "fragmentsPerGem": 100,
   "roster": { "1": [], "2": [], "3": [], "4": [], "5": [], "6": [] }
 }
 ```

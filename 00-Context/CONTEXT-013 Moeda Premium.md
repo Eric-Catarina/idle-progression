@@ -28,6 +28,7 @@ tags:
 - **Aquisição:** loja de gemas (pacotes IAP). Fontes **in-game** (login, conquistas, eventos) são **`Could`** — não implementar agora; deixar o **gancho**.
 - **Consumo:** sistemas **gastam** gemas em trocas explícitas (ex.: comprar tiros de pet — [[DESIGN-038 Pets|DESIGN-038]]). **Nunca** consumir gemas automaticamente.
 - **Nunca** é dropável, tradeável, nem ganha por tempo de jogo (parede de monetização honesta).
+- **Fragmentos de Gema** (`gemFragments`, **100 = 1 Gema**): é a **fração** da moeda premium — obtida ao **quebrar duplicatas de pet** ([[DESIGN-038 Pets|DESIGN-038]]). Acumula e **auto-converte** em Gemas ao completar 100. **Não** é uma moeda separada: é o troco fracionário das Gemas.
 
 ### Moedas do projeto (não confundir)
 | Moeda | Escopo | Onde vive |

@@ -44,15 +44,15 @@ data_spec: "[[DATA-015 Pets Odds|DATA-015]]"
   1. Consome o token **ou** debita `gems` (atômico).
   2. Sorteia **1 pet** por raridade ([[CONTEXT-007 Raridades|CONTEXT-007]]) — odds em [[DATA-015 Pets Odds|DATA-015]].
   3. Pet **novo** → entra na **coleção** e seu bônus passa a valer (**imediato**, account-wide).
-  4. Pet **repetido** → converte em **Cristais de Pet** (`petCrystals`, por raridade).
-  5. Emite evento para a UI (popup de resultado).
+  4. Pet **repetido** → vira **1 cópia** do pet: o jogador escolhe **Fortalecer** (acumula → sobe o nível, como nas [[DESIGN-016 Cartas|Cartas]]) **ou Quebrar** (→ **fragmentos de Gema**, uma fração da premium).
+  5. Emite evento para a UI (popup de resultado / escolha de duplicata).
 
 ## 3. Lógica Passo a Passo
 1. Jogador aciona **Atirar** (tipo `common` | `epic`).
 2. Resolve a **fonte de pagamento**: token do tipo → senão compra com gemas (se saldo).
 3. `roll = RNG(tipo)` → devolve o **tier** (1..6) segundo [[DATA-015 Pets Odds|DATA-015]].
 4. Dentro do tier, sorteia um **pet** do roster daquele tier (**uniforme**; se vazio → re-sorteia o tier abaixo, ver §4).
-5. Se **novo** → adiciona à coleção; se **duplicado** → `petCrystals += crysValue(tier)`.
+5. Se **novo** → adiciona à coleção; se **duplicado** → acumula **1 cópia** e o jogador decide **Fortalecer** (nível do pet) ou **Quebrar** (fragmentos de Gema).
 6. Aplica o bônus do pet (se novo) ao agregado account-wide e atualiza a UI.
 
 ## 4. Casos de Borda & Tratamento de Erros
@@ -62,19 +62,20 @@ data_spec: "[[DATA-015 Pets Odds|DATA-015]]"
 - **Double-tap** no Atirar → **idempotência** (1 tiro por toque; ignora reentrada).
 - **Tier sem pets** (roster incompleto) → **re-sorteia** o tier abaixo; se nenhum tier tiver pet → erro de configuração (não consome token).
 - **Salvar/recarregar** no meio do tiro → o **RNG é semeado e o resultado é estado** ([[SYSTEM-005 Pets & Gacha|SYSTEM-005]]); não re-sortear.
-- **Números grandes:** `petCrystals`/contagem usam **BigNumber** ([[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
+- **Números grandes:** `gems`, `gemFragments` e a contagem de cópias usam **BigNumber** ([[CONTEXT-004 Notacao Numerica|CONTEXT-004]]).
 
 ## 5. UI/UX e Feedback
 - **Janela de Pets** (overlay arrastável — [[CONTEXT-010 UI de Jogo|CONTEXT-010]]): grade da **coleção** (obtidos coloridos, faltantes em silhueta), raridade pela cor/glow de [[CONTEXT-007 Raridades|CONTEXT-007]].
 - **Botão Atirar:** mostra o **tipo** (comum/épico), **tokens restantes** e *countdown* do reset.
 - **Animação do tiro:** projétil → quebra do cristal → **flash + som pela raridade** (juice — [[CONTEXT-007 Raridades|CONTEXT-007]] §4).
 - **Divino:** *bloom* + celebração (o momento "uau").
-- **Duplicata:** feedback discreto + `+{crysValue}` Cristais de Pet.
+- **Duplicata:** dois botões — **Fortalecer** (mostra `cópias / limiar` e o bônus novo) e **Quebrar** (`+{fragmentos}` de Gema). Padrão = **Fortalecer**.
 
 ## 6. Ganchos para o Futuro (Should/Could)
-- **Pet+ (upgrade):** gastar **Cristais de Pet** para **melhorar** um pet (sink do `petCrystals`) — `Should`.
-- **Pet Mart:** loja que **vende pets** por Cristais — `Should`.
+- **Fortalecimento (cópias):** já implementado no núcleo (nível 1..6, como as cartas) — os **valores** de bônus por pet é que são conteúdo.
+- **Pet Mart:** loja que **vende pets** (por Gemas) — `Should`.
 - **Pity:** garantia após `N` tiros sem raridade alta — `Should`.
+- **Quebra em lote** ("quebrar todas as duplicatas de tier ≤ X") — `Should` (QoL).
 - **Pets exclusivos** (evento/bundle) e **Pet Food** (tiers que mudam as odds, como no IdleOn) — `Could`.
 - **Fonte in-game de Gemas** (login/conquista) — `Could` ([[CONTEXT-013 Moeda Premium|CONTEXT-013]] §2).
 - **Não implementar agora** — só deixar o gancho ([[CONTEXT-001 MoSCoW|CONTEXT-001]] §6).

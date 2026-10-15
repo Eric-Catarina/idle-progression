@@ -44,8 +44,9 @@ static func shoot(kind: ShotKind, state: PetState, odds: Dictionary, rng: Random
 
 ```gdscript
 # autoload/GameState.gd — estado autoritativo (account-wide)
-var pets_owned: Dictionary = {}      # pet_id -> true
-var pet_crystals: Variant = 0        # BigNumber
+var pets_owned: Dictionary = {}      # pet_id -> { "copies": int, "level": int }
+var pet_copies: Dictionary = {}      # pet_id -> int (cópias acumuladas)
+var gem_fragments: Variant = 0       # fragmentos de Gema (100 = 1 Gema)
 var gems: Variant = 0                # BigNumber (CONTEXT-013)
 var shot_tokens: Dictionary = { "common": 1, "epic": 1 }
 var pet_bonus_aggregate: Dictionary = {}  # stat -> valor somado
@@ -63,13 +64,14 @@ func refresh_tokens(now_epoch: int) -> void  # recarrega tokens se o período vi
    1. valida token do tipo → senão valida `gems ≥ cost(kind)`;
    2. consome (token ou gemas);
    3. `roll_tier()` + sorteio do pet do tier;
-   4. novo → `pets_owned[pet] = true` + **recalcula** `pet_bonus_aggregate`; duplicado → `pet_crystals += crysValue(tier)`;
+   4. novo → `pets_owned[pet] = ...` + **recalcula** `pet_bonus_aggregate`; duplicado → **+1 cópia** e o jogador escolhe `strengthen(pet)` (nível) ou `shatter(pet)` (`gem_fragments += ...`);
    5. emite o evento do resultado.
 3. **Bônus:** `pet_bonus_aggregate` entra no cálculo de stats do jogador (junto de cartas/selos) — **1 vez por frame de simulação**, não por nó.
 4. **Persistência:** `pets_owned`, tokens e o **contador de tiros** (`shot_index`, para a seed) são salvos.
 
 ## 5. Pontos de Extensão & Escalabilidade (Should Futuro)
-- **Pet+ (upgrade):** `pet_crystals` já é acumulado — o sink de upgrade pluga **sem** mudar o tiro.
+- **Fortalecer/Quebrar:** já expostos (`strengthen`/`shatter`) — os **valores** de bônus por pet são conteúdo.
+- **Auto-conversão:** `gem_fragments ≥ 100` → `gems += 1` (mantém o saldo premium inteiro na UI).
 - **Pet Mart:** lê o roster de `data/`; compra = transação análoga a `shoot`.
 - **Pity:** um contador no `PetState` + uma checagem antes do `roll_tier` — **não** implementar agora.
 - **Pet Food / tiers de comida:** trocar a tabela de `odds` por um parâmetro `food_tier` — hook.
