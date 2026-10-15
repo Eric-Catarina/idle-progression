@@ -84,7 +84,8 @@ DanoFinal ≈ DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 +
 - Preview do **Δ de dano** ao trocar gear/Potential.
 
 ## 9. Linhas de Dano (multi-hit)
-- A fórmula é **por linha**: uma skill com `lines = N` aplica a fórmula **N vezes**.
+- A fórmula é **por linha**: uma skill com `lines = N` aplica a fórmula **N vezes** — **base = `3`** (ajustável por skill).
+- **Crítico:** rolado **por linha** (independente).
 - **Dano total** = `Σ linhas`; o alvo pode ter **teto por linha** (`capLinha`) → **mais linhas vencem** contra esses alvos.
 - Detalhes → [[DESIGN-037 Linhas de Dano|DESIGN-037]].
 

@@ -27,7 +27,7 @@ data_spec: "[[DATA-009 Dano|DATA-009]]"
 Um acerto produz **N linhas de dano** — **N números separados**, empilhados na tela (estilo MapleStory). Além da leitura, a **quantidade de linhas é mecânica**: alguns inimigos têm **teto de dano POR LINHA**, então builds/skills com **mais linhas** são **mais eficientes** contra eles.
 
 ## 2. Definição Formal
-- Cada **skill** declara `lines` (nº de linhas por cast).
+- Cada **skill** declara `lines` (nº de linhas por cast) — **base = 3** (ajustável por skill).
 - **Cada linha** aplica a **fórmula de dano** ([[DESIGN-031 Calculo de Dano|DESIGN-031]]) **separadamente** (variância/crítico por linha).
 - **Dano total** = `Σ linhas`.
 - **Teto por linha (`capLinha`)** do alvo: `linha_i = min(dano_i, capLinha)`.
@@ -60,7 +60,7 @@ Alvo com `capLinha = 1.000`:
 ## 7. Casos de Borda
 - `lines` alto + teto → **muitos números** (perf): agrupar ou limitar por frame.
 - `capLinha` **ausente/0** → **sem teto**.
-- **Crítico por linha** (independente) vs **um** crítico por cast *(a definir)*.
+- **Crítico por linha:** **independente** ✅ *(decidido)* — cada linha rola o crítico **sozinha** (uma pode critar e a outra não).
 - **Catch-up offline:** resolve por **DPS** agregado, sem spawnar números.
 
 ## 8. Relacionados
