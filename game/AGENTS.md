@@ -17,5 +17,6 @@
 
 ## Ferramentas de IA
 - **MCP:** Godot MCP Toolkit (addon em `addons/`) — precisa do editor aberto. Use `discover_tools` para achar ferramentas; **rode o jogo** (`game_start`) e **verifique screenshot/logs**.
+- **Addons/ferramentas:** ver `../00-Context/CONTEXT-014 Addons & Ferramentas.md` (Phantom Camera, BigNumber, Beehave, GUT). Preferir **GDScript puro** (alvo web).
 - **Skills:** `.opencode/skills/` (ver `ATTRIBUTION.md`).
 - **Docs do Godot:** Context7 `/godotengine/godot-docs` (versão `4.7`).
