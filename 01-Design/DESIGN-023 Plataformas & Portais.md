@@ -23,7 +23,7 @@ Padronizar a **colisão de plataformas** (todas com o mesmo comportamento) e o *
 
 ## 2. Plataformas (todas iguais — One-Way)
 - **Atravessar de baixo → cima: SEMPRE** (você pula através da plataforma normalmente).
-- **Atravessar de cima → baixo: opcional** — o jogador **pode** descer se quiser (input de "descer/soltar").
+- **Atravessar de cima → baixo (DOWN-JUMP): OBRIGATÓRIO** — com o input **"baixo + pulo"** (estilo MapleStory), o personagem **atravessa a plataforma para baixo**. É **essencial**: sem isso o jogador **fica preso** numa plataforma em que só consegue subir. *(Validação: o 1º protótipo não tinha isso e o jogador **não conseguia descer**.)*
 - **Exceção única:** a plataforma da **última linha** (o **piso**) é **sólida** — **não** se atravessa (nem para cima nem para baixo).
 - Ou seja: existe **um único tipo** de plataforma (tile `1`); o comportamento "sólido" é pela **posição** (última linha), não por tile.
 
@@ -41,6 +41,7 @@ Padronizar a **colisão de plataformas** (todas com o mesmo comportamento) e o *
 - Nº **ímpar** de portais intrafase → o último fica **sem par** (inativo) — avisado no editor/DATA.
 - Dois portais na **mesma célula** (sobreposição).
 - Portal no **piso/última linha** (evitar).
+- **Plataforma sem rota de descida** → resolver com o **down-jump** (§2).
 
 ## 6. Relacionados
 - [[DESIGN-006 Meta Espacial|DESIGN-006]] · [[DATA-006 Level Layout|DATA-006]] (legend de tiles).

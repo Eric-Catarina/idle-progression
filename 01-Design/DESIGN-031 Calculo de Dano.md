@@ -83,6 +83,12 @@ DanoFinal ≈ DanoSkill × (Main×4 + Sec + Tert) × (Damage_arma / 100) × (1 +
 - Tooltip de stats **separado por bloco** (mostra o que está "curto").
 - Preview do **Δ de dano** ao trocar gear/Potential.
 
-## 9. Relacionados
+## 9. Escalonamento por Nível (validado no protótipo)
+- **Stats base:** `10 + (nível − 1)` por stat.
+- **Damage (flat) do jogador:** `8 + 3·(nível − 1)` (+ gear).
+- ⚠️ **Armadilha:** com isso o dano cresce **~nível²** — a **curva de XP tem que acompanhar**, senão o leveling **dispara** (no 1º teste o jogador chegou a **nível 300+**). Ver [[DATA-013 XP e Nivel|DATA-013]].
+- **Caps** de stats → [[DATA-009 Dano|DATA-009]] §5.
+
+## 10. Relacionados
 - Equipamentos: [[DESIGN-028 Equipamentos|DESIGN-028]] · Potential: [[DESIGN-029 Potential|DESIGN-029]] · Estrelas: [[DESIGN-030 Star Force|DESIGN-030]] · Sets: [[DESIGN-032 Gear Sets|DESIGN-032]].
 - Valores: [[DATA-009 Dano|DATA-009]]. Referência: `99-Inbox/reference/MAPLESTORY_GEAR_REFERENCE.md`.

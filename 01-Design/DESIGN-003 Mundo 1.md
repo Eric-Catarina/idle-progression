@@ -59,6 +59,7 @@ Roleta **F1 — Bichinhos da Mata**:
 - **Drop table:** além da Essência, os mobs têm **drop table** com **coleções** (cartas/selos/gear) em **rolls separados**.
 - **Chefe:** **Vorax** (copa da Árvore, **Level1_5**) → dá a **Relíquia de Vorax** ([[DESIGN-032 Gear Sets|DESIGN-032]]).
 - **Cartas** levam o nome do mob ([[DESIGN-016 Cartas|DESIGN-016]]). **Visuais/ícones** → [[CONTEXT-009 Direcao de Arte|CONTEXT-009]] (Apêndice B).
+- **Cota de abate:** cada nível exige uma **cota de mortes** para **abrir o Portal Saída** (ex.: 1-1 = **60** … 1-5 = **220**). Números de HP/ATK/XP/Essência por mob → [[DATA-014 Populacao Mundo 1|DATA-014]].
 
 ## 5. Parâmetros
 - Curvas → [[DATA-XXX]].

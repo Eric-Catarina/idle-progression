@@ -20,6 +20,10 @@
 - **Dados óbvios em `DATA`:** em documentos `DATA`, **implemente** o que for **óbvio** (caps, faixas, defaults, limites, tabelas derivadas das regras já definidas) **sem esperar pedido** — nunca preencha lacunas de **design** por conta própria.
 - **Automação proativa:** ao executar algo que **vai se repetir** (ex: implementar níveis, mecânicas, specs), **já adiante a automação** no mesmo passo — template em `00-Context/_templates/` e/ou script em `tools/` (ex: `node tools/new-level.mjs LevelX_Y`). Nunca repita trabalho manual que dá pra padronizar.
 - **Economia de contexto:** dumps de referência de outros jogos ficam em `99-Inbox/reference/` e **só** devem ser lidos quando se trabalha no sistema correspondente (ex: selos → `IDLEON_STAMPS_REFERENCE.md`). Nunca incluí-los em contexto sempre-carregado.
+- **UI de jogo ≠ layout de site:** o **mundo ocupa a tela inteira**; a UI **flutua por cima** (HUD/menu/janelas sobrepostas). Ver `00-Context/CONTEXT-010 UI de Jogo.md`.
+- **Engine de protótipo ≠ engine final:** o protótipo serve **só** para validar design; os aprendizados são **engine-agnósticos**.
+- **Balanceamento por solver:** números de combate/progressão saem de um **script que resolve metas** (as metas vivem no `DATA`), **nunca** de chute.
+- **`proto/` é descartável; o vault é a fonte de verdade:** o protótipo **consome** os dados do vault — **nada** de duplicar dados no protótipo.
 
 ## Escopo deste arquivo
 

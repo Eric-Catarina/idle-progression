@@ -60,6 +60,8 @@ O **tier da carta usa a escala compartilhada** ([[CONTEXT-007 Raridades|CONTEXT-
 
 > O **nome da carta = nome do mob** (população em [[DESIGN-003 Mundo 1|DESIGN-003]] §4).
 
+> ✅ **Validado no protótipo:** o modelo de **tier por acúmulo de cópias** funciona e é legível — falta só **calibrar as odds** ([[DATA-005 Cartas Odds|DATA-005]]).
+
 ## 6. Cartas Novas (drop reforçado)
 Uma carta com **0 cópias** tem chance de drop **muito maior** — para acelerar a coleção. Após ter **≥ 1** cópia, cai para a chance normal. Fator exato → [[DATA-005 Cartas Odds|DATA-005]].
 

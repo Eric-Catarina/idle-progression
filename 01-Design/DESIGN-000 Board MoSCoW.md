@@ -31,6 +31,7 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 | :--- | :--- | :--- | :--- | :--- |
 | [[DESIGN-025 Navegacao & Movimento|DESIGN-025]] | Movimento **tap-to-move** (destino via grafo de nós) | Spec Ready | [[SYSTEM-002 NavGraph & Pathfinding|SYSTEM-002]] | [[DATA-XXX]] |
 | [[DESIGN-031 Calculo de Dano|DESIGN-031]] | Cálculo de **dano multiplicativo** | Draft | — | [[DATA-009 Dano|DATA-009]] |
+| [[DESIGN-036 Skills & Fila de Skills|DESIGN-036]] | **Skills & Fila de Skills** (combate idle) | Draft | — | [[DATA-009 Dano\|DATA-009]] · [[DATA-013 XP e Nivel\|DATA-013]] |
 
 ### Candidatos Must derivados do Core Loop (a especificar)
 - ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].

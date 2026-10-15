@@ -32,6 +32,7 @@ O jogador **não dirige** o personagem tecla a tecla: ele **aponta um destino** 
 - **Ar = balístico (NÃO cinemático):** a trajetória é decidida **no salto** (`vx`, `vy` de decolagem). No ar o jogador **não** "dirige" — só uma **habilidade de movimento** pode alterar o arco.
 - **Salto diagonal** é permitido (decolagem com `vx ≠ 0`).
 - **Plataformas:** ver [[DESIGN-023 Plataformas & Portais|DESIGN-023]] (todas one-way; só o **piso/última linha** é sólido).
+- **Descer (drop-through):** **baixo + pulo** atravessa a plataforma **para baixo** (exceto o piso) — [[DESIGN-023 Plataformas & Portais|DESIGN-023]] §2. É um **movimento de 1ª classe** do planejador.
 
 ## 3. Habilidades de Movimento (por classe)
 | Classe | Habilidade | Papel na navegação | Doc |
@@ -55,12 +56,14 @@ O jogador **não dirige** o personagem tecla a tecla: ele **aponta um destino** 
 ## 5. Grafo de Navegação (planejamento)
 - **Nós** = **posições pisáveis** (células sobre plataformas), com `(x, y)`.
 - **Arestas** = um movimento entre dois nós, com:
-  - `tipo` (`walk | jump | jumpDash | blink | slideJump`);
+  - `tipo` (`walk | jump | drop | jumpDash | blink | slideJump`);
   - `custo` (tipicamente **tempo**);
   - **pré-condição** (habilidade desbloqueada + parâmetros atuais no alcance).
 - As arestas válidas **dependem do conjunto de movimentos do jogador** → a **mesma** origem/destino gera **rotas diferentes por classe**.
 - **Busca:** minimizar **custo de tempo** (jogo idle prioriza o destino mais rápido). O algoritmo exato é decidido na **arquitetura** (A*, Dijkstra ponderado, etc.).
 - **Alcance dinâmico:** ao subir de nível a habilidade, **recalcular** as arestas afetadas.
+
+> ⚠️ **Validação (protótipo):** o 1º protótipo usou um movimento **ingênuo** (andar + auto-pulo), **sem grafo** — o resultado foi o jogador **preso** (não descia, não achava rota). Isso **confirma** a necessidade da busca e que **descida/drop-through** precisa ser **aresta de 1ª classe**.
 
 ## 6. Regras de Uso do Jump Dash (Guerreiro)
 > O dash **não** serve para subir plataformas em **90°** — para isso usa-se o **pulo** (e a passagem one-way de [[DESIGN-023 Plataformas & Portais|DESIGN-023]]).

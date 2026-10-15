@@ -20,3 +20,9 @@ desktop.ini
 # Logs e temporários
 *.log
 gh-auth*.txt
+
+# Node (build mobile / protótipo)
+node_modules/
+
+# Projeto Android do PROTÓTIPO (pertence à branch de teste do protótipo, não ao planejamento)
+android/

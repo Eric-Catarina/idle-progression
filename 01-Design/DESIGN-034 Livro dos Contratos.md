@@ -38,6 +38,7 @@ Um **livro account-wide** que registra os **abates por espécie de mob**. Cada *
 4. **Cada mundo** tem seu **total de pontos** e seu **bônus de Multikill**.
 5. **Bônus do mundo:** `MK% = pontos × 1%` (de *Multikill por Damage Tier*).
 6. Efeito prático do `MK%` → [[DESIGN-033 Multikill|DESIGN-033]] §2.
+7. **Cota de abate abre o portal:** cada nível tem uma **cota de mortes** para liberar o **Portal Saída** ([[DESIGN-003 Mundo 1|DESIGN-003]] §4 · [[DATA-014 Populacao Mundo 1|DATA-014]]). O **kill count** que o Multikill infla ([[DESIGN-033 Multikill|DESIGN-033]] §3) ajuda a bater essa cota.
 
 ### Renegociar & Expandir Contratos (Essência)
 - **Expandir:** gastar **Essência** ([[DESIGN-035 Essencia|DESIGN-035]]) para **subir o `tierCap`** de um contrato (mob) → mais pontos possíveis.
