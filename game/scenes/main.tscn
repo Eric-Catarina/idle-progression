@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scenes/level_view.gd" id="2_level"]
+[ext_resource type="Script" path="res://ui/footer.gd" id="3_footer"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="WorldArea" type="SubViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="WorldArea"]
+handle_input_locally = false
+size = Vector2i(1280, 631)
+
+[node name="World" type="Node2D" parent="WorldArea/SubViewport"]
+
+[node name="LevelView" type="Node2D" parent="WorldArea/SubViewport/World"]
+script = ExtResource("2_level")
+
+[node name="Camera" type="Camera2D" parent="WorldArea/SubViewport/World"]
+
+[node name="Footer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Panel" type="Control" parent="Footer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_footer")

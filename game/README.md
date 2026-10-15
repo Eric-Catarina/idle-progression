@@ -6,8 +6,9 @@ Faz parte do **monorepo** — o **vault** de design/planejamento fica na **pasta
 ## ▶️ Abrir o editor
 
 ```powershell
-C:\Users\ormen\Documents\dev\Godot_v4.7.2-stable_win64.exe --path . --editor
+C:\Users\ormen\Documents\dev\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64.exe --path . --editor
 ```
+> ⚠️ O zip foi extraído numa **pasta com o nome do exe** — o caminho tem o nome repetido duas vezes.
 (ou, no Godot: **Import → `project.godot`**)
 
 ## ⚙️ Settings já aplicadas (`project.godot`)

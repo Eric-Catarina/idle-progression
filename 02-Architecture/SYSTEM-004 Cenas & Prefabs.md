@@ -132,6 +132,7 @@ func apply_damage_lines(lines: Array[int], cap_per_line: int) -> int  # DESIGN-0
   - **Footer** (`CanvasLayer`, `layer = 10`): a **UI principal** fixa (infos + botões de menu). `F = 89` px, padding `P = 8`.
 - O nível ancora a **última linha (piso)** na **superfície do piso** (`F + P` do fundo) — [[DATA-006 Level Layout|DATA-006]].
 - **Janelas** de sistema abrem em camada **acima** do footer ([[CONTEXT-010 UI de Jogo|CONTEXT-010]]).
+- ⚠️ **Armadilha do Godot:** um `Control` (ex.: `SubViewportContainer`) **ancorado a um `Node2D`** não herda a área do viewport — fica **0×0**. Solução: dimensionar no `_ready` (`world_area.size = get_viewport_rect().size - Vector2(0, FOOTER_H)`) e reagir a `get_viewport().size_changed`. (`Control` dentro de `CanvasLayer` — o footer — ancora normal.)
 
 ## 5. Fluxo de Execução
 1. **`Main`** (`scenes/main.tscn`) carrega o nível via `DataDB` (`data/levels/*.json`).
