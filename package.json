@@ -5,6 +5,8 @@
   "description": "Vault de documentacao e design do Progression Idle.",
   "scripts": {
     "validate": "node tools/validate-vault.mjs",
-    "new-level": "node tools/new-level.mjs"
+    "new-level": "node tools/new-level.mjs",
+    "export-data": "node tools/export-data.mjs",
+    "balance": "node tools/balance-sim.mjs"
   }
 }
