@@ -1,6 +1,6 @@
 ---
 name: progression-idle
-description: Use this skill for ANY task related to the Progression Idle game project — creating design specs (DESIGN), technical architecture (SYSTEM), data formulas (DATA), or implementing game code. Always triggers when the user mentions Progression Idle, game mechanics, platformer systems, idle/incremental systems, tap-to-move, knockback, prestige, or asks to create specs/code for this project.
+description: Use this skill for ANY task related to the Progression Idle game project — creating design specs (DESIGN), technical architecture (SYSTEM), data formulas (DATA), or implementing Godot game code. Always triggers when the user mentions Progression Idle, game mechanics, platformer systems, idle/incremental systems, tap-to-move, knockback, prestige, Godot, prefabs, or asks to create specs/code for this project.
 ---
 
 # Progression Idle — Skill Personalizada
@@ -9,8 +9,9 @@ Esta skill contém as regras fundamentais do projeto **Progression Idle**. Antes
 
 ## Visão Geral
 
-- **Projeto:** Incremental / Idle Game com plataformas 2D (estilo MapleStory)
-- **Paradigma:** Headless Simulation First — toda a lógica existe independente da renderização
+- **Projeto:** Incremental / Idle com plataformas 2D (estilo MapleStory)
+- **Paradigma:** Headless Simulation First — toda a lógica existe **independente** da renderização
+- **Engine:** **Godot 4.7** + renderer **Compatibility** + **GDScript** — o jogo vive em **`game/`** (`00-Context/CONTEXT-011 Engine & Plataforma.md`)
 
 ## Os 4 Pilares da Documentação
 
@@ -20,6 +21,13 @@ Esta skill contém as regras fundamentais do projeto **Progression Idle**. Antes
 | `DESIGN-XXX` | `01-Design/` | Game Design de Baixo Nível (GDD) |
 | `SYSTEM-XXX` | `02-Architecture/` | Arquitetura de Software, Patterns, TDD |
 | `DATA-XXX` | `03-Data/` | Fórmulas, curvas, tabelas, schemas JSON |
+
+## Estrutura do Jogo (Godot)
+
+`game/` segue a convenção **`CONTEXT-012`** — leia antes de escrever código:
+- `sim/` = **lógica pura headless** (sem nós/render) · `prefabs/` = cenas **reutilizáveis** · `scenes/` = cenas compostas · `ui/` = HUD/janelas · `data/` = **gerado** do vault (não editar).
+- **Prefabs** (contrato/nós/sinais) → `02-Architecture/SYSTEM-004 Cenas & Prefabs.md`.
+- **Nunca** duplique dados do vault no código: `node tools/export-data.mjs` gera `game/data/`.
 
 ## Prioridade (MoSCoW) — Obrigatório
 
@@ -48,25 +56,29 @@ Todo `DESIGN` e `SYSTEM` declara `moscow: Must | Should | Could | Wont` no front
 
 1. **Ordem de leitura obrigatória:** DESIGN → SYSTEM → DATA
 2. **Contrato de arquitetura:**
-   - NÃO misture lógica de jogo com código de interface
+   - NÃO misture lógica de jogo com código de interface (`sim/` nunca importa `prefabs/`/`scenes/`/`ui/`)
    - Mantenha simulação desacoplada para cálculos offline
    - Use BigNumber/BreakEternity para variáveis exponenciais
 
 ## Nomenclatura
 
-- Arquivos: `PREFIXO-NNN_nome_curto.md` (snake_case ou kebab-case)
-- Exemplos: `DESIGN-001_one_way_platforms.md`, `SYSTEM-001_kinematics_physics.md`
+- **Arquivos do vault:** `<ID> <nome>.md` — **espaço** entre o ID e o nome (ex.: `DESIGN-023 Plataformas & Portais.md`)
+- **Skills:** `name` igual ao nome da pasta, `kebab-case`
+- **Godot:** ver `CONTEXT-012` §4 (cenas `snake_case`, nós `PascalCase`, autoloads `PascalCase`, sinais no passado)
 
 ## Frontmatter YAML Obrigatório
 
-Todo arquivo Markdown deve começar com:
+Todo arquivo Markdown do vault deve começar com:
 
 ```yaml
 ---
 id: PREFIXO-NNN
+aliases: [PREFIXO-NNN]
 title: Nome do Documento
-type: context-manifest | system-design | tech-spec | data-spec
+type: context-convention | system-design | tech-spec | data-spec
 status: Draft | Spec Ready | Implemented | Approved | Done | Balanced
+moscow: Must | Should | Could | Wont     # obrigatório em DESIGN e SYSTEM
+dependencies: ["[[ID Nome|ID]]"]
 ---
 ```
 
@@ -76,23 +88,25 @@ Formato estrito: `x + valor` com 2 casas decimais
 - `+5%` → `x1.05`
 - `+100%` → `x2.00`
 
+## Wikilinks
+
+Use **`[[<ID> <nome>|<ID>]]`** (resolve pelo **nome do arquivo**). **Nunca** `[[ID]]` curto.
+Ex.: `[[DESIGN-023 Plataformas & Portais|DESIGN-023]]`.
+
 ## Glossário Rápido
 
 | Termo | Definição |
 |-------|-----------|
-| **Headless Simulation** | Lógica pura em memória, sem renderizador ou DOM |
-| **One-Way Platform** | Plataforma com passagem livre de baixo para cima |
+| **Headless Simulation** | Lógica pura em memória, sem renderizador ou nós |
+| **Prefab** | Cena reutilizável instanciável (`prefabs/`) — ver `SYSTEM-004` |
+| **One-Way Platform** | Plataforma com passagem livre de baixo para cima (+ down-jump) |
 | **Tap-to-Move** | Destino via toque, caminho por Grafo de Nós |
-| **Knockback** | Impulso horizontal em monstros ao sofrer dano |
+| **Linhas de Dano** | Um acerto gera N números (`lines`, base 3); crítico **por linha** |
 | **Catch-up Simulation** | Cálculo analítico de progresso offline (não simular 60fps) |
-
-## Wikilinks
-
-Sempre referencie documentos cruzados: `[[DESIGN-XXX]]`, `[[SYSTEM-XXX]]`, `[[DATA-XXX]]`, `[[CONTEXT-XXX]]`
 
 ## Integridade de Referências
 
-Ao renomear, mover ou **reordenar** qualquer ID/documento, atualize **todas** as referências no mesmo passo: wikilinks, frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board `[[DESIGN-000]]`, os templates em `00-Context/_templates/`, esta skill e o `AGENTS.md`. Nunca deixe wikilink órfão — ao trocar a ordem de dois IDs, use um token temporário para evitar colisão.
+Ao renomear, mover ou **reordenar** qualquer ID/documento, atualize **todas** as referências no mesmo passo: wikilinks, frontmatter (`dependencies`, `tech_spec`, `data_spec`, `implements`, `system`), o board `[[DESIGN-000 Board MoSCoW|DESIGN-000]]`, os templates em `00-Context/_templates/`, esta skill e o `AGENTS.md`. Nunca deixe wikilink órfão — ao trocar a ordem de dois IDs, use um token temporário para evitar colisão.
 
 ---
 
