@@ -22,7 +22,7 @@
           "obsidian-mcp@2",
           "serve",
           "--vault",
-          "idle=E:/projects/IdleProgression/IdleProgression"
+          "idle=E:/projects/IdleProgression"
         ]
       }
     }
