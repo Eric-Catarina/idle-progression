@@ -66,7 +66,7 @@ Definir uma **escala única de raridade** reutilizável por **todos** os sistema
 
 ## 3. Uso Compartilhado
 
-- **Mesma escala, sistemas diferentes:** Cartas ([[DESIGN-016 Cartas|DESIGN-016]]), **Equipamentos** ([[DESIGN-028 Equipamentos|DESIGN-028]]), **Potential de itens** ([[DESIGN-029 Potential|DESIGN-029]]), Monstros, Mundos.
+- **Mesma escala, sistemas diferentes:** Cartas ([[DESIGN-016 Cartas|DESIGN-016]]), **Equipamentos** ([[DESIGN-028 Equipamentos|DESIGN-028]]), **Potential de itens** ([[DESIGN-029 Potential|DESIGN-029]]), **Pets** ([[DESIGN-038 Pets|DESIGN-038]]), Monstros, Mundos.
 - Cada sistema declara **seus próprios pesos** no respectivo `DATA`; **nomes e cores são idênticos** em todos.
 - Raridade é **ortogonal ao tipo de conteúdo**: uma carta Divina e um item Divino compartilham a mesma identidade visual.
 - Cada sistema pode dar um **significado mecânico** ao tier (ex: no sistema de **cartas**, o tier é **progressivo** — a carta **sobe de tier** acumulando cópias: [[DESIGN-016 Cartas|DESIGN-016]]).

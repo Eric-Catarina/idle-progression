@@ -60,6 +60,7 @@ Agrega valor real; o protótipo funciona sem. Deixar **ganchos** prontos nos `SY
 | [[DESIGN-034 Livro dos Contratos|DESIGN-034]] | **Livro dos Contratos** (farm account-wide) | Draft | [[DATA-011 Multikill e Contratos\|DATA-011]] |
 | [[DESIGN-035 Essencia|DESIGN-035]] | **Essência** (recurso do mundo; alimenta os 4 sistemas) | Draft | [[DATA-012 Essencia Custos\|DATA-012]] |
 | [[DESIGN-037 Linhas de Dano|DESIGN-037]] | **Linhas de dano** (multi-hit + teto por linha) | Draft | [[DATA-009 Dano\|DATA-009]] |
+| [[DESIGN-038 Pets|DESIGN-038]] | **Pets** (coleção account-wide, tiros diário/semanal, premium) | Draft | [[SYSTEM-005 Pets & Gacha\|SYSTEM-005]] · [[DATA-015 Pets Odds\|DATA-015]] |
 
 ---
 
