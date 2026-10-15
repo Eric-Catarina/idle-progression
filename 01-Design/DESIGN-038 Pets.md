@@ -6,8 +6,8 @@ title: Pets
 type: system-design
 subtype: system
 status: Draft
-moscow: Should
-moscow_note: Sistema de coleção account-wide com monetização premium; enriquece muito a retenção, mas o core loop (mover→lutar→acumular→gastar) valida sem ele.
+moscow: Must
+moscow_note: Decisão do usuário (2026-10-15) — Pets entram no protótipo: eixo de coleção + monetização, com tiros grátis (diário/semanal).
 dependencies:
   - "[[CONTEXT-007 Raridades|CONTEXT-007]]"
   - "[[CONTEXT-013 Moeda Premium|CONTEXT-013]]"
@@ -22,8 +22,8 @@ data_spec: "[[DATA-015 Pets Odds|DATA-015]]"
 > (ver `99-Inbox/reference/IDLEON_PETS_REFERENCE.md`), com as adaptações definidas abaixo.
 
 ## 0. Prioridade MoSCoW
-- **Categoria:** Should
-- **Justificativa:** É o eixo de **coleção + monetização** de longo prazo; agrega muito valor, mas **não** é necessário para validar o core loop. Entra com **ganchos** prontos (§6).
+- **Categoria:** Must
+- **Justificativa:** Decisão do usuário — é o eixo de **coleção + monetização** do jogo e entra no protótipo. Roster inicial (21 pets) em [[DATA-015 Pets Odds|DATA-015]] §8.
 - Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 
 ## 1. Visão & Propósito

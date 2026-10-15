@@ -5,8 +5,8 @@ aliases:
 title: Pets & Gacha
 type: tech-spec
 status: Draft
-moscow: Should
-moscow_note: Herda a prioridade do DESIGN-038.
+moscow: Must
+moscow_note: Herda a prioridade do DESIGN-038 (Must).
 implements: "[[DESIGN-038 Pets|DESIGN-038]]"
 dependencies:
   - "[[DESIGN-038 Pets|DESIGN-038]]"
