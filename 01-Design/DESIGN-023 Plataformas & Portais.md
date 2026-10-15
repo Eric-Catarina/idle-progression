@@ -26,6 +26,7 @@ Padronizar a **colisão de plataformas** (todas com o mesmo comportamento) e o *
 - **Atravessar de cima → baixo (DOWN-JUMP): OBRIGATÓRIO** — com o input **"baixo + pulo"** (estilo MapleStory), o personagem **atravessa a plataforma para baixo**. É **essencial**: sem isso o jogador **fica preso** numa plataforma em que só consegue subir. *(Validação: o 1º protótipo não tinha isso e o jogador **não conseguia descer**.)*
 - **Exceção única:** a plataforma da **última linha** (o **piso**) é **sólida** — **não** se atravessa (nem para cima nem para baixo).
 - Ou seja: existe **um único tipo** de plataforma (tile `1`); o comportamento "sólido" é pela **posição** (última linha), não por tile.
+- **Alinhamento de tela:** a **superfície do piso** (topo da última linha) fica **logo acima do footer** da UI — `F + P` do fundo da tela ([[CONTEXT-010 UI de Jogo|CONTEXT-010]] §3b). O piso **nunca** desce por baixo do footer.
 
 ## 3. Portal Intrafase (tile `2`)
 - **Portal amarelo** que teleporta para **outro ponto da mesma fase**.

@@ -41,6 +41,11 @@ dependencies:
 > **Plataformas (id 1):** todas são **one-way** — atravessa de **baixo→cima** sempre, e de **cima→baixo** se quiser; **exceto a última linha (piso), que é sólida**. Ver [[DESIGN-023 Plataformas & Portais|DESIGN-023]].
 > **Portal Intrafase (id 2):** teleporta para outro ponto da **mesma fase** (par em ordem de leitura).
 
+### Ancoragem vertical do nível (footer)
+- O nível é **ancorado pelo piso**: a **superfície da última linha** fica em **`F + P`** px acima do fundo da tela (`F` = footer 89, `P` = padding 8) — [[CONTEXT-010 UI de Jogo|CONTEXT-010]] §3b.
+- Consequência: mapas **baixos** (21 linhas) encostam o piso acima do footer; mapas **verticais** (ex.: `Level1_4` 25×45) sobem e a **câmera** acompanha, com o **limite inferior** no topo do footer.
+- Nenhum tile pode ser **desenhado/colidido abaixo** do topo do footer.
+
 ## 2. Níveis
 | Arquivo                 | Nível   | Papel                   |
 | :---------------------- | :------ | :---------------------- |

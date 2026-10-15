@@ -126,6 +126,13 @@ var player_xp: int = 0
 func apply_damage_lines(lines: Array[int], cap_per_line: int) -> int  # DESIGN-037
 ```
 
+## 4b. Composição de Tela (`Main`): Mundo + Footer
+- `scenes/main.tscn` = **2 camadas** ([[CONTEXT-010 UI de Jogo|CONTEXT-010]] §3b):
+  - **World** (`Node2D` + `Camera2D`): a cena do nível. A **câmera** tem o **limite inferior no topo do footer** — o mundo nunca aparece abaixo dele.
+  - **Footer** (`CanvasLayer`, `layer = 10`): a **UI principal** fixa (infos + botões de menu). `F = 89` px, padding `P = 8`.
+- O nível ancora a **última linha (piso)** na **superfície do piso** (`F + P` do fundo) — [[DATA-006 Level Layout|DATA-006]].
+- **Janelas** de sistema abrem em camada **acima** do footer ([[CONTEXT-010 UI de Jogo|CONTEXT-010]]).
+
 ## 5. Fluxo de Execução
 1. **`Main`** (`scenes/main.tscn`) carrega o nível via `DataDB` (`data/levels/*.json`).
 2. `LevelView` **instancia** os prefabs a partir da **grade** (tiles → prefabs) na montagem.

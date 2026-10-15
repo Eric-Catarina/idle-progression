@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="960" height="540" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a3a5e"/>
+      <stop offset="1" stop-color="#101822"/>
+    </linearGradient>
+    <linearGradient id="foot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3f4b"/>
+      <stop offset="1" stop-color="#22252c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- AREA DO MUNDO -->
+  <rect x="0" y="0" width="1280" height="631" fill="url(#sky)"/>
+  <text x="640" y="300" fill="#8ea3c0" font-size="30" text-anchor="middle" font-weight="600">MUNDO JOGÁVEL — área do mundo = H − F = 631 px</text>
+  <text x="640" y="336" fill="#66788f" font-size="20" text-anchor="middle">a câmera nunca enquadra abaixo do topo do footer</text>
+
+  <!-- PLATAFORMAS de exemplo -->
+  <rect x="140" y="470" width="360" height="14" rx="3" fill="#5c7a5e"/>
+  <rect x="640" y="392" width="420" height="14" rx="3" fill="#5c7a5e"/>
+
+  <!-- PISO (ultima linha) -->
+  <rect x="0" y="623" width="1280" height="8" fill="#6f9a72"/>
+  <rect x="0" y="623" width="1280" height="3" fill="#a8d6a4"/>
+
+  <!-- PLAYER -->
+  <circle cx="420" cy="586" r="16" fill="#f0c48a"/>
+  <rect x="408" y="602" width="24" height="21" rx="5" fill="#4a90d9"/>
+
+  <!-- PADDING -->
+  <line x1="1236" y1="623" x2="1236" y2="631" stroke="#ffd166" stroke-width="2"/>
+  <text x="1228" y="622" fill="#ffd166" font-size="17" text-anchor="end">P = 8 (padding)</text>
+
+  <!-- FOOTER -->
+  <rect x="0" y="631" width="1280" height="89" fill="url(#foot)"/>
+  <line x1="0" y1="631" x2="1280" y2="631" stroke="#ffd166" stroke-width="3"/>
+  <text x="14" y="652" fill="#ffd166" font-size="16" font-weight="700">TOPO DO FOOTER — limite inferior do mundo (y = 631 / 89 px do fundo)</text>
+
+  <!-- infos principais (esquerda) -->
+  <rect x="16" y="662" width="120" height="46" rx="6" fill="#171a20" stroke="#3d434f"/>
+  <text x="76" y="682" fill="#c9d4e3" font-size="14" text-anchor="middle" font-weight="700">Lv 12 · 5%</text>
+  <text x="76" y="700" fill="#7f8ea3" font-size="12" text-anchor="middle">UPTODOWN</text>
+
+  <rect x="148" y="664" width="300" height="13" rx="4" fill="#5a1f1f"/>
+  <rect x="148" y="664" width="210" height="13" rx="4" fill="#d94b4b"/>
+  <text x="298" y="675" fill="#fff" font-size="11" text-anchor="middle">HP  678 / 1000</text>
+
+  <rect x="148" y="683" width="300" height="13" rx="4" fill="#1f3a5a"/>
+  <rect x="148" y="683" width="120" height="13" rx="4" fill="#4a90d9"/>
+  <text x="298" y="694" fill="#fff" font-size="11" text-anchor="middle">XP  140 / 380</text>
+
+  <rect x="148" y="702" width="300" height="10" rx="3" fill="#2b2f38"/>
+  <rect x="148" y="702" width="150" height="10" rx="3" fill="#e0a04a"/>
+  <text x="298" y="711" fill="#e8edf5" font-size="10" text-anchor="middle">COTA 60 / 60</text>
+
+  <!-- botoes de menu (direita) -->
+  <g fill="#2c313b" stroke="#4a5160">
+    <rect x="468" y="660" width="68" height="50" rx="7"/>
+    <rect x="544" y="660" width="68" height="50" rx="7"/>
+    <rect x="620" y="660" width="68" height="50" rx="7"/>
+    <rect x="696" y="660" width="68" height="50" rx="7"/>
+    <rect x="772" y="660" width="68" height="50" rx="7"/>
+    <rect x="848" y="660" width="68" height="50" rx="7"/>
+    <rect x="924" y="660" width="68" height="50" rx="7"/>
+    <rect x="1000" y="660" width="68" height="50" rx="7"/>
+    <rect x="1076" y="660" width="68" height="50" rx="7"/>
+    <rect x="1152" y="660" width="112" height="50" rx="7"/>
+  </g>
+  <g fill="#c9d4e3" font-size="11" text-anchor="middle" font-weight="600">
+    <text x="502" y="690">AUTO</text>
+    <text x="578" y="690">SKILLS</text>
+    <text x="654" y="690">EQUIP</text>
+    <text x="730" y="690">CARTAS</text>
+    <text x="806" y="690">PET</text>
+    <text x="882" y="690">OSÍRIS</text>
+    <text x="958" y="690">MAPA</text>
+    <text x="1034" y="690">ITENS</text>
+    <text x="1110" y="690">CHAT</text>
+    <text x="1208" y="690">MENU ▾</text>
+  </g>
+
+  <!-- cotas verticais -->
+  <line x1="30" y1="623" x2="30" y2="720" stroke="#ff8f6b" stroke-width="2"/>
+  <text x="38" y="612" fill="#ff8f6b" font-size="16">superfície do piso = F + P = 97 px do fundo  ← onde o player pisa</text>
+</svg>

@@ -48,6 +48,7 @@ Use estes números para **tamanhos, espaçamentos, margens, raios e durações**
 ## 4. Aplicações no Projeto
 - **Grade de nível:** padrão **55×21** (φ²), célula **21**.
 - **UI:** espaçamentos/margens na escala Fibonacci; painéis com proporção φ.
+- **Footer / HUD:** footer **89** px (F11), padding **8** px (F6), botões/ícones **34 · 55 · 89** ([[CONTEXT-010 UI de Jogo|CONTEXT-010]] §3b).
 - **Cartas/ícones/sprites:** dimensões Fibonacci (ex: 21×34, 34×55, 55×89).
 - **Animações:** durações em ms Fibonacci-ish (ex: 233ms de abertura de pacote).
 
