@@ -33,7 +33,11 @@
           "npx",
           "-y",
           "@npgamedev/godot-mcp-server"
-        ]
+        ],
+        "cwd": "game",
+        "environment": {
+          "GODOT_MCP_PROJECT_PATH": "E:/projects/IdleProgression/game"
+        }
       }
     }
   }
