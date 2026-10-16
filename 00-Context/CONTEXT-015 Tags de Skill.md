@@ -109,8 +109,8 @@ tags:
 - **Sinergia com [[DESIGN-037 Linhas de Dano|DESIGN-037]]:** skills `behavior:dot`/`channel` tendem a ter **mais `lines`** → melhores contra alvos com **`capLinha`**.
 - **Summons:** contam como entidades próprias; `delivery:summon` é o gancho para limites/inventário de summons.
 
-## 9b. Escalonamento por Tag (stat `Ability Range%`)
-- O stat [[DESIGN-040 Range de Habilidade|DESIGN-040]] multiplica a **dimensão escalável** de cada tag — tabela completa em [[DATA-017 Range de Habilidade|DATA-017]] §3.
+## 9b. Escalonamento por Tag (stat `Ability Size%`)
+- O stat [[DESIGN-040 Tamanho de Habilidade|DESIGN-040]] multiplica a **dimensão escalável** de cada tag — tabela completa em [[DATA-017 Tamanho de Habilidade|DATA-017]] §3.
 - Resumo: `target:aoe` → **raio** · `target:line` → **comprimento + largura** · `delivery:projectile` → **tamanho do hitbox** · `delivery:beam` → **largura** · `delivery:field`/`aura` → **raio** · `role:mobility` → **alcance** (Blink/Dash/Slide).
 - **Nunca escala:** `lines` ([[DESIGN-037 Linhas de Dano|DESIGN-037]]), dano, cooldown, duração, velocidade de projétil.
 - Skill **sem** tag escalável (`target:self` + `role:buff`) → o stat é **ignorado**.

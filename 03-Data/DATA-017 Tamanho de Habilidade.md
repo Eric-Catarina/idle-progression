@@ -2,19 +2,19 @@
 id: DATA-017
 aliases:
   - DATA-017
-title: "Range de Habilidade: Fórmula & Escala por Tag"
+title: "Tamanho de Habilidade: Fórmula & Escala por Tag"
 type: data-spec
 status: Draft
 moscow: Should
-system: "[[DESIGN-040 Range de Habilidade|DESIGN-040]]"
+system: "[[DESIGN-040 Tamanho de Habilidade|DESIGN-040]]"
 dependencies:
-  - "[[DESIGN-040 Range de Habilidade|DESIGN-040]]"
+  - "[[DESIGN-040 Tamanho de Habilidade|DESIGN-040]]"
   - "[[CONTEXT-015 Tags de Skill|CONTEXT-015]]"
 ---
 
-# [DATA-017] Range de Habilidade: Fórmula & Escala por Tag
+# [DATA-017] Tamanho de Habilidade: Fórmula & Escala por Tag
 
-> Números do stat **`Ability Range%`** ([[DESIGN-040 Range de Habilidade|DESIGN-040]]).
+> Números do stat **`Ability Size%`** ([[DESIGN-040 Tamanho de Habilidade|DESIGN-040]]).
 > Valores `Draft` — calibrar com o solver ([[DATA-014 Populacao Mundo 1|DATA-014]]).
 
 ## 1. Variáveis Base & Constantes
@@ -23,12 +23,12 @@ dependencies:
 | `R_gen` | soma dos `+% Range` **genéricos** do jogador (fração: `+15%` → `0.15`) |
 | `R_skill(s)` | soma dos `+% Range` **específicos da skill `s`** |
 | `mult(s)` | multiplicador final aplicado às dimensões escaláveis de `s` |
-| `RANGE_CAP` | **3.00** (×3 = +200%) — teto duro |
-| `rangeAoeExponent` | **0.6** — como isso vira fator de área no *catch-up*/solver (§4) |
+| `SIZE_CAP` | **3.00** (×3 = +200%) — teto duro |
+| `sizeAoeExponent` | **0.6** — como isso vira fator de área no *catch-up*/solver (§4) |
 
 ## 2. Formulação
 ```
-mult(s) = clamp( 1 + R_gen + R_skill(s), 1, RANGE_CAP )        # composição ADITIVA
+mult(s) = clamp( 1 + R_gen + R_skill(s), 1, SIZE_CAP )        # composição ADITIVA
 
 dimensao_final(s) = dimensao_base(s) * mult(s)                 # só nas dimensões escaláveis (§3)
 ```
@@ -66,7 +66,7 @@ Range não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega
 
 - No modelo do solver ([[DATA-014 Populacao Mundo 1|DATA-014]]), o fator de área é `AOE`:
   ```
-  AOE_eff(s) = AOE_base * mult(s)^rangeAoeExponent      # rangeAoeExponent = 0.6
+  AOE_eff(s) = AOE_base * mult(s)^sizeAoeExponent      # sizeAoeExponent = 0.6
   ```
   **Por quê o expoente < 1:** a área cresce com `r²`, mas os mobs de um pack **não** enchem o plano — eles se aglomeram num corredor; a partir de certo ponto, aumentar o raio **não** acha mais mobs (satura). `0.6` é o ponto de partida a calibrar no solver.
 - **Catch-up offline** usa `AOE_eff` (não simular cast a cast) — mesma regra do [[SYSTEM-006 Dados Imutáveis & Carregamento|SYSTEM-006]] §5.
@@ -74,7 +74,7 @@ Range não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega
 ## 5. Schema de Configuração (JSON)
 ```json
 {
-  "id": "ability_range",
+  "id": "ability_size",
   "cap": 3.0,
   "composition": "additive",
   "minMultiplier": 1.0,
@@ -110,5 +110,5 @@ Range não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega
 | +300% (capado) | **3.00** | **120 px** |
 
 ## 7. Relacionados
-- Design: [[DESIGN-040 Range de Habilidade|DESIGN-040]] · Tags: [[CONTEXT-015 Tags de Skill|CONTEXT-015]].
+- Design: [[DESIGN-040 Tamanho de Habilidade|DESIGN-040]] · Tags: [[CONTEXT-015 Tags de Skill|CONTEXT-015]].
 - Pool de stats: [[DESIGN-028 Equipamentos|DESIGN-028]] · Dano: [[DESIGN-031 Calculo de Dano|DESIGN-031]] · População: [[DATA-014 Populacao Mundo 1|DATA-014]].
