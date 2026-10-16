@@ -34,9 +34,10 @@ dependencies:
 | 1-4 | **Esquilo Coletor** | 3433 | 28 | 7260 | 64 | **180** | — | 36 → 51 | 11 → 6 |
 | 1-5 | **Coruja Sábia** | 6783 | 60 | 13738 | 256 | **220** | — | 52 → 70 | 11 → 7 |
 
-- **Chefe — Vorax ([[DESIGN-041 Level1_Boss1|Level1_Boss1]]):** HP **60 000** · ATK **150** · Essência **5 000** · `capLinha` **(a definir)**.
+- **Chefe — Vorax ([[DESIGN-041 Level1_Boss1|Level1_Boss1]]):** HP **60 000** · ATK **150** · Essência **5 000** · `capLinha` = **1.500**.
 
-> **`capLinha` (teto de dano por linha):** *a definir* por inimigo. **Regra:** mobs **comuns = sem teto** (`—`); **elites/bosses** têm teto → **favorecem builds multi-hit** ([[DESIGN-037 Linhas de Dano|DESIGN-037]]).
+> **`capLinha` (teto de dano por linha):** **mobs comuns = sem teto** (`—`); **elite/boss = `1.500`** → **favorecem builds multi-hit** ([[DESIGN-037 Linhas de Dano|DESIGN-037]] · [[CONTEXT-018 Decisoes de Implementacao|CONTEXT-018]]).
+> **Spawn:** lote **4–6**, teto **8 em tela**, respawn **1,5 s**, sempre **presos à plataforma**; tick de movimento do mob **0,5 s** ([[CONTEXT-018 Decisoes de Implementacao|CONTEXT-018]]).
 
 ## 3. Regras de Balanceamento
 - **Nada de one-shot nos mobs fortes:** no começo de cada nível o mob exige **11–25 golpes**; cai para **3–7 no fim**, conforme o jogador **upa**. ✅ (requisito de design)

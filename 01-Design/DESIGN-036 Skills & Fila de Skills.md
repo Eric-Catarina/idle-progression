@@ -47,7 +47,7 @@ O jogador **monta uma fila** de skills. Elas são **castadas automaticamente em 
 
 ## 5. Casos de Borda
 - **Fila vazia** → só o **ataque básico** (melee).
-- Skill de **área sem mobs** à frente → não desperdiçar? *(a definir)*.
+- Skill de **área sem mobs** à frente → a fila **pula** a skill (não gasta) — [[DATA-018 Skills|DATA-018]] §3.
 - Skill **não desbloqueada** na fila → ignorada.
 - **Offline/catch-up:** skills rodam analiticamente (DPS), sem simular cada cast.
 
