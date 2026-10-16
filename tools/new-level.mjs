@@ -7,8 +7,9 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const name = (process.argv[2] || "").replace(/\.json$/i, "");
-if (!/^Level\d+_\d+$/.test(name)) {
-  console.error("Uso: node tools/new-level.mjs Level1_3   (padrao LevelX_Y)");
+if (!/^Level\d+_(\d+|Boss\d+)$/.test(name)) {
+  console.error("Uso: node tools/new-level.mjs Level1_3  |  node tools/new-level.mjs Level1_Boss1");
+  console.error("     padrao: LevelX_Y (fase normal) ou LevelX_BossN (fase de chefe)");
   process.exit(1);
 }
 const world = name.match(/^Level(\d+)_/)[1];

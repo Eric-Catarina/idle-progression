@@ -15,7 +15,7 @@ dependencies:
 # [DATA-006] Level Layout (Schema & Níveis)
 
 > Schema do JSON exportado pelo **editor de nível** (`tools/level-editor.html`). Os níveis brutos ficam em `03-Data/levels/`.
-> **Convenção de nome do nível:** `Level<world>_<level>` (ex.: `Level1_0`, `Level1_2`).
+> **Convenção de nome do nível:** `Level<world>_<level>` (ex.: `Level1_0`, `Level1_2`) para fases normais, e **`Level<world>_Boss<N>`** para **fases de chefe** (ex.: `Level1_Boss1`).
 
 ## 1. Schema do Nível (JSON)
 | Campo | Tipo | Descrição |
@@ -37,6 +37,10 @@ dependencies:
 | 4 | Portal Entrada |
 | 5 | Portal Saída |
 | 6 | Spawn Jogador |
+| 7 | **Spawn Chefe** |
+
+> **Tile `7` (Spawn Chefe):** marca **onde o chefe fica** na fase de chefe ([[DESIGN-041 Level1_Boss1|DESIGN-041]]). É um **ponto**, não uma plataforma — o chefe **não se move**.
+> ⚠️ **Pendência:** adicionar a paleta do tile `7` no `tools/level-editor.html`.
 
 > **Plataformas (id 1):** todas são **one-way** — atravessa de **baixo→cima** sempre, e de **cima→baixo** se quiser; **exceto a última linha (piso), que é sólida**. Ver [[DESIGN-023 Plataformas & Portais|DESIGN-023]].
 > **Portal Intrafase (id 2):** teleporta para outro ponto da **mesma fase** (par em ordem de leitura).
@@ -55,6 +59,7 @@ dependencies:
 | `levels/Level1_3.json` | **Level1_3** | Mata média — **Vespão** + NPC `osiris` |
 | `levels/Level1_4.json` | **Level1_4** | **Escalada no tronco** (vertical 25×45) — **Esquilo** + NPC `cartas` |
 | `levels/Level1_5.json` | **Level1_5** | **Copa** — **Coruja** + chefe **Vorax** + Livro dos Contratos |
+| `levels/Level1_Boss1.json` | **Level1_Boss1** | **Fase de chefe** — arena do **Vorax** ([[DESIGN-041 Level1_Boss1\|DESIGN-041]]) |
 
 ## 3. Level1_0 (Hub) — resumo
 - **Dimensões:** 55 × 21.
