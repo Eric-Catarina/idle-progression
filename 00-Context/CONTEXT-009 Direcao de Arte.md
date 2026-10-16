@@ -145,7 +145,9 @@ photorealistic, 3D render, pixel art, detailed textures, soft gradients, lens fl
 | **Essência Verde** (Mundo 1) | 🟢 | drop de todos os mobs / HUD / Livro |
 | Cartas | 🎴 | álbum / pacotes |
 | Moeda | 💰 | loja / Potential / Star Force |
+| **Gemas** (premium) | 💎 | Loja de Gemas / tiros de Pet ([[CONTEXT-013 Moeda Premium\|CONTEXT-013]]) |
 
 ## 13. Relacionados
 - Raridades: [[CONTEXT-007 Raridades|CONTEXT-007]] · Hierarquia: [[CONTEXT-006 Hierarquia|CONTEXT-006]].
 - Consumidores: [[DESIGN-028 Equipamentos|DESIGN-028]] · [[DESIGN-016 Cartas|DESIGN-016]] · [[DESIGN-013 Selos|DESIGN-013]].
+- De onde vem a arte/VFX (licenças, **smear**, **atlas**): [[CONTEXT-016 Assets|CONTEXT-016]].

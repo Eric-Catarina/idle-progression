@@ -80,4 +80,4 @@ tags:
 ## 7. Relacionado
 - Engine: [[CONTEXT-011 Engine & Plataforma|CONTEXT-011]] · Estrutura: [[CONTEXT-012 Estrutura do Projeto Godot|CONTEXT-012]].
 - Câmera/footer: [[CONTEXT-010 UI de Jogo|CONTEXT-010]] §3b · Notação: [[CONTEXT-004 Notacao Numerica|CONTEXT-004]].
-- Layout de nível: [[DATA-006 Level Layout|DATA-006]].
+- Layout de nível: [[DATA-006 Level Layout|DATA-006]] · Assets/VFX: [[CONTEXT-016 Assets|CONTEXT-016]].

@@ -56,6 +56,9 @@ game/
 │   └── fx/              #   damage_number.tscn, floating_text.tscn
 ├── scenes/              # 🎬 cenas COMPOSTAS (main.tscn, level_view.tscn)
 ├── ui/                  # 🖥️ HUD e janelas (flutuam sobre o mundo — CONTEXT-010)
+├── assets/              # 🎨 arte/VFX/áudio/fontes (ver CONTEXT-016)
+│   ├── sprites/ tiles/ ui/ vfx/ audio/ fonts/   # o que o jogo USA (versionado)
+│   └── _raw/            #   packs BAIXADOS (gitignored + `.gdignore`) — staging
 ├── resources/           # 📦 Custom Resources (.tres): defs de skill/mob/tema
 ├── data/                # 🔄 GERADO do vault (gitignore) — níveis e tabelas
 └── tests/               # 🧪 testes headless (lógica de `sim/`)

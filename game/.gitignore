@@ -5,3 +5,6 @@
 # Dados gerados do vault (NAO versionar) — regenerar com `node tools/export-data.mjs`
 # Ver CONTEXT-012 (secao 6: Integridade dos Dados)
 /data/
+
+# Packs de asset BAIXADOS (staging) — nao versionar; ver CONTEXT-016
+/assets/_raw/
