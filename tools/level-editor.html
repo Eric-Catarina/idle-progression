@@ -59,7 +59,7 @@
   </div>
   <div class="row" style="margin-top:8px">
     <label>Interactáveis (separe por vírgula)</label>
-    <input type="text" id="interactList" value="selos,osiris,cartas" style="width:240px">
+    <input type="text" id="interactList" value="selos,osiris,cartas,contratos" style="width:240px">
     <label>Colocar</label>
     <select id="interactSel"></select>
   </div>
@@ -89,6 +89,7 @@ const PALETTE = [
   { id: 4, name: "Portal Entrada", color: "#51cf66", kind: "portal_in" },
   { id: 5, name: "Portal Saída",   color: "#f783ac", kind: "portal_out" },
   { id: 6, name: "Spawn Jogador",  color: "#ffd43b", kind: "spawn" },
+  { id: 7, name: "Spawn Chefe",    color: "#ff6b6b", kind: "boss" },
 ];
 
 const state = { cols: 55, rows: 21, cell: 21, tool: "brush", current: 1 };
