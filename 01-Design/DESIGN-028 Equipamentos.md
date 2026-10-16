@@ -86,6 +86,7 @@ Mesma escala compartilhada ([[CONTEXT-007 Raridades|CONTEXT-007]]). Define o **n
 - **WSE** = **W**eapon + **B**adge + (Secondary; aqui o **Badge** faz esse papel) → é onde `Damage%`, `Boss Damage%` e `IED%` "pegam".
 - Valores por raridade de linha → [[DATA-007 Potentials|DATA-007]].
 - **Removemos o ATT:** `Damage%` (potencial) substitui o `ATT%`; **Critical Damage%** é stat novo ([[DESIGN-031 Calculo de Dano|DESIGN-031]]).
+- **Stat novo (proposto):** `Ability Range%` ([[DESIGN-040 Range de Habilidade|DESIGN-040]]) — **ainda não atribuído** a nenhum slot; candidato natural é o **Accessory** (pool de utilidade). A definir.
 
 ## 6. Contrato Funcional (I/O)
 - **Gatilho:** equipar/desequipar; dropar item; aplicar Potential/estrela.
