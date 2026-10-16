@@ -58,8 +58,9 @@ dependencies:
 | `levels/Level1_2.json` | **Level1_2** | Mata baixa — **Cogumelo** + NPC `selos` |
 | `levels/Level1_3.json` | **Level1_3** | Mata média — **Vespão** + NPC `osiris` |
 | `levels/Level1_4.json` | **Level1_4** | **Escalada no tronco** (vertical 25×45) — **Esquilo** + NPC `cartas` |
-| `levels/Level1_5.json` | **Level1_5** | **Copa** — **Coruja** + chefe **Vorax** + Livro dos Contratos |
+| `levels/Level1_5.json` | **Level1_5** | **Copa** — **Coruja** + Livro dos Contratos |
 | `levels/Level1_Boss1.json` | **Level1_Boss1** | **Fase de chefe** — arena do **Vorax** ([[DESIGN-041 Level1_Boss1\|DESIGN-041]]) |
+| `levels/Level2_1.json` | **Level2_1** | **Hub do Mundo 2** ([[DESIGN-043 Level2_1\|DESIGN-043]]) |
 
 ## 3. Level1_0 (Hub) — resumo
 - **Dimensões:** 55 × 21.

@@ -28,7 +28,7 @@ data_spec: "[[DATA-011 Multikill e Contratos|DATA-011]]"
 Um **livro account-wide** que registra os **abates por espécie de mob**. Cada **Tier de Abate** alcançado ([[DESIGN-033 Multikill|Multikill]]) rende **Pontos**. Os Pontos dão **+1% de Multikill por Damage Tier** ao **mundo** correspondente — quanto mais você farma, mais recursos por abate.
 
 ## 2. Desbloqueio
-- **Gatilho:** ao **liberar o portal do Level1_5** (o chefe do Mundo 1 — [[DESIGN-024 Level1_5|Level1_5]]), o jogador desbloqueia o **Livro do Mundo 1**.
+- **Gatilho:** ao **derrotar Vorax** ([[DESIGN-041 Level1_Boss1|DESIGN-041]]), o jogador desbloqueia o **Livro do Mundo 1**.
 - **Mundos futuros:** cada mundo desbloqueia o **seu próprio** livro (com seu próprio total de pontos e bônus).
 
 ## 3. Regras

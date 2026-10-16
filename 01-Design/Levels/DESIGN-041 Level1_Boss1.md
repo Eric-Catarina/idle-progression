@@ -62,8 +62,7 @@ dependencies:
 ## 4. Gating & Desbloqueio
 - **Entrada:** vir da **copa** ([[DESIGN-024 Level1_5|DESIGN-024]]) — a fase do chefe é o **passo seguinte** ao nível 1-5.
 - **Saída:** o **Portal Saída** só abre ao **derrotar o chefe** (é a "cota" desta fase: `1` chefe).
-  - **Destino:** *(a definir)* — abre o **Mundo 2** (futuro); até lá, **volta ao Hub** ([[DESIGN-004 Level1_0|DESIGN-004]]).
-
+  - **Destino:** o **hub do Mundo 2** — [[DESIGN-043 Level2_1|Level2_1]] ([[DESIGN-042 Mundo 2|DESIGN-042]]).
 ## 5. Casos de Borda
 - **O chefe nunca se move nem cai** — a posição é o tile `7`, e a tag do chefe ([[CONTEXT-015 Tags de Skill|CONTEXT-015]]) não tem movimento.
 - **Jogador preso no degrau:** toda plataforma tem **rota de descida** pelo **down-jump** ([[DESIGN-023 Plataformas & Portais|DESIGN-023]] §2) — a arena tem o chão embaixo de tudo.

@@ -19,12 +19,12 @@ dependencies:
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Should
-- **Justificativa:** **Nível final do Mundo 1** — fecha a curva de combate e libera o Mundo 2. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
+- **Justificativa:** **Nível final da subida** do Mundo 1 — fecha a curva de combate; o **chefe** virou **fase própria** ([[DESIGN-041 Level1_Boss1|DESIGN-041]]). Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
 - Ver [[CONTEXT-005 Roadmap|CONTEXT-005]].
 
 ## 1. Visão & Objetivo
-- **Jornada:** a **copa da Árvore Gigante** — onde está o **chefe Vorax** ([[DESIGN-003 Mundo 1|DESIGN-003]] §4).
-- **Fechamento do Mundo 1:** o jogador atravessa um mapa de **3 andares** e termina no **Portal Saída**.
+- **Jornada:** a **copa da Árvore Gigante** — a **véspera** do confronto ([[DESIGN-003 Mundo 1|DESIGN-003]] §4). O **chefe Vorax** fica na **fase própria** dele ([[DESIGN-041 Level1_Boss1|DESIGN-041]]).
+- **Fechamento da subida:** o jogador atravessa um mapa de **3 andares** e termina no **Portal Saída** — que leva à **fase de chefe**.
 - **Ensina o Portal Intrafase** ([[DESIGN-023 Plataformas & Portais|DESIGN-023]]): um par `(1,3)` ↔ `(44,19)` permite subir/voltar rápido entre o topo-esquerda e o piso-direita.
 - Prepara a transição para o **Mundo 2**.
 
@@ -42,7 +42,7 @@ dependencies:
 ## 4. Gating & Desbloqueio
 - **Entrada:** vir do **Portal Saída** do nível anterior (`Level1_4`).
 - **Saída:** completar o `Level1_5` **libera o Mundo 2** ([[DESIGN-003 Mundo 1|DESIGN-003]] §3).
-- **Chefe do Mundo 1:** liberar o **portal do Level1_5** (o chefe) também desbloqueia o **Livro dos Contratos** ([[DESIGN-034 Livro dos Contratos|DESIGN-034]]).
+- **Chefe do Mundo 1:** **derrotar Vorax** ([[DESIGN-041 Level1_Boss1|DESIGN-041]]) desbloqueia o **Livro dos Contratos** ([[DESIGN-034 Livro dos Contratos|DESIGN-034]]).
 
 ## 5. Casos de Borda
 - **Nº ímpar de portais intrafase** → o último fica inativo (aqui são 2, ok).

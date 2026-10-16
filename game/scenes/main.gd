@@ -4,7 +4,11 @@ extends Node2D
 
 const FOOTER_H := 89.0
 const PAD := 8.0
+const MARGIN := 24.0      # respiro (px de tela) quando o nivel e enquadrado
+const MAX_FIT := 3.0      # teto do zoom de enquadramento
 const PLAYER := preload("res://prefabs/actors/player.tscn")
+
+@export var start_level: String = "Level1_1"
 
 @onready var world_area: SubViewportContainer = $WorldArea
 @onready var sub_viewport: SubViewport = $WorldArea/SubViewport
@@ -35,7 +39,7 @@ func _resize_world_area() -> void:
 
 
 func _start() -> void:
-	var level_name := "Level1_1"
+	var level_name := start_level if start_level != "" else "Level1_1"
 	_level = DataDB.level(level_name)
 	if _level == null:
 		push_error("Main: nivel '%s' nao encontrado (rode tools/export-data.mjs)" % level_name)
@@ -56,21 +60,35 @@ func _spawn_player() -> void:
 func _frame_camera() -> void:
 	var vs := sub_viewport.size
 	var ls := _level.pixel_size()
-	# horizontal: limita se o nivel for mais largo que a area; senao centraliza
-	if ls.x + PAD * 2.0 >= vs.x:
+	# ENQUADRAMENTO: se o nivel for menor que a area do mundo, da ZOOM pra ele preencher
+	# (nunca afasta: fit < 1 e ignorado). Ver DESIGN-041 / CONTEXT-010 §3b.
+	var fit := minf((vs.x - MARGIN * 2.0) / ls.x, (vs.y - MARGIN * 2.0) / ls.y)
+	fit = clampf(fit, 1.0, MAX_FIT)
+	camera.zoom = Vector2(fit, fit)
+	var vis := vs / fit                       # area visivel em unidades do mundo
+	if fit > 1.0:
+		# o nivel CABE na tela: sem limites, apenas centrado (o MARGIN vira a folga)
+		camera.limit_left = -100000
+		camera.limit_right = 100000
+		camera.limit_top = -100000
+		camera.limit_bottom = 100000
+		camera.position = Vector2(ls.x * 0.5, ls.y * 0.5)
+		camera.make_current()
+		return
+	# sem zoom: limita se o nivel for maior que a area; senao ancora o piso acima do footer
+	if ls.x + PAD * 2.0 >= vis.x:
 		camera.limit_left = 0
 		camera.limit_right = int(ls.x)
 	else:
 		camera.limit_left = -100000
 		camera.limit_right = 100000
-	# vertical: limita se for mais alto; senao ancora o piso logo acima do footer
-	if ls.y + PAD * 2.0 >= vs.y:
+	if ls.y + PAD * 2.0 >= vis.y:
 		camera.limit_top = 0
 		camera.limit_bottom = int(ls.y + PAD)
 	else:
 		camera.limit_top = -100000
 		camera.limit_bottom = 100000
-	camera.position = Vector2(ls.x * 0.5, ls.y + PAD - vs.y * 0.5)
+	camera.position = Vector2(ls.x * 0.5, ls.y + PAD - vis.y * 0.5)
 	camera.make_current()
 
 

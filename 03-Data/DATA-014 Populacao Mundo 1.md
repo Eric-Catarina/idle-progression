@@ -34,7 +34,7 @@ dependencies:
 | 1-4 | **Esquilo Coletor** | 3433 | 28 | 7260 | 64 | **180** | — | 36 → 51 | 11 → 6 |
 | 1-5 | **Coruja Sábia** | 6783 | 60 | 13738 | 256 | **220** | — | 52 → 70 | 11 → 7 |
 
-- **Chefe — Vorax (1-5):** HP **60 000** · ATK **150** · Essência **5 000** · `capLinha` **(a definir)**.
+- **Chefe — Vorax ([[DESIGN-041 Level1_Boss1|Level1_Boss1]]):** HP **60 000** · ATK **150** · Essência **5 000** · `capLinha` **(a definir)**.
 
 > **`capLinha` (teto de dano por linha):** *a definir* por inimigo. **Regra:** mobs **comuns = sem teto** (`—`); **elites/bosses** têm teto → **favorecem builds multi-hit** ([[DESIGN-037 Linhas de Dano|DESIGN-037]]).
 

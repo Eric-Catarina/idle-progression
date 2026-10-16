@@ -46,11 +46,26 @@ const intrafase = pairs.join(" · ") || "—";
 const ratio = lvl.rows / lvl.cols;
 const orientation = ratio > 1.3 ? "vertical" : ratio < 0.77 ? "horizontal" : "neutro";
 
+// Pai do mundo: resolve no vault procurando um DESIGN cujo title seja "Mundo <W>"
+let parentId = world === "1" ? "DESIGN-003" : null;
+for (const f of walk(join(ROOT, "01-Design"))) {
+  const t = readFileSync(f, "utf8");
+  if (new RegExp(`^title:\\s*"?Mundo ${world}"?\\s*$`, "m").test(t)) {
+    const m = t.match(/^id:\s*(DESIGN-\d+)/m);
+    if (m) { parentId = m[1]; break; }
+  }
+}
+if (!parentId) {
+  console.error(`Nao encontrei o doc do "Mundo ${world}" (title: "Mundo ${world}"). Crie o mundo antes do nivel.`);
+  process.exit(1);
+}
+
 const tpl = readFileSync(join(ROOT, "00-Context/_templates/LEVEL_PAGE_TEMPLATE.md"), "utf8");
 const page = tpl
   .replaceAll("LevelX_Y", name)
   .replaceAll("DESIGN-XXX", id)
   .replaceAll("Mundo W", "Mundo " + world)
+  .replaceAll("DESIGN-003 Mundo 1|DESIGN-003", `${parentId} Mundo ${world}|${parentId}`)
   .replaceAll("{{SIZE}}", `${lvl.cols}×${lvl.rows}`)
   .replaceAll("{{ORIENTATION}}", orientation)
   .replaceAll("{{SPAWN}}", find(6))
