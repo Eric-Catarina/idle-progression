@@ -20,10 +20,13 @@ dependencies:
 ## 1. Variáveis Base & Constantes
 | Var | Descrição |
 | :--- | :--- |
-| `R_gen` | soma dos `+% Range` **genéricos** do jogador (fração: `+15%` → `0.15`) |
-| `R_skill(s)` | soma dos `+% Range` **específicos da skill `s`** |
+| `R_gen` | soma dos `+% Size` **genéricos** do jogador (fração: `+15%` → `0.15`) |
+| `R_skill(s)` | soma dos `+% Size` **específicos da skill `s`** |
 | `mult(s)` | multiplicador final aplicado às dimensões escaláveis de `s` |
-| `SIZE_CAP` | **3.00** (×3 = +200%) — teto duro |
+| `SIZE_MAX` | **2.00** (+200%) — **assíntota** da curva de efeito (§2.1) |
+| `SIZE_CAP` | **3.00** (= `1 + SIZE_MAX`) — teto duro de `mult` |
+| `K` | **50** — meia-saturação: onde a curva de uma fonte atinge **+100%** |
+| `costBase` / `costGrowth` | custo do nível: `cost(n) = costBase × costGrowth^n` (`1.15`) |
 | `sizeAoeExponent` | **0.6** — como isso vira fator de área no *catch-up*/solver (§4) |
 
 ## 2. Formulação
@@ -33,7 +36,16 @@ mult(s) = clamp( 1 + R_gen + R_skill(s), 1, SIZE_CAP )        # composição ADI
 dimensao_final(s) = dimensao_base(s) * mult(s)                 # só nas dimensões escaláveis (§3)
 ```
 - **Aditivo** (não multiplicativo) — é o padrão dos stats `+%` do projeto ([[DESIGN-028 Equipamentos|DESIGN-028]]).
-- **Nunca** abaixo de `1` (não existe "range negativo").
+- **Nunca** abaixo de `1` (não existe *size* negativo).
+
+### 2.1 Curva de efeito de uma fonte (nível `n`)
+```
+R(n) = SIZE_MAX * n / (n + K)          # hiperbólica — mesmo shape dos Selos (DESIGN-013)
+mult(n) = 1 + R(n)
+```
+- **Sobe rápido no começo, satura no fim:** chega a **+100%** com `n = K` e **vira um deserto** depois — ir de +100% a +200% é a maior parte do grind (e é **impossível** chegar em +200%: é assíntota).
+- A **assíntota é o teto**, então o cap `×3.00` **nunca** é violado por uma fonte só.
+- **Custo do nível** (para o grind ser sentido): `cost(n) = costBase × 1.15^n` — o **custo** cresce exponencial enquanto o **efeito** satura. É isso que faz "ficar muito difícil de subir" (§6.1).
 
 ## 3. O que escala, por **tag** ([[CONTEXT-015 Tags de Skill|CONTEXT-015]])
 > A tag diz **qual** dimensão cresce. Sem tag escalável na skill, `mult` é simplesmente ignorado.
@@ -57,12 +69,12 @@ dimensao_final(s) = dimensao_base(s) * mult(s)                 # só nas dimens�
 | Não escala | Por quê |
 | :--- | :--- |
 | **`lines`** ([[DESIGN-037 Linhas de Dano\|DESIGN-037]]) | nº de linhas é outro eixo (é o que vence `capLinha`) |
-| **dano** ([[DESIGN-031 Calculo de Dano\|DESIGN-031]]) | range é **cobertura**, não DPS |
+| **dano** ([[DESIGN-031 Calculo de Dano\|DESIGN-031]]) | size é **cobertura**, não DPS |
 | `cooldown`, `duração`, `cast time` | pertencem a outro eixo (cadência) |
-| **velocidade** do projétil | é *trajectory*, não *range* (evita "range = DPS" por back-loading) |
+| **velocidade** do projétil | é *trajectory*, não *size* (evita "size = DPS" por back-loading) |
 
 ## 4. Efeito no combate e no *catch-up*
-Range não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega** — e isso **muda o clear speed**.
+Size não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega** — e isso **muda o clear speed**.
 
 - No modelo do solver ([[DATA-014 Populacao Mundo 1|DATA-014]]), o fator de área é `AOE`:
   ```
@@ -78,6 +90,8 @@ Range não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega
   "cap": 3.0,
   "composition": "additive",
   "minMultiplier": 1.0,
+  "curve": { "type": "hyperbolic", "max": 2.0, "k": 50 },
+  "costGrowth": 1.15,
   "aoeExponent": 0.6,
   "scalesByTag": {
     "target:aoe": "radius",
@@ -99,8 +113,27 @@ Range não muda o **dano por acerto**, mas muda **quantos inimigos o acerto pega
 }
 ```
 
-## 6. Tabela de Simulação — `mult(s)` por % acumulado
-| `+% Range` total | `mult` | Efeito num raio de 40 px |
+## 6. Tabela de Simulação
+
+### 6.1 Curva de efeito de **uma fonte** (nível `n`)
+| `n` | `R(n)` | `mult` | Raio (base 40 px) |
+| --: | --: | --: | --: |
+| 1 | +3.9% | 1.04 | 42 px |
+| 5 | +18.2% | 1.18 | 47 px |
+| 10 | +33.3% | 1.33 | 53 px |
+| 25 | +66.7% | 1.67 | 67 px |
+| **50** | **+100.0%** | **2.00** | **80 px** |
+| 75 | +120.0% | 2.20 | 88 px |
+| 100 | +133.3% | 2.33 | 93 px |
+| 200 | +160.0% | 2.60 | 104 px |
+| 500 | +181.8% | 2.82 | 113 px |
+| 1.000 | +190.5% | 2.90 | 116 px |
+| ∞ | +200% *(assíntota)* | 3.00 | 120 px |
+
+> **Leitura:** os primeiros **50 níveis** entregam **+100%**; os **950 seguintes** entregam só ~**+90%** a mais. É exatamente o "sobe rápido, depois fica muito difícil".
+
+### 6.2 `mult` por **% acumulado** (várias fontes somadas)
+| `+% Size` total | `mult` | Raio (base 40 px) |
 | :--- | --: | :--- |
 | 0% | 1.00 | 40 px |
 | +15% | 1.15 | 46 px |

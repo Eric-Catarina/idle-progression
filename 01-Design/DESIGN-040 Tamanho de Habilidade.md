@@ -37,28 +37,29 @@ data_spec: "[[DATA-017 Tamanho de Habilidade|DATA-017]]"
 - **Estado:** nada persistente — é derivado no cast (e re-derivado no *catch-up* analítico).
 
 ## 3. Lógica Passo a Passo
-1. Calcular `R_gen` (soma de todos os `+% Range` genéricos do jogador).
-2. `R_skill(s) = Σ (+% Range de <s>)` para a skill `s`.
+1. Calcular `R_gen` (soma de todos os `+% Size` genéricos do jogador).
+2. `R_skill(s) = Σ (+% Size de <s>)` para a skill `s`.
 3. `mult(s) = clamp(1 + R_gen + R_skill(s), 1, SIZE_CAP)` — **aditivo**, com **teto** ([[DATA-017 Tamanho de Habilidade|DATA-017]] §2).
 4. Aplicar `mult(s)` **apenas** nas dimensões escaláveis da skill (tabela em [[DATA-017 Tamanho de Habilidade|DATA-017]] §3).
-5. O **alvo de navegação** (`targetX`) continua sendo escolhido pelo planejador ([[DESIGN-025 Navegacao & Movimento|DESIGN-025]]) — range **não** muda aonde o player vai, só o que o cast alcança.
+5. O **alvo de navegação** (`targetX`) continua sendo escolhido pelo planejador ([[DESIGN-025 Navegacao & Movimento|DESIGN-025]]) — size **não** muda aonde o player vai, só o que o cast alcança.
+6. **Curva de progressão:** o `+% Size` de cada fonte **sobe rápido e satura** — chega a **+100%** e depois vira *grind* (assíntota em **+200%**). Fórmula e tabela: [[DATA-017 Tamanho de Habilidade|DATA-017]] §2.1 / §6.1.
 
 ## 4. Casos de Borda & Tratamento de Erros
 - **Cap:** `mult` nunca passa de `SIZE_CAP` (senão a área cobre a tela e some a leitura visual).
 - **Skill sem tag escalável** (ex.: `role:buff` com `target:self`) → `mult` é **ignorado** (sem erro).
-- **`+% Range de <skill inexistente>`** → descartado com aviso (não quebra o cálculo).
+- **`+% Size de <skill inexistente>`** → descartado com aviso (não quebra o cálculo).
 - **Mobilidade** ([[DESIGN-026 Blink|DESIGN-026]], [[DESIGN-012 Jump Dash|DESIGN-012]], [[DESIGN-027 Slide Jump|DESIGN-027]]): escalar o alcance **muda a navegação** → o navgraph ([[SYSTEM-002 NavGraph & Pathfinding|SYSTEM-002]]) tem que ler o alcance **efetivo** do momento, nunca um valor fixo.
 - **Catch-up offline:** o alcance afeta o **nº de inimigos por cast** (fator de área) → precisa entrar no cálculo analítico ([[DATA-017 Tamanho de Habilidade|DATA-017]] §4).
 - **Visual:** a área desenhada **é** a área real — VFX e colisão usam o mesmo `mult` (nada de "parece maior").
 
 ## 5. UI/UX e Feedback
-- No **tooltip da skill**: a dimensão base e o valor **com** range (`Raio 40 → 60 px`).
-- No **inventário/gear**: linhas de Potential mostram a skill alvo quando for específico (`+15% Range: Meteoro`).
+- No **tooltip da skill**: a dimensão base e o valor **com** o size (`Raio 40 → 60 px`).
+- No **inventário/gear**: linhas de Potential mostram a skill alvo quando for específico (`+15% Size: Meteoro`).
 - Feedback no cast: a área ampliada **é o próprio feedback** (a hitbox visível cresce).
 
 ## 6. Ganchos para o Futuro (Should/Could)
 - **Fontes do stat:** linhas de **Potential** ([[DESIGN-029 Potential|DESIGN-029]]), gear ([[DESIGN-028 Equipamentos|DESIGN-028]]), **Selos** ([[DESIGN-013 Selos|DESIGN-013]]), **Cartas** ([[DESIGN-016 Cartas|DESIGN-016]]), **Pets** ([[DESIGN-038 Pets|DESIGN-038]]), **Osíris** ([[DESIGN-014 Osiris|DESIGN-014]]), **Gear Sets** ([[DESIGN-032 Gear Sets|DESIGN-032]]). Cada sistema decide **se e onde** expõe o stat (é só entrar no pool).
-- **Range por tag específica** (`+% Range em skills `target:line` somente) — `Could`.
+- **Size por tag específica** (`+% Size em skills `target:line` somente) — `Could`.
 - **Não implementar agora:** só deixar o **stat no pool** e as skills declararem as dimensões escaláveis.
 
 ## 7. Relacionados
