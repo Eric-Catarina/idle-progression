@@ -34,24 +34,25 @@ dependencies:
 - **Por que simétrica:** o Zakum é legível — o jogador **aprende a arena em 3 segundos** e a luta inteira é sobre **execução** (dano, posicionamento, sobrevivência), não sobre explorar o mapa.
 
 ## 2. Layout
-- **55×21** (ver `03-Data/levels/Level1_Boss1.json` / [[DATA-006 Level Layout|DATA-006]]).
+- **35×15** — **compacta de propósito** (vs. 55×21 dos níveis normais). Ver `03-Data/levels/Level1_Boss1.json` / [[DATA-006 Level Layout|DATA-006]].
 - **Formato:** horizontal (ver [[DESIGN-006 Meta Espacial|DESIGN-006]]).
-- **Spawn** `(2,19)` · **Portal Entrada** `(1,19)` · **Portal Saída** `(53,19)`.
+- **Spawn** `(2,13)` · **Portal Entrada** `(1,13)` · **Portal Saída** `(33,13)`.
 - **Portal Intrafase:** — · **Interactables:** —.
 
 ### 2.1 A arena
 | Elemento | Células | Papel |
 | :--- | :--- | :--- |
-| **Piso principal** | `r20` · cols `0–54` | chão da luta (sólido, largura total) |
-| **Degrau 1** (base) | `r16` · cols `3–12` e `42–51` | sobe direto do chão |
-| **Degrau 2** (meio) | `r12` · cols `8–17` e `37–46` | alcance médio |
-| **Degrau 3** (alto) | `r8` · cols `13–22` e `32–41` | mais perto da cabeça do chefe |
-| **Corredor do chefe** | cols `23–31`, linhas `0–19` | **livre** (nenhuma plataforma) — área do chefe |
-| **Spawn do Chefe** | `(27,19)` | **tile `7`** (novo) — centro exato |
+| **Piso principal** | `r14` · cols `0–34` | chão da luta (sólido, largura total) |
+| **Degrau 1** (base) | `r11` · `2–10` e `24–32` | sobe direto do chão |
+| **Degrau 2** | `r8` · `3–11` e `23–31` | **+1 tile** rumo ao centro |
+| **Degrau 3** (alto) | `r5` · `4–12` e `22–30` | **+1 tile** rumo ao centro |
+| **Corredor do chefe** | cols `15–19` | **livre** (nenhuma plataforma) — área do chefe |
+| **Spawn do Chefe** | `(17,13)` | **tile `7`** — centro exato |
 
-- **Simetria:** as plataformas e o piso são **espelhados** sobre a coluna **27**.
-- **Escada:** sobreposição de **5 células** entre degraus consecutivos (`3–12` ▸ `8–17` ▸ `13–22`) → dá pra **subir andando**, sem salto de precisão.
-- **Borda do chefe:** o degrau do topo termina em `col 22` (esq.) e começa em `col 32` (dir.) → **9 células livres** para o chefe, que é **largo**.
+- **Empilhadas, não espalhadas:** cada plataforma fica **1 tile à frente** da de baixo e **3 linhas acima** — um **degrau vertical** enxuto, não uma escada larga.
+- **Simetria:** plataformas e piso **espelhados** sobre a coluna **17**.
+- **Subir é andar:** a sobreposição entre degraus é de **8 células** (`2–10` ▸ `3–11` ▸ `4–12`) → sem salto de precisão.
+- **Borda do chefe:** o topo termina em `col 12` (esq.) e recomeça em `col 22` (dir.) → **9 células livres** para o chefe, que é **largo**.
 
 ## 3. População
 - **Só o chefe:** **Vorax** (o chefe do Mundo 1) — **parado** no centro, **não cai** e **não patrulha**.
