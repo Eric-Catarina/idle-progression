@@ -36,3 +36,4 @@ Aqui ficam **apenas diretrizes transversais, sempre válidas**. Nada **específi
 - Estrutura do jogo (Godot): `00-Context/CONTEXT-012 Estrutura do Projeto Godot.md` + `02-Architecture/SYSTEM-004 Cenas & Prefabs.md`
 - Skills do agente (todas): `.opencode/skills/` — atribuição em `.opencode/skills/ATTRIBUTION.md`
 - Skill do projeto: `.opencode/skills/progression-idle/SKILL.md`
+- Modelos & papéis (IA): `00-Context/CONTEXT-017 Modelos & Papéis (IA).md`
