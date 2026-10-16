@@ -21,3 +21,4 @@ Cada skill só entra no contexto quando é carregada — não há custo permanen
 ## Nossas
 
 - `progression-idle` — regras do projeto (vault, MoSCoW, estrutura).
+- `prompt-authoring` — escreve prompts de orquestrador (auditorias/revisões multi-agente) + `references/checklists.md`.
