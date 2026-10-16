@@ -1,7 +1,7 @@
 class_name LevelGeometry
 extends RefCounted
-## Converte o grid em RETANGULOS de colisao (puro). Funde "runs" horizontais.
-## Piso (ultima linha) e Paredes = solidos; o resto = plataforma ONE-WAY (DESIGN-023).
+## Turns the grid into collision RECTANGLES (pure). Merges horizontal "runs".
+## Floor (last row) and Walls = solid; the rest = ONE-WAY platform (DESIGN-023).
 
 const KIND_NONE := 0
 const KIND_PLATFORM := 1

@@ -1,11 +1,11 @@
 @tool
 class_name PortalFase
 extends Area2D
-## Portal de Fase — troca de **nível** (tiles `4` Entrada / `5` Saída).
+## Level Portal - switches **level** (tiles `4` Entry / `5` Exit).
 ##
-## Encaminha a decisão para a cena de nível / `GameState` via sinal (ver SYSTEM-004):
-## ao entrar, o player é reposicionado no `target_portal` do `target_level`.
-## Referencia: DESIGN-023 (Plataformas & Portais).
+## Forwards the decision to the level scene / `GameState` by signal (see SYSTEM-004):
+## on enter, the player is placed at `target_portal` of `target_level`.
+## Reference: DESIGN-023 (Platforms & Portals).
 
 signal portal_requested(kind: Kind, target_level: String, target_portal: String)
 
@@ -15,9 +15,9 @@ enum Kind { ENTRADA, SAIDA }
 	set(value):
 		kind = value
 		queue_redraw()
-## Nível destino (ex.: "Level1_2"). Vazio = permanece no nível corrente.
+## Target level (e.g. "Level1_2"). Empty = stay in the current level.
 @export var target_level: String = ""
-## Onde o player nasce no destino (nome lógico do portal de entrada).
+## Where the player spawns at the destination (logical name of the entry portal).
 @export var target_portal: String = "entrada"
 
 
@@ -33,11 +33,11 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _draw() -> void:
-	# Desenho por codigo (CONTEXT-009). Azul = Entrada, vermelho = Saida.
+	# Code-drawn (CONTEXT-009). Blue = Entry, red = Exit.
 	var base := Color(0.30, 0.55, 0.98) if kind == Kind.ENTRADA else Color(0.95, 0.30, 0.35)
 	var half := Vector2(18, 26)
 	var rect := Rect2(-half, half * 2.0)
 	draw_rect(rect, base * Color(1, 1, 1, 0.22), true)
 	draw_rect(rect, base, false, 2.0)
-	# Arco superior (portal)
+	# Top arc (portal)
 	draw_arc(Vector2(0, -half.y), half.x, PI, TAU, 24, base.lightened(0.3), 2.0)

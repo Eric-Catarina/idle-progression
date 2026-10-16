@@ -1,7 +1,7 @@
 extends Node
-## DataDB — carrega TODO o dado imutavel UMA vez no boot (SYSTEM-006).
-## O dado vem de `res://data/**` (gerado do vault por tools/export-data.mjs).
-## CONTRATO: e somente-leitura. Quem precisa mutar deve `duplicate()`.
+## DataDB - loads ALL immutable data ONCE at boot (SYSTEM-006).
+## Data comes from `res://data/**` (generated from the vault by tools/export-data.mjs).
+## CONTRACT: read-only. Callers that need to mutate must `duplicate()`.
 
 const LEVELS_DIR := "res://data/levels"
 const TABLES_DIR := "res://data/tables"
@@ -13,7 +13,7 @@ var tables: Dictionary = {}
 func _ready() -> void:
 	_load_levels()
 	_load_tables()
-	print("DataDB: %d nivel(is), %d tabela(s)" % [levels.size(), tables.size()])
+	print("DataDB: %d level(s), %d table(s)" % [levels.size(), tables.size()])
 
 
 func level(level_name: String) -> LevelData:
@@ -43,7 +43,7 @@ func _list_json(dir_path: String) -> PackedStringArray:
 	var out := PackedStringArray()
 	var dir := DirAccess.open(dir_path)
 	if dir == null:
-		push_error("DataDB: pasta nao encontrada: %s" % dir_path)
+		push_error("DataDB: folder not found: %s" % dir_path)
 		return out
 	for f in dir.get_files():
 		if f.ends_with(".json"):
@@ -54,9 +54,9 @@ func _list_json(dir_path: String) -> PackedStringArray:
 
 func _read_json(path: String) -> Variant:
 	if not FileAccess.file_exists(path):
-		push_error("DataDB: arquivo ausente: %s" % path)
+		push_error("DataDB: missing file: %s" % path)
 		return null
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if parsed == null:
-		push_error("DataDB: JSON invalido: %s" % path)
+		push_error("DataDB: invalid JSON: %s" % path)
 	return parsed

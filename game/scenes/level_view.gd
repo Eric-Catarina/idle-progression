@@ -1,6 +1,6 @@
 extends Node2D
-## LevelView — monta a cena do nivel a partir do DADO (SYSTEM-004).
-## Desenho por codigo (CONTEXT-009), sem TileSet. Colisao por retangulos fundidos.
+## LevelView - builds the level scene from DATA (SYSTEM-004).
+## Code-drawn (CONTEXT-009), no TileSet. Collision from merged rectangles.
 
 const PORTAL_FASE := preload("res://prefabs/props/portal_fase.tscn")
 const PORTAL_INTRA := preload("res://prefabs/props/portal_intrafase.tscn")
@@ -50,7 +50,7 @@ func _spawn_portals() -> void:
 	var holder := Node2D.new()
 	holder.name = "Portals"
 	add_child(holder)
-	# Intrafase (tile 2): pareado em ORDEM DE LEITURA (DESIGN-023 §3)
+	# Intra-level (tile 2): paired in READING ORDER (DESIGN-023 §3)
 	var intra := level.cells_of(LevelData.TILE_PORTAL_INTRA)
 	for i in intra.size():
 		var p := PORTAL_INTRA.instantiate()

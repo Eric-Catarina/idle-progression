@@ -1,6 +1,6 @@
 extends Node
-## GameState — estado AUTORITATIVO (headless). Ver CONTEXT-012 §2.
-## Por enquanto so os campos que o Footer precisa; cresce com o jogo.
+## GameState - AUTHORITATIVE state (headless). See CONTEXT-012 §2.
+## Only the fields the Footer needs for now; grows with the game.
 
 var level_name: String = ""
 var player_level: int = 1

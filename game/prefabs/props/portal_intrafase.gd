@@ -1,19 +1,19 @@
 @tool
 class_name PortalIntrafase
 extends Area2D
-## Portal Intrafase (tile `2`) — teleporta o player para o **par** na MESMA fase.
+## Intra-level Portal (tile `2`) - teleports the player to its **pair** in the SAME level.
 ##
-## A **autoridade do par** vive em `sim/world/portals.gd` (ver SYSTEM-004): a cena
-## apenas detecta a entrada e emite `teleport_requested`. Nada de regra de jogo aqui.
-## Referencia: DESIGN-023 (Plataformas & Portais).
+## Pair authority lives in `sim/world/portals.gd` (see SYSTEM-004): the scene
+## only detects the entry and emits `teleport_requested`. No game rules here.
+## Reference: DESIGN-023 (Platforms & Portals).
 
 signal teleport_requested(pair_id: int)
 
-## Mesmo `pair_id` = par (dois portais com o mesmo id se conectam).
+## Same `pair_id` = pair (two portals with the same id connect).
 @export var pair_id: int = 0
-## Offset pequeno aplicado na chegada (evita re-trigger no portal destino).
+## Small offset applied on arrival (avoids re-trigger at the destination portal).
 @export var spawn_offset: Vector2 = Vector2(0, -8)
-## Cor do portal — amarelo (DESIGN-023).
+## Portal color - yellow (DESIGN-023).
 @export var portal_color: Color = Color(0.98, 0.84, 0.25)
 
 
@@ -29,7 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _draw() -> void:
-	# Desenho por codigo (CONTEXT-009: vetor + brilho, sem textura).
+	# Code-drawn (CONTEXT-009: vector + glow, no texture).
 	var half := Vector2(16, 16)
 	var rect := Rect2(-half, half * 2.0)
 	draw_rect(rect, portal_color * Color(1, 1, 1, 0.25), true)

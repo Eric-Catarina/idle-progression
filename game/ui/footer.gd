@@ -1,6 +1,6 @@
 extends Control
-## Footer — UI principal inferior (CONTEXT-010 §3b). F = 89 px.
-## Info a esquerda, botoes de menu a direita. Desenho por codigo (CONTEXT-009).
+## Footer - bottom main UI (CONTEXT-010 §3b). F = 89 px.
+## Info on the left, menu buttons on the right. Code-drawn (CONTEXT-009).
 
 const F := 89.0
 const BG := Color(0.12, 0.13, 0.15, 0.97)
@@ -11,7 +11,7 @@ const COL_XP := Color(0.29, 0.56, 0.85)
 const COL_QUOTA := Color(0.88, 0.63, 0.29)
 const TXT := Color(0.85, 0.89, 0.95)
 
-const MENU := ["AUTO", "SKILLS", "EQUIP", "CARTAS", "PET", "OSIRIS", "MAPA", "ITENS", "MENU"]
+const MENU := ["AUTO", "SKILLS", "EQUIP", "CARDS", "PET", "OSIRIS", "MAP", "ITEMS", "MENU"]
 
 
 func _ready() -> void:
@@ -38,7 +38,7 @@ func _build_buttons() -> void:
 
 
 func _on_menu(label: String) -> void:
-	print("UI: menu '%s' (a implementar)" % label)
+	print("UI: menu '%s' (not implemented yet)" % label)
 
 
 func _draw() -> void:
@@ -48,20 +48,20 @@ func _draw() -> void:
 
 	var font := get_theme_default_font()
 
-	# Nivel (esquerda)
+	# Level (left)
 	draw_string(font, Vector2(16, 26), "Lv %d" % GameState.player_level,
 		HORIZONTAL_ALIGNMENT_LEFT, -1, 15, TXT)
 	draw_string(font, Vector2(16, 44), "%s" % GameState.level_name,
 		HORIZONTAL_ALIGNMENT_LEFT, -1, 11, TXT.darkened(0.3))
 
-	# Barras
+	# Bars
 	var bg := 148.0
 	_bar(Rect2(bg, 14, 300, 13), GameState.player_hp, GameState.player_hp_max, COL_HP,
 		"HP %d / %d" % [GameState.player_hp, GameState.player_hp_max])
 	_bar(Rect2(bg, 33, 300, 13), GameState.player_xp, GameState.player_xp_need, COL_XP,
 		"XP %d / %d" % [GameState.player_xp, GameState.player_xp_need])
 	_bar(Rect2(bg, 52, 300, 10), GameState.kill_count, GameState.kill_quota, COL_QUOTA,
-		"COTA %d / %d" % [GameState.kill_count, GameState.kill_quota])
+		"QUOTA %d / %d" % [GameState.kill_count, GameState.kill_quota])
 
 
 func _bar(r: Rect2, value: int, max_value: int, color: Color, label: String) -> void:

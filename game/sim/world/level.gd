@@ -1,7 +1,7 @@
 class_name LevelData
 extends RefCounted
-## Dado de UM nivel (puro/headless) — ver DATA-006 e SYSTEM-006.
-## A grade e mantida em **PackedInt32Array plano**: `cell(y * cols + x)`.
+## Data of ONE level (pure/headless) - see DATA-006 and SYSTEM-006.
+## The grid is kept in a **flat PackedInt32Array**: `cell(y * cols + x)`.
 
 const TILE_EMPTY := 0
 const TILE_PLATFORM := 1
@@ -29,7 +29,7 @@ func is_floor_row(y: int) -> bool:
 	return y == rows - 1
 
 
-## Celula do spawn do jogador (tile 6); fallback no canto inferior esquerdo.
+## Player spawn cell (tile 6); fallback to the lower-left corner.
 func spawn_cell() -> Vector2i:
 	var c := cells_of(TILE_SPAWN)
 	if c.size() > 0:
@@ -37,7 +37,7 @@ func spawn_cell() -> Vector2i:
 	return Vector2i(2, rows - 2)
 
 
-## Todas as celulas de um tile (para instanciar prefabs de portal).
+## All cells of a tile (to instantiate portal prefabs).
 func cells_of(tile: int) -> Array[Vector2i]:
 	var out: Array[Vector2i] = []
 	for y in rows:
@@ -47,7 +47,7 @@ func cells_of(tile: int) -> Array[Vector2i]:
 	return out
 
 
-## centro da celula em pixels (mundo).
+## cell centre in pixels (world).
 func cell_center(x: int, y: int) -> Vector2:
 	return Vector2((x + 0.5) * cell_size, (y + 0.5) * cell_size)
 

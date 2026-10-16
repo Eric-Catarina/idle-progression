@@ -1,6 +1,6 @@
 extends CharacterBody2D
-## Player — ADAPTADOR fino. Movimento por TECLADO (placeholder).
-## O tap-to-move (navgraph) chega em DESIGN-025 / SYSTEM-002.
+## Player - thin ADAPTER. KEYBOARD movement (placeholder).
+## Tap-to-move (navgraph) arrives with DESIGN-025 / SYSTEM-002.
 
 const SPEED := 150.0
 const ACCEL := 1400.0
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		_coyote = COYOTE
 
-	# down-jump: BAIXO + PULO solta a plataforma one-way (DESIGN-023 §2)
+	# down-jump: DOWN + JUMP drops through the one-way platform (DESIGN-023 §2)
 	if _drop > 0.0:
 		_drop -= delta
 		if _drop <= 0.0:
