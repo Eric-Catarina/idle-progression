@@ -70,16 +70,16 @@ dependencies:
 - **Morte do jogador:** *(a definir)* — revive na entrada ou reinicia a fase; **não** perde o progresso do Mundo 1.
 - **Chefe morto e portal aberto** → o nível fica "limpo"; reentrar não deve re-spawnar o chefe enquanto a fase não resetar.
 
-## 6. ⚠️ Pendências de integração (referências que citam o chefe no `Level1_5`)
-A fase separada **move o chefe** para cá — estes docs ainda dizem `Level1_5` e precisam ser reconciliados:
-| Documento | O que diz hoje |
+## 6. ✅ Reconciliação (o chefe saiu do `Level1_5`)
+A fase separada **moveu o chefe** para cá. Estes docs foram atualizados **no mesmo passo**:
+| Documento | O que ficou |
 | :--- | :--- |
-| [[DESIGN-003 Mundo 1\|DESIGN-003]] | "Level1_5 — copa — chefe Vorax"; jornada e recompensa (Relíquia de Vorax) |
-| [[DESIGN-024 Level1_5\|DESIGN-024]] | "a copa — onde está o chefe Vorax"; libera o Livro dos Contratos |
-| [[DESIGN-034 Livro dos Contratos\|DESIGN-034]] | "Gatilho: ao liberar o portal do Level1_5 (o chefe do Mundo 1)" |
-| [[DESIGN-032 Gear Sets\|DESIGN-032]] | "Relíquia de Vorax — Chefe do Mundo 1" |
-| [[DATA-014 Populacao Mundo 1\|DATA-014]] | "Chefe — Vorax (1-5)" |
-| [[DATA-006 Level Layout\|DATA-006]] | tabela de níveis (falta a linha do chefe) |
+| [[DESIGN-003 Mundo 1\|DESIGN-003]] | a jornada termina aqui; `Level1_5` = copa (**véspera**); a Relíquia vem do chefe |
+| [[DESIGN-024 Level1_5\|DESIGN-024]] | a copa — **sem** o chefe; o Portal Saída leva **para cá** |
+| [[DESIGN-034 Livro dos Contratos\|DESIGN-034]] | gatilho = **derrotar Vorax** (aqui) |
+| [[DESIGN-032 Gear Sets\|DESIGN-032]] | "Relíquia de Vorax — Chefe do Mundo 1" (já estava por papel, não por nível) |
+| [[DATA-014 Populacao Mundo 1\|DATA-014]] | "Chefe — Vorax (**Level1_Boss1**)" |
+| [[DATA-006 Level Layout\|DATA-006]] | tabela de níveis com `Level1_Boss1` + tile `7` = Spawn Chefe |
 
 ## 7. Relacionados
 - Mundo/nível anterior: [[DESIGN-003 Mundo 1|DESIGN-003]] · [[DESIGN-024 Level1_5|DESIGN-024]].
