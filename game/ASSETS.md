@@ -1,7 +1,7 @@
 # Assets — Registro de Origem e Licença
 
 > **Toda** arte, VFX, fonte ou áudio de terceiros entra aqui. Ver `../00-Context/CONTEXT-016 Assets.md`.
-> Formato: **arquivo · origem · licença · autor**. Sem licença registrada → **não** entra.
+> Formato: **arquivo · origem · licença · autor**.
 
 ## Addons (código)
 | Item | Origem | Licença |
@@ -9,9 +9,8 @@
 | Godot MCP Toolkit | `NPGameDev/godot-mcp-toolkit` | MIT (LICENSE no addon) |
 | Phantom Camera | `ramokz/phantom-camera` | MIT (LICENSE no addon) |
 
-## Arte / VFX / Áudio / Fontes — **Kenney** (✅ CC0)
-Origem: **https://kenney.nl/assets** · Licença: **CC0** (uso livre, inclusive comercial, sem obrigação de crédito) · Autor: **Kenney Vleugels**.
-Cada pacote mantém o seu `License.txt`.
+## ✅ Kenney — CC0
+Origem: **https://kenney.nl/assets** · Licença: **CC0** (livre, inclusive comercial) · Autor: **Kenney Vleugels**.
 
 | Pacote | Pasta |
 | :--- | :--- |
@@ -21,14 +20,16 @@ Cada pacote mantém o seu `License.txt`.
 | `animal-pack-remastered` · `planets` | `assets/sprites/` |
 | `digital-audio` · `sci-fi-sounds` | `assets/audio/` |
 
-## ⚠️ Pendências de licença (EM STAGING — **não usar**)
-| Pacote | Situação |
-| :--- | :--- |
-| `assets/_raw/tex_packed/` (460 MB, ~360 PNGs) | **Sem** LICENSE/README — **origem desconhecida**. |
-| `assets/_raw/smear_vfx_01/` | Sem licença no pacote (tem o `.aseprite` fonte). |
-| `assets/vfx/smear/*.png` | ⚠️ **derivados** do `smear_vfx_01` — licença a confirmar |
+## ⚠️ Licença NÃO confirmada — **risco aceito pelo usuário** (2026-10-16)
+| Pasta | O que é | Situação |
+| :--- | :--- | :--- |
+| `assets/tiles/tex_packed/` (142 MB, 281 arquivos) | Conteúdo real do pack **"tex packed"** (tilesets/atlas, frames) | **Sem LICENSE/README** — origem desconhecida |
+| `assets/vfx/smear/` (6 PNGs + `.aseprite`) | Pack **"Smear VFX 01"** | **Sem LICENSE** — origem desconhecida |
 
-> **Ação:** confirmar a origem (link de download) → registrar aqui → **mover** de `_raw/` para a pasta do tipo.
+> **Decisão do usuário:** usar mesmo assim (2026-10-16). **Pendência:** obter o link de origem e confirmar a licença.
+> ⚠️ Se o repositório for **público**, isso equivale a **distribuir** o material — considerar tornar **privado** até resolver.
+>
+> Os **atlas re-empacotados** (`atlas_*.png`, 317 MB) ficaram **em staging** em `assets/_raw/tex_packed_atlases/`
+> (não versionados) — são uma versão *packed* dos mesmos frames.
 
-## Arte do jogo
-Hoje a arte **do jogo** é **desenhada por código** (`_draw`) — ver `CONTEXT-009`.
+Arte **do jogo**: desenhada por código (`_draw`) — ver `CONTEXT-009`.
