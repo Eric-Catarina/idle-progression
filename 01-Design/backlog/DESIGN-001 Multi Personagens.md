@@ -23,6 +23,8 @@ tags:
 # [DESIGN-001] Múltiplos Personagens no Mesmo Mapa
 
 > **Categoria MoSCoW: `Could`** — este documento está **guardado no backlog**. Nenhum código deve ser escrito até a promoção. Ver [[CONTEXT-001 MoSCoW|CONTEXT-001]].
+>
+> ⚠️ **Não confundir:** isto é **party no MESMO mapa** (2+ personagens lutando juntos). O **roster** (criar/trocar personagens, cada um com a **sua** progressão, com a **conta** compartilhada) é outra coisa — ver [[CONTEXT-019 Conta & Personagem|CONTEXT-019]].
 
 ## 0. Prioridade MoSCoW
 - **Categoria:** Could
