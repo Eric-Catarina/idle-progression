@@ -49,6 +49,8 @@ dependencies:
 | `relic_shard` | Relic Shard | `shard` | **account** | ∞ | **chefe** → craft do set |
 | `vorax_crystal` | Vorax Crystal | **`consumable`** | **account** | ∞ | **chefe** → **usable: gacha** ([[DATA-021 Loot do Chefe\|DATA-021]] §4) |
 | `upgrade_stone` | Upgrade Stone | `material` | **account** | ∞ | chefe (raro) · [[DESIGN-030 Star Force\|DESIGN-030]] |
+| `spore_cap` | Spore Cap | `material` | **account** | ∞ | drop do **Cogumelo** (1-2, ~40%) — [[DATA-023 Quests Mundo 1\|DATA-023]] |
+| `wasp_wing` | Wasp Wing | `material` | **account** | ∞ | drop do **Vespão** (1-3, ~35%) — [[DATA-023 Quests Mundo 1\|DATA-023]] |
 | `card_*` | Card: … | `card` | **account** (coleção) | ∞ | mobs ([[DESIGN-016 Cartas\|DESIGN-016]]) |
 | `stamp_*` | Stamp: … | `stamp` | **account** | ∞ | mobs ([[DESIGN-013 Selos\|DESIGN-013]]) |
 | `gear_*` | (arma/armadura/acessório) | `gear` | 🔴 **character** | 1 | mobs/chefe (**vai pra mochila do personagem**) |
@@ -77,6 +79,8 @@ dependencies:
     { "id": "relic_shard", "name": "Relic Shard", "kind": "shard", "scope": "account", "stackable": true, "rarity": 0 },
     { "id": "vorax_crystal", "name": "Vorax Crystal", "kind": "consumable", "scope": "account", "stackable": true, "rarity": 4, "use": { "hold_ms": 600, "gacha": "crystalGacha" } },
     { "id": "upgrade_stone", "name": "Upgrade Stone", "kind": "material", "scope": "account", "stackable": true, "rarity": 2 },
+    { "id": "spore_cap", "name": "Spore Cap", "kind": "material", "scope": "account", "stackable": true, "rarity": 1 },
+    { "id": "wasp_wing", "name": "Wasp Wing", "kind": "material", "scope": "account", "stackable": true, "rarity": 1 },
     { "id": "pet_token_common", "name": "Common Shot Token", "kind": "pet_token", "scope": "account", "stackable": true, "rarity": 1 }
   ]
 }

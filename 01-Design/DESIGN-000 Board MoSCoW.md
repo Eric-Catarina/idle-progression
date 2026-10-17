@@ -33,8 +33,11 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 | [[DESIGN-031 Calculo de Dano|DESIGN-031]] | Cálculo de **dano multiplicativo** | Draft | — | [[DATA-009 Dano|DATA-009]] |
 | [[DESIGN-036 Skills & Fila de Skills|DESIGN-036]] | **Skills & Fila de Skills** (combate idle) | Draft | — | [[DATA-009 Dano\|DATA-009]] · [[DATA-013 XP e Nivel\|DATA-013]] |
 | [[DESIGN-038 Pets|DESIGN-038]] | **Pets** (coleção account-wide, tiros diário/semanal, premium) | Draft | [[SYSTEM-005 Pets & Gacha\|SYSTEM-005]] | [[DATA-015 Pets Odds\|DATA-015]] |
+| [[DESIGN-046 Personagens|DESIGN-046]] | **Roster** (2º personagem destrava ao matar Vorax) | Draft | — | — |
+| [[DESIGN-048 Quests|DESIGN-048]] | **Quests** (cadeia tutorial + 1 por mapa) | Draft | — | [[DATA-023 Quests Mundo 1\|DATA-023]] |
 | [[DESIGN-044 Inventario|DESIGN-044]] | **Inventário** (infinito, compartilhado; **gear por personagem**) | Draft | — | [[DATA-019 Itens\|DATA-019]] |
 | [[DESIGN-045 Gate de Avanco (Accuracy & Defense)\|DESIGN-045]] | **Gate de Avanço** — **só** Accuracy & Defense travam os níveis | Draft | — | [[DATA-020 Accuracy & Defense\|DATA-020]] |
+| [[DESIGN-047 AFK & Ganhos Offline\|DESIGN-047]] | **AFK / Ganhos Offline** (sem cap, por personagem, tela de retorno) | Draft | — | [[DATA-022 AFK\|DATA-022]] |
 ### Candidatos Must derivados do Core Loop (a especificar)
 - ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
 - **One-Way Platforms** (colisão e passagem de baixo para cima).
