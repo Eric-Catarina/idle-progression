@@ -63,6 +63,12 @@ data_spec: "[[DATA-019 Itens|DATA-019]]"
 - **Item novo** ganha um brilho de "novo" até ser visto (dopamina de drop).
 - **Cabeçalho:** o **ouro/essência/gemas** ficam na carteira (visível no **Footer** — [[CONTEXT-010 UI de Jogo|CONTEXT-010]]).
 
+### 5.1 ⏳ Item usável = **segurar o dedo parado**
+- Itens com `use` (ex.: **Cristal de Vorax** → gacha, [[DATA-021 Loot do Chefe|DATA-021]] §4) **não** são consumidos por um toque — é preciso **segurar o dedo parado nele** por `hold_ms` (600 ms).
+- **Feedback:** um **anel de progresso** preenche sobre o item enquanto segura; **soltar antes** = cancela (nada acontece).
+- **Por quê:** evita **consumo acidental** num jogo de **toque** (o dedo passa por cima o tempo todo) — e dá **peso** ao momento (o gacha começa com você **segurando**).
+- **Não vale para:** equipar gear, usar carta/selo (esses são **toque simples**).
+
 ## 6. Ganchos para o Futuro (Should/Could)
 - **Favoritos / travar item** (não vender por engano) — `Should`.
 - **"Vender tudo abaixo de X"** e **venda em massa** — `Should`.

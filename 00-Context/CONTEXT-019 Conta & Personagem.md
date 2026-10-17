@@ -43,7 +43,7 @@ account
 | Sistema | Escopo | Por quê |
 | :--- | :--- | :--- |
 | **Inventário** (recursos/consumíveis/materiais/cartas) | 🟢 **CONTA** | compartilhado (decisão do usuário) |
-| **Carteira** (ouro · essência · gemas) | 🟢 **CONTA** | é o que o inventário compartilhado move |
+| **Carteira** (ouro · essência · gemas) | 🟢 **CONTA** | decisão do usuário: **ouro por conta** |
 | **Equipamento** (vestido **e** a mochila de gear) | 🔴 **PERSONAGEM** | decisão do usuário — gear é do personagem |
 | **Nível / XP / Classe** | 🔴 **PERSONAGEM** | cada um sobe a sua ([DATA-013 XP e Nivel\|DATA-013]) |
 | **Cartas** | 🟢 conta (coleção) · 🔴 **equipadas por personagem** | já era assim ([DESIGN-016 Cartas\|DESIGN-016] §) |
@@ -52,10 +52,10 @@ account
 | **Livro dos Contratos / Multikill** | 🟢 **CONTA** | ([DESIGN-034 Livro dos Contratos\|DESIGN-034]) |
 | **Osíris** (Cristais/Megacristais) | 🟢 **CONTA** | mecânica de mundo ([DESIGN-014 Osiris\|DESIGN-014]) |
 | **Gemas** | 🟢 **CONTA** | ([CONTEXT-013 Moeda Premium\|CONTEXT-013]) |
-| **Mundo** (níveis destravados, cota cumprida) | 🟢 **CONTA** | destrava **uma vez**; todos os personagens têm acesso |
+| **Mundo** (níveis destravados, cota cumprida) | 🔴 **PERSONAGEM** | decisão do usuário: **cada personagem destrava o seu** (como no IdleOn) |
 | **Posição / HP / buffs** | 🔴 **PERSONAGEM** | volátil |
 
-> ⚠️ **Decisão pendente:** ouro. Aqui está como **conta** (casou com o inventário compartilhado). O **IdleOn** usa ouro **por personagem**. Trocar é barato — só precisa ser dito **uma** vez.
+> ⚠️ **Decisão tomada (2026-10-17):** **ouro = CONTA** ✅ (casou com o inventário compartilhado; o IdleOn usa por personagem, mas ficamos com o mais simples).
 
 ## 3. Regras do Roster (criação de personagens)
 - **Criar personagem:** escolhe **nome** + **classe** ([[DESIGN-005 Classes|DESIGN-005]]); o nível começa em 1.
@@ -66,7 +66,7 @@ account
 
 ## 4. Casos de Borda
 - **Equipar algo já equipado por outro personagem** → impossível (o gear está na **mochila daquele** personagem).
-- **Personagem novo** herda a **conta** (inventário/destravamentos) e **nada** de personagem — começa do zero, de propósito.
+- **Personagem novo** herda a **conta** (inventário, ouro, coleções) mas **não** os destravamentos de mapa — ele **recomeça a jornada** (como no IdleOn) e só começa do zero nisso.
 - **Dois personagens no mesmo mapa ao mesmo tempo:** **não** é escopo ([DESIGN-001 Multi Personagens\|DESIGN-001] é `Could`, party separada).
 - **Morte** ([[CONTEXT-018 Decisoes de Implementacao|CONTEXT-018]] §1.6) → respawn no hub, **só aquele** personagem.
 

@@ -36,7 +36,9 @@ dependencies:
 | `stackable` | bool | `true` → `maxStack = ∞` |
 | `rarity` | int (1..6) | [[CONTEXT-007 Raridades\|CONTEXT-007]] (0 = N/A) |
 | `desc` | string | texto do tooltip |
-| `use` | obj? | efeito de consumível (`{ heal_pct: 40, cooldown: 30 }`) |
+| `use` | obj? | **item usável** — `{ "hold_ms": 600 }` (consumido **segurando o dedo parado**, [[DESIGN-044 Inventario\|DESIGN-044]] §5) + o efeito (ex.: `gacha: "crystalGacha"`) |
+
+> ⚠️ **Não há poções nem comida** (decisão de 2026-10-17). O avanço é travado por **Accuracy** e **Defense** ([[DESIGN-045 Gate de Avanco (Accuracy & Defense)|DESIGN-045]]). Item `consumable` aqui significa **usável** (gacha/token), não cura.
 
 ## 3. Catálogo inicial
 | id | Nome (EN) | kind | scope | stack | Origem |
@@ -45,8 +47,7 @@ dependencies:
 | `essence` | Essence | `currency` | **account** | ∞ | mobs/chefe ([[DESIGN-035 Essencia\|DESIGN-035]]) |
 | `gems` | Gems | `currency` | **account** | ∞ | IAP ([[CONTEXT-013 Moeda Premium\|CONTEXT-013]]) |
 | `relic_shard` | Relic Shard | `shard` | **account** | ∞ | **chefe** → craft do set |
-| `vorax_crystal` | Vorax Crystal | `material` | **account** | ∞ | **chefe** → **vendável 1×/dia** |
-| `potion_hp` | HP Potion | `consumable` | **account** | ∞ | drop/vendor (`heal 40%`, cd 30 s) |
+| `vorax_crystal` | Vorax Crystal | **`consumable`** | **account** | ∞ | **chefe** → **usable: gacha** ([[DATA-021 Loot do Chefe\|DATA-021]] §4) |
 | `upgrade_stone` | Upgrade Stone | `material` | **account** | ∞ | chefe (raro) · [[DESIGN-030 Star Force\|DESIGN-030]] |
 | `card_*` | Card: … | `card` | **account** (coleção) | ∞ | mobs ([[DESIGN-016 Cartas\|DESIGN-016]]) |
 | `stamp_*` | Stamp: … | `stamp` | **account** | ∞ | mobs ([[DESIGN-013 Selos\|DESIGN-013]]) |
@@ -74,8 +75,7 @@ dependencies:
     { "id": "essence", "name": "Essence", "kind": "currency", "scope": "account", "stackable": true, "rarity": 0 },
     { "id": "gems", "name": "Gems", "kind": "currency", "scope": "account", "stackable": true, "rarity": 0 },
     { "id": "relic_shard", "name": "Relic Shard", "kind": "shard", "scope": "account", "stackable": true, "rarity": 0 },
-    { "id": "vorax_crystal", "name": "Vorax Crystal", "kind": "material", "scope": "account", "stackable": true, "rarity": 0 },
-    { "id": "potion_hp", "name": "HP Potion", "kind": "consumable", "scope": "account", "stackable": true, "rarity": 1, "use": { "heal_pct": 40, "cooldown": 30 } },
+    { "id": "vorax_crystal", "name": "Vorax Crystal", "kind": "consumable", "scope": "account", "stackable": true, "rarity": 4, "use": { "hold_ms": 600, "gacha": "crystalGacha" } },
     { "id": "upgrade_stone", "name": "Upgrade Stone", "kind": "material", "scope": "account", "stackable": true, "rarity": 2 },
     { "id": "pet_token_common", "name": "Common Shot Token", "kind": "pet_token", "scope": "account", "stackable": true, "rarity": 1 }
   ]

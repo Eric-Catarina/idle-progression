@@ -34,6 +34,7 @@ Sem estes, o core loop não é validável. Implementação bloqueante.
 | [[DESIGN-036 Skills & Fila de Skills|DESIGN-036]] | **Skills & Fila de Skills** (combate idle) | Draft | — | [[DATA-009 Dano\|DATA-009]] · [[DATA-013 XP e Nivel\|DATA-013]] |
 | [[DESIGN-038 Pets|DESIGN-038]] | **Pets** (coleção account-wide, tiros diário/semanal, premium) | Draft | [[SYSTEM-005 Pets & Gacha\|SYSTEM-005]] | [[DATA-015 Pets Odds\|DATA-015]] |
 | [[DESIGN-044 Inventario|DESIGN-044]] | **Inventário** (infinito, compartilhado; **gear por personagem**) | Draft | — | [[DATA-019 Itens\|DATA-019]] |
+| [[DESIGN-045 Gate de Avanco (Accuracy & Defense)\|DESIGN-045]] | **Gate de Avanço** — **só** Accuracy & Defense travam os níveis | Draft | — | [[DATA-020 Accuracy & Defense\|DATA-020]] |
 ### Candidatos Must derivados do Core Loop (a especificar)
 - ~~Movimento **tap-to-move** (destino via grafo de nós)~~ → ✓ especificado em [[DESIGN-025 Navegacao & Movimento|DESIGN-025]].
 - **One-Way Platforms** (colisão e passagem de baixo para cima).
